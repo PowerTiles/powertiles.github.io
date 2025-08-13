@@ -208,7 +208,7 @@ export default function HomePage() {
           </div>
 
           <div className="grid md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-8">
-            <Card className="group hover:shadow-xl transition-all duration-300">
+            <Card className="group hover:shadow-xl transition-all duration-300 flex flex-col h-full">
               <div className="relative overflow-hidden">
                 <Image
                   src="/ventilated-pvc-tiles.webp"
@@ -219,18 +219,18 @@ export default function HomePage() {
                 />
                 <Badge className="absolute top-4 left-4 bg-[#7ED321] text-black">Populair</Badge>
               </div>
-              <CardHeader>
+              <CardHeader className="flex-grow">
                 <CardTitle className="text-black">Geventileerde PVC-tegels</CardTitle>
                 <CardDescription>Perfect voor garages met drainage en ventilatie</CardDescription>
               </CardHeader>
-              <CardContent>
+              <CardContent className="mt-auto">
                 <Link href="/offerte">
                   <Button className="w-full bg-black hover:bg-gray-800 text-white">Offerte Aanvragen</Button>
                 </Link>
               </CardContent>
             </Card>
 
-            <Card className="group hover:shadow-xl transition-all duration-300">
+            <Card className="group hover:shadow-xl transition-all duration-300 flex flex-col h-full">
               <div className="relative overflow-hidden">
                 <Image
                   src="/smooth-click-tiles.jpeg"
@@ -240,18 +240,18 @@ export default function HomePage() {
                   className="w-full h-48 object-cover group-hover:scale-105 transition-transform duration-300"
                 />
               </div>
-              <CardHeader>
+              <CardHeader className="flex-grow">
                 <CardTitle className="text-black">Gladde Kliktegels</CardTitle>
                 <CardDescription>Voor lichte en zware belasting toepassingen</CardDescription>
               </CardHeader>
-              <CardContent>
+              <CardContent className="mt-auto">
                 <Link href="/offerte">
                   <Button className="w-full bg-black hover:bg-gray-800 text-white">Offerte Aanvragen</Button>
                 </Link>
               </CardContent>
             </Card>
 
-            <Card className="group hover:shadow-xl transition-all duration-300">
+            <Card className="group hover:shadow-xl transition-all duration-300 flex flex-col h-full">
               <div className="relative overflow-hidden">
                 <Image
                   src="/gym-floor-tiles.png"
@@ -262,21 +262,21 @@ export default function HomePage() {
                 />
                 <Badge className="absolute top-4 left-4 bg-[#7ED321] text-black">Fitness</Badge>
               </div>
-              <CardHeader>
+              <CardHeader className="flex-grow">
                 <CardTitle className="text-black">Gym Vloer</CardTitle>
                 <CardDescription>
                   Extra hard geperste rubbertegels, bestand tegen zware gewichten. Geschikt voor fitness en CrossFit met
                   geluidsreductie en luchtkwaliteitcertificaat.
                 </CardDescription>
               </CardHeader>
-              <CardContent>
+              <CardContent className="mt-auto">
                 <Link href="/offerte">
                   <Button className="w-full bg-black hover:bg-gray-800 text-white">Offerte Aanvragen</Button>
                 </Link>
               </CardContent>
             </Card>
 
-            <Card className="group hover:shadow-xl transition-all duration-300">
+            <Card className="group hover:shadow-xl transition-all duration-300 flex flex-col h-full">
               <div className="relative overflow-hidden">
                 <Image
                   src="/hexagonal-led-lighting.png"
@@ -287,18 +287,18 @@ export default function HomePage() {
                 />
                 <Badge className="absolute top-4 left-4 bg-[#7ED321] text-black">Nieuw</Badge>
               </div>
-              <CardHeader>
+              <CardHeader className="flex-grow">
                 <CardTitle className="text-black">Hexagonale LED-verlichting</CardTitle>
                 <CardDescription>Innovatieve verlichtingsoplossingen</CardDescription>
               </CardHeader>
-              <CardContent>
+              <CardContent className="mt-auto">
                 <Link href="/offerte">
                   <Button className="w-full bg-black hover:bg-gray-800 text-white">Offerte Aanvragen</Button>
                 </Link>
               </CardContent>
             </Card>
 
-            <Card className="group hover:shadow-xl transition-all duration-300">
+            <Card className="group hover:shadow-xl transition-all duration-300 flex flex-col h-full">
               <div className="relative overflow-hidden">
                 <Image
                   src="/edge-pieces-accessories.png"
@@ -308,11 +308,11 @@ export default function HomePage() {
                   className="w-full h-48 object-cover group-hover:scale-105 transition-transform duration-300"
                 />
               </div>
-              <CardHeader>
+              <CardHeader className="flex-grow">
                 <CardTitle className="text-black">Randstukken & Accessoires</CardTitle>
                 <CardDescription>Complete afwerking voor uw vloer</CardDescription>
               </CardHeader>
-              <CardContent>
+              <CardContent className="mt-auto">
                 <Link href="/offerte">
                   <Button className="w-full bg-black hover:bg-gray-800 text-white">Offerte Aanvragen</Button>
                 </Link>
@@ -371,11 +371,11 @@ export default function HomePage() {
 
             <div className="relative">
               <Image
-                src="/premium-quality-logo.png"
+                src="/premium-quality-badge.png"
                 alt="Premium Quality - PowerTiles kwaliteit"
-                width={800}
-                height={600}
-                className="rounded-lg shadow-xl"
+                width={200}
+                height={200}
+                className="rounded-lg shadow-xl mx-auto"
               />
             </div>
           </div>

@@ -93,12 +93,23 @@ export default function ProductenPage() {
                     Garages & werkplaatsen
                   </li>
                 </ul>
-                <Link href="/offerte">
-                  <Button className="w-full bg-[#7ED321] hover:bg-[#6BC91A] text-black font-semibold">
-                    Offerte Aanvragen
-                    <ArrowRight className="ml-2 h-4 w-4" />
-                  </Button>
-                </Link>
+                <div className="flex flex-col gap-2">
+                  <Link href="/producten/geventileerde-pvc-tegels">
+                    <Button
+                      variant="outline"
+                      className="w-full border-[#7ED321] text-[#7ED321] hover:bg-[#7ED321] hover:text-black bg-transparent"
+                    >
+                      Meer Info
+                      <ArrowRight className="ml-2 h-4 w-4" />
+                    </Button>
+                  </Link>
+                  <Link href="/offerte">
+                    <Button className="w-full bg-[#7ED321] hover:bg-[#6BC91A] text-black font-semibold">
+                      Offerte Aanvragen
+                      <ArrowRight className="ml-2 h-4 w-4" />
+                    </Button>
+                  </Link>
+                </div>
               </CardContent>
             </Card>
 
@@ -136,12 +147,23 @@ export default function ProductenPage() {
                     Diverse kleuren
                   </li>
                 </ul>
-                <Link href="/offerte">
-                  <Button className="w-full bg-[#7ED321] hover:bg-[#6BC91A] text-black font-semibold">
-                    Offerte Aanvragen
-                    <ArrowRight className="ml-2 h-4 w-4" />
-                  </Button>
-                </Link>
+                <div className="flex flex-col gap-2">
+                  <Link href="/producten/gladde-kliktegels">
+                    <Button
+                      variant="outline"
+                      className="w-full border-[#7ED321] text-[#7ED321] hover:bg-[#7ED321] hover:text-black bg-transparent"
+                    >
+                      Meer Info
+                      <ArrowRight className="ml-2 h-4 w-4" />
+                    </Button>
+                  </Link>
+                  <Link href="/offerte">
+                    <Button className="w-full bg-[#7ED321] hover:bg-[#6BC91A] text-black font-semibold">
+                      Offerte Aanvragen
+                      <ArrowRight className="ml-2 h-4 w-4" />
+                    </Button>
+                  </Link>
+                </div>
               </CardContent>
             </Card>
 
@@ -180,12 +202,23 @@ export default function ProductenPage() {
                     CrossFit geschikt
                   </li>
                 </ul>
-                <Link href="/offerte">
-                  <Button className="w-full bg-[#7ED321] hover:bg-[#6BC91A] text-black font-semibold">
-                    Offerte Aanvragen
-                    <ArrowRight className="ml-2 h-4 w-4" />
-                  </Button>
-                </Link>
+                <div className="flex flex-col gap-2">
+                  <Link href="/producten/gym-vloer">
+                    <Button
+                      variant="outline"
+                      className="w-full border-[#7ED321] text-[#7ED321] hover:bg-[#7ED321] hover:text-black bg-transparent"
+                    >
+                      Meer Info
+                      <ArrowRight className="ml-2 h-4 w-4" />
+                    </Button>
+                  </Link>
+                  <Link href="/offerte">
+                    <Button className="w-full bg-[#7ED321] hover:bg-[#6BC91A] text-black font-semibold">
+                      Offerte Aanvragen
+                      <ArrowRight className="ml-2 h-4 w-4" />
+                    </Button>
+                  </Link>
+                </div>
               </CardContent>
             </Card>
 
@@ -224,12 +257,23 @@ export default function ProductenPage() {
                     Dimbaar
                   </li>
                 </ul>
-                <Link href="/offerte">
-                  <Button className="w-full bg-[#7ED321] hover:bg-[#6BC91A] text-black font-semibold">
-                    Offerte Aanvragen
-                    <ArrowRight className="ml-2 h-4 w-4" />
-                  </Button>
-                </Link>
+                <div className="flex flex-col gap-2">
+                  <Link href="/producten/hexagonale-led-verlichting">
+                    <Button
+                      variant="outline"
+                      className="w-full border-[#7ED321] text-[#7ED321] hover:bg-[#7ED321] hover:text-black bg-transparent"
+                    >
+                      Meer Info
+                      <ArrowRight className="ml-2 h-4 w-4" />
+                    </Button>
+                  </Link>
+                  <Link href="/offerte">
+                    <Button className="w-full bg-[#7ED321] hover:bg-[#6BC91A] text-black font-semibold">
+                      Offerte Aanvragen
+                      <ArrowRight className="ml-2 h-4 w-4" />
+                    </Button>
+                  </Link>
+                </div>
               </CardContent>
             </Card>
 
@@ -267,12 +311,23 @@ export default function ProductenPage() {
                     Montage-accessoires
                   </li>
                 </ul>
-                <Link href="/offerte">
-                  <Button className="w-full bg-[#7ED321] hover:bg-[#6BC91A] text-black font-semibold">
-                    Offerte Aanvragen
-                    <ArrowRight className="ml-2 h-4 w-4" />
-                  </Button>
-                </Link>
+                <div className="flex flex-col gap-2">
+                  <Link href="/producten/randstukken-accessoires">
+                    <Button
+                      variant="outline"
+                      className="w-full border-[#7ED321] text-[#7ED321] hover:bg-[#7ED321] hover:text-black bg-transparent"
+                    >
+                      Meer Info
+                      <ArrowRight className="ml-2 h-4 w-4" />
+                    </Button>
+                  </Link>
+                  <Link href="/offerte">
+                    <Button className="w-full bg-[#7ED321] hover:bg-[#6BC91A] text-black font-semibold">
+                      Offerte Aanvragen
+                      <ArrowRight className="ml-2 h-4 w-4" />
+                    </Button>
+                  </Link>
+                </div>
               </CardContent>
             </Card>
           </div>
@@ -338,27 +393,27 @@ export default function ProductenPage() {
               <h3 className="text-lg font-semibold mb-4 text-[#7ED321]">Producten</h3>
               <ul className="space-y-2 text-gray-400">
                 <li>
-                  <Link href="/producten" className="hover:text-white transition-colors">
+                  <Link href="/producten/geventileerde-pvc-tegels" className="hover:text-white transition-colors">
                     Geventileerde Tegels
                   </Link>
                 </li>
                 <li>
-                  <Link href="/producten" className="hover:text-white transition-colors">
+                  <Link href="/producten/gladde-kliktegels" className="hover:text-white transition-colors">
                     Gladde Kliktegels
                   </Link>
                 </li>
                 <li>
-                  <Link href="/producten" className="hover:text-white transition-colors">
+                  <Link href="/producten/gym-vloer" className="hover:text-white transition-colors">
                     Gym Vloer
                   </Link>
                 </li>
                 <li>
-                  <Link href="/producten" className="hover:text-white transition-colors">
+                  <Link href="/producten/hexagonale-led-verlichting" className="hover:text-white transition-colors">
                     LED-verlichting
                   </Link>
                 </li>
                 <li>
-                  <Link href="/producten" className="hover:text-white transition-colors">
+                  <Link href="/producten/randstukken-accessoires" className="hover:text-white transition-colors">
                     Accessoires
                   </Link>
                 </li>

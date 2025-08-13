@@ -1,3 +1,5 @@
+"use client"
+
 import Image from "next/image"
 import Link from "next/link"
 import { Button } from "@/components/ui/button"
@@ -9,8 +11,28 @@ import { Label } from "@/components/ui/label"
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select"
 import { Checkbox } from "@/components/ui/checkbox"
 import { ArrowRight, Calculator, Clock, Shield, Star } from "lucide-react"
+import { submitQuoteForm } from "@/lib/actions"
+import { useState } from "react"
 
 export default function OffertePage() {
+  const [isSubmitting, setIsSubmitting] = useState(false)
+  const [submitResult, setSubmitResult] = useState<{ success: boolean; message?: string; error?: string } | null>(null)
+
+  async function handleSubmit(formData: FormData) {
+    setIsSubmitting(true)
+    setSubmitResult(null)
+
+    const result = await submitQuoteForm(formData)
+    setSubmitResult(result)
+    setIsSubmitting(false)
+
+    if (result.success) {
+      // Reset form on success
+      const form = document.getElementById("quote-form") as HTMLFormElement
+      form?.reset()
+    }
+  }
+
   return (
     <div className="min-h-screen bg-white">
       {/* Header */}
@@ -108,23 +130,23 @@ export default function OffertePage() {
               <CardTitle className="text-2xl text-black text-center">Offerteformulier</CardTitle>
             </CardHeader>
             <CardContent className="p-8">
-              <form className="space-y-8">
+              <form id="quote-form" action={handleSubmit} className="space-y-8">
                 {/* Personal Information */}
                 <div className="space-y-6">
                   <h3 className="text-xl font-bold text-black border-b pb-2">Contactgegevens</h3>
                   <div className="grid md:grid-cols-2 gap-4">
                     <div className="space-y-2">
                       <Label htmlFor="name">Naam *</Label>
-                      <Input id="name" placeholder="Uw volledige naam" required />
+                      <Input id="name" name="name" placeholder="Uw volledige naam" required />
                     </div>
                     <div className="space-y-2">
                       <Label htmlFor="email">E-mailadres *</Label>
-                      <Input id="email" type="email" placeholder="uw.email@voorbeeld.be" required />
+                      <Input id="email" name="email" type="email" placeholder="uw.email@voorbeeld.be" required />
                     </div>
                   </div>
                   <div className="space-y-2">
                     <Label htmlFor="phone">Telefoonnummer *</Label>
-                    <Input id="phone" type="tel" placeholder="+32 xxx xx xx xx" required />
+                    <Input id="phone" name="phone" type="tel" placeholder="+32 xxx xx xx xx" required />
                   </div>
                 </div>
 
@@ -134,7 +156,7 @@ export default function OffertePage() {
                   <div className="grid md:grid-cols-2 gap-4">
                     <div className="space-y-2">
                       <Label htmlFor="roomType">Soort ruimte *</Label>
-                      <Select required>
+                      <Select name="roomType" required>
                         <SelectTrigger>
                           <SelectValue placeholder="Selecteer type ruimte" />
                         </SelectTrigger>
@@ -149,12 +171,12 @@ export default function OffertePage() {
                     </div>
                     <div className="space-y-2">
                       <Label htmlFor="surface">Oppervlakte (in m²) *</Label>
-                      <Input id="surface" type="number" placeholder="bijv. 50" required />
+                      <Input id="surface" name="surface" type="number" placeholder="bijv. 50" required />
                     </div>
                   </div>
                   <div className="space-y-2">
                     <Label htmlFor="tileType">Gewenst type tegel *</Label>
-                    <Select required>
+                    <Select name="tileType" required>
                       <SelectTrigger>
                         <SelectValue placeholder="Selecteer type tegel" />
                       </SelectTrigger>
@@ -175,7 +197,7 @@ export default function OffertePage() {
                   <h3 className="text-xl font-bold text-black border-b pb-2">Extra diensten</h3>
                   <div className="space-y-4">
                     <div className="flex items-center space-x-2">
-                      <Checkbox id="installation" />
+                      <Checkbox id="installation" name="installation" />
                       <Label
                         htmlFor="installation"
                         className="text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70"
@@ -184,7 +206,7 @@ export default function OffertePage() {
                       </Label>
                     </div>
                     <div className="flex items-center space-x-2">
-                      <Checkbox id="lighting" />
+                      <Checkbox id="lighting" name="lighting" />
                       <Label
                         htmlFor="lighting"
                         className="text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70"
@@ -193,7 +215,7 @@ export default function OffertePage() {
                       </Label>
                     </div>
                     <div className="flex items-center space-x-2">
-                      <Checkbox id="accessories" />
+                      <Checkbox id="accessories" name="accessories" />
                       <Label
                         htmlFor="accessories"
                         className="text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70"
@@ -202,7 +224,7 @@ export default function OffertePage() {
                       </Label>
                     </div>
                     <div className="flex items-center space-x-2">
-                      <Checkbox id="painting" />
+                      <Checkbox id="painting" name="painting" />
                       <Label
                         htmlFor="painting"
                         className="text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70"
@@ -211,7 +233,7 @@ export default function OffertePage() {
                       </Label>
                     </div>
                     <div className="flex items-center space-x-2">
-                      <Checkbox id="consultation" />
+                      <Checkbox id="consultation" name="consultation" />
                       <Label
                         htmlFor="consultation"
                         className="text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70"
@@ -229,13 +251,14 @@ export default function OffertePage() {
                     <Label htmlFor="wishes">Extra wensen of opmerkingen</Label>
                     <Textarea
                       id="wishes"
+                      name="wishes"
                       placeholder="Beschrijf hier eventuele specifieke wensen, kleurvoorkeuren, timing, of andere belangrijke details voor uw project..."
                       rows={5}
                     />
                   </div>
                   <div className="space-y-2">
                     <Label htmlFor="timeline">Gewenste planning</Label>
-                    <Select>
+                    <Select name="timeline">
                       <SelectTrigger>
                         <SelectValue placeholder="Wanneer wilt u starten?" />
                       </SelectTrigger>
@@ -252,24 +275,37 @@ export default function OffertePage() {
                 {/* Privacy */}
                 <div className="space-y-4">
                   <div className="flex items-start space-x-2">
-                    <Checkbox id="privacy" required />
+                    <Checkbox id="privacy" name="privacy" required />
                     <Label htmlFor="privacy" className="text-sm leading-relaxed">
                       Ik ga akkoord met de verwerking van mijn gegevens voor het opstellen van een offerte. PowerTiles
                       gebruikt uw gegevens uitsluitend voor dit doel en deelt deze niet met derden. *
                     </Label>
                   </div>
                   <div className="flex items-start space-x-2">
-                    <Checkbox id="newsletter" />
+                    <Checkbox id="newsletter" name="newsletter" />
                     <Label htmlFor="newsletter" className="text-sm leading-relaxed">
                       Ik wil graag op de hoogte blijven van nieuwe producten en aanbiedingen van PowerTiles
                     </Label>
                   </div>
                 </div>
 
-                <Button className="w-full bg-[#7ED321] hover:bg-[#6BC91A] text-black font-semibold py-4 text-lg">
-                  Offerte Aanvragen
+                <Button
+                  type="submit"
+                  disabled={isSubmitting}
+                  className="w-full bg-[#7ED321] hover:bg-[#6BC91A] text-black font-semibold py-4 text-lg"
+                >
+                  {isSubmitting ? "Bezig met versturen..." : "Offerte Aanvragen"}
                   <ArrowRight className="ml-2 h-5 w-5" />
                 </Button>
+
+                {/* Success/Error Messages */}
+                {submitResult && (
+                  <div
+                    className={`p-4 rounded-lg ${submitResult.success ? "bg-green-50 text-green-800 border border-green-200" : "bg-red-50 text-red-800 border border-red-200"}`}
+                  >
+                    {submitResult.success ? submitResult.message : submitResult.error}
+                  </div>
+                )}
               </form>
             </CardContent>
           </Card>

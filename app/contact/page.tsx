@@ -1,3 +1,5 @@
+"use client"
+
 import Image from "next/image"
 import Link from "next/link"
 import { Button } from "@/components/ui/button"
@@ -8,8 +10,28 @@ import { Textarea } from "@/components/ui/textarea"
 import { Label } from "@/components/ui/label"
 import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group"
 import { ArrowRight, Mail, Phone, MapPin, Clock, MessageSquare, Wrench, Instagram } from "lucide-react"
+import { submitContactForm } from "@/lib/actions"
+import { useState } from "react"
 
 export default function ContactPage() {
+  const [isSubmitting, setIsSubmitting] = useState(false)
+  const [submitResult, setSubmitResult] = useState<{ success: boolean; message?: string; error?: string } | null>(null)
+
+  async function handleSubmit(formData: FormData) {
+    setIsSubmitting(true)
+    setSubmitResult(null)
+
+    const result = await submitContactForm(formData)
+    setSubmitResult(result)
+    setIsSubmitting(false)
+
+    if (result.success) {
+      // Reset form on success
+      const form = document.getElementById("contact-form") as HTMLFormElement
+      form?.reset()
+    }
+  }
+
   return (
     <div className="min-h-screen bg-white">
       {/* Header */}
@@ -135,7 +157,15 @@ export default function ContactPage() {
 
               <Card className="border-2">
                 <CardContent className="p-8">
-                  <form className="space-y-6">
+                  <form
+                    id="contact-form"
+                    onSubmit={async (e) => {
+                      e.preventDefault()
+                      const formData = new FormData(e.currentTarget)
+                      await handleSubmit(formData)
+                    }}
+                    className="space-y-6"
+                  >
                     <div className="grid md:grid-cols-2 gap-4">
                       <div className="space-y-2">
                         <Label htmlFor="firstName">Voornaam *</Label>
@@ -190,10 +220,22 @@ export default function ContactPage() {
                       />
                     </div>
 
-                    <Button className="w-full bg-[#7ED321] hover:bg-[#6BC91A] text-black font-semibold py-3">
-                      Bericht Versturen
+                    <Button
+                      type="submit"
+                      disabled={isSubmitting}
+                      className="w-full bg-[#7ED321] hover:bg-[#6BC91A] text-black font-semibold py-3"
+                    >
+                      {isSubmitting ? "Bezig met versturen..." : "Bericht Versturen"}
                       <ArrowRight className="ml-2 h-5 w-5" />
                     </Button>
+
+                    {submitResult && (
+                      <div
+                        className={`p-4 rounded-lg ${submitResult.success ? "bg-green-50 text-green-800 border border-green-200" : "bg-red-50 text-red-800 border border-red-200"}`}
+                      >
+                        {submitResult.success ? submitResult.message : submitResult.error}
+                      </div>
+                    )}
                   </form>
                 </CardContent>
               </Card>
