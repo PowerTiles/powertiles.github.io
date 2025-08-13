@@ -29,6 +29,9 @@ export default function OverOnsPage() {
             <Link href="/producten" className="hover:text-[#7ED321] transition-colors">
               Producten
             </Link>
+            <Link href="/vloer-designer" className="hover:text-[#7ED321] transition-colors">
+              Designer Tool
+            </Link>
             <Link href="/over-ons" className="text-[#7ED321] font-semibold">
               Over Ons
             </Link>
@@ -45,7 +48,6 @@ export default function OverOnsPage() {
       {/* Hero Section */}
       <section className="bg-black text-white py-16">
         <div className="max-w-7xl mx-auto px-6 text-center">
-          <Badge className="bg-[#7ED321] text-black px-4 py-2 text-sm font-semibold mb-6">Belgische Kwaliteit</Badge>
           <h1 className="text-5xl font-bold mb-6">Over PowerTiles</h1>
           <p className="text-xl text-gray-300 max-w-3xl mx-auto">
             Uw Belgische partner voor premium modulaire PVC-klikvloeren. Kracht, luxe en professionaliteit in elke
@@ -274,7 +276,7 @@ export default function OverOnsPage() {
             </div>
             <div className="relative">
               <Image
-                src="/premium-quality-logo.png"
+                src="/premium-quality-new.png"
                 alt="PowerTiles Premium Quality"
                 width={600}
                 height={400}

@@ -12,13 +12,15 @@ export default function HomePage() {
       <header className="bg-black text-white py-4 px-6 sticky top-0 z-50">
         <div className="max-w-7xl mx-auto flex items-center justify-between">
           <div className="flex items-center space-x-4">
-            <Image
-              src="/powertiles-logo-complete.png"
-              alt="PowerTiles - Transform Your Space. Unleash the Power."
-              width={600}
-              height={180}
-              className="h-32 w-auto"
-            />
+            <Link href="/" className="hover:opacity-80 transition-opacity">
+              <Image
+                src="/powertiles-logo-complete.png"
+                alt="PowerTiles - Transform Your Space. Unleash the Power."
+                width={600}
+                height={180}
+                className="h-32 w-auto"
+              />
+            </Link>
           </div>
           <nav className="hidden md:flex items-center space-x-8">
             <Link href="/" className="hover:text-[#7ED321] transition-colors">
@@ -211,116 +213,116 @@ export default function HomePage() {
           </div>
 
           <div className="grid md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-8">
-            <Card className="group hover:shadow-xl transition-all duration-300 flex flex-col h-full">
-              <div className="relative overflow-hidden">
-                <Image
-                  src="/ventilated-pvc-tiles.webp"
-                  alt="Geventileerde PVC-tegels in verschillende kleuren"
-                  width={400}
-                  height={300}
-                  className="w-full h-48 object-cover group-hover:scale-105 transition-transform duration-300"
-                />
-                <Badge className="absolute top-4 left-4 bg-[#7ED321] text-black">Populair</Badge>
-              </div>
-              <CardHeader className="flex-grow">
-                <CardTitle className="text-black">Geventileerde PVC-tegels</CardTitle>
-                <CardDescription>Perfect voor garages met drainage en ventilatie</CardDescription>
-              </CardHeader>
-              <CardContent className="mt-auto">
-                <Link href="/offerte">
-                  <Button className="w-full bg-black hover:bg-gray-800 text-white">Offerte Aanvragen</Button>
-                </Link>
-              </CardContent>
-            </Card>
+            <Link href="/producten/geventileerde-pvc-tegels" className="block">
+              <Card className="group hover:shadow-xl transition-all duration-300 flex flex-col h-full cursor-pointer">
+                <div className="relative overflow-hidden">
+                  <Image
+                    src="/ventilated-pvc-tiles.webp"
+                    alt="Geventileerde PVC-tegels in verschillende kleuren"
+                    width={400}
+                    height={300}
+                    className="w-full h-48 object-cover group-hover:scale-105 transition-transform duration-300"
+                  />
+                  <Badge className="absolute top-4 left-4 bg-[#7ED321] text-black">Populair</Badge>
+                </div>
+                <CardHeader className="flex-grow">
+                  <CardTitle className="text-black">Geventileerde PVC-tegels</CardTitle>
+                  <CardDescription>Perfect voor garages met drainage en ventilatie</CardDescription>
+                </CardHeader>
+                <CardContent className="mt-auto">
+                  <Button className="w-full bg-black hover:bg-gray-800 text-white">Meer Info</Button>
+                </CardContent>
+              </Card>
+            </Link>
 
-            <Card className="group hover:shadow-xl transition-all duration-300 flex flex-col h-full">
-              <div className="relative overflow-hidden">
-                <Image
-                  src="/smooth-click-tiles.jpeg"
-                  alt="Gladde kliktegels met zichtbare klikmechanisme"
-                  width={400}
-                  height={300}
-                  className="w-full h-48 object-cover group-hover:scale-105 transition-transform duration-300"
-                />
-              </div>
-              <CardHeader className="flex-grow">
-                <CardTitle className="text-black">Gladde Kliktegels</CardTitle>
-                <CardDescription>Voor lichte en zware belasting toepassingen</CardDescription>
-              </CardHeader>
-              <CardContent className="mt-auto">
-                <Link href="/offerte">
-                  <Button className="w-full bg-black hover:bg-gray-800 text-white">Offerte Aanvragen</Button>
-                </Link>
-              </CardContent>
-            </Card>
+            <Link href="/producten/gladde-kliktegels" className="block">
+              <Card className="group hover:shadow-xl transition-all duration-300 flex flex-col h-full cursor-pointer">
+                <div className="relative overflow-hidden">
+                  <Image
+                    src="/smooth-click-tiles.jpeg"
+                    alt="Gladde kliktegels met zichtbare klikmechanisme"
+                    width={400}
+                    height={300}
+                    className="w-full h-48 object-cover group-hover:scale-105 transition-transform duration-300"
+                  />
+                </div>
+                <CardHeader className="flex-grow">
+                  <CardTitle className="text-black">Gladde Kliktegels</CardTitle>
+                  <CardDescription>Voor lichte en zware belasting toepassingen</CardDescription>
+                </CardHeader>
+                <CardContent className="mt-auto">
+                  <Button className="w-full bg-black hover:bg-gray-800 text-white">Meer Info</Button>
+                </CardContent>
+              </Card>
+            </Link>
 
-            <Card className="group hover:shadow-xl transition-all duration-300 flex flex-col h-full">
-              <div className="relative overflow-hidden">
-                <Image
-                  src="/gym-floor-tiles.png"
-                  alt="Gym vloer rubbertegels voor fitness en CrossFit"
-                  width={400}
-                  height={300}
-                  className="w-full h-48 object-cover group-hover:scale-105 transition-transform duration-300"
-                />
-                <Badge className="absolute top-4 left-4 bg-[#7ED321] text-black">Fitness</Badge>
-              </div>
-              <CardHeader className="flex-grow">
-                <CardTitle className="text-black">Gym Vloer</CardTitle>
-                <CardDescription>
-                  Extra hard geperste rubbertegels, bestand tegen zware gewichten. Geschikt voor fitness en CrossFit met
-                  geluidsreductie en luchtkwaliteitcertificaat.
-                </CardDescription>
-              </CardHeader>
-              <CardContent className="mt-auto">
-                <Link href="/offerte">
-                  <Button className="w-full bg-black hover:bg-gray-800 text-white">Offerte Aanvragen</Button>
-                </Link>
-              </CardContent>
-            </Card>
+            <Link href="/producten/gym-vloer" className="block">
+              <Card className="group hover:shadow-xl transition-all duration-300 flex flex-col h-full cursor-pointer">
+                <div className="relative overflow-hidden">
+                  <Image
+                    src="/gym-floor-tiles.png"
+                    alt="Gym vloer rubbertegels voor fitness en CrossFit"
+                    width={400}
+                    height={300}
+                    className="w-full h-48 object-cover group-hover:scale-105 transition-transform duration-300"
+                  />
+                  <Badge className="absolute top-4 left-4 bg-[#7ED321] text-black">Fitness</Badge>
+                </div>
+                <CardHeader className="flex-grow">
+                  <CardTitle className="text-black">Gym Vloer</CardTitle>
+                  <CardDescription>
+                    Extra hard geperste rubbertegels, bestand tegen zware gewichten. Geschikt voor fitness en CrossFit
+                    met geluidsreductie en luchtkwaliteitcertificaat.
+                  </CardDescription>
+                </CardHeader>
+                <CardContent className="mt-auto">
+                  <Button className="w-full bg-black hover:bg-gray-800 text-white">Meer Info</Button>
+                </CardContent>
+              </Card>
+            </Link>
 
-            <Card className="group hover:shadow-xl transition-all duration-300 flex flex-col h-full">
-              <div className="relative overflow-hidden">
-                <Image
-                  src="/hexagonal-led-lighting.png"
-                  alt="Hexagonale LED-verlichting"
-                  width={400}
-                  height={300}
-                  className="w-full h-48 object-cover group-hover:scale-105 transition-transform duration-300"
-                />
-                <Badge className="absolute top-4 left-4 bg-[#7ED321] text-black">Nieuw</Badge>
-              </div>
-              <CardHeader className="flex-grow">
-                <CardTitle className="text-black">Hexagonale LED-verlichting</CardTitle>
-                <CardDescription>Innovatieve verlichtingsoplossingen</CardDescription>
-              </CardHeader>
-              <CardContent className="mt-auto">
-                <Link href="/offerte">
-                  <Button className="w-full bg-black hover:bg-gray-800 text-white">Offerte Aanvragen</Button>
-                </Link>
-              </CardContent>
-            </Card>
+            <Link href="/producten/hexagonale-led-verlichting" className="block">
+              <Card className="group hover:shadow-xl transition-all duration-300 flex flex-col h-full cursor-pointer">
+                <div className="relative overflow-hidden">
+                  <Image
+                    src="/hexagonal-led-lighting.png"
+                    alt="Hexagonale LED-verlichting"
+                    width={400}
+                    height={300}
+                    className="w-full h-48 object-cover group-hover:scale-105 transition-transform duration-300"
+                  />
+                  <Badge className="absolute top-4 left-4 bg-[#7ED321] text-black">Nieuw</Badge>
+                </div>
+                <CardHeader className="flex-grow">
+                  <CardTitle className="text-black">Hexagonale LED-verlichting</CardTitle>
+                  <CardDescription>Innovatieve verlichtingsoplossingen</CardDescription>
+                </CardHeader>
+                <CardContent className="mt-auto">
+                  <Button className="w-full bg-black hover:bg-gray-800 text-white">Meer Info</Button>
+                </CardContent>
+              </Card>
+            </Link>
 
-            <Card className="group hover:shadow-xl transition-all duration-300 flex flex-col h-full">
-              <div className="relative overflow-hidden">
-                <Image
-                  src="/edge-pieces-accessories.png"
-                  alt="Randstukken & accessoires voor modulaire vloeren"
-                  width={400}
-                  height={300}
-                  className="w-full h-48 object-cover group-hover:scale-105 transition-transform duration-300"
-                />
-              </div>
-              <CardHeader className="flex-grow">
-                <CardTitle className="text-black">Randstukken & Accessoires</CardTitle>
-                <CardDescription>Complete afwerking voor uw vloer</CardDescription>
-              </CardHeader>
-              <CardContent className="mt-auto">
-                <Link href="/offerte">
-                  <Button className="w-full bg-black hover:bg-gray-800 text-white">Offerte Aanvragen</Button>
-                </Link>
-              </CardContent>
-            </Card>
+            <Link href="/producten/randstukken-accessoires" className="block">
+              <Card className="group hover:shadow-xl transition-all duration-300 flex flex-col h-full cursor-pointer">
+                <div className="relative overflow-hidden">
+                  <Image
+                    src="/edge-pieces-accessories.png"
+                    alt="Randstukken & accessoires voor modulaire vloeren"
+                    width={400}
+                    height={300}
+                    className="w-full h-48 object-cover group-hover:scale-105 transition-transform duration-300"
+                  />
+                </div>
+                <CardHeader className="flex-grow">
+                  <CardTitle className="text-black">Randstukken & Accessoires</CardTitle>
+                  <CardDescription>Complete afwerking voor uw vloer</CardDescription>
+                </CardHeader>
+                <CardContent className="mt-auto">
+                  <Button className="w-full bg-black hover:bg-gray-800 text-white">Meer Info</Button>
+                </CardContent>
+              </Card>
+            </Link>
           </div>
         </div>
       </section>
@@ -374,7 +376,7 @@ export default function HomePage() {
 
             <div className="relative">
               <Image
-                src="/premium-quality-badge.png"
+                src="/premium-quality-new.png"
                 alt="Premium Quality - PowerTiles kwaliteit"
                 width={200}
                 height={200}

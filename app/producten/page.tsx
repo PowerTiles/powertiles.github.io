@@ -3,7 +3,7 @@ import Link from "next/link"
 import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
-import { CheckCircle, ArrowRight, Star, Shield, Wrench } from "lucide-react"
+import { CheckCircle, ArrowRight } from "lucide-react"
 
 export default function ProductenPage() {
   return (
@@ -26,8 +26,52 @@ export default function ProductenPage() {
             <Link href="/" className="hover:text-[#7ED321] transition-colors">
               Home
             </Link>
-            <Link href="/producten" className="text-[#7ED321] font-semibold">
-              Producten
+            {/* Dropdown Menu for Producten */}
+            <div className="relative group">
+              <Link href="/producten" className="text-[#7ED321] font-semibold flex items-center">
+                Producten
+                <svg className="ml-1 h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+                </svg>
+              </Link>
+              {/* Dropdown Menu */}
+              <div className="absolute top-full left-0 mt-2 w-64 bg-white border border-gray-200 rounded-lg shadow-lg opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 z-50">
+                <div className="py-2">
+                  <Link
+                    href="/producten/geventileerde-pvc-tegels"
+                    className="block px-4 py-2 text-gray-700 hover:bg-[#7ED321] hover:text-black transition-colors"
+                  >
+                    Geventileerde PVC-tegels
+                  </Link>
+                  <Link
+                    href="/producten/gladde-kliktegels"
+                    className="block px-4 py-2 text-gray-700 hover:bg-[#7ED321] hover:text-black transition-colors"
+                  >
+                    Gladde Kliktegels
+                  </Link>
+                  <Link
+                    href="/producten/gym-vloer"
+                    className="block px-4 py-2 text-gray-700 hover:bg-[#7ED321] hover:text-black transition-colors"
+                  >
+                    Gym Vloer
+                  </Link>
+                  <Link
+                    href="/producten/hexagonale-led-verlichting"
+                    className="block px-4 py-2 text-gray-700 hover:bg-[#7ED321] hover:text-black transition-colors"
+                  >
+                    Hexagonale LED-verlichting
+                  </Link>
+                  <Link
+                    href="/producten/randstukken-accessoires"
+                    className="block px-4 py-2 text-gray-700 hover:bg-[#7ED321] hover:text-black transition-colors"
+                  >
+                    Randstukken & Accessoires
+                  </Link>
+                </div>
+              </div>
+            </div>
+            <Link href="/vloer-designer" className="hover:text-[#7ED321] transition-colors">
+              Designer Tool
             </Link>
             <Link href="/over-ons" className="hover:text-[#7ED321] transition-colors">
               Over Ons
@@ -45,7 +89,6 @@ export default function ProductenPage() {
       {/* Hero Section */}
       <section className="bg-black text-white py-16">
         <div className="max-w-7xl mx-auto px-6 text-center">
-          <Badge className="bg-[#7ED321] text-black px-4 py-2 text-sm font-semibold mb-6">Premium Producten</Badge>
           <h1 className="text-5xl font-bold mb-6">Onze Producten</h1>
           <p className="text-xl text-gray-300 max-w-3xl mx-auto">
             Ontdek ons complete assortiment hoogwaardige PVC-klikvloeren en accessoires voor garages, home gyms en
@@ -89,7 +132,7 @@ export default function ProductenPage() {
                     Eenvoudige reiniging
                   </li>
                   <li className="flex items-center text-gray-700">
-                    <Star className="h-4 w-4 text-[#7ED321] mr-2" />
+                    <CheckCircle className="h-4 w-4 text-[#7ED321] mr-2" />
                     Garages & werkplaatsen
                   </li>
                 </ul>
@@ -139,11 +182,11 @@ export default function ProductenPage() {
                     Slijtvast & kleurbestendig
                   </li>
                   <li className="flex items-center text-gray-700">
-                    <Star className="h-4 w-4 text-[#7ED321] mr-2" />
+                    <CheckCircle className="h-4 w-4 text-[#7ED321] mr-2" />
                     Lichte & zware belasting
                   </li>
                   <li className="flex items-center text-gray-700">
-                    <Star className="h-4 w-4 text-[#7ED321] mr-2" />
+                    <CheckCircle className="h-4 w-4 text-[#7ED321] mr-2" />
                     Diverse kleuren
                   </li>
                 </ul>
@@ -186,19 +229,19 @@ export default function ProductenPage() {
               <CardContent className="space-y-4">
                 <ul className="space-y-2">
                   <li className="flex items-center text-gray-700">
-                    <Shield className="h-4 w-4 text-[#7ED321] mr-2" />
+                    <CheckCircle className="h-4 w-4 text-[#7ED321] mr-2" />
                     Fijn rubbergranulaat
                   </li>
                   <li className="flex items-center text-gray-700">
-                    <Shield className="h-4 w-4 text-[#7ED321] mr-2" />
+                    <CheckCircle className="h-4 w-4 text-[#7ED321] mr-2" />
                     Geluidsreductie
                   </li>
                   <li className="flex items-center text-gray-700">
-                    <Shield className="h-4 w-4 text-[#7ED321] mr-2" />
+                    <CheckCircle className="h-4 w-4 text-[#7ED321] mr-2" />
                     Luchtkwaliteitcertificaat
                   </li>
                   <li className="flex items-center text-gray-700">
-                    <Shield className="h-4 w-4 text-[#7ED321] mr-2" />
+                    <CheckCircle className="h-4 w-4 text-[#7ED321] mr-2" />
                     CrossFit geschikt
                   </li>
                 </ul>
@@ -241,19 +284,19 @@ export default function ProductenPage() {
               <CardContent className="space-y-4">
                 <ul className="space-y-2">
                   <li className="flex items-center text-gray-700">
-                    <Star className="h-4 w-4 text-[#7ED321] mr-2" />
+                    <CheckCircle className="h-4 w-4 text-[#7ED321] mr-2" />
                     Moderne uitstraling
                   </li>
                   <li className="flex items-center text-gray-700">
-                    <Star className="h-4 w-4 text-[#7ED321] mr-2" />
+                    <CheckCircle className="h-4 w-4 text-[#7ED321] mr-2" />
                     Energiezuinig LED
                   </li>
                   <li className="flex items-center text-gray-700">
-                    <Star className="h-4 w-4 text-[#7ED321] mr-2" />
+                    <CheckCircle className="h-4 w-4 text-[#7ED321] mr-2" />
                     Eenvoudige installatie
                   </li>
                   <li className="flex items-center text-gray-700">
-                    <Star className="h-4 w-4 text-[#7ED321] mr-2" />
+                    <CheckCircle className="h-4 w-4 text-[#7ED321] mr-2" />
                     Dimbaar
                   </li>
                 </ul>
@@ -295,19 +338,19 @@ export default function ProductenPage() {
               <CardContent className="space-y-4">
                 <ul className="space-y-2">
                   <li className="flex items-center text-gray-700">
-                    <Wrench className="h-4 w-4 text-[#7ED321] mr-2" />
+                    <CheckCircle className="h-4 w-4 text-[#7ED321] mr-2" />
                     Randstroken
                   </li>
                   <li className="flex items-center text-gray-700">
-                    <Wrench className="h-4 w-4 text-[#7ED321] mr-2" />
+                    <CheckCircle className="h-4 w-4 text-[#7ED321] mr-2" />
                     Hoekstukken
                   </li>
                   <li className="flex items-center text-gray-700">
-                    <Wrench className="h-4 w-4 text-[#7ED321] mr-2" />
+                    <CheckCircle className="h-4 w-4 text-[#7ED321] mr-2" />
                     Overgangsprofielen
                   </li>
                   <li className="flex items-center text-gray-700">
-                    <Wrench className="h-4 w-4 text-[#7ED321] mr-2" />
+                    <CheckCircle className="h-4 w-4 text-[#7ED321] mr-2" />
                     Montage-accessoires
                   </li>
                 </ul>

@@ -12,13 +12,15 @@ export default function GymVloerPage() {
       <header className="bg-black text-white py-4 px-6 sticky top-0 z-50">
         <div className="max-w-7xl mx-auto flex items-center justify-between">
           <div className="flex items-center space-x-4">
-            <Image
-              src="/powertiles-logo-complete.png"
-              alt="PowerTiles - Transform Your Space. Unleash the Power."
-              width={200}
-              height={64}
-              className="h-16 w-auto"
-            />
+            <Link href="/">
+              <Image
+                src="/powertiles-logo-complete.png"
+                alt="PowerTiles - Transform Your Space. Unleash the Power."
+                width={200}
+                height={64}
+                className="h-16 w-auto cursor-pointer hover:opacity-80 transition-opacity"
+              />
+            </Link>
           </div>
           <nav className="hidden md:flex space-x-8">
             <Link href="/" className="hover:text-[#7ED321] transition-colors">
@@ -26,6 +28,9 @@ export default function GymVloerPage() {
             </Link>
             <Link href="/producten" className="text-[#7ED321]">
               Producten
+            </Link>
+            <Link href="/vloer-designer" className="hover:text-[#7ED321] transition-colors">
+              Designer Tool
             </Link>
             <Link href="/over-ons" className="hover:text-[#7ED321] transition-colors">
               Over Ons

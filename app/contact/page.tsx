@@ -55,6 +55,9 @@ export default function ContactPage() {
             <Link href="/producten" className="hover:text-[#7ED321] transition-colors">
               Producten
             </Link>
+            <Link href="/vloer-designer" className="hover:text-[#7ED321] transition-colors">
+              Designer Tool
+            </Link>
             <Link href="/over-ons" className="hover:text-[#7ED321] transition-colors">
               Over Ons
             </Link>
@@ -71,72 +74,10 @@ export default function ContactPage() {
       {/* Hero Section */}
       <section className="bg-black text-white py-16">
         <div className="max-w-7xl mx-auto px-6 text-center">
-          <Badge className="bg-[#7ED321] text-black px-4 py-2 text-sm font-semibold mb-6">Neem Contact Op</Badge>
           <h1 className="text-5xl font-bold mb-6">Contact</h1>
           <p className="text-xl text-gray-300 max-w-3xl mx-auto">
             Heeft u vragen over onze producten of wilt u een offerte aanvragen? We staan klaar om u te helpen.
           </p>
-        </div>
-      </section>
-
-      {/* Contact Information */}
-      <section className="py-20 bg-white">
-        <div className="max-w-7xl mx-auto px-6">
-          <div className="grid lg:grid-cols-3 gap-8 mb-16">
-            <Card className="group hover:shadow-xl transition-all duration-300 border-2 hover:border-[#7ED321]">
-              <CardHeader className="text-center pb-4">
-                <div className="mx-auto mb-4 p-4 bg-[#7ED321] rounded-full w-16 h-16 flex items-center justify-center">
-                  <Phone className="h-8 w-8 text-black" />
-                </div>
-                <CardTitle className="text-2xl font-bold text-black">Telefoon</CardTitle>
-              </CardHeader>
-              <CardContent className="text-center space-y-4">
-                <p className="text-gray-600">Bel ons voor directe hulp</p>
-                <a
-                  href="tel:+32475219635"
-                  className="text-2xl font-bold text-[#7ED321] hover:text-[#6BC91A] transition-colors block"
-                >
-                  +32 475 21 96 35
-                </a>
-                <p className="text-sm text-gray-500">Ma-Vr: 8:00 - 18:00</p>
-              </CardContent>
-            </Card>
-
-            <Card className="group hover:shadow-xl transition-all duration-300 border-2 hover:border-[#7ED321]">
-              <CardHeader className="text-center pb-4">
-                <div className="mx-auto mb-4 p-4 bg-black rounded-full w-16 h-16 flex items-center justify-center">
-                  <Mail className="h-8 w-8 text-[#7ED321]" />
-                </div>
-                <CardTitle className="text-2xl font-bold text-black">E-mail</CardTitle>
-              </CardHeader>
-              <CardContent className="text-center space-y-4">
-                <p className="text-gray-600">Stuur ons een bericht</p>
-                <a
-                  href="mailto:info@powertiles.be"
-                  className="text-xl font-bold text-[#7ED321] hover:text-[#6BC91A] transition-colors block"
-                >
-                  info@powertiles.be
-                </a>
-                <p className="text-sm text-gray-500">We reageren binnen 24 uur</p>
-              </CardContent>
-            </Card>
-
-            <Card className="group hover:shadow-xl transition-all duration-300 border-2 hover:border-[#7ED321]">
-              <CardHeader className="text-center pb-4">
-                <div className="mx-auto mb-4 p-4 bg-[#7ED321] rounded-full w-16 h-16 flex items-center justify-center">
-                  <Instagram className="h-8 w-8 text-black" />
-                </div>
-                <CardTitle className="text-2xl font-bold text-black">Social Media</CardTitle>
-              </CardHeader>
-              <CardContent className="text-center space-y-4">
-                <p className="text-gray-600">Volg ons voor inspiratie</p>
-                <a href="#" className="text-xl font-bold text-[#7ED321] hover:text-[#6BC91A] transition-colors block">
-                  @PowerTiles
-                </a>
-                <p className="text-sm text-gray-500">Projectfoto's & tips</p>
-              </CardContent>
-            </Card>
-          </div>
         </div>
       </section>
 
@@ -169,32 +110,32 @@ export default function ContactPage() {
                     <div className="grid md:grid-cols-2 gap-4">
                       <div className="space-y-2">
                         <Label htmlFor="firstName">Voornaam *</Label>
-                        <Input id="firstName" placeholder="Uw voornaam" required />
+                        <Input id="firstName" name="firstName" placeholder="Uw voornaam" required />
                       </div>
                       <div className="space-y-2">
                         <Label htmlFor="lastName">Achternaam *</Label>
-                        <Input id="lastName" placeholder="Uw achternaam" required />
+                        <Input id="lastName" name="lastName" placeholder="Uw achternaam" required />
                       </div>
                     </div>
 
                     <div className="space-y-2">
                       <Label htmlFor="email">E-mailadres *</Label>
-                      <Input id="email" type="email" placeholder="uw.email@voorbeeld.be" required />
+                      <Input id="email" name="email" type="email" placeholder="uw.email@voorbeeld.be" required />
                     </div>
 
                     <div className="space-y-2">
                       <Label htmlFor="phone">Telefoonnummer</Label>
-                      <Input id="phone" type="tel" placeholder="+32 xxx xx xx xx" />
+                      <Input id="phone" name="phone" type="tel" placeholder="+32 xxx xx xx xx" />
                     </div>
 
                     <div className="space-y-2">
                       <Label htmlFor="subject">Onderwerp *</Label>
-                      <Input id="subject" placeholder="Waar gaat uw vraag over?" required />
+                      <Input id="subject" name="subject" placeholder="Waar gaat uw vraag over?" required />
                     </div>
 
                     <div className="space-y-3">
                       <Label>Plaatsing voorkeur</Label>
-                      <RadioGroup defaultValue="zelf" className="flex flex-col space-y-2">
+                      <RadioGroup name="installation" defaultValue="zelf" className="flex flex-col space-y-2">
                         <div className="flex items-center space-x-2">
                           <RadioGroupItem value="zelf" id="zelf" />
                           <Label htmlFor="zelf" className="text-sm font-normal">
@@ -214,6 +155,7 @@ export default function ContactPage() {
                       <Label htmlFor="message">Bericht *</Label>
                       <Textarea
                         id="message"
+                        name="message"
                         placeholder="Beschrijf uw vraag of project in detail..."
                         rows={6}
                         required
@@ -314,6 +256,67 @@ export default function ContactPage() {
                 </Button>
               </Link>
             </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Contact Information */}
+      <section className="py-20 bg-white">
+        <div className="max-w-7xl mx-auto px-6">
+          <div className="grid lg:grid-cols-3 gap-8 mb-16">
+            <Card className="group hover:shadow-xl transition-all duration-300 border-2 hover:border-[#7ED321]">
+              <CardHeader className="text-center pb-4">
+                <div className="mx-auto mb-4 p-4 bg-[#7ED321] rounded-full w-16 h-16 flex items-center justify-center">
+                  <Phone className="h-8 w-8 text-black" />
+                </div>
+                <CardTitle className="text-2xl font-bold text-black">Telefoon</CardTitle>
+              </CardHeader>
+              <CardContent className="text-center space-y-4">
+                <p className="text-gray-600">Bel ons voor directe hulp</p>
+                <a
+                  href="tel:+32475219635"
+                  className="text-2xl font-bold text-[#7ED321] hover:text-[#6BC91A] transition-colors block"
+                >
+                  +32 475 21 96 35
+                </a>
+                <p className="text-sm text-gray-500">Ma-Vr: 8:00 - 18:00</p>
+              </CardContent>
+            </Card>
+
+            <Card className="group hover:shadow-xl transition-all duration-300 border-2 hover:border-[#7ED321]">
+              <CardHeader className="text-center pb-4">
+                <div className="mx-auto mb-4 p-4 bg-black rounded-full w-16 h-16 flex items-center justify-center">
+                  <Mail className="h-8 w-8 text-[#7ED321]" />
+                </div>
+                <CardTitle className="text-2xl font-bold text-black">E-mail</CardTitle>
+              </CardHeader>
+              <CardContent className="text-center space-y-4">
+                <p className="text-gray-600">Stuur ons een bericht</p>
+                <a
+                  href="mailto:info@powertiles.be"
+                  className="text-xl font-bold text-[#7ED321] hover:text-[#6BC91A] transition-colors block"
+                >
+                  info@powertiles.be
+                </a>
+                <p className="text-sm text-gray-500">We reageren binnen 24 uur</p>
+              </CardContent>
+            </Card>
+
+            <Card className="group hover:shadow-xl transition-all duration-300 border-2 hover:border-[#7ED321]">
+              <CardHeader className="text-center pb-4">
+                <div className="mx-auto mb-4 p-4 bg-[#7ED321] rounded-full w-16 h-16 flex items-center justify-center">
+                  <Instagram className="h-8 w-8 text-black" />
+                </div>
+                <CardTitle className="text-2xl font-bold text-black">Social Media</CardTitle>
+              </CardHeader>
+              <CardContent className="text-center space-y-4">
+                <p className="text-gray-600">Volg ons voor inspiratie</p>
+                <a href="#" className="text-xl font-bold text-[#7ED321] hover:text-[#6BC91A] transition-colors block">
+                  @PowerTiles
+                </a>
+                <p className="text-sm text-gray-500">Projectfoto's & tips</p>
+              </CardContent>
+            </Card>
           </div>
         </div>
       </section>

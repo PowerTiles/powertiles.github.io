@@ -12,13 +12,15 @@ export default function GeventileerdePVCTegelsPage() {
       <header className="bg-black text-white py-4 px-6 sticky top-0 z-50">
         <div className="max-w-7xl mx-auto flex items-center justify-between">
           <div className="flex items-center space-x-4">
-            <Image
-              src="/powertiles-logo-complete.png"
-              alt="PowerTiles - Transform Your Space. Unleash the Power."
-              width={200}
-              height={64}
-              className="h-16 w-auto"
-            />
+            <Link href="/">
+              <Image
+                src="/powertiles-logo-complete.png"
+                alt="PowerTiles - Transform Your Space. Unleash the Power."
+                width={200}
+                height={64}
+                className="h-16 w-auto cursor-pointer hover:opacity-80 transition-opacity"
+              />
+            </Link>
           </div>
           <nav className="hidden md:flex space-x-8">
             <Link href="/" className="hover:text-[#7ED321] transition-colors">
@@ -26,6 +28,9 @@ export default function GeventileerdePVCTegelsPage() {
             </Link>
             <Link href="/producten" className="text-[#7ED321]">
               Producten
+            </Link>
+            <Link href="/vloer-designer" className="hover:text-[#7ED321] transition-colors">
+              Designer Tool
             </Link>
             <Link href="/over-ons" className="hover:text-[#7ED321] transition-colors">
               Over Ons
@@ -248,18 +253,52 @@ export default function GeventileerdePVCTegelsPage() {
                   </CardTitle>
                 </CardHeader>
                 <CardContent>
-                  <p className="text-gray-600 text-sm mb-4">Voeg hier uw kleuropties toe via het admin panel</p>
-                  <div className="grid grid-cols-4 gap-2">
-                    {/* Placeholder color swatches */}
-                    <div className="aspect-square bg-gray-800 rounded border-2 border-gray-300"></div>
-                    <div className="aspect-square bg-gray-600 rounded border-2 border-gray-300"></div>
-                    <div className="aspect-square bg-blue-600 rounded border-2 border-gray-300"></div>
-                    <div className="aspect-square bg-red-600 rounded border-2 border-gray-300"></div>
-                    <div className="aspect-square bg-green-600 rounded border-2 border-gray-300"></div>
-                    <div className="aspect-square bg-yellow-600 rounded border-2 border-gray-300"></div>
-                    <div className="aspect-square bg-white rounded border-2 border-gray-300"></div>
-                    <div className="aspect-square bg-orange-600 rounded border-2 border-gray-300"></div>
+                  <p className="text-gray-600 text-sm mb-6">Alle kleuren van onze fabrikant Performance Floor</p>
+                  <div className="grid grid-cols-5 gap-3">
+                    {[
+                      { name: "Wit", color: "#FFFFFF", border: true },
+                      { name: "Zwart", color: "#000000" },
+                      { name: "Donkergrijs", color: "#404040" },
+                      { name: "Reflexblauw", color: "#0066CC" },
+                      { name: "Wit-Aluminium", color: "#F0F0F0", border: true },
+                      { name: "Grijs-Aluminium", color: "#C0C0C0" },
+                      { name: "Geel", color: "#FFFF00" },
+                      { name: "Oranje", color: "#FF8000" },
+                      { name: "Rood", color: "#FF0000" },
+                      { name: "Geel-Groen", color: "#80FF00" },
+                      { name: "Groen", color: "#00FF00" },
+                      { name: "Lichtgrijs", color: "#D3D3D3" },
+                      { name: "Blauw", color: "#0000FF" },
+                      { name: "Antracietgrijs", color: "#2F2F2F" },
+                      { name: "Bruin", color: "#8B4513" },
+                      { name: "Ivoor", color: "#FFFFF0", border: true },
+                      { name: "Grijs-Bruin", color: "#8B7355" },
+                      { name: "Mint", color: "#98FB98" },
+                      { name: "Limoen", color: "#32CD32" },
+                      { name: "Turquoise", color: "#40E0D0" },
+                      { name: "Lichtblauw", color: "#ADD8E6" },
+                      { name: "Roze", color: "#FFC0CB" },
+                      { name: "Violet", color: "#8A2BE2" },
+                      { name: "Donkerblauw", color: "#00008B" },
+                      { name: "Ultramarijnblauw", color: "#4169E1" },
+                    ].map((colorOption, index) => (
+                      <div key={index} className="group cursor-pointer">
+                        <div
+                          className={`aspect-square rounded-lg transition-all duration-200 group-hover:scale-105 group-hover:shadow-lg ${
+                            colorOption.border ? "border-2 border-gray-300" : ""
+                          }`}
+                          style={{ backgroundColor: colorOption.color }}
+                          title={colorOption.name}
+                        ></div>
+                        <p className="text-xs text-center mt-1 text-gray-600 group-hover:text-[#7ED321] transition-colors">
+                          {colorOption.name}
+                        </p>
+                      </div>
+                    ))}
                   </div>
+                  <p className="text-xs text-gray-500 mt-4 italic">
+                    * Kleuren kunnen afwijken van de werkelijke productkleuren door schermweergave
+                  </p>
                 </CardContent>
               </Card>
 

@@ -8,7 +8,7 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import { Input } from "@/components/ui/input"
 import { Label } from "@/components/ui/label"
 import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogTrigger } from "@/components/ui/dialog"
-import { ArrowLeft, Download, Save, Palette, Calculator, FolderOpen } from "lucide-react"
+import { Download, Save, Palette, Calculator, FolderOpen } from "lucide-react"
 
 // Available tile colors
 const TILE_COLORS = [
@@ -251,19 +251,35 @@ PowerTiles - Transform Your Space. Unleash the Power.
       <header className="bg-black text-white py-4 px-6 sticky top-0 z-50">
         <div className="max-w-7xl mx-auto flex items-center justify-between">
           <div className="flex items-center space-x-4">
-            <Image
-              src="/powertiles-logo-complete.png"
-              alt="PowerTiles - Transform Your Space. Unleash the Power."
-              width={240}
-              height={64}
-              className="h-16 w-auto"
-            />
+            <Link href="/" className="hover:opacity-80 transition-opacity">
+              <Image
+                src="/powertiles-logo-complete.png"
+                alt="PowerTiles - Transform Your Space. Unleash the Power."
+                width={240}
+                height={64}
+                className="h-16 w-auto"
+              />
+            </Link>
           </div>
-          <Link href="/producten">
-            <Button variant="outline" className="text-black border-white hover:bg-white bg-transparent">
-              <ArrowLeft className="h-4 w-4 mr-2" />
-              Terug naar Producten
-            </Button>
+          <nav className="hidden md:flex items-center space-x-8">
+            <Link href="/" className="hover:text-[#7ED321] transition-colors">
+              Home
+            </Link>
+            <Link href="/producten" className="hover:text-[#7ED321] transition-colors">
+              Producten
+            </Link>
+            <Link href="/vloer-designer" className="text-[#7ED321] font-semibold">
+              Designer Tool
+            </Link>
+            <Link href="/over-ons" className="hover:text-[#7ED321] transition-colors">
+              Over Ons
+            </Link>
+            <Link href="/contact" className="hover:text-[#7ED321] transition-colors">
+              Contact
+            </Link>
+          </nav>
+          <Link href="/offerte">
+            <Button className="bg-[#7ED321] hover:bg-[#6BC91A] text-black font-semibold">Offerte Aanvragen</Button>
           </Link>
         </div>
       </header>
