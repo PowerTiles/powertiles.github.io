@@ -46,6 +46,16 @@ export async function submitQuoteForm(formData: FormData) {
     if (formData.get("painting")) services.push("Schilderwerken")
     if (formData.get("consultation")) services.push("Adviesgesprek op locatie")
 
+    const designData = formData.get("designWidth")
+      ? {
+          width: Number.parseFloat(formData.get("designWidth") as string),
+          length: Number.parseFloat(formData.get("designLength") as string),
+          totalTiles: Number.parseInt(formData.get("designTotalTiles") as string),
+          tilesWithWaste: Number.parseInt(formData.get("designTilesWithWaste") as string),
+          surface: Number.parseFloat(formData.get("designSurface") as string),
+        }
+      : undefined
+
     const data: QuoteFormData = {
       name: formData.get("name") as string,
       email: formData.get("email") as string,
@@ -54,8 +64,9 @@ export async function submitQuoteForm(formData: FormData) {
       surface: formData.get("surface") as string,
       tileType: formData.get("tileType") as string,
       services,
-      additionalInfo: formData.get("additionalInfo") as string,
+      additionalInfo: formData.get("wishes") as string,
       timeline: formData.get("timeline") as string,
+      designData, // Include design data
     }
 
     // Basic validation

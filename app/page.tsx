@@ -27,6 +27,9 @@ export default function HomePage() {
             <Link href="/producten" className="hover:text-[#7ED321] transition-colors">
               Producten
             </Link>
+            <Link href="/vloer-designer" className="hover:text-[#7ED321] transition-colors">
+              Designer Tool
+            </Link>
             <Link href="/over-ons" className="hover:text-[#7ED321] transition-colors">
               Over Ons
             </Link>
@@ -64,13 +67,13 @@ export default function HomePage() {
                     <ArrowRight className="ml-2 h-5 w-5" />
                   </Button>
                 </Link>
-                <Link href="/producten">
+                <Link href="/vloer-designer">
                   <Button
                     size="lg"
                     variant="outline"
                     className="border-white text-white hover:bg-white hover:text-black bg-transparent"
                   >
-                    Bekijk Producten
+                    Probeer Designer Tool
                   </Button>
                 </Link>
               </div>
@@ -458,6 +461,11 @@ export default function HomePage() {
             <div>
               <h3 className="text-lg font-semibold mb-4 text-[#7ED321]">Service</h3>
               <ul className="space-y-2 text-gray-400">
+                <li>
+                  <Link href="/vloer-designer" className="hover:text-white transition-colors">
+                    Vloer Designer Tool
+                  </Link>
+                </li>
                 <li>
                   <Link href="/offerte" className="hover:text-white transition-colors">
                     Offerte Aanvragen

@@ -10,17 +10,51 @@ import { Textarea } from "@/components/ui/textarea"
 import { Label } from "@/components/ui/label"
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select"
 import { Checkbox } from "@/components/ui/checkbox"
-import { ArrowRight, Calculator, Clock, Shield, Star } from "lucide-react"
+import { ArrowRight, Calculator, Clock, Shield, Star, Palette } from "lucide-react"
 import { submitQuoteForm } from "@/lib/actions"
-import { useState } from "react"
+import { useState, useEffect } from "react"
+import { useSearchParams } from "next/navigation"
+
+interface DesignData {
+  width: number
+  length: number
+  totalTiles: number
+  tilesWithWaste: number
+  surface: number
+}
 
 export default function OffertePage() {
   const [isSubmitting, setIsSubmitting] = useState(false)
   const [submitResult, setSubmitResult] = useState<{ success: boolean; message?: string; error?: string } | null>(null)
+  const [designData, setDesignData] = useState<DesignData | null>(null)
+  const searchParams = useSearchParams()
+
+  useEffect(() => {
+    const hasDesign = searchParams.get("design") === "true"
+    if (hasDesign) {
+      const width = Number.parseFloat(searchParams.get("width") || "0")
+      const length = Number.parseFloat(searchParams.get("length") || "0")
+      const totalTiles = Number.parseInt(searchParams.get("totalTiles") || "0")
+      const tilesWithWaste = Number.parseInt(searchParams.get("tilesWithWaste") || "0")
+      const surface = Number.parseFloat(searchParams.get("surface") || "0")
+
+      if (width && length && totalTiles && tilesWithWaste && surface) {
+        setDesignData({ width, length, totalTiles, tilesWithWaste, surface })
+      }
+    }
+  }, [searchParams])
 
   async function handleSubmit(formData: FormData) {
     setIsSubmitting(true)
     setSubmitResult(null)
+
+    if (designData) {
+      formData.append("designWidth", designData.width.toString())
+      formData.append("designLength", designData.length.toString())
+      formData.append("designTotalTiles", designData.totalTiles.toString())
+      formData.append("designTilesWithWaste", designData.tilesWithWaste.toString())
+      formData.append("designSurface", designData.surface.toString())
+    }
 
     const result = await submitQuoteForm(formData)
     setSubmitResult(result)
@@ -78,6 +112,43 @@ export default function OffertePage() {
           </p>
         </div>
       </section>
+
+      {designData && (
+        <section className="py-8 bg-[#7ED321]">
+          <div className="max-w-4xl mx-auto px-6">
+            <Card className="border-2 border-black">
+              <CardHeader className="bg-black text-white">
+                <CardTitle className="flex items-center gap-2">
+                  <Palette className="h-5 w-5" />
+                  Uw Designer Tool Ontwerp
+                </CardTitle>
+              </CardHeader>
+              <CardContent className="p-6 bg-white">
+                <div className="grid md:grid-cols-2 gap-6">
+                  <div>
+                    <h4 className="font-semibold text-black mb-2">Afmetingen</h4>
+                    <p className="text-gray-600">
+                      {designData.width}m × {designData.length}m
+                    </p>
+                    <p className="text-gray-600">Oppervlakte: {designData.surface} m²</p>
+                  </div>
+                  <div>
+                    <h4 className="font-semibold text-black mb-2">Tegels Berekening</h4>
+                    <p className="text-gray-600">Tegels nodig: {designData.totalTiles} stuks</p>
+                    <p className="text-gray-600">Inclusief snijverlies: {designData.tilesWithWaste} stuks</p>
+                  </div>
+                </div>
+                <div className="mt-4 p-3 bg-green-50 border border-green-200 rounded">
+                  <p className="text-sm text-green-800">
+                    <strong>✓ Ontwerp gedetecteerd:</strong> Uw designer tool gegevens zijn automatisch ingevuld in deze
+                    offerte.
+                  </p>
+                </div>
+              </CardContent>
+            </Card>
+          </div>
+        </section>
+      )}
 
       {/* Benefits */}
       <section className="py-16 bg-gray-50">
@@ -171,7 +242,14 @@ export default function OffertePage() {
                     </div>
                     <div className="space-y-2">
                       <Label htmlFor="surface">Oppervlakte (in m²) *</Label>
-                      <Input id="surface" name="surface" type="number" placeholder="bijv. 50" required />
+                      <Input
+                        id="surface"
+                        name="surface"
+                        type="number"
+                        placeholder="bijv. 50"
+                        defaultValue={designData?.surface || ""}
+                        required
+                      />
                     </div>
                   </div>
                   <div className="space-y-2">
@@ -312,6 +390,7 @@ export default function OffertePage() {
         </div>
       </section>
 
+      {/* ... existing code for rest of the page ... */}
       {/* What Happens Next */}
       <section className="py-20 bg-gray-50">
         <div className="max-w-7xl mx-auto px-6">
