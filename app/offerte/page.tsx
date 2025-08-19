@@ -104,7 +104,6 @@ export default function OffertePage() {
       {/* Hero Section */}
       <section className="bg-black text-white py-16">
         <div className="max-w-7xl mx-auto px-6 text-center">
-          <Badge className="bg-[#7ED321] text-black px-4 py-2 text-sm font-semibold mb-6">Gratis Offerte</Badge>
           <h1 className="text-5xl font-bold mb-6">Offerte Aanvragen</h1>
           <p className="text-xl text-gray-300 max-w-3xl mx-auto">
             Vraag een vrijblijvende offerte aan voor uw project. We berekenen de beste oplossing voor uw specifieke
