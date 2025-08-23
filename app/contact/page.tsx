@@ -33,7 +33,7 @@ export default function ContactPage() {
   }
 
   return (
-    <div className="min-h-screen bg-white">
+    <div className="min-h-screen">
       {/* Header */}
       <header className="bg-black text-white py-4 px-6 sticky top-0 z-50">
         <div className="max-w-7xl mx-auto flex items-center justify-between">
@@ -55,7 +55,7 @@ export default function ContactPage() {
             <Link href="/producten" className="hover:text-[#7ED321] transition-colors">
               Producten
             </Link>
-            <Link href="/vloer-designer" className="hover:text-[#7ED321] transition-colors">
+            <Link href="/designer-tool" className="hover:text-[#7ED321] transition-colors">
               Designer Tool
             </Link>
             <Link href="/over-ons" className="hover:text-[#7ED321] transition-colors">

@@ -29,7 +29,7 @@ export default function OverOnsPage() {
             <Link href="/producten" className="hover:text-[#7ED321] transition-colors">
               Producten
             </Link>
-            <Link href="/vloer-designer" className="hover:text-[#7ED321] transition-colors">
+            <Link href="/designer-tool" className="hover:text-[#7ED321] transition-colors">
               Designer Tool
             </Link>
             <Link href="/over-ons" className="text-[#7ED321] font-semibold">

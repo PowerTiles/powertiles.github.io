@@ -7,44 +7,7 @@ import { CheckCircle, Star, ArrowRight, Wrench, Dumbbell, Car } from "lucide-rea
 
 export default function HomePage() {
   return (
-    <div className="min-h-screen bg-white">
-      {/* Header */}
-      <header className="bg-black text-white py-4 px-6 sticky top-0 z-50">
-        <div className="max-w-7xl mx-auto flex items-center justify-between">
-          <div className="flex items-center space-x-4">
-            <Link href="/" className="hover:opacity-80 transition-opacity">
-              <Image
-                src="/powertiles-logo-complete.png"
-                alt="PowerTiles - Transform Your Space. Unleash the Power."
-                width={600}
-                height={180}
-                className="h-32 w-auto"
-              />
-            </Link>
-          </div>
-          <nav className="hidden md:flex items-center space-x-8">
-            <Link href="/" className="hover:text-[#7ED321] transition-colors">
-              Home
-            </Link>
-            <Link href="/producten" className="hover:text-[#7ED321] transition-colors">
-              Producten
-            </Link>
-            <Link href="/vloer-designer" className="hover:text-[#7ED321] transition-colors">
-              Designer Tool
-            </Link>
-            <Link href="/over-ons" className="hover:text-[#7ED321] transition-colors">
-              Over Ons
-            </Link>
-            <Link href="/contact" className="hover:text-[#7ED321] transition-colors">
-              Contact
-            </Link>
-          </nav>
-          <Link href="/offerte">
-            <Button className="bg-[#7ED321] hover:bg-[#6BC91A] text-black font-semibold">Offerte Aanvragen</Button>
-          </Link>
-        </div>
-      </header>
-
+    <div className="min-h-screen">
       {/* Hero Section */}
       <section id="home" className="bg-black text-white py-20 relative overflow-hidden">
         <div className="max-w-7xl mx-auto px-6">
@@ -69,7 +32,7 @@ export default function HomePage() {
                     <ArrowRight className="ml-2 h-5 w-5" />
                   </Button>
                 </Link>
-                <Link href="/vloer-designer">
+                <Link href="/designer-tool">
                   <Button
                     size="lg"
                     variant="outline"
@@ -464,7 +427,7 @@ export default function HomePage() {
               <h3 className="text-lg font-semibold mb-4 text-[#7ED321]">Service</h3>
               <ul className="space-y-2 text-gray-400">
                 <li>
-                  <Link href="/vloer-designer" className="hover:text-white transition-colors">
+                  <Link href="/designer-tool" className="hover:text-white transition-colors">
                     Vloer Designer Tool
                   </Link>
                 </li>

@@ -28,3 +28,5 @@ next-env.d.ts
 
 # Extra
 pnpm-lock.yaml
+package-lock.json
+/.next

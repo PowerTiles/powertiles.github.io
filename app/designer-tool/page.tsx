@@ -268,7 +268,7 @@ PowerTiles - Transform Your Space. Unleash the Power.
             <Link href="/producten" className="hover:text-[#7ED321] transition-colors">
               Producten
             </Link>
-            <Link href="/vloer-designer" className="text-[#7ED321] font-semibold">
+            <Link href="/designer-tool" className="text-[#7ED321] font-semibold">
               Designer Tool
             </Link>
             <Link href="/over-ons" className="hover:text-[#7ED321] transition-colors">

@@ -29,7 +29,7 @@ export default function RandstukkenAccessoiresPage() {
             <Link href="/producten" className="text-[#7ED321]">
               Producten
             </Link>
-            <Link href="/vloer-designer" className="hover:text-[#7ED321] transition-colors">
+            <Link href="/designer-tool" className="hover:text-[#7ED321] transition-colors">
               Designer Tool
             </Link>
             <Link href="/over-ons" className="hover:text-[#7ED321] transition-colors">
