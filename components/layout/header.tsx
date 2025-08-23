@@ -134,14 +134,14 @@ export function Header() {
                     // Just a single link
                     <NavigationMenuLink
                       asChild
-                      className="hover:bg-background hover:text-primary"
+                      className="hover:text-primary"
                     >
                       <Link href={item.href || "#"}>{item.title}</Link>
                     </NavigationMenuLink>
                   ) : (
                     // Dropdown with subItems
                     <>
-                      <NavigationMenuTrigger className="data-[state=open]:hover:bg-background data-[state=open]:hover:text-primary data-[state=open]:bg-background data-[state=open]:text-primary hover:bg-background hover:text-primary">
+                      <NavigationMenuTrigger>
                         {item.href ? (
                           <Link href={item.href}>{item.title}</Link>
                         ) : (
