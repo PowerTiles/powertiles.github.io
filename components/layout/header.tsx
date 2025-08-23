@@ -184,7 +184,7 @@ export function Header() {
                   <Menu className="size-6" />
                 </Button>
               </SheetTrigger>
-              <SheetContent>
+              <SheetContent className="border-none">
                 <SheetHeader>
                   <SheetTitle>PowerTiles</SheetTitle>
                   <SheetDescription>
