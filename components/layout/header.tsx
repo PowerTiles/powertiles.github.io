@@ -49,9 +49,12 @@ export function Header() {
     },
     {
       title: "Producten",
-      href: "/producten",
       mobile: true,
       subItems: [
+        {
+          title: "Alle Producten",
+          href: "/producten",
+        },
         {
           title: "Geventileerde PVC-Tegels",
           href: "/producten/geventileerde-pvc-tegels",
@@ -132,10 +135,7 @@ export function Header() {
                 >
                   {!item.subItems ? (
                     // Just a single link
-                    <NavigationMenuLink
-                      asChild
-                      className="hover:text-primary"
-                    >
+                    <NavigationMenuLink asChild className="hover:text-primary">
                       <Link href={item.href || "#"}>{item.title}</Link>
                     </NavigationMenuLink>
                   ) : (
@@ -152,7 +152,7 @@ export function Header() {
                         <ul className="grid min-w-[140px] w-max gap-4">
                           {item.subItems.map((sub) => (
                             <li key={sub.title}>
-                              <NavigationMenuLink asChild>
+                              <NavigationMenuLink asChild className="hover:text-accent-foreground hover:bg-accent">
                                 <Link href={sub.href}>{sub.title}</Link>
                               </NavigationMenuLink>
                             </li>
@@ -208,14 +208,21 @@ export function Header() {
                             </SheetClose>
                           </div>
                         ) : (
-                          <AccordionItem
-                            key={item.title}
-                            value={item.title}
-                          >
+                          <AccordionItem key={item.title} value={item.title}>
                             <AccordionTrigger className="text-lg font-medium">
                               {item.title}
                             </AccordionTrigger>
                             <AccordionContent className="flex flex-col space-y-2">
+                              {item.href && (
+                                <SheetClose asChild key={item.title}>
+                                  <Link
+                                    href={item.href}
+                                    className="block text-base text-muted-foreground hover:text-primary px-2"
+                                  >
+                                    Alle {item.title}
+                                  </Link>
+                                </SheetClose>
+                              )}
                               {item.subItems.map((sub) => (
                                 <SheetClose asChild key={sub.title}>
                                   <Link
