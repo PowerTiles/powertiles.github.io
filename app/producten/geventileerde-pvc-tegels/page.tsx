@@ -1,50 +1,21 @@
-import Image from "next/image"
-import Link from "next/link"
-import { Button } from "@/components/ui/button"
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
-import { Badge } from "@/components/ui/badge"
-import { ArrowLeft, CheckCircle, Palette, Camera, Droplets, Shield, Wrench } from "lucide-react"
+import Image from "next/image";
+import Link from "next/link";
+import { Button } from "@/components/ui/button";
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import { Badge } from "@/components/ui/badge";
+import {
+  ArrowLeft,
+  CheckCircle,
+  Palette,
+  Camera,
+  Droplets,
+  Shield,
+  Wrench,
+} from "lucide-react";
 
 export default function GeventileerdePVCTegelsPage() {
   return (
-    <div className="min-h-screen bg-gray-50">
-      {/* Header */}
-      <header className="bg-black text-muted py-4 px-6 sticky top-0 z-50">
-        <div className="max-w-7xl mx-auto flex items-center justify-between">
-          <div className="flex items-center space-x-4">
-            <Link href="/">
-              <Image
-                src="/powertiles-logo-complete.png"
-                alt="PowerTiles - Transform Your Space. Unleash the Power."
-                width={200}
-                height={64}
-                className="h-16 w-auto cursor-pointer hover:opacity-80 transition-opacity"
-              />
-            </Link>
-          </div>
-          <nav className="hidden md:flex space-x-8">
-            <Link href="/" className="hover:text-primary transition-colors">
-              Home
-            </Link>
-            <Link href="/producten" className="text-primary">
-              Producten
-            </Link>
-            <Link href="/designer-tool" className="hover:text-primary transition-colors">
-              Designer Tool
-            </Link>
-            <Link href="/over-ons" className="hover:text-primary transition-colors">
-              Over Ons
-            </Link>
-            <Link href="/contact" className="hover:text-primary transition-colors">
-              Contact
-            </Link>
-          </nav>
-          <Button asChild className="bg-[#7ED321] hover:bg-[#6BC91A] text-black font-semibold">
-            <Link href="/offerte">Offerte Aanvragen</Link>
-          </Button>
-        </div>
-      </header>
-
+    <div className="min-h-screen">
       {/* Breadcrumb */}
       <div className="bg-white py-4 px-6 border-b">
         <div className="max-w-7xl mx-auto flex items-center space-x-2 text-sm">
@@ -56,7 +27,9 @@ export default function GeventileerdePVCTegelsPage() {
             Producten
           </Link>
           <span className="text-muted-foreground">/</span>
-          <span className="text-gray-900 font-medium">Geventileerde PVC-tegels</span>
+          <span className="text-gray-900 font-medium">
+            Geventileerde PVC-tegels
+          </span>
         </div>
       </div>
 
@@ -73,14 +46,23 @@ export default function GeventileerdePVCTegelsPage() {
                 Terug naar Producten
               </Link>
               <div className="space-y-4">
-                <Badge className="bg-[#7ED321] text-black px-4 py-2 text-sm font-semibold">Meest Populair</Badge>
-                <h1 className="text-4xl lg:text-5xl font-bold text-black leading-tight">Geventileerde PVC-tegels</h1>
+                <Badge className="bg-[#7ED321] text-black px-4 py-2 text-sm font-semibold">
+                  Meest Populair
+                </Badge>
+                <h1 className="text-4xl lg:text-5xl font-bold text-black leading-tight">
+                  Geventileerde PVC-tegels
+                </h1>
                 <p className="text-xl text-gray-600 leading-relaxed">
-                  Premium kwaliteit PVC-tegels met geïntegreerde ventilatie voor optimale drainage en luchtstroom.
-                  Perfect voor garages en werkplaatsen.
+                  Premium kwaliteit PVC-tegels met geïntegreerde ventilatie voor
+                  optimale drainage en luchtstroom. Perfect voor garages en
+                  werkplaatsen.
                 </p>
               </div>
-              <Button asChild size="lg" className="bg-[#7ED321] hover:bg-[#6BC91A] text-black font-semibold">
+              <Button
+                asChild
+                size="lg"
+                className="bg-[#7ED321] hover:bg-[#6BC91A] text-black font-semibold"
+              >
                 <Link href="/offerte">Offerte Aanvragen</Link>
               </Button>
             </div>
@@ -105,25 +87,32 @@ export default function GeventileerdePVCTegelsPage() {
             <div className="lg:col-span-2 space-y-8">
               <Card>
                 <CardHeader>
-                  <CardTitle className="text-2xl text-black">Productbeschrijving</CardTitle>
+                  <CardTitle className="text-2xl text-black">
+                    Productbeschrijving
+                  </CardTitle>
                 </CardHeader>
                 <CardContent className="space-y-4">
                   <p className="text-gray-700 leading-relaxed">
-                    Onze geventileerde PVC-tegels zijn speciaal ontworpen voor ruimtes waar drainage en ventilatie
-                    cruciaal zijn. Het unieke geventileerde ontwerp zorgt voor optimale luchtstroom en voorkomt
-                    vochtophoping, waardoor ze ideaal zijn voor garages, werkplaatsen en andere industriële
-                    toepassingen.
+                    Onze geventileerde PVC-tegels zijn speciaal ontworpen voor
+                    ruimtes waar drainage en ventilatie cruciaal zijn. Het
+                    unieke geventileerde ontwerp zorgt voor optimale luchtstroom
+                    en voorkomt vochtophoping, waardoor ze ideaal zijn voor
+                    garages, werkplaatsen en andere industriële toepassingen.
                   </p>
                   <p className="text-gray-700 leading-relaxed">
-                    Deze tegels zijn oliebestendig, chemisch resistent en kunnen zware belastingen aan. Het kliksysteem
-                    maakt installatie eenvoudig en zorgt voor een naadloze, professionele afwerking.
+                    Deze tegels zijn oliebestendig, chemisch resistent en kunnen
+                    zware belastingen aan. Het kliksysteem maakt installatie
+                    eenvoudig en zorgt voor een naadloze, professionele
+                    afwerking.
                   </p>
                 </CardContent>
               </Card>
 
               <Card>
                 <CardHeader>
-                  <CardTitle className="text-2xl text-black">Unieke Eigenschappen</CardTitle>
+                  <CardTitle className="text-2xl text-black">
+                    Unieke Eigenschappen
+                  </CardTitle>
                 </CardHeader>
                 <CardContent>
                   <div className="grid md:grid-cols-3 gap-6">
@@ -132,21 +121,31 @@ export default function GeventileerdePVCTegelsPage() {
                         <Droplets className="h-8 w-8 text-black" />
                       </div>
                       <h4 className="font-semibold text-black">Drainage</h4>
-                      <p className="text-sm text-gray-600">Optimale afvoer van vloeistoffen</p>
+                      <p className="text-sm text-gray-600">
+                        Optimale afvoer van vloeistoffen
+                      </p>
                     </div>
                     <div className="text-center space-y-3">
                       <div className="mx-auto w-16 h-16 bg-[#7ED321] rounded-full flex items-center justify-center">
                         <Shield className="h-8 w-8 text-black" />
                       </div>
-                      <h4 className="font-semibold text-black">Oliebestendig</h4>
-                      <p className="text-sm text-gray-600">Resistent tegen oliën en chemicaliën</p>
+                      <h4 className="font-semibold text-black">
+                        Oliebestendig
+                      </h4>
+                      <p className="text-sm text-gray-600">
+                        Resistent tegen oliën en chemicaliën
+                      </p>
                     </div>
                     <div className="text-center space-y-3">
                       <div className="mx-auto w-16 h-16 bg-[#7ED321] rounded-full flex items-center justify-center">
                         <Wrench className="h-8 w-8 text-black" />
                       </div>
-                      <h4 className="font-semibold text-black">Zware Belasting</h4>
-                      <p className="text-sm text-gray-600">Geschikt voor zwaar verkeer</p>
+                      <h4 className="font-semibold text-black">
+                        Zware Belasting
+                      </h4>
+                      <p className="text-sm text-gray-600">
+                        Geschikt voor zwaar verkeer
+                      </p>
                     </div>
                   </div>
                 </CardContent>
@@ -154,7 +153,9 @@ export default function GeventileerdePVCTegelsPage() {
 
               <Card>
                 <CardHeader>
-                  <CardTitle className="text-2xl text-black">Toepassingen</CardTitle>
+                  <CardTitle className="text-2xl text-black">
+                    Toepassingen
+                  </CardTitle>
                 </CardHeader>
                 <CardContent>
                   <div className="grid md:grid-cols-2 gap-6">
@@ -184,11 +185,15 @@ export default function GeventileerdePVCTegelsPage() {
                       <ul className="space-y-2">
                         <li className="flex items-start space-x-2">
                           <CheckCircle className="h-5 w-5 text-primary mt-0.5 flex-shrink-0" />
-                          <span className="text-gray-700">Autowerkplaatsen</span>
+                          <span className="text-gray-700">
+                            Autowerkplaatsen
+                          </span>
                         </li>
                         <li className="flex items-start space-x-2">
                           <CheckCircle className="h-5 w-5 text-primary mt-0.5 flex-shrink-0" />
-                          <span className="text-gray-700">Industriële ruimtes</span>
+                          <span className="text-gray-700">
+                            Industriële ruimtes
+                          </span>
                         </li>
                         <li className="flex items-start space-x-2">
                           <CheckCircle className="h-5 w-5 text-primary mt-0.5 flex-shrink-0" />
@@ -209,13 +214,17 @@ export default function GeventileerdePVCTegelsPage() {
             <div className="space-y-6">
               <Card>
                 <CardHeader>
-                  <CardTitle className="text-xl text-black">Technische Specificaties</CardTitle>
+                  <CardTitle className="text-xl text-black">
+                    Technische Specificaties
+                  </CardTitle>
                 </CardHeader>
                 <CardContent className="space-y-4">
                   <div className="space-y-3">
                     <div className="flex justify-between">
                       <span className="text-gray-600">Materiaal:</span>
-                      <span className="font-medium text-black">Premium PVC</span>
+                      <span className="font-medium text-black">
+                        Premium PVC
+                      </span>
                     </div>
                     <div className="flex justify-between">
                       <span className="text-gray-600">Afmetingen:</span>
@@ -231,15 +240,21 @@ export default function GeventileerdePVCTegelsPage() {
                     </div>
                     <div className="flex justify-between">
                       <span className="text-gray-600">Belasting:</span>
-                      <span className="font-medium text-black">Tot 25 ton/m²</span>
+                      <span className="font-medium text-black">
+                        Tot 25 ton/m²
+                      </span>
                     </div>
                     <div className="flex justify-between">
                       <span className="text-gray-600">Installatie:</span>
-                      <span className="font-medium text-black">Kliksysteem</span>
+                      <span className="font-medium text-black">
+                        Kliksysteem
+                      </span>
                     </div>
                     <div className="flex justify-between">
                       <span className="text-gray-600">Onderhoud:</span>
-                      <span className="font-medium text-black">Onderhoudsvrij</span>
+                      <span className="font-medium text-black">
+                        Onderhoudsvrij
+                      </span>
                     </div>
                   </div>
                 </CardContent>
@@ -253,7 +268,9 @@ export default function GeventileerdePVCTegelsPage() {
                   </CardTitle>
                 </CardHeader>
                 <CardContent>
-                  <p className="text-gray-600 text-sm mb-6">Alle kleuren van onze fabrikant Performance Floor</p>
+                  <p className="text-gray-600 text-sm mb-6">
+                    Alle kleuren van onze fabrikant Performance Floor
+                  </p>
                   <div className="grid grid-cols-5 gap-3">
                     {[
                       { name: "Wit", color: "#FFFFFF", border: true },
@@ -297,7 +314,8 @@ export default function GeventileerdePVCTegelsPage() {
                     ))}
                   </div>
                   <p className="text-xs text-gray-500 mt-4 italic">
-                    * Kleuren kunnen afwijken van de werkelijke productkleuren door schermweergave
+                    * Kleuren kunnen afwijken van de werkelijke productkleuren
+                    door schermweergave
                   </p>
                 </CardContent>
               </Card>
@@ -310,7 +328,9 @@ export default function GeventileerdePVCTegelsPage() {
                   </CardTitle>
                 </CardHeader>
                 <CardContent>
-                  <p className="text-gray-600 text-sm">Upload hier extra productfoto's en installatie-voorbeelden</p>
+                  <p className="text-gray-600 text-sm">
+                    Upload hier extra productfoto's en installatie-voorbeelden
+                  </p>
                   <div className="mt-4 grid grid-cols-2 gap-2">
                     <div className="aspect-square bg-gray-200 rounded flex items-center justify-center">
                       <Camera className="h-8 w-8 text-muted-foreground" />
@@ -329,12 +349,19 @@ export default function GeventileerdePVCTegelsPage() {
       {/* CTA Section */}
       <section className="py-16 bg-black text-muted">
         <div className="max-w-4xl mx-auto px-6 text-center space-y-8">
-          <h2 className="text-3xl lg:text-4xl font-bold">Klaar voor uw nieuwe garagevloer?</h2>
+          <h2 className="text-3xl lg:text-4xl font-bold">
+            Klaar voor uw nieuwe garagevloer?
+          </h2>
           <p className="text-xl text-gray-300">
-            Vraag een vrijblijvende offerte aan en ontdek wat PowerTiles voor u kan betekenen.
+            Vraag een vrijblijvende offerte aan en ontdek wat PowerTiles voor u
+            kan betekenen.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Button asChild size="lg" className="bg-[#7ED321] hover:bg-[#6BC91A] text-black font-semibold">
+            <Button
+              asChild
+              size="lg"
+              className="bg-[#7ED321] hover:bg-[#6BC91A] text-black font-semibold"
+            >
               <Link href="/offerte">Offerte Aanvragen</Link>
             </Button>
             <Button
@@ -348,82 +375,6 @@ export default function GeventileerdePVCTegelsPage() {
           </div>
         </div>
       </section>
-
-      {/* Footer */}
-      <footer className="py-12 bg-white text-black">
-        <div className="max-w-7xl mx-auto px-6">
-          <div className="grid md:grid-cols-4 gap-8">
-            <div className="space-y-4">
-              <Image
-                src="/powertiles-logo-footer.png"
-                alt="PowerTiles"
-                width={180}
-                height={54}
-                className="h-10 w-auto"
-              />
-              <p className="text-muted-foreground">
-                Premium modulaire PVC-klikvloeren voor garages, home gyms en werkplaatsen.
-              </p>
-            </div>
-            <div className="space-y-4">
-              <h4 className="font-semibold text-black">Producten</h4>
-              <ul className="space-y-2 text-gray-600">
-                <li>
-                  <Link href="/producten/geventileerde-pvc-tegels" className="hover:text-primary">
-                    Geventileerde PVC-tegels
-                  </Link>
-                </li>
-                <li>
-                  <Link href="/producten/gladde-kliktegels" className="hover:text-primary">
-                    Gladde Kliktegels
-                  </Link>
-                </li>
-                <li>
-                  <Link href="/producten/gym-vloer" className="hover:text-primary">
-                    Gym Vloer
-                  </Link>
-                </li>
-                <li>
-                  <Link href="/producten/hexagonale-led-verlichting" className="hover:text-primary">
-                    LED-verlichting
-                  </Link>
-                </li>
-              </ul>
-            </div>
-            <div className="space-y-4">
-              <h4 className="font-semibold text-black">Bedrijf</h4>
-              <ul className="space-y-2 text-gray-600">
-                <li>
-                  <Link href="/over-ons" className="hover:text-primary">
-                    Over Ons
-                  </Link>
-                </li>
-                <li>
-                  <Link href="/contact" className="hover:text-primary">
-                    Contact
-                  </Link>
-                </li>
-                <li>
-                  <Link href="/offerte" className="hover:text-primary">
-                    Offerte
-                  </Link>
-                </li>
-              </ul>
-            </div>
-            <div className="space-y-4">
-              <h4 className="font-semibold text-black">Contact</h4>
-              <div className="space-y-2 text-gray-600">
-                <p>info@powertiles.be</p>
-                <p>+32 475 21 96 35</p>
-                <p>BTW: BE 1024.559.728</p>
-              </div>
-            </div>
-          </div>
-          <div className="border-t border-gray-200 mt-8 pt-8 text-center text-gray-500">
-            <p>&copy; 2024 PowerTiles. Alle rechten voorbehouden.</p>
-          </div>
-        </div>
-      </footer>
     </div>
-  )
+  );
 }

@@ -1,14 +1,20 @@
-"use client"
+"use client";
 
-import { useState, useCallback, useRef, useEffect } from "react"
-import Image from "next/image"
-import Link from "next/link"
-import { Button } from "@/components/ui/button"
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
-import { Input } from "@/components/ui/input"
-import { Label } from "@/components/ui/label"
-import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogTrigger } from "@/components/ui/dialog"
-import { Download, Save, Palette, Calculator, FolderOpen } from "lucide-react"
+import { useState, useCallback, useRef, useEffect } from "react";
+import Image from "next/image";
+import Link from "next/link";
+import { Button } from "@/components/ui/button";
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import { Input } from "@/components/ui/input";
+import { Label } from "@/components/ui/label";
+import {
+  Dialog,
+  DialogContent,
+  DialogHeader,
+  DialogTitle,
+  DialogTrigger,
+} from "@/components/ui/dialog";
+import { Download, Save, Palette, Calculator, FolderOpen } from "lucide-react";
 
 // Available tile colors
 const TILE_COLORS = [
@@ -24,70 +30,70 @@ const TILE_COLORS = [
   { name: "Geel", value: "#EAB308" },
   { name: "Oranje", value: "#EA580C" },
   { name: "Paars", value: "#9333EA" },
-]
+];
 
 interface TileData {
-  color: string
-  colorName: string
+  color: string;
+  colorName: string;
 }
 
 interface SavedDesign {
-  id: string
-  name: string
-  date: string
-  width: number
-  length: number
-  tiles: TileData[][]
-  totalTiles: number
-  tilesWithWaste: number
+  id: string;
+  name: string;
+  date: string;
+  width: number;
+  length: number;
+  tiles: TileData[][];
+  totalTiles: number;
+  tilesWithWaste: number;
 }
 
 export default function VloerDesigner() {
-  const [width, setWidth] = useState<number>(4)
-  const [length, setLength] = useState<number>(4)
-  const [selectedColor, setSelectedColor] = useState(TILE_COLORS[0])
-  const [tiles, setTiles] = useState<TileData[][]>([])
-  const [projectName, setProjectName] = useState<string>("")
-  const [savedDesigns, setSavedDesigns] = useState<SavedDesign[]>([])
-  const [showSaveDialog, setShowSaveDialog] = useState(false)
-  const [showLoadDialog, setShowLoadDialog] = useState(false)
-  const gridRef = useRef<HTMLDivElement>(null)
+  const [width, setWidth] = useState<number>(4);
+  const [length, setLength] = useState<number>(4);
+  const [selectedColor, setSelectedColor] = useState(TILE_COLORS[0]);
+  const [tiles, setTiles] = useState<TileData[][]>([]);
+  const [projectName, setProjectName] = useState<string>("");
+  const [savedDesigns, setSavedDesigns] = useState<SavedDesign[]>([]);
+  const [showSaveDialog, setShowSaveDialog] = useState(false);
+  const [showLoadDialog, setShowLoadDialog] = useState(false);
+  const gridRef = useRef<HTMLDivElement>(null);
 
-  const tilesWidth = Math.ceil(width / 0.4)
-  const tilesLength = Math.ceil(length / 0.4)
-  const totalTiles = tilesWidth * tilesLength
-  const wastePercentage = 10 // 10% waste factor
-  const tilesWithWaste = Math.ceil(totalTiles * (1 + wastePercentage / 100))
+  const tilesWidth = Math.ceil(width / 0.4);
+  const tilesLength = Math.ceil(length / 0.4);
+  const totalTiles = tilesWidth * tilesLength;
+  const wastePercentage = 10; // 10% waste factor
+  const tilesWithWaste = Math.ceil(totalTiles * (1 + wastePercentage / 100));
 
   // Initialize grid when dimensions change
   const initializeGrid = useCallback(() => {
-    const newTiles: TileData[][] = []
+    const newTiles: TileData[][] = [];
     for (let i = 0; i < tilesLength; i++) {
-      const row: TileData[] = []
+      const row: TileData[] = [];
       for (let j = 0; j < tilesWidth; j++) {
         row.push({
           color: TILE_COLORS[0].value,
           colorName: TILE_COLORS[0].name,
-        })
+        });
       }
-      newTiles.push(row)
+      newTiles.push(row);
     }
-    setTiles(newTiles)
-  }, [tilesWidth, tilesLength])
+    setTiles(newTiles);
+  }, [tilesWidth, tilesLength]);
 
   useEffect(() => {
-    initializeGrid()
-  }, [initializeGrid])
+    initializeGrid();
+  }, [initializeGrid]);
 
   // Handle tile click to change color
   const handleTileClick = (rowIndex: number, colIndex: number) => {
-    const newTiles = [...tiles]
+    const newTiles = [...tiles];
     newTiles[rowIndex][colIndex] = {
       color: selectedColor.value,
       colorName: selectedColor.name,
-    }
-    setTiles(newTiles)
-  }
+    };
+    setTiles(newTiles);
+  };
 
   // Fill all tiles with selected color
   const fillAllTiles = () => {
@@ -95,31 +101,31 @@ export default function VloerDesigner() {
       row.map(() => ({
         color: selectedColor.value,
         colorName: selectedColor.name,
-      })),
-    )
-    setTiles(newTiles)
-  }
+      }))
+    );
+    setTiles(newTiles);
+  };
 
   // Create checkerboard pattern
   const createCheckerboard = () => {
     const newTiles = tiles.map((row, rowIndex) =>
       row.map((_, colIndex) => {
-        const isEven = (rowIndex + colIndex) % 2 === 0
-        const color = isEven ? TILE_COLORS[0] : selectedColor
+        const isEven = (rowIndex + colIndex) % 2 === 0;
+        const color = isEven ? TILE_COLORS[0] : selectedColor;
         return {
           color: color.value,
           colorName: color.name,
-        }
-      }),
-    )
-    setTiles(newTiles)
-  }
+        };
+      })
+    );
+    setTiles(newTiles);
+  };
 
   // Save design functionality
   const saveDesign = () => {
     if (!projectName.trim()) {
-      alert("Voer een projectnaam in")
-      return
+      alert("Voer een projectnaam in");
+      return;
     }
 
     const design: SavedDesign = {
@@ -131,90 +137,104 @@ export default function VloerDesigner() {
       tiles: [...tiles],
       totalTiles,
       tilesWithWaste,
-    }
+    };
 
-    const existingDesigns = JSON.parse(localStorage.getItem("powerTilesDesigns") || "[]")
-    const updatedDesigns = [...existingDesigns, design]
-    localStorage.setItem("powerTilesDesigns", JSON.stringify(updatedDesigns))
-    setSavedDesigns(updatedDesigns)
-    setShowSaveDialog(false)
-    setProjectName("")
-    alert("Ontwerp opgeslagen!")
-  }
+    const existingDesigns = JSON.parse(
+      localStorage.getItem("powerTilesDesigns") || "[]"
+    );
+    const updatedDesigns = [...existingDesigns, design];
+    localStorage.setItem("powerTilesDesigns", JSON.stringify(updatedDesigns));
+    setSavedDesigns(updatedDesigns);
+    setShowSaveDialog(false);
+    setProjectName("");
+    alert("Ontwerp opgeslagen!");
+  };
 
   // Load designs functionality
   const loadSavedDesigns = () => {
-    const designs = JSON.parse(localStorage.getItem("powerTilesDesigns") || "[]")
-    setSavedDesigns(designs)
-    setShowLoadDialog(true)
-  }
+    const designs = JSON.parse(
+      localStorage.getItem("powerTilesDesigns") || "[]"
+    );
+    setSavedDesigns(designs);
+    setShowLoadDialog(true);
+  };
 
   // Load specific design functionality
   const loadDesign = (design: SavedDesign) => {
-    setWidth(design.width)
-    setLength(design.length)
-    setTiles(design.tiles)
-    setShowLoadDialog(false)
-    alert(`Ontwerp "${design.name}" geladen!`)
-  }
+    setWidth(design.width);
+    setLength(design.length);
+    setTiles(design.tiles);
+    setShowLoadDialog(false);
+    alert(`Ontwerp "${design.name}" geladen!`);
+  };
 
   // Delete design functionality
   const deleteDesign = (designId: string) => {
-    const updatedDesigns = savedDesigns.filter((d) => d.id !== designId)
-    localStorage.setItem("powerTilesDesigns", JSON.stringify(updatedDesigns))
-    setSavedDesigns(updatedDesigns)
-  }
+    const updatedDesigns = savedDesigns.filter((d) => d.id !== designId);
+    localStorage.setItem("powerTilesDesigns", JSON.stringify(updatedDesigns));
+    setSavedDesigns(updatedDesigns);
+  };
 
   // Export functionality
   const exportDesign = () => {
-    if (!gridRef.current) return
+    if (!gridRef.current) return;
 
     // Create a canvas to draw the design
-    const canvas = document.createElement("canvas")
-    const ctx = canvas.getContext("2d")
-    if (!ctx) return
+    const canvas = document.createElement("canvas");
+    const ctx = canvas.getContext("2d");
+    if (!ctx) return;
 
-    const tileSize = 20
-    canvas.width = tilesWidth * tileSize
-    canvas.height = tilesLength * tileSize
+    const tileSize = 20;
+    canvas.width = tilesWidth * tileSize;
+    canvas.height = tilesLength * tileSize;
 
     // Draw the tiles
     tiles.forEach((row, rowIndex) => {
       row.forEach((tile, colIndex) => {
-        ctx.fillStyle = tile.color
-        ctx.fillRect(colIndex * tileSize, rowIndex * tileSize, tileSize, tileSize)
+        ctx.fillStyle = tile.color;
+        ctx.fillRect(
+          colIndex * tileSize,
+          rowIndex * tileSize,
+          tileSize,
+          tileSize
+        );
 
         // Add border
-        ctx.strokeStyle = "#333"
-        ctx.lineWidth = 1
-        ctx.strokeRect(colIndex * tileSize, rowIndex * tileSize, tileSize, tileSize)
-      })
-    })
+        ctx.strokeStyle = "#333";
+        ctx.lineWidth = 1;
+        ctx.strokeRect(
+          colIndex * tileSize,
+          rowIndex * tileSize,
+          tileSize,
+          tileSize
+        );
+      });
+    });
 
     // Convert to blob and download
     canvas.toBlob((blob) => {
-      if (!blob) return
+      if (!blob) return;
 
-      const url = URL.createObjectURL(blob)
-      const a = document.createElement("a")
-      a.href = url
-      a.download = `powertiles-ontwerp-${width}x${length}m-${new Date().toISOString().split("T")[0]}.png`
-      document.body.appendChild(a)
-      a.click()
-      document.body.removeChild(a)
-      URL.revokeObjectURL(url)
-    })
-  }
+      const url = URL.createObjectURL(blob);
+      const a = document.createElement("a");
+      a.href = url;
+      a.download = `powertiles-ontwerp-${width}x${length}m-${new Date().toISOString().split("T")[0]}.png`;
+      document.body.appendChild(a);
+      a.click();
+      document.body.removeChild(a);
+      URL.revokeObjectURL(url);
+    });
+  };
 
   // Export summary functionality
   const exportSummary = () => {
-    const colorCounts: { [key: string]: number } = {}
+    const colorCounts: { [key: string]: number } = {};
 
     tiles.forEach((row) => {
       row.forEach((tile) => {
-        colorCounts[tile.colorName] = (colorCounts[tile.colorName] || 0) + 1
-      })
-    })
+        colorCounts[tile.colorName] = (colorCounts[tile.colorName] || 0) + 1;
+      });
+    });
 
     const summary = `
 PowerTiles Vloer Ontwerp Samenvatting
@@ -232,63 +252,28 @@ ${Object.entries(colorCounts)
 
 Gegenereerd op: ${new Date().toLocaleDateString("nl-NL")} om ${new Date().toLocaleTimeString("nl-NL")}
 PowerTiles - Transform Your Space. Unleash the Power.
-    `.trim()
+    `.trim();
 
-    const blob = new Blob([summary], { type: "text/plain" })
-    const url = URL.createObjectURL(blob)
-    const a = document.createElement("a")
-    a.href = url
-    a.download = `powertiles-samenvatting-${width}x${length}m-${new Date().toISOString().split("T")[0]}.txt`
-    document.body.appendChild(a)
-    a.click()
-    document.body.removeChild(a)
-    URL.revokeObjectURL(url)
-  }
+    const blob = new Blob([summary], { type: "text/plain" });
+    const url = URL.createObjectURL(blob);
+    const a = document.createElement("a");
+    a.href = url;
+    a.download = `powertiles-samenvatting-${width}x${length}m-${new Date().toISOString().split("T")[0]}.txt`;
+    document.body.appendChild(a);
+    a.click();
+    document.body.removeChild(a);
+    URL.revokeObjectURL(url);
+  };
 
   return (
-    <div className="min-h-screen bg-gray-50">
-      {/* Header */}
-      <header className="bg-black text-muted py-4 px-6 sticky top-0 z-50">
-        <div className="max-w-7xl mx-auto flex items-center justify-between">
-          <div className="flex items-center space-x-4">
-            <Link href="/" className="hover:opacity-80 transition-opacity">
-              <Image
-                src="/powertiles-logo-complete.png"
-                alt="PowerTiles - Transform Your Space. Unleash the Power."
-                width={240}
-                height={64}
-                className="h-16 w-auto"
-              />
-            </Link>
-          </div>
-          <nav className="hidden md:flex items-center space-x-8">
-            <Link href="/" className="hover:text-primary transition-colors">
-              Home
-            </Link>
-            <Link href="/producten" className="hover:text-primary transition-colors">
-              Producten
-            </Link>
-            <Link href="/designer-tool" className="text-primary font-semibold">
-              Designer Tool
-            </Link>
-            <Link href="/over-ons" className="hover:text-primary transition-colors">
-              Over Ons
-            </Link>
-            <Link href="/contact" className="hover:text-primary transition-colors">
-              Contact
-            </Link>
-          </nav>
-          <Link href="/offerte">
-            <Button className="bg-[#7ED321] hover:bg-[#6BC91A] text-black font-semibold">Offerte Aanvragen</Button>
-          </Link>
-        </div>
-      </header>
-
+    <div className="min-h-screen">
       {/* Main Content */}
       <div className="max-w-7xl mx-auto px-6 py-8">
         <div className="mb-8">
           <h1 className="text-4xl font-bold text-black mb-4">Vloer Designer</h1>
-          <p className="text-xl text-gray-600">Ontwerp uw eigen garagevloer met onze geventileerde PVC-tegels</p>
+          <p className="text-xl text-gray-600">
+            Ontwerp uw eigen garagevloer met onze geventileerde PVC-tegels
+          </p>
         </div>
 
         <div className="grid lg:grid-cols-4 gap-8">
@@ -313,7 +298,7 @@ PowerTiles - Transform Your Space. Unleash the Power.
                     step="0.1"
                     value={width}
                     onChange={(e) => {
-                      setWidth(Number.parseFloat(e.target.value) || 1)
+                      setWidth(Number.parseFloat(e.target.value) || 1);
                     }}
                   />
                 </div>
@@ -327,7 +312,7 @@ PowerTiles - Transform Your Space. Unleash the Power.
                     step="0.1"
                     value={length}
                     onChange={(e) => {
-                      setLength(Number.parseFloat(e.target.value) || 1)
+                      setLength(Number.parseFloat(e.target.value) || 1);
                     }}
                   />
                 </div>
@@ -345,8 +330,8 @@ PowerTiles - Transform Your Space. Unleash the Power.
                     </span>
                   </p>
                   <p className="text-xs text-gray-500">
-                    Grid weergave: {tiles.length} × {tiles[0]?.length || 0} = {tiles.length * (tiles[0]?.length || 0)}{" "}
-                    tegels
+                    Grid weergave: {tiles.length} × {tiles[0]?.length || 0} ={" "}
+                    {tiles.length * (tiles[0]?.length || 0)} tegels
                   </p>
                 </div>
               </CardContent>
@@ -377,13 +362,21 @@ PowerTiles - Transform Your Space. Unleash the Power.
                   ))}
                 </div>
                 <p className="text-sm text-gray-600 mb-4">
-                  Geselecteerd: <span className="font-semibold">{selectedColor.name}</span>
+                  Geselecteerd:{" "}
+                  <span className="font-semibold">{selectedColor.name}</span>
                 </p>
                 <div className="space-y-2">
-                  <Button onClick={fillAllTiles} className="w-full bg-[#7ED321] hover:bg-[#6BC91A] text-black">
+                  <Button
+                    onClick={fillAllTiles}
+                    className="w-full bg-[#7ED321] hover:bg-[#6BC91A] text-black"
+                  >
                     Alle Tegels Vullen
                   </Button>
-                  <Button onClick={createCheckerboard} variant="outline" className="w-full bg-transparent">
+                  <Button
+                    onClick={createCheckerboard}
+                    variant="outline"
+                    className="w-full bg-transparent"
+                  >
                     Schaakbord Patroon
                   </Button>
                 </div>
@@ -402,11 +395,15 @@ PowerTiles - Transform Your Space. Unleash the Power.
                 </div>
                 <div className="flex justify-between">
                   <span>Snijverlies ({wastePercentage}%):</span>
-                  <span className="font-semibold">{tilesWithWaste - totalTiles}</span>
+                  <span className="font-semibold">
+                    {tilesWithWaste - totalTiles}
+                  </span>
                 </div>
                 <div className="flex justify-between border-t pt-2">
                   <span className="font-semibold">Totaal bestellen:</span>
-                  <span className="font-bold text-primary">{tilesWithWaste}</span>
+                  <span className="font-bold text-primary">
+                    {tilesWithWaste}
+                  </span>
                 </div>
                 <Button className="w-full mt-4 bg-[#7ED321] hover:bg-[#6BC91A] text-black">
                   <Link
@@ -427,7 +424,10 @@ PowerTiles - Transform Your Space. Unleash the Power.
                 <div className="flex items-center justify-between">
                   <CardTitle>Uw Ontwerp</CardTitle>
                   <div className="flex gap-2">
-                    <Dialog open={showSaveDialog} onOpenChange={setShowSaveDialog}>
+                    <Dialog
+                      open={showSaveDialog}
+                      onOpenChange={setShowSaveDialog}
+                    >
                       <DialogTrigger asChild>
                         <Button variant="outline" size="sm">
                           <Save className="h-4 w-4 mr-2" />
@@ -449,10 +449,16 @@ PowerTiles - Transform Your Space. Unleash the Power.
                             />
                           </div>
                           <div className="flex gap-2">
-                            <Button onClick={saveDesign} className="bg-[#7ED321] hover:bg-[#6BC91A] text-black">
+                            <Button
+                              onClick={saveDesign}
+                              className="bg-[#7ED321] hover:bg-[#6BC91A] text-black"
+                            >
                               Opslaan
                             </Button>
-                            <Button variant="outline" onClick={() => setShowSaveDialog(false)}>
+                            <Button
+                              variant="outline"
+                              onClick={() => setShowSaveDialog(false)}
+                            >
                               Annuleren
                             </Button>
                           </div>
@@ -460,13 +466,21 @@ PowerTiles - Transform Your Space. Unleash the Power.
                       </DialogContent>
                     </Dialog>
 
-                    <Button variant="outline" size="sm" onClick={loadSavedDesigns}>
+                    <Button
+                      variant="outline"
+                      size="sm"
+                      onClick={loadSavedDesigns}
+                    >
                       <FolderOpen className="h-4 w-4 mr-2" />
                       Laden
                     </Button>
 
                     <div className="relative">
-                      <Button variant="outline" size="sm" onClick={exportDesign}>
+                      <Button
+                        variant="outline"
+                        size="sm"
+                        onClick={exportDesign}
+                      >
                         <Download className="h-4 w-4 mr-2" />
                         Exporteren
                       </Button>
@@ -500,10 +514,12 @@ PowerTiles - Transform Your Space. Unleash the Power.
                           }}
                           title={`${tile.colorName} (${rowIndex + 1}, ${colIndex + 1})`}
                         />
-                      )),
+                      ))
                     )}
                   </div>
-                  <p className="text-center text-sm text-gray-500 mt-4">Klik op een tegel om de kleur te wijzigen</p>
+                  <p className="text-center text-sm text-gray-500 mt-4">
+                    Klik op een tegel om de kleur te wijzigen
+                  </p>
                 </div>
               </CardContent>
             </Card>
@@ -517,14 +533,20 @@ PowerTiles - Transform Your Space. Unleash the Power.
             </DialogHeader>
             <div className="space-y-4 max-h-96 overflow-y-auto">
               {savedDesigns.length === 0 ? (
-                <p className="text-gray-500 text-center py-8">Geen opgeslagen ontwerpen gevonden</p>
+                <p className="text-gray-500 text-center py-8">
+                  Geen opgeslagen ontwerpen gevonden
+                </p>
               ) : (
                 savedDesigns.map((design) => (
-                  <div key={design.id} className="flex items-center justify-between p-4 border rounded-lg">
+                  <div
+                    key={design.id}
+                    className="flex items-center justify-between p-4 border rounded-lg"
+                  >
                     <div>
                       <h3 className="font-semibold">{design.name}</h3>
                       <p className="text-sm text-gray-600">
-                        {design.width}m × {design.length}m - {design.totalTiles} tegels - {design.date}
+                        {design.width}m × {design.length}m - {design.totalTiles}{" "}
+                        tegels - {design.date}
                       </p>
                     </div>
                     <div className="flex gap-2">
@@ -535,7 +557,11 @@ PowerTiles - Transform Your Space. Unleash the Power.
                       >
                         Laden
                       </Button>
-                      <Button size="sm" variant="outline" onClick={() => deleteDesign(design.id)}>
+                      <Button
+                        size="sm"
+                        variant="outline"
+                        onClick={() => deleteDesign(design.id)}
+                      >
                         Verwijderen
                       </Button>
                     </div>
@@ -547,5 +573,5 @@ PowerTiles - Transform Your Space. Unleash the Power.
         </Dialog>
       </div>
     </div>
-  )
+  );
 }

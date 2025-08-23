@@ -1,82 +1,59 @@
-"use client"
+"use client";
 
-import Image from "next/image"
-import Link from "next/link"
-import { Button } from "@/components/ui/button"
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
-import { Badge } from "@/components/ui/badge"
-import { Input } from "@/components/ui/input"
-import { Textarea } from "@/components/ui/textarea"
-import { Label } from "@/components/ui/label"
-import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group"
-import { ArrowRight, Mail, Phone, MapPin, Clock, MessageSquare, Wrench, Instagram } from "lucide-react"
-import { submitContactForm } from "@/lib/actions"
-import { useState } from "react"
+import Image from "next/image";
+import Link from "next/link";
+import { Button } from "@/components/ui/button";
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import { Badge } from "@/components/ui/badge";
+import { Input } from "@/components/ui/input";
+import { Textarea } from "@/components/ui/textarea";
+import { Label } from "@/components/ui/label";
+import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group";
+import {
+  ArrowRight,
+  Mail,
+  Phone,
+  MapPin,
+  Clock,
+  MessageSquare,
+  Wrench,
+  Instagram,
+} from "lucide-react";
+import { submitContactForm } from "@/lib/actions";
+import { useState } from "react";
 
 export default function ContactPage() {
-  const [isSubmitting, setIsSubmitting] = useState(false)
-  const [submitResult, setSubmitResult] = useState<{ success: boolean; message?: string; error?: string } | null>(null)
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [submitResult, setSubmitResult] = useState<{
+    success: boolean;
+    message?: string;
+    error?: string;
+  } | null>(null);
 
   async function handleSubmit(formData: FormData) {
-    setIsSubmitting(true)
-    setSubmitResult(null)
+    setIsSubmitting(true);
+    setSubmitResult(null);
 
-    const result = await submitContactForm(formData)
-    setSubmitResult(result)
-    setIsSubmitting(false)
+    const result = await submitContactForm(formData);
+    setSubmitResult(result);
+    setIsSubmitting(false);
 
     if (result.success) {
       // Reset form on success
-      const form = document.getElementById("contact-form") as HTMLFormElement
-      form?.reset()
+      const form = document.getElementById("contact-form") as HTMLFormElement;
+      form?.reset();
     }
   }
 
   return (
     <div className="min-h-screen">
-      {/* Header */}
-      <header className="bg-black text-muted py-4 px-6 sticky top-0 z-50">
-        <div className="max-w-7xl mx-auto flex items-center justify-between">
-          <div className="flex items-center space-x-4">
-            <Link href="/">
-              <Image
-                src="/powertiles-logo-complete.png"
-                alt="PowerTiles - Transform Your Space. Unleash the Power."
-                width={600}
-                height={180}
-                className="h-32 w-auto"
-              />
-            </Link>
-          </div>
-          <nav className="hidden md:flex items-center space-x-8">
-            <Link href="/" className="hover:text-primary transition-colors">
-              Home
-            </Link>
-            <Link href="/producten" className="hover:text-primary transition-colors">
-              Producten
-            </Link>
-            <Link href="/designer-tool" className="hover:text-primary transition-colors">
-              Designer Tool
-            </Link>
-            <Link href="/over-ons" className="hover:text-primary transition-colors">
-              Over Ons
-            </Link>
-            <Link href="/contact" className="text-primary font-semibold">
-              Contact
-            </Link>
-          </nav>
-          <Link href="/offerte">
-            <Button className="bg-[#7ED321] hover:bg-[#6BC91A] text-black font-semibold">Offerte Aanvragen</Button>
-          </Link>
-        </div>
-      </header>
-
       {/* Hero Section */}
       <section className="bg-black text-muted py-16">
         <div className="max-w-7xl mx-auto px-6 text-center">
           <h1 className="text-5xl font-bold mb-6">Contact</h1>
           <p className="text-xl text-gray-300 max-w-3xl mx-auto">
-            Heeft u vragen over onze producten of wilt u een offerte aanvragen? We staan klaar om u te helpen.
+            Heeft u vragen over onze producten of wilt u een offerte aanvragen?
+            We staan klaar om u te helpen.
           </p>
         </div>
       </section>
@@ -88,11 +65,15 @@ export default function ContactPage() {
             {/* Contact Form */}
             <div className="space-y-8">
               <div className="space-y-4">
-                <Badge className="bg-[#7ED321] text-black px-4 py-2 text-sm font-semibold">Contactformulier</Badge>
-                <h2 className="text-4xl font-bold text-black">Stuur ons een bericht</h2>
+                <Badge className="bg-[#7ED321] text-black px-4 py-2 text-sm font-semibold">
+                  Contactformulier
+                </Badge>
+                <h2 className="text-4xl font-bold text-black">
+                  Stuur ons een bericht
+                </h2>
                 <p className="text-xl text-gray-600">
-                  Heeft u vragen over onze producten of diensten? Vul het formulier in en we nemen zo snel mogelijk
-                  contact met u op.
+                  Heeft u vragen over onze producten of diensten? Vul het
+                  formulier in en we nemen zo snel mogelijk contact met u op.
                 </p>
               </div>
 
@@ -101,41 +82,71 @@ export default function ContactPage() {
                   <form
                     id="contact-form"
                     onSubmit={async (e) => {
-                      e.preventDefault()
-                      const formData = new FormData(e.currentTarget)
-                      await handleSubmit(formData)
+                      e.preventDefault();
+                      const formData = new FormData(e.currentTarget);
+                      await handleSubmit(formData);
                     }}
                     className="space-y-6"
                   >
                     <div className="grid md:grid-cols-2 gap-4">
                       <div className="space-y-2">
                         <Label htmlFor="firstName">Voornaam *</Label>
-                        <Input id="firstName" name="firstName" placeholder="Uw voornaam" required />
+                        <Input
+                          id="firstName"
+                          name="firstName"
+                          placeholder="Uw voornaam"
+                          required
+                        />
                       </div>
                       <div className="space-y-2">
                         <Label htmlFor="lastName">Achternaam *</Label>
-                        <Input id="lastName" name="lastName" placeholder="Uw achternaam" required />
+                        <Input
+                          id="lastName"
+                          name="lastName"
+                          placeholder="Uw achternaam"
+                          required
+                        />
                       </div>
                     </div>
 
                     <div className="space-y-2">
                       <Label htmlFor="email">E-mailadres *</Label>
-                      <Input id="email" name="email" type="email" placeholder="uw.email@voorbeeld.be" required />
+                      <Input
+                        id="email"
+                        name="email"
+                        type="email"
+                        placeholder="uw.email@voorbeeld.be"
+                        required
+                      />
                     </div>
 
                     <div className="space-y-2">
                       <Label htmlFor="phone">Telefoonnummer</Label>
-                      <Input id="phone" name="phone" type="tel" placeholder="+32 xxx xx xx xx" />
+                      <Input
+                        id="phone"
+                        name="phone"
+                        type="tel"
+                        placeholder="+32 xxx xx xx xx"
+                      />
                     </div>
 
                     <div className="space-y-2">
                       <Label htmlFor="subject">Onderwerp *</Label>
-                      <Input id="subject" name="subject" placeholder="Waar gaat uw vraag over?" required />
+                      <Input
+                        id="subject"
+                        name="subject"
+                        placeholder="Waar gaat uw vraag over?"
+                        required
+                      />
                     </div>
 
                     <div className="space-y-3">
                       <Label>Plaatsing voorkeur</Label>
-                      <RadioGroup name="installation" defaultValue="zelf" className="flex flex-col space-y-2">
+                      <RadioGroup
+                        name="installation"
+                        defaultValue="zelf"
+                        className="flex flex-col space-y-2"
+                      >
                         <div className="flex items-center space-x-2">
                           <RadioGroupItem value="zelf" id="zelf" />
                           <Label htmlFor="zelf" className="text-sm font-normal">
@@ -144,7 +155,10 @@ export default function ContactPage() {
                         </div>
                         <div className="flex items-center space-x-2">
                           <RadioGroupItem value="powertiles" id="powertiles" />
-                          <Label htmlFor="powertiles" className="text-sm font-normal">
+                          <Label
+                            htmlFor="powertiles"
+                            className="text-sm font-normal"
+                          >
                             PowerTiles moet de plaatsing verzorgen
                           </Label>
                         </div>
@@ -167,7 +181,9 @@ export default function ContactPage() {
                       disabled={isSubmitting}
                       className="w-full bg-[#7ED321] hover:bg-[#6BC91A] text-black font-semibold py-3"
                     >
-                      {isSubmitting ? "Bezig met versturen..." : "Bericht Versturen"}
+                      {isSubmitting
+                        ? "Bezig met versturen..."
+                        : "Bericht Versturen"}
                       <ArrowRight className="ml-2 h-5 w-5" />
                     </Button>
 
@@ -175,7 +191,9 @@ export default function ContactPage() {
                       <div
                         className={`p-4 rounded-lg ${submitResult.success ? "bg-green-50 text-green-800 border border-green-200" : "bg-red-50 text-red-800 border border-red-200"}`}
                       >
-                        {submitResult.success ? submitResult.message : submitResult.error}
+                        {submitResult.success
+                          ? submitResult.message
+                          : submitResult.error}
                       </div>
                     )}
                   </form>
@@ -186,19 +204,29 @@ export default function ContactPage() {
             {/* Company Information */}
             <div className="space-y-8">
               <div className="space-y-4">
-                <Badge className="bg-black text-primary px-4 py-2 text-sm font-semibold">Bedrijfsgegevens</Badge>
-                <h2 className="text-4xl font-bold text-black">PowerTiles België</h2>
-                <p className="text-xl text-gray-600">Uw betrouwbare partner voor premium modulaire PVC-vloeren</p>
+                <Badge className="bg-black text-primary px-4 py-2 text-sm font-semibold">
+                  Bedrijfsgegevens
+                </Badge>
+                <h2 className="text-4xl font-bold text-black">
+                  PowerTiles België
+                </h2>
+                <p className="text-xl text-gray-600">
+                  Uw betrouwbare partner voor premium modulaire PVC-vloeren
+                </p>
               </div>
 
               <Card className="border-2">
                 <CardContent className="p-8 space-y-6">
                   <div className="space-y-4">
-                    <h3 className="text-xl font-bold text-black">Contactgegevens</h3>
+                    <h3 className="text-xl font-bold text-black">
+                      Contactgegevens
+                    </h3>
                     <div className="space-y-3">
                       <div className="flex items-center space-x-3">
                         <Mail className="h-5 w-5 text-primary" />
-                        <span className="text-gray-700">info@powertiles.be</span>
+                        <span className="text-gray-700">
+                          info@powertiles.be
+                        </span>
                       </div>
                       <div className="flex items-center space-x-3">
                         <Phone className="h-5 w-5 text-primary" />
@@ -206,13 +234,17 @@ export default function ContactPage() {
                       </div>
                       <div className="flex items-center space-x-3">
                         <MapPin className="h-5 w-5 text-primary" />
-                        <span className="text-gray-700">BTW: BE 1024.559.728</span>
+                        <span className="text-gray-700">
+                          BTW: BE 1024.559.728
+                        </span>
                       </div>
                     </div>
                   </div>
 
                   <div className="border-t pt-6 space-y-4">
-                    <h3 className="text-xl font-bold text-black">Openingstijden</h3>
+                    <h3 className="text-xl font-bold text-black">
+                      Openingstijden
+                    </h3>
                     <div className="space-y-2">
                       <div className="flex justify-between">
                         <span className="text-gray-700">Maandag - Vrijdag</span>
@@ -230,15 +262,21 @@ export default function ContactPage() {
                   </div>
 
                   <div className="border-t pt-6 space-y-4">
-                    <h3 className="text-xl font-bold text-black">Onze Services</h3>
+                    <h3 className="text-xl font-bold text-black">
+                      Onze Services
+                    </h3>
                     <div className="space-y-3">
                       <div className="flex items-center space-x-3">
                         <MessageSquare className="h-5 w-5 text-primary" />
-                        <span className="text-gray-700">Gratis advies & offerte</span>
+                        <span className="text-gray-700">
+                          Gratis advies & offerte
+                        </span>
                       </div>
                       <div className="flex items-center space-x-3">
                         <Wrench className="h-5 w-5 text-primary" />
-                        <span className="text-gray-700">Professionele installatie</span>
+                        <span className="text-gray-700">
+                          Professionele installatie
+                        </span>
                       </div>
                       <div className="flex items-center space-x-3">
                         <Clock className="h-5 w-5 text-primary" />
@@ -269,7 +307,9 @@ export default function ContactPage() {
                 <div className="mx-auto mb-4 p-4 bg-[#7ED321] rounded-full w-16 h-16 flex items-center justify-center">
                   <Phone className="h-8 w-8 text-black" />
                 </div>
-                <CardTitle className="text-2xl font-bold text-black">Telefoon</CardTitle>
+                <CardTitle className="text-2xl font-bold text-black">
+                  Telefoon
+                </CardTitle>
               </CardHeader>
               <CardContent className="text-center space-y-4">
                 <p className="text-gray-600">Bel ons voor directe hulp</p>
@@ -288,7 +328,9 @@ export default function ContactPage() {
                 <div className="mx-auto mb-4 p-4 bg-black rounded-full w-16 h-16 flex items-center justify-center">
                   <Mail className="h-8 w-8 text-primary" />
                 </div>
-                <CardTitle className="text-2xl font-bold text-black">E-mail</CardTitle>
+                <CardTitle className="text-2xl font-bold text-black">
+                  E-mail
+                </CardTitle>
               </CardHeader>
               <CardContent className="text-center space-y-4">
                 <p className="text-gray-600">Stuur ons een bericht</p>
@@ -298,7 +340,9 @@ export default function ContactPage() {
                 >
                   info@powertiles.be
                 </a>
-                <p className="text-sm text-gray-500">We reageren binnen 24 uur</p>
+                <p className="text-sm text-gray-500">
+                  We reageren binnen 24 uur
+                </p>
               </CardContent>
             </Card>
 
@@ -307,11 +351,16 @@ export default function ContactPage() {
                 <div className="mx-auto mb-4 p-4 bg-[#7ED321] rounded-full w-16 h-16 flex items-center justify-center">
                   <Instagram className="h-8 w-8 text-black" />
                 </div>
-                <CardTitle className="text-2xl font-bold text-black">Social Media</CardTitle>
+                <CardTitle className="text-2xl font-bold text-black">
+                  Social Media
+                </CardTitle>
               </CardHeader>
               <CardContent className="text-center space-y-4">
                 <p className="text-gray-600">Volg ons voor inspiratie</p>
-                <a href="#" className="text-xl font-bold text-primary hover:text-[#6BC91A] transition-colors block">
+                <a
+                  href="#"
+                  className="text-xl font-bold text-primary hover:text-[#6BC91A] transition-colors block"
+                >
                   @PowerTiles
                 </a>
                 <p className="text-sm text-gray-500">Projectfoto's & tips</p>
@@ -325,57 +374,69 @@ export default function ContactPage() {
       <section className="py-20 bg-white">
         <div className="max-w-7xl mx-auto px-6">
           <div className="text-center mb-16">
-            <h2 className="text-4xl font-bold text-black mb-4">Veelgestelde Vragen</h2>
+            <h2 className="text-4xl font-bold text-black mb-4">
+              Veelgestelde Vragen
+            </h2>
             <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-              Hier vindt u antwoorden op de meest gestelde vragen over onze producten en diensten
+              Hier vindt u antwoorden op de meest gestelde vragen over onze
+              producten en diensten
             </p>
           </div>
 
           <div className="grid md:grid-cols-2 gap-8">
             <Card className="border-2">
               <CardHeader>
-                <CardTitle className="text-xl text-black">Bieden jullie ook installatie aan?</CardTitle>
+                <CardTitle className="text-xl text-black">
+                  Bieden jullie ook installatie aan?
+                </CardTitle>
               </CardHeader>
               <CardContent>
                 <p className="text-gray-600">
-                  Ja, we bieden optionele professionele installatie door onze ervaren monteurs. Dit zorgt voor een
-                  perfect eindresultaat en bespaart u tijd.
+                  Ja, we bieden optionele professionele installatie door onze
+                  ervaren monteurs. Dit zorgt voor een perfect eindresultaat en
+                  bespaart u tijd.
                 </p>
               </CardContent>
             </Card>
 
             <Card className="border-2">
               <CardHeader>
-                <CardTitle className="text-xl text-black">Hoe lang duurt de levering?</CardTitle>
+                <CardTitle className="text-xl text-black">
+                  Hoe lang duurt de levering?
+                </CardTitle>
               </CardHeader>
               <CardContent>
                 <p className="text-gray-600">
-                  Standaard producten leveren we binnen 5-10 werkdagen. Voor speciale kleuren of grote projecten kan dit
-                  iets langer duren.
+                  Standaard producten leveren we binnen 5-10 werkdagen. Voor
+                  speciale kleuren of grote projecten kan dit iets langer duren.
                 </p>
               </CardContent>
             </Card>
 
             <Card className="border-2">
               <CardHeader>
-                <CardTitle className="text-xl text-black">Kan ik eerst een monster ontvangen?</CardTitle>
+                <CardTitle className="text-xl text-black">
+                  Kan ik eerst een monster ontvangen?
+                </CardTitle>
               </CardHeader>
               <CardContent>
                 <p className="text-gray-600">
-                  Natuurlijk! We versturen graag gratis monsters zodat u de kwaliteit en kleur kunt beoordelen voordat u
-                  bestelt.
+                  Natuurlijk! We versturen graag gratis monsters zodat u de
+                  kwaliteit en kleur kunt beoordelen voordat u bestelt.
                 </p>
               </CardContent>
             </Card>
 
             <Card className="border-2">
               <CardHeader>
-                <CardTitle className="text-xl text-black">Wat is de garantie op de vloeren?</CardTitle>
+                <CardTitle className="text-xl text-black">
+                  Wat is de garantie op de vloeren?
+                </CardTitle>
               </CardHeader>
               <CardContent>
                 <p className="text-gray-600">
-                  Onze premium PVC-vloeren komen met uitgebreide garantie. De exacte voorwaarden bespreken we graag
-                  tijdens uw offerte.
+                  Onze premium PVC-vloeren komen met uitgebreide garantie. De
+                  exacte voorwaarden bespreken we graag tijdens uw offerte.
                 </p>
               </CardContent>
             </Card>
@@ -388,11 +449,15 @@ export default function ContactPage() {
         <div className="max-w-4xl mx-auto text-center px-6">
           <h2 className="text-4xl font-bold mb-6">Klaar om te starten?</h2>
           <p className="text-xl text-gray-300 mb-8 max-w-2xl mx-auto">
-            Neem vandaag nog contact met ons op voor een vrijblijvende offerte of persoonlijk advies.
+            Neem vandaag nog contact met ons op voor een vrijblijvende offerte
+            of persoonlijk advies.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Link href="/offerte">
-              <Button size="lg" className="bg-[#7ED321] hover:bg-[#6BC91A] text-black font-semibold px-8">
+              <Button
+                size="lg"
+                className="bg-[#7ED321] hover:bg-[#6BC91A] text-black font-semibold px-8"
+              >
                 Offerte Aanvragen
                 <ArrowRight className="ml-2 h-5 w-5" />
               </Button>
@@ -410,98 +475,6 @@ export default function ContactPage() {
           </div>
         </div>
       </section>
-
-      {/* Footer */}
-      <footer className="py-12 bg-white text-black">
-        <div className="max-w-7xl mx-auto px-6">
-          <div className="grid md:grid-cols-4 gap-8">
-            <div className="space-y-4">
-              <Link href="/">
-                <Image
-                  src="/powertiles-logo-footer.png"
-                  alt="PowerTiles"
-                  width={300}
-                  height={90}
-                  className="h-12 w-auto"
-                />
-              </Link>
-              <p className="text-muted-foreground">
-                Premium modulaire PVC-klikvloeren voor garages, home gyms en werkplaatsen.
-              </p>
-            </div>
-
-            <div>
-              <h3 className="text-lg font-semibold mb-4 text-primary">Contact</h3>
-              <div className="space-y-2 text-muted-foreground">
-                <p>info@powertiles.be</p>
-                <p>+32 475 21 96 35</p>
-                <p>BTW: BE 1024.559.728</p>
-              </div>
-            </div>
-
-            <div>
-              <h3 className="text-lg font-semibold mb-4 text-primary">Producten</h3>
-              <ul className="space-y-2 text-muted-foreground">
-                <li>
-                  <Link href="/producten" className="hover:text-muted transition-colors">
-                    Geventileerde Tegels
-                  </Link>
-                </li>
-                <li>
-                  <Link href="/producten" className="hover:text-muted transition-colors">
-                    Gladde Kliktegels
-                  </Link>
-                </li>
-                <li>
-                  <Link href="/producten" className="hover:text-muted transition-colors">
-                    Gym Vloer
-                  </Link>
-                </li>
-                <li>
-                  <Link href="/producten" className="hover:text-muted transition-colors">
-                    LED-verlichting
-                  </Link>
-                </li>
-                <li>
-                  <Link href="/producten" className="hover:text-muted transition-colors">
-                    Accessoires
-                  </Link>
-                </li>
-              </ul>
-            </div>
-
-            <div>
-              <h3 className="text-lg font-semibold mb-4 text-primary">Service</h3>
-              <ul className="space-y-2 text-muted-foreground">
-                <li>
-                  <Link href="/offerte" className="hover:text-muted transition-colors">
-                    Offerte Aanvragen
-                  </Link>
-                </li>
-                <li>
-                  <Link href="/contact" className="hover:text-muted transition-colors">
-                    Installatie Service
-                  </Link>
-                </li>
-                <li>
-                  <Link href="/over-ons" className="hover:text-muted transition-colors">
-                    Over PowerTiles
-                  </Link>
-                </li>
-                <li>
-                  <Link href="/contact" className="hover:text-muted transition-colors">
-                    Contact
-                  </Link>
-                </li>
-              </ul>
-            </div>
-          </div>
-
-          <div className="border-t border-gray-800 mt-8 pt-8 text-center text-muted-foreground">
-            <p>&copy; {new Date().getFullYear()} PowerTiles. Alle rechten voorbehouden.</p>
-          </div>
-        </div>
-      </footer>
     </div>
-  )
+  );
 }
