@@ -17,7 +17,7 @@ export default function RandstukkenAccessoiresPage() {
   return (
     <div className="min-h-screen">
       {/* Breadcrumb */}
-      <div className="bg-white py-4 px-6 border-b">
+      <div className="bg-foreground py-4 px-6 border-b">
         <div className="max-w-7xl mx-auto flex items-center space-x-2 text-sm">
           <Link href="/" className="text-gray-500 hover:text-primary">
             Home
@@ -34,7 +34,7 @@ export default function RandstukkenAccessoiresPage() {
       </div>
 
       {/* Hero Section */}
-      <section className="py-16 bg-white">
+      <section className="py-16 bg-foreground">
         <div className="max-w-7xl mx-auto px-6">
           <div className="grid lg:grid-cols-2 gap-12 items-center">
             <div className="space-y-6">
@@ -80,7 +80,7 @@ export default function RandstukkenAccessoiresPage() {
       </section>
 
       {/* Product Details */}
-      <section className="py-16 bg-gray-50">
+      <section className="py-16 text-accent">
         <div className="max-w-7xl mx-auto px-6">
           <div className="grid lg:grid-cols-3 gap-8">
             {/* Description */}
@@ -379,7 +379,7 @@ export default function RandstukkenAccessoiresPage() {
                     <div className="aspect-square bg-red-600 rounded border-2 border-gray-300"></div>
                     <div className="aspect-square bg-green-600 rounded border-2 border-gray-300"></div>
                     <div className="aspect-square bg-yellow-600 rounded border-2 border-gray-300"></div>
-                    <div className="aspect-square bg-white rounded border-2 border-gray-300"></div>
+                    <div className="aspect-square bg-foreground rounded border-2 border-gray-300"></div>
                     <div className="aspect-square bg-orange-600 rounded border-2 border-gray-300"></div>
                   </div>
                 </CardContent>
@@ -433,7 +433,7 @@ export default function RandstukkenAccessoiresPage() {
               asChild
               variant="outline"
               size="lg"
-              className="border-white text-muted hover:bg-white hover:text-black bg-transparent"
+              className="border-white text-muted hover:bg-foreground hover:text-black bg-transparent"
             >
               <Link href="/contact">Contact Opnemen</Link>
             </Button>

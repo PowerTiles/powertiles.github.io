@@ -26,7 +26,7 @@ export default function ProductenPage() {
       </section>
 
       {/* Products Grid */}
-      <section className="py-20 bg-white">
+      <section className="py-20 bg-foreground">
         <div className="max-w-7xl mx-auto px-6">
           <div className="grid lg:grid-cols-3 gap-8">
             {/* Geventileerde PVC-tegels */}
@@ -354,7 +354,7 @@ export default function ProductenPage() {
               <Button
                 size="lg"
                 variant="outline"
-                className="border-white text-muted hover:bg-white hover:text-black bg-transparent"
+                className="border-white text-muted hover:bg-foreground hover:text-black bg-transparent"
               >
                 Contact Opnemen
               </Button>

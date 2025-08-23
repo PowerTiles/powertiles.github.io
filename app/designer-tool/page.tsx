@@ -492,7 +492,7 @@ PowerTiles - Transform Your Space. Unleash the Power.
                 </div>
               </CardHeader>
               <CardContent>
-                <div className="bg-white border rounded-lg p-4 overflow-auto">
+                <div className="bg-foreground border rounded-lg p-4 overflow-auto">
                   <div
                     ref={gridRef}
                     className="grid gap-1 mx-auto"

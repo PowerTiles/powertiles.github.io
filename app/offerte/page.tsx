@@ -112,7 +112,7 @@ export default function OffertePage() {
                   Uw Designer Tool Ontwerp
                 </CardTitle>
               </CardHeader>
-              <CardContent className="p-6 bg-white">
+              <CardContent className="p-6 bg-foreground">
                 <div className="grid md:grid-cols-2 gap-6">
                   <div>
                     <h4 className="font-semibold text-black mb-2">
@@ -150,7 +150,7 @@ export default function OffertePage() {
       )}
 
       {/* Benefits */}
-      <section className="py-16 bg-gray-50">
+      <section className="py-16 text-accent">
         <div className="max-w-7xl mx-auto px-6">
           <div className="grid md:grid-cols-4 gap-6">
             <div className="text-center space-y-3">
@@ -186,7 +186,7 @@ export default function OffertePage() {
       </section>
 
       {/* Quote Form */}
-      <section className="py-20 bg-white">
+      <section className="py-20 bg-foreground">
         <div className="max-w-4xl mx-auto px-6">
           <div className="text-center mb-12">
             <h2 className="text-4xl font-bold text-black mb-4">
@@ -199,7 +199,7 @@ export default function OffertePage() {
           </div>
 
           <Card className="border-2 border-gray-200">
-            <CardHeader className="bg-gray-50">
+            <CardHeader className="text-accent">
               <CardTitle className="text-2xl text-black text-center">
                 Offerteformulier
               </CardTitle>
@@ -447,7 +447,7 @@ export default function OffertePage() {
 
       {/* ... existing code for rest of the page ... */}
       {/* What Happens Next */}
-      <section className="py-20 bg-gray-50">
+      <section className="py-20 text-accent">
         <div className="max-w-7xl mx-auto px-6">
           <div className="text-center mb-16">
             <h2 className="text-4xl font-bold text-black mb-4">
@@ -510,7 +510,7 @@ export default function OffertePage() {
       </section>
 
       {/* Testimonials */}
-      <section className="py-20 bg-white">
+      <section className="py-20 bg-foreground">
         <div className="max-w-7xl mx-auto px-6">
           <div className="text-center mb-16">
             <h2 className="text-4xl font-bold text-black mb-4">
@@ -587,7 +587,7 @@ export default function OffertePage() {
               <Button
                 size="lg"
                 variant="outline"
-                className="border-white text-muted hover:bg-white hover:text-black bg-transparent"
+                className="border-white text-muted hover:bg-foreground hover:text-black bg-transparent"
               >
                 Direct Bellen
               </Button>

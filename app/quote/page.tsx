@@ -36,9 +36,9 @@ export default function QuotePage() {
     return (
       <div className="min-h-screen">
         {/* Success Message */}
-        <div className="py-20 bg-gray-50">
+        <div className="py-20 text-accent">
           <div className="max-w-2xl mx-auto px-6 text-center">
-            <div className="bg-white rounded-lg shadow-xl p-12">
+            <div className="bg-foreground rounded-lg shadow-xl p-12">
               <div className="w-20 h-20 bg-[#7ED321] rounded-full flex items-center justify-center mx-auto mb-6">
                 <CheckCircle className="h-10 w-10 text-black" />
               </div>
@@ -50,7 +50,7 @@ export default function QuotePage() {
                 uur contact met u op om uw project te bespreken en een
                 gepersonaliseerde offerte op te stellen.
               </p>
-              <div className="space-y-4 text-left bg-gray-50 p-6 rounded-lg mb-8">
+              <div className="space-y-4 text-left text-accent p-6 rounded-lg mb-8">
                 <h3 className="font-semibold text-black">Wat gebeurt er nu?</h3>
                 <ul className="space-y-2 text-gray-600">
                   <li className="flex items-center">
@@ -92,7 +92,7 @@ export default function QuotePage() {
   return (
     <div className="min-h-screen">
       {/* Quote Form */}
-      <div className="py-12 bg-gray-50">
+      <div className="py-12 text-accent">
         <div className="max-w-4xl mx-auto px-6">
           <div className="mb-8">
             <Button

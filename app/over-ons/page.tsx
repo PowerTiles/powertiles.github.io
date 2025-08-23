@@ -29,7 +29,7 @@ export default function OverOnsPage() {
       </section>
 
       {/* Company Story */}
-      <section className="py-20 bg-white">
+      <section className="py-20 bg-foreground">
         <div className="max-w-7xl mx-auto px-6">
           <div className="grid lg:grid-cols-2 gap-12 items-center">
             <div className="space-y-8">
@@ -68,7 +68,7 @@ export default function OverOnsPage() {
       </section>
 
       {/* Mission & Vision */}
-      <section className="py-20 bg-gray-50">
+      <section className="py-20 text-accent">
         <div className="max-w-7xl mx-auto px-6">
           <div className="text-center mb-16">
             <h2 className="text-4xl font-bold text-black mb-4">
@@ -124,7 +124,7 @@ export default function OverOnsPage() {
       </section>
 
       {/* Why Choose PowerTiles */}
-      <section className="py-20 bg-white">
+      <section className="py-20 bg-foreground">
         <div className="max-w-7xl mx-auto px-6">
           <div className="text-center mb-16">
             <Badge className="bg-[#7ED321] text-black px-4 py-2 text-sm font-semibold mb-6">
@@ -196,7 +196,7 @@ export default function OverOnsPage() {
       </section>
 
       {/* Our Values */}
-      <section className="py-20 bg-gray-50">
+      <section className="py-20 text-accent">
         <div className="max-w-7xl mx-auto px-6">
           <div className="text-center mb-16">
             <h2 className="text-4xl font-bold text-black mb-4">Onze Waarden</h2>
@@ -255,7 +255,7 @@ export default function OverOnsPage() {
       </section>
 
       {/* Company Info */}
-      <section className="py-20 bg-white">
+      <section className="py-20 bg-foreground">
         <div className="max-w-7xl mx-auto px-6">
           <div className="grid lg:grid-cols-2 gap-12 items-center">
             <div className="space-y-8">
@@ -321,7 +321,7 @@ export default function OverOnsPage() {
               <Button
                 size="lg"
                 variant="outline"
-                className="border-white text-muted hover:bg-white hover:text-black bg-transparent"
+                className="border-white text-muted hover:bg-foreground hover:text-black bg-transparent"
               >
                 Contact Opnemen
               </Button>

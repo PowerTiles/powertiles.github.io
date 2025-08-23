@@ -17,7 +17,7 @@ export default function HexagonaleLEDVerlichtingPage() {
   return (
     <div className="min-h-screen">
       {/* Breadcrumb */}
-      <div className="bg-white py-4 px-6 border-b">
+      <div className="bg-foreground py-4 px-6 border-b">
         <div className="max-w-7xl mx-auto flex items-center space-x-2 text-sm">
           <Link href="/" className="text-gray-500 hover:text-primary">
             Home
@@ -34,7 +34,7 @@ export default function HexagonaleLEDVerlichtingPage() {
       </div>
 
       {/* Hero Section */}
-      <section className="py-16 bg-white">
+      <section className="py-16 bg-foreground">
         <div className="max-w-7xl mx-auto px-6">
           <div className="grid lg:grid-cols-2 gap-12 items-center">
             <div className="space-y-6">
@@ -80,7 +80,7 @@ export default function HexagonaleLEDVerlichtingPage() {
       </section>
 
       {/* Product Details */}
-      <section className="py-16 bg-gray-50">
+      <section className="py-16 text-accent">
         <div className="max-w-7xl mx-auto px-6">
           <div className="grid lg:grid-cols-3 gap-8">
             {/* Description */}
@@ -271,7 +271,7 @@ export default function HexagonaleLEDVerlichtingPage() {
                   </p>
                   <div className="space-y-2">
                     <div className="flex items-center space-x-2">
-                      <div className="w-4 h-4 bg-white border rounded"></div>
+                      <div className="w-4 h-4 bg-foreground border rounded"></div>
                       <span className="text-sm text-gray-700">
                         Warm wit (3000K)
                       </span>
@@ -340,7 +340,7 @@ export default function HexagonaleLEDVerlichtingPage() {
               asChild
               variant="outline"
               size="lg"
-              className="border-white text-muted hover:bg-white hover:text-black bg-transparent"
+              className="border-white text-muted hover:bg-foreground hover:text-black bg-transparent"
             >
               <Link href="/contact">Contact Opnemen</Link>
             </Button>

@@ -1,43 +1,60 @@
-import Image from "next/image"
-import Link from "next/link"
-import { Button } from "@/components/ui/button"
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
-import { Badge } from "@/components/ui/badge"
-import { CheckCircle, Star, ArrowRight, Wrench, Dumbbell, Car } from "lucide-react"
+import Image from "next/image";
+import Link from "next/link";
+import { Button } from "@/components/ui/button";
+import {
+  Card,
+  CardContent,
+  CardDescription,
+  CardFooter,
+  CardHeader,
+  CardTitle,
+} from "@/components/ui/card";
+import { Badge } from "@/components/ui/badge";
+import {
+  CheckCircle,
+  Star,
+  ArrowRight,
+  Wrench,
+  Dumbbell,
+  Car,
+} from "lucide-react";
 
 export default function HomePage() {
   return (
     <div className="min-h-screen">
       {/* Hero Section */}
-      <section id="home" className="bg-black text-muted py-20 relative overflow-hidden">
+      <section id="home" className="text-muted py-20 relative overflow-hidden">
         <div className="max-w-7xl mx-auto px-6">
           <div className="grid lg:grid-cols-2 gap-12 items-center">
-            <div className="space-y-8">
+            <div className="space-y-12">
               <div className="space-y-4">
-                <Badge className="bg-[#7ED321] text-black px-4 py-2 text-sm font-semibold">
+                <Badge
+                  variant="outline"
+                  className="px-4 py-2 text-sm font-semibold"
+                >
                   Premium Modulaire Vloeren
                 </Badge>
                 <h1 className="text-5xl lg:text-6xl font-bold leading-tight">
                   Premium modular floors for garages and home gyms
                 </h1>
-                <p className="text-xl text-gray-300 leading-relaxed">
-                  Transformeer uw garage, home gym of werkplaats met onze hoogwaardige PVC-klikvloeren. Kracht, luxe en
+                <p className="text-xl text-muted-foreground leading-relaxed">
+                  Transformeer uw garage, home gym of werkplaats met onze
+                  hoogwaardige PVC-klikvloeren. Kracht, luxe en
                   professionaliteit in elke tegel.
                 </p>
               </div>
-              <div className="flex flex-col sm:flex-row gap-4">
+              <div className="flex flex-col min-[440px]:flex-row gap-4">
                 <Link href="/offerte">
-                  <Button size="lg" className="bg-[#7ED321] hover:bg-[#6BC91A] text-black font-semibold px-8">
+                  <Button
+                    size="lg"
+                    className="text-background font-semibold px-8"
+                  >
                     Vraag Offerte Aan
                     <ArrowRight className="ml-2 h-5 w-5" />
                   </Button>
                 </Link>
                 <Link href="/designer-tool">
-                  <Button
-                    size="lg"
-                    variant="outline"
-                    className="border-white text-muted hover:bg-white hover:text-black bg-transparent"
-                  >
+                  <Button size="lg" variant="outline">
                     Probeer Designer Tool
                   </Button>
                 </Link>
@@ -50,7 +67,7 @@ export default function HomePage() {
                   alt="Premium PVC garage flooring with green sports car"
                   width={800}
                   height={600}
-                  className="w-full h-auto object-cover"
+                  className="max-h-[400px] w-full h-auto object-cover"
                 />
               </div>
             </div>
@@ -59,24 +76,30 @@ export default function HomePage() {
       </section>
 
       {/* Service Tiles */}
-      <section className="py-20 bg-gray-50">
+      <section className="py-20 bg-accent">
         <div className="max-w-7xl mx-auto px-6">
           <div className="text-center mb-16">
-            <h2 className="text-4xl font-bold text-black mb-4">Onze Specialisaties</h2>
+            <h2 className="text-4xl font-bold text-background mb-4">
+              Onze Specialisaties
+            </h2>
             <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-              PowerTiles biedt premium modulaire vloeroplossingen voor verschillende toepassingen
+              PowerTiles biedt premium modulaire vloeroplossingen voor
+              verschillende toepassingen
             </p>
           </div>
 
           <div className="grid md:grid-cols-3 gap-8">
-            <Card className="group hover:shadow-xl transition-all duration-300 border-2 hover:border-[#7ED321]">
+            <Card className="group justify-between hover:shadow-xl transition-all duration-300 border-2 hover:border-primary">
               <CardHeader className="text-center pb-4">
-                <div className="mx-auto mb-4 p-4 bg-black rounded-full w-16 h-16 flex items-center justify-center group-hover:bg-[#7ED321] transition-colors">
-                  <Car className="h-8 w-8 text-muted group-hover:text-black" />
+                <div className="mx-auto mb-4 p-4 bg-background rounded-full w-16 h-16 flex items-center justify-center group-hover:bg-primary transition-colors">
+                  <Car className="h-8 w-8 text-muted group-hover:text-background" />
                 </div>
-                <CardTitle className="text-2xl font-bold text-black">Voor Garages</CardTitle>
+                <CardTitle className="text-2xl font-bold text-background">
+                  Voor Garages
+                </CardTitle>
                 <CardDescription className="text-gray-600">
-                  Professionele vloeren die bestand zijn tegen olie, chemicaliën en zware belasting
+                  Professionele vloeren die bestand zijn tegen olie, chemicaliën
+                  en zware belasting
                 </CardDescription>
               </CardHeader>
               <CardContent className="space-y-4">
@@ -94,20 +117,27 @@ export default function HomePage() {
                     Eenvoudige reiniging
                   </li>
                 </ul>
-                <Link href="/producten">
-                  <Button className="w-full bg-[#7ED321] hover:bg-[#6BC91A] text-black font-semibold">Meer Info</Button>
-                </Link>
               </CardContent>
+              <CardFooter>
+                <Link href="/producten" className="w-full">
+                  <Button className="w-full">
+                    Meer Info
+                  </Button>
+                </Link>
+              </CardFooter>
             </Card>
 
-            <Card className="group hover:shadow-xl transition-all duration-300 border-2 hover:border-[#7ED321]">
+            <Card className="group justify-between hover:shadow-xl transition-all duration-300 border-2 hover:border-primary">
               <CardHeader className="text-center pb-4">
-                <div className="mx-auto mb-4 p-4 bg-black rounded-full w-16 h-16 flex items-center justify-center group-hover:bg-[#7ED321] transition-colors">
-                  <Dumbbell className="h-8 w-8 text-muted group-hover:text-black" />
+                <div className="mx-auto mb-4 p-4 bg-background rounded-full w-16 h-16 flex items-center justify-center group-hover:bg-primary transition-colors">
+                  <Dumbbell className="h-8 w-8 text-muted group-hover:text-background" />
                 </div>
-                <CardTitle className="text-2xl font-bold text-black">Voor Home Gyms</CardTitle>
+                <CardTitle className="text-2xl font-bold text-background">
+                  Voor Home Gyms
+                </CardTitle>
                 <CardDescription className="text-gray-600">
-                  Schokabsorberende vloeren perfect voor fitness en krachttraining
+                  Schokabsorberende vloeren perfect voor fitness en
+                  krachttraining
                 </CardDescription>
               </CardHeader>
               <CardContent className="space-y-4">
@@ -125,18 +155,24 @@ export default function HomePage() {
                     Antislip oppervlak
                   </li>
                 </ul>
-                <Link href="/producten">
-                  <Button className="w-full bg-[#7ED321] hover:bg-[#6BC91A] text-black font-semibold">Meer Info</Button>
-                </Link>
               </CardContent>
+              <CardFooter>
+                <Link href="/producten" className="w-full">
+                  <Button className="w-full">
+                    Meer Info
+                  </Button>
+                </Link>
+              </CardFooter>
             </Card>
 
-            <Card className="group hover:shadow-xl transition-all duration-300 border-2 hover:border-[#7ED321]">
+            <Card className="group justify-between hover:shadow-xl transition-all duration-300 border-2 hover:border-primary">
               <CardHeader className="text-center pb-4">
-                <div className="mx-auto mb-4 p-4 bg-black rounded-full w-16 h-16 flex items-center justify-center group-hover:bg-[#7ED321] transition-colors">
-                  <Wrench className="h-8 w-8 text-muted group-hover:text-black" />
+                <div className="mx-auto mb-4 p-4 bg-background rounded-full w-16 h-16 flex items-center justify-center group-hover:bg-primary transition-colors">
+                  <Wrench className="h-8 w-8 text-muted group-hover:text-background" />
                 </div>
-                <CardTitle className="text-2xl font-bold text-black">Voor Werkplaatsen</CardTitle>
+                <CardTitle className="text-2xl font-bold text-background">
+                  Voor Werkplaatsen
+                </CardTitle>
                 <CardDescription className="text-gray-600">
                   Duurzame vloeren voor industriële en professionele omgevingen
                 </CardDescription>
@@ -156,22 +192,29 @@ export default function HomePage() {
                     Professionele uitstraling
                   </li>
                 </ul>
-                <Link href="/producten">
-                  <Button className="w-full bg-[#7ED321] hover:bg-[#6BC91A] text-black font-semibold">Meer Info</Button>
-                </Link>
               </CardContent>
+              <CardFooter>
+                <Link href="/producten" className="w-full">
+                  <Button className="w-full">
+                    Meer Info
+                  </Button>
+                </Link>
+              </CardFooter>
             </Card>
           </div>
         </div>
       </section>
 
       {/* Products Section */}
-      <section id="products" className="py-20 bg-white">
+      <section id="products" className="py-20 bg-foreground">
         <div className="max-w-7xl mx-auto px-6">
           <div className="text-center mb-16">
-            <h2 className="text-4xl font-bold text-black mb-4">Onze Producten</h2>
+            <h2 className="text-4xl font-bold text-background mb-4">
+              Onze Producten
+            </h2>
             <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-              Ontdek ons uitgebreid assortiment hoogwaardige PVC-klikvloeren en accessoires
+              Ontdek ons uitgebreid assortiment hoogwaardige PVC-klikvloeren en
+              accessoires
             </p>
           </div>
 
@@ -186,14 +229,22 @@ export default function HomePage() {
                     height={300}
                     className="w-full h-48 object-cover group-hover:scale-105 transition-transform duration-300"
                   />
-                  <Badge className="absolute top-4 left-4 bg-[#7ED321] text-black">Populair</Badge>
+                  <Badge className="absolute top-4 left-4 bg-primary text-background">
+                    Populair
+                  </Badge>
                 </div>
                 <CardHeader className="flex-grow">
-                  <CardTitle className="text-black">Geventileerde PVC-tegels</CardTitle>
-                  <CardDescription>Perfect voor garages met drainage en ventilatie</CardDescription>
+                  <CardTitle className="text-background">
+                    Geventileerde PVC-tegels
+                  </CardTitle>
+                  <CardDescription>
+                    Perfect voor garages met drainage en ventilatie
+                  </CardDescription>
                 </CardHeader>
                 <CardContent className="mt-auto">
-                  <Button className="w-full bg-black hover:bg-gray-800 text-muted">Meer Info</Button>
+                  <Button className="w-full bg-background hover:bg-gray-800 text-muted">
+                    Meer Info
+                  </Button>
                 </CardContent>
               </Card>
             </Link>
@@ -210,11 +261,17 @@ export default function HomePage() {
                   />
                 </div>
                 <CardHeader className="flex-grow">
-                  <CardTitle className="text-black">Gladde Kliktegels</CardTitle>
-                  <CardDescription>Voor lichte en zware belasting toepassingen</CardDescription>
+                  <CardTitle className="text-background">
+                    Gladde Kliktegels
+                  </CardTitle>
+                  <CardDescription>
+                    Voor lichte en zware belasting toepassingen
+                  </CardDescription>
                 </CardHeader>
                 <CardContent className="mt-auto">
-                  <Button className="w-full bg-black hover:bg-gray-800 text-muted">Meer Info</Button>
+                  <Button className="w-full bg-background hover:bg-gray-800 text-muted">
+                    Meer Info
+                  </Button>
                 </CardContent>
               </Card>
             </Link>
@@ -229,22 +286,30 @@ export default function HomePage() {
                     height={300}
                     className="w-full h-48 object-cover group-hover:scale-105 transition-transform duration-300"
                   />
-                  <Badge className="absolute top-4 left-4 bg-[#7ED321] text-black">Fitness</Badge>
+                  <Badge className="absolute top-4 left-4 bg-primary text-background">
+                    Fitness
+                  </Badge>
                 </div>
                 <CardHeader className="flex-grow">
-                  <CardTitle className="text-black">Gym Vloer</CardTitle>
+                  <CardTitle className="text-background">Gym Vloer</CardTitle>
                   <CardDescription>
-                    Extra hard geperste rubbertegels, bestand tegen zware gewichten. Geschikt voor fitness en CrossFit
-                    met geluidsreductie en luchtkwaliteitcertificaat.
+                    Extra hard geperste rubbertegels, bestand tegen zware
+                    gewichten. Geschikt voor fitness en CrossFit met
+                    geluidsreductie en luchtkwaliteitcertificaat.
                   </CardDescription>
                 </CardHeader>
                 <CardContent className="mt-auto">
-                  <Button className="w-full bg-black hover:bg-gray-800 text-muted">Meer Info</Button>
+                  <Button className="w-full bg-background hover:bg-gray-800 text-muted">
+                    Meer Info
+                  </Button>
                 </CardContent>
               </Card>
             </Link>
 
-            <Link href="/producten/hexagonale-led-verlichting" className="block">
+            <Link
+              href="/producten/hexagonale-led-verlichting"
+              className="block"
+            >
               <Card className="group hover:shadow-xl transition-all duration-300 flex flex-col h-full cursor-pointer">
                 <div className="relative overflow-hidden">
                   <Image
@@ -254,14 +319,22 @@ export default function HomePage() {
                     height={300}
                     className="w-full h-48 object-cover group-hover:scale-105 transition-transform duration-300"
                   />
-                  <Badge className="absolute top-4 left-4 bg-[#7ED321] text-black">Nieuw</Badge>
+                  <Badge className="absolute top-4 left-4 bg-primary text-background">
+                    Nieuw
+                  </Badge>
                 </div>
                 <CardHeader className="flex-grow">
-                  <CardTitle className="text-black">Hexagonale LED-verlichting</CardTitle>
-                  <CardDescription>Innovatieve verlichtingsoplossingen</CardDescription>
+                  <CardTitle className="text-background">
+                    Hexagonale LED-verlichting
+                  </CardTitle>
+                  <CardDescription>
+                    Innovatieve verlichtingsoplossingen
+                  </CardDescription>
                 </CardHeader>
                 <CardContent className="mt-auto">
-                  <Button className="w-full bg-black hover:bg-gray-800 text-muted">Meer Info</Button>
+                  <Button className="w-full bg-background hover:bg-gray-800 text-muted">
+                    Meer Info
+                  </Button>
                 </CardContent>
               </Card>
             </Link>
@@ -278,11 +351,17 @@ export default function HomePage() {
                   />
                 </div>
                 <CardHeader className="flex-grow">
-                  <CardTitle className="text-black">Randstukken & Accessoires</CardTitle>
-                  <CardDescription>Complete afwerking voor uw vloer</CardDescription>
+                  <CardTitle className="text-background">
+                    Randstukken & Accessoires
+                  </CardTitle>
+                  <CardDescription>
+                    Complete afwerking voor uw vloer
+                  </CardDescription>
                 </CardHeader>
                 <CardContent className="mt-auto">
-                  <Button className="w-full bg-black hover:bg-gray-800 text-muted">Meer Info</Button>
+                  <Button className="w-full bg-background hover:bg-gray-800 text-muted">
+                    Meer Info
+                  </Button>
                 </CardContent>
               </Card>
             </Link>
@@ -291,47 +370,64 @@ export default function HomePage() {
       </section>
 
       {/* Why Choose PowerTiles */}
-      <section className="py-20 bg-gray-50">
+      <section className="py-20 text-accent bg-accent">
         <div className="max-w-7xl mx-auto px-6">
           <div className="grid lg:grid-cols-2 gap-12 items-center">
             <div className="space-y-8">
               <div className="space-y-4">
-                <Badge className="bg-[#7ED321] text-black px-4 py-2 text-sm font-semibold">Waarom PowerTiles?</Badge>
-                <h2 className="text-4xl font-bold text-black">Kwaliteit die het verschil maakt</h2>
+                <Badge className="px-4 py-2 text-sm font-semibold">
+                  Waarom PowerTiles?
+                </Badge>
+                <h2 className="text-4xl font-bold text-background">
+                  Kwaliteit die het verschil maakt
+                </h2>
                 <p className="text-xl text-gray-600 leading-relaxed">
-                  Bij PowerTiles kiezen we bewust voor premium kwaliteit boven goedkope alternatieven. Onze vloeren zijn
-                  een investering die jarenlang meegaat.
+                  Bij PowerTiles kiezen we bewust voor premium kwaliteit boven
+                  goedkope alternatieven. Onze vloeren zijn een investering die
+                  jarenlang meegaat.
                 </p>
               </div>
 
               <div className="space-y-6">
                 <div className="flex items-start space-x-4">
-                  <div className="flex-shrink-0 w-12 h-12 bg-[#7ED321] rounded-full flex items-center justify-center">
-                    <Star className="h-6 w-6 text-black" />
+                  <div className="flex-shrink-0 w-12 h-12 bg-primary rounded-full flex items-center justify-center">
+                    <Star className="h-6 w-6 text-background" />
                   </div>
                   <div>
-                    <h3 className="text-xl font-semibold text-black mb-2">Premium Materialen</h3>
-                    <p className="text-gray-600">Alleen de beste PVC-materialen voor maximale duurzaamheid</p>
+                    <h3 className="text-xl font-semibold text-background mb-2">
+                      Premium Materialen
+                    </h3>
+                    <p className="text-gray-600">
+                      Alleen de beste PVC-materialen voor maximale duurzaamheid
+                    </p>
                   </div>
                 </div>
 
                 <div className="flex items-start space-x-4">
-                  <div className="flex-shrink-0 w-12 h-12 bg-[#7ED321] rounded-full flex items-center justify-center">
-                    <CheckCircle className="h-6 w-6 text-black" />
+                  <div className="flex-shrink-0 w-12 h-12 bg-primary rounded-full flex items-center justify-center">
+                    <CheckCircle className="h-6 w-6 text-background" />
                   </div>
                   <div>
-                    <h3 className="text-xl font-semibold text-black mb-2">Professionele Installatie</h3>
-                    <p className="text-gray-600">Optionele vakkundige plaatsing door onze ervaren monteurs</p>
+                    <h3 className="text-xl font-semibold text-background mb-2">
+                      Professionele Installatie
+                    </h3>
+                    <p className="text-gray-600">
+                      Optionele vakkundige plaatsing door onze ervaren monteurs
+                    </p>
                   </div>
                 </div>
 
                 <div className="flex items-start space-x-4">
-                  <div className="flex-shrink-0 w-12 h-12 bg-[#7ED321] rounded-full flex items-center justify-center">
-                    <Wrench className="h-6 w-6 text-black" />
+                  <div className="flex-shrink-0 w-12 h-12 bg-primary rounded-full flex items-center justify-center">
+                    <Wrench className="h-6 w-6 text-background" />
                   </div>
                   <div>
-                    <h3 className="text-xl font-semibold text-black mb-2">Belgische Kwaliteit</h3>
-                    <p className="text-gray-600">Lokale service en ondersteuning voor al uw vragen</p>
+                    <h3 className="text-xl font-semibold text-background mb-2">
+                      Belgische Kwaliteit
+                    </h3>
+                    <p className="text-gray-600">
+                      Lokale service en ondersteuning voor al uw vragen
+                    </p>
                   </div>
                 </div>
               </div>
@@ -353,12 +449,18 @@ export default function HomePage() {
       {/* CTA Section */}
       <section className="py-20 bg-muted/60 text-muted">
         <div className="max-w-4xl mx-auto text-center px-6">
-          <h2 className="text-4xl font-bold mb-6">Klaar om uw ruimte te transformeren?</h2>
+          <h2 className="text-4xl font-bold mb-6">
+            Klaar om uw ruimte te transformeren?
+          </h2>
           <p className="text-xl text-gray-300 mb-8 max-w-2xl mx-auto">
-            Vraag vandaag nog een vrijblijvende offerte aan en ontdek wat PowerTiles voor u kan betekenen.
+            Vraag vandaag nog een vrijblijvende offerte aan en ontdek wat
+            PowerTiles voor u kan betekenen.
           </p>
           <Link href="/offerte">
-            <Button size="lg" className="bg-[#7ED321] hover:bg-[#6BC91A] text-black font-semibold px-12 py-4 text-lg">
+            <Button
+              size="lg"
+              className="bg-primary hover:bg-[#6BC91A] text-background font-semibold px-12 py-4 text-lg"
+            >
               Offerte Aanvragen
               <ArrowRight className="ml-2 h-6 w-6" />
             </Button>
@@ -366,5 +468,5 @@ export default function HomePage() {
         </div>
       </section>
     </div>
-  )
+  );
 }

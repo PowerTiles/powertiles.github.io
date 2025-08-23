@@ -59,7 +59,7 @@ export default function ContactPage() {
       </section>
 
       {/* Contact Form & Company Info */}
-      <section className="py-20 bg-gray-50">
+      <section className="py-20 text-accent">
         <div className="max-w-7xl mx-auto px-6">
           <div className="grid lg:grid-cols-2 gap-12">
             {/* Contact Form */}
@@ -299,7 +299,7 @@ export default function ContactPage() {
       </section>
 
       {/* Contact Information */}
-      <section className="py-20 bg-white">
+      <section className="py-20 bg-foreground">
         <div className="max-w-7xl mx-auto px-6">
           <div className="grid lg:grid-cols-3 gap-8 mb-16">
             <Card className="group hover:shadow-xl transition-all duration-300 border-2 hover:border-[#7ED321]">
@@ -371,7 +371,7 @@ export default function ContactPage() {
       </section>
 
       {/* FAQ Section */}
-      <section className="py-20 bg-white">
+      <section className="py-20 bg-foreground">
         <div className="max-w-7xl mx-auto px-6">
           <div className="text-center mb-16">
             <h2 className="text-4xl font-bold text-black mb-4">
@@ -466,7 +466,7 @@ export default function ContactPage() {
               <Button
                 size="lg"
                 variant="outline"
-                className="border-white text-muted hover:bg-white hover:text-black bg-transparent"
+                className="border-white text-muted hover:bg-foreground hover:text-black bg-transparent"
               >
                 <Phone className="mr-2 h-5 w-5" />
                 Direct Bellen
