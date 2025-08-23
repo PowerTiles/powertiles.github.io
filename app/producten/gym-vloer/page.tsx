@@ -9,7 +9,7 @@ export default function GymVloerPage() {
   return (
     <div className="min-h-screen bg-gray-50">
       {/* Header */}
-      <header className="bg-black text-white py-4 px-6 sticky top-0 z-50">
+      <header className="bg-black text-muted py-4 px-6 sticky top-0 z-50">
         <div className="max-w-7xl mx-auto flex items-center justify-between">
           <div className="flex items-center space-x-4">
             <Link href="/">
@@ -23,19 +23,19 @@ export default function GymVloerPage() {
             </Link>
           </div>
           <nav className="hidden md:flex space-x-8">
-            <Link href="/" className="hover:text-[#7ED321] transition-colors">
+            <Link href="/" className="hover:text-primary transition-colors">
               Home
             </Link>
-            <Link href="/producten" className="text-[#7ED321]">
+            <Link href="/producten" className="text-primary">
               Producten
             </Link>
-            <Link href="/designer-tool" className="hover:text-[#7ED321] transition-colors">
+            <Link href="/designer-tool" className="hover:text-primary transition-colors">
               Designer Tool
             </Link>
-            <Link href="/over-ons" className="hover:text-[#7ED321] transition-colors">
+            <Link href="/over-ons" className="hover:text-primary transition-colors">
               Over Ons
             </Link>
-            <Link href="/contact" className="hover:text-[#7ED321] transition-colors">
+            <Link href="/contact" className="hover:text-primary transition-colors">
               Contact
             </Link>
           </nav>
@@ -48,14 +48,14 @@ export default function GymVloerPage() {
       {/* Breadcrumb */}
       <div className="bg-white py-4 px-6 border-b">
         <div className="max-w-7xl mx-auto flex items-center space-x-2 text-sm">
-          <Link href="/" className="text-gray-500 hover:text-[#7ED321]">
+          <Link href="/" className="text-gray-500 hover:text-primary">
             Home
           </Link>
-          <span className="text-gray-400">/</span>
-          <Link href="/producten" className="text-gray-500 hover:text-[#7ED321]">
+          <span className="text-muted-foreground">/</span>
+          <Link href="/producten" className="text-gray-500 hover:text-primary">
             Producten
           </Link>
-          <span className="text-gray-400">/</span>
+          <span className="text-muted-foreground">/</span>
           <span className="text-gray-900 font-medium">Gym Vloer</span>
         </div>
       </div>
@@ -67,7 +67,7 @@ export default function GymVloerPage() {
             <div className="space-y-6">
               <Link
                 href="/producten"
-                className="inline-flex items-center text-[#7ED321] hover:text-[#6BC91A] transition-colors"
+                className="inline-flex items-center text-primary hover:text-[#6BC91A] transition-colors"
               >
                 <ArrowLeft className="h-4 w-4 mr-2" />
                 Terug naar Producten
@@ -161,19 +161,19 @@ export default function GymVloerPage() {
                       <h4 className="font-semibold text-black">Fitness & Training</h4>
                       <ul className="space-y-2">
                         <li className="flex items-start space-x-2">
-                          <CheckCircle className="h-5 w-5 text-[#7ED321] mt-0.5 flex-shrink-0" />
+                          <CheckCircle className="h-5 w-5 text-primary mt-0.5 flex-shrink-0" />
                           <span className="text-gray-700">Home gyms</span>
                         </li>
                         <li className="flex items-start space-x-2">
-                          <CheckCircle className="h-5 w-5 text-[#7ED321] mt-0.5 flex-shrink-0" />
+                          <CheckCircle className="h-5 w-5 text-primary mt-0.5 flex-shrink-0" />
                           <span className="text-gray-700">CrossFit boxes</span>
                         </li>
                         <li className="flex items-start space-x-2">
-                          <CheckCircle className="h-5 w-5 text-[#7ED321] mt-0.5 flex-shrink-0" />
+                          <CheckCircle className="h-5 w-5 text-primary mt-0.5 flex-shrink-0" />
                           <span className="text-gray-700">Gewichthefruimtes</span>
                         </li>
                         <li className="flex items-start space-x-2">
-                          <CheckCircle className="h-5 w-5 text-[#7ED321] mt-0.5 flex-shrink-0" />
+                          <CheckCircle className="h-5 w-5 text-primary mt-0.5 flex-shrink-0" />
                           <span className="text-gray-700">Functionele training</span>
                         </li>
                       </ul>
@@ -182,19 +182,19 @@ export default function GymVloerPage() {
                       <h4 className="font-semibold text-black">Commercieel</h4>
                       <ul className="space-y-2">
                         <li className="flex items-start space-x-2">
-                          <CheckCircle className="h-5 w-5 text-[#7ED321] mt-0.5 flex-shrink-0" />
+                          <CheckCircle className="h-5 w-5 text-primary mt-0.5 flex-shrink-0" />
                           <span className="text-gray-700">Fitnesscentra</span>
                         </li>
                         <li className="flex items-start space-x-2">
-                          <CheckCircle className="h-5 w-5 text-[#7ED321] mt-0.5 flex-shrink-0" />
+                          <CheckCircle className="h-5 w-5 text-primary mt-0.5 flex-shrink-0" />
                           <span className="text-gray-700">Sportscholen</span>
                         </li>
                         <li className="flex items-start space-x-2">
-                          <CheckCircle className="h-5 w-5 text-[#7ED321] mt-0.5 flex-shrink-0" />
+                          <CheckCircle className="h-5 w-5 text-primary mt-0.5 flex-shrink-0" />
                           <span className="text-gray-700">Revalidatiecentra</span>
                         </li>
                         <li className="flex items-start space-x-2">
-                          <CheckCircle className="h-5 w-5 text-[#7ED321] mt-0.5 flex-shrink-0" />
+                          <CheckCircle className="h-5 w-5 text-primary mt-0.5 flex-shrink-0" />
                           <span className="text-gray-700">Sportcomplexen</span>
                         </li>
                       </ul>
@@ -247,7 +247,7 @@ export default function GymVloerPage() {
               <Card>
                 <CardHeader>
                   <CardTitle className="text-xl text-black flex items-center">
-                    <Palette className="h-5 w-5 mr-2 text-[#7ED321]" />
+                    <Palette className="h-5 w-5 mr-2 text-primary" />
                     Beschikbare Kleuren
                   </CardTitle>
                 </CardHeader>
@@ -266,7 +266,7 @@ export default function GymVloerPage() {
               <Card>
                 <CardHeader>
                   <CardTitle className="text-xl text-black flex items-center">
-                    <Camera className="h-5 w-5 mr-2 text-[#7ED321]" />
+                    <Camera className="h-5 w-5 mr-2 text-primary" />
                     Fotogalerij
                   </CardTitle>
                 </CardHeader>
@@ -274,10 +274,10 @@ export default function GymVloerPage() {
                   <p className="text-gray-600 text-sm">Upload hier extra productfoto's en installatie-voorbeelden</p>
                   <div className="mt-4 grid grid-cols-2 gap-2">
                     <div className="aspect-square bg-gray-200 rounded flex items-center justify-center">
-                      <Camera className="h-8 w-8 text-gray-400" />
+                      <Camera className="h-8 w-8 text-muted-foreground" />
                     </div>
                     <div className="aspect-square bg-gray-200 rounded flex items-center justify-center">
-                      <Camera className="h-8 w-8 text-gray-400" />
+                      <Camera className="h-8 w-8 text-muted-foreground" />
                     </div>
                   </div>
                 </CardContent>
@@ -288,7 +288,7 @@ export default function GymVloerPage() {
       </section>
 
       {/* CTA Section */}
-      <section className="py-16 bg-black text-white">
+      <section className="py-16 bg-black text-muted">
         <div className="max-w-4xl mx-auto px-6 text-center space-y-8">
           <h2 className="text-3xl lg:text-4xl font-bold">Klaar voor uw professionele gym vloer?</h2>
           <p className="text-xl text-gray-300">
@@ -302,7 +302,7 @@ export default function GymVloerPage() {
               asChild
               variant="outline"
               size="lg"
-              className="border-white text-white hover:bg-white hover:text-black bg-transparent"
+              className="border-white text-muted hover:bg-white hover:text-black bg-transparent"
             >
               <Link href="/contact">Contact Opnemen</Link>
             </Button>
@@ -322,7 +322,7 @@ export default function GymVloerPage() {
                 height={54}
                 className="h-10 w-auto"
               />
-              <p className="text-gray-400">
+              <p className="text-muted-foreground">
                 Premium modulaire PVC-klikvloeren voor garages, home gyms en werkplaatsen.
               </p>
             </div>
@@ -330,22 +330,22 @@ export default function GymVloerPage() {
               <h4 className="font-semibold text-black">Producten</h4>
               <ul className="space-y-2 text-gray-600">
                 <li>
-                  <Link href="/producten/geventileerde-pvc-tegels" className="hover:text-[#7ED321]">
+                  <Link href="/producten/geventileerde-pvc-tegels" className="hover:text-primary">
                     Geventileerde PVC-tegels
                   </Link>
                 </li>
                 <li>
-                  <Link href="/producten/gladde-kliktegels" className="hover:text-[#7ED321]">
+                  <Link href="/producten/gladde-kliktegels" className="hover:text-primary">
                     Gladde Kliktegels
                   </Link>
                 </li>
                 <li>
-                  <Link href="/producten/gym-vloer" className="hover:text-[#7ED321]">
+                  <Link href="/producten/gym-vloer" className="hover:text-primary">
                     Gym Vloer
                   </Link>
                 </li>
                 <li>
-                  <Link href="/producten/hexagonale-led-verlichting" className="hover:text-[#7ED321]">
+                  <Link href="/producten/hexagonale-led-verlichting" className="hover:text-primary">
                     LED-verlichting
                   </Link>
                 </li>
@@ -355,17 +355,17 @@ export default function GymVloerPage() {
               <h4 className="font-semibold text-black">Bedrijf</h4>
               <ul className="space-y-2 text-gray-600">
                 <li>
-                  <Link href="/over-ons" className="hover:text-[#7ED321]">
+                  <Link href="/over-ons" className="hover:text-primary">
                     Over Ons
                   </Link>
                 </li>
                 <li>
-                  <Link href="/contact" className="hover:text-[#7ED321]">
+                  <Link href="/contact" className="hover:text-primary">
                     Contact
                   </Link>
                 </li>
                 <li>
-                  <Link href="/offerte" className="hover:text-[#7ED321]">
+                  <Link href="/offerte" className="hover:text-primary">
                     Offerte
                   </Link>
                 </li>

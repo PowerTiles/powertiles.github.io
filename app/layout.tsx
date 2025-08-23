@@ -3,6 +3,7 @@ import type { Metadata } from "next"
 import { Space_Grotesk, DM_Sans } from "next/font/google"
 import "./globals.css"
 import { Header } from "@/components/layout/header"
+import { Footer } from "@/components/layout/footer"
 
 const spaceGrotesk = Space_Grotesk({
   subsets: ["latin"],
@@ -32,6 +33,7 @@ export default function RootLayout({
       <body>
         <Header/>
         {children}
+        <Footer/>
       </body>
     </html>
   )

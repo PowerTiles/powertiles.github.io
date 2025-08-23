@@ -9,7 +9,7 @@ export default function HomePage() {
   return (
     <div className="min-h-screen">
       {/* Hero Section */}
-      <section id="home" className="bg-black text-white py-20 relative overflow-hidden">
+      <section id="home" className="bg-black text-muted py-20 relative overflow-hidden">
         <div className="max-w-7xl mx-auto px-6">
           <div className="grid lg:grid-cols-2 gap-12 items-center">
             <div className="space-y-8">
@@ -36,7 +36,7 @@ export default function HomePage() {
                   <Button
                     size="lg"
                     variant="outline"
-                    className="border-white text-white hover:bg-white hover:text-black bg-transparent"
+                    className="border-white text-muted hover:bg-white hover:text-black bg-transparent"
                   >
                     Probeer Designer Tool
                   </Button>
@@ -72,7 +72,7 @@ export default function HomePage() {
             <Card className="group hover:shadow-xl transition-all duration-300 border-2 hover:border-[#7ED321]">
               <CardHeader className="text-center pb-4">
                 <div className="mx-auto mb-4 p-4 bg-black rounded-full w-16 h-16 flex items-center justify-center group-hover:bg-[#7ED321] transition-colors">
-                  <Car className="h-8 w-8 text-white group-hover:text-black" />
+                  <Car className="h-8 w-8 text-muted group-hover:text-black" />
                 </div>
                 <CardTitle className="text-2xl font-bold text-black">Voor Garages</CardTitle>
                 <CardDescription className="text-gray-600">
@@ -82,15 +82,15 @@ export default function HomePage() {
               <CardContent className="space-y-4">
                 <ul className="space-y-2">
                   <li className="flex items-center text-gray-700">
-                    <CheckCircle className="h-5 w-5 text-[#7ED321] mr-2" />
+                    <CheckCircle className="h-5 w-5 text-primary mr-2" />
                     Oliebestendig
                   </li>
                   <li className="flex items-center text-gray-700">
-                    <CheckCircle className="h-5 w-5 text-[#7ED321] mr-2" />
+                    <CheckCircle className="h-5 w-5 text-primary mr-2" />
                     Zware belasting
                   </li>
                   <li className="flex items-center text-gray-700">
-                    <CheckCircle className="h-5 w-5 text-[#7ED321] mr-2" />
+                    <CheckCircle className="h-5 w-5 text-primary mr-2" />
                     Eenvoudige reiniging
                   </li>
                 </ul>
@@ -103,7 +103,7 @@ export default function HomePage() {
             <Card className="group hover:shadow-xl transition-all duration-300 border-2 hover:border-[#7ED321]">
               <CardHeader className="text-center pb-4">
                 <div className="mx-auto mb-4 p-4 bg-black rounded-full w-16 h-16 flex items-center justify-center group-hover:bg-[#7ED321] transition-colors">
-                  <Dumbbell className="h-8 w-8 text-white group-hover:text-black" />
+                  <Dumbbell className="h-8 w-8 text-muted group-hover:text-black" />
                 </div>
                 <CardTitle className="text-2xl font-bold text-black">Voor Home Gyms</CardTitle>
                 <CardDescription className="text-gray-600">
@@ -113,15 +113,15 @@ export default function HomePage() {
               <CardContent className="space-y-4">
                 <ul className="space-y-2">
                   <li className="flex items-center text-gray-700">
-                    <CheckCircle className="h-5 w-5 text-[#7ED321] mr-2" />
+                    <CheckCircle className="h-5 w-5 text-primary mr-2" />
                     Schokabsorberend
                   </li>
                   <li className="flex items-center text-gray-700">
-                    <CheckCircle className="h-5 w-5 text-[#7ED321] mr-2" />
+                    <CheckCircle className="h-5 w-5 text-primary mr-2" />
                     Geluidsdemping
                   </li>
                   <li className="flex items-center text-gray-700">
-                    <CheckCircle className="h-5 w-5 text-[#7ED321] mr-2" />
+                    <CheckCircle className="h-5 w-5 text-primary mr-2" />
                     Antislip oppervlak
                   </li>
                 </ul>
@@ -134,7 +134,7 @@ export default function HomePage() {
             <Card className="group hover:shadow-xl transition-all duration-300 border-2 hover:border-[#7ED321]">
               <CardHeader className="text-center pb-4">
                 <div className="mx-auto mb-4 p-4 bg-black rounded-full w-16 h-16 flex items-center justify-center group-hover:bg-[#7ED321] transition-colors">
-                  <Wrench className="h-8 w-8 text-white group-hover:text-black" />
+                  <Wrench className="h-8 w-8 text-muted group-hover:text-black" />
                 </div>
                 <CardTitle className="text-2xl font-bold text-black">Voor Werkplaatsen</CardTitle>
                 <CardDescription className="text-gray-600">
@@ -144,15 +144,15 @@ export default function HomePage() {
               <CardContent className="space-y-4">
                 <ul className="space-y-2">
                   <li className="flex items-center text-gray-700">
-                    <CheckCircle className="h-5 w-5 text-[#7ED321] mr-2" />
+                    <CheckCircle className="h-5 w-5 text-primary mr-2" />
                     Chemicaliënbestendig
                   </li>
                   <li className="flex items-center text-gray-700">
-                    <CheckCircle className="h-5 w-5 text-[#7ED321] mr-2" />
+                    <CheckCircle className="h-5 w-5 text-primary mr-2" />
                     Slijtvast
                   </li>
                   <li className="flex items-center text-gray-700">
-                    <CheckCircle className="h-5 w-5 text-[#7ED321] mr-2" />
+                    <CheckCircle className="h-5 w-5 text-primary mr-2" />
                     Professionele uitstraling
                   </li>
                 </ul>
@@ -193,7 +193,7 @@ export default function HomePage() {
                   <CardDescription>Perfect voor garages met drainage en ventilatie</CardDescription>
                 </CardHeader>
                 <CardContent className="mt-auto">
-                  <Button className="w-full bg-black hover:bg-gray-800 text-white">Meer Info</Button>
+                  <Button className="w-full bg-black hover:bg-gray-800 text-muted">Meer Info</Button>
                 </CardContent>
               </Card>
             </Link>
@@ -214,7 +214,7 @@ export default function HomePage() {
                   <CardDescription>Voor lichte en zware belasting toepassingen</CardDescription>
                 </CardHeader>
                 <CardContent className="mt-auto">
-                  <Button className="w-full bg-black hover:bg-gray-800 text-white">Meer Info</Button>
+                  <Button className="w-full bg-black hover:bg-gray-800 text-muted">Meer Info</Button>
                 </CardContent>
               </Card>
             </Link>
@@ -239,7 +239,7 @@ export default function HomePage() {
                   </CardDescription>
                 </CardHeader>
                 <CardContent className="mt-auto">
-                  <Button className="w-full bg-black hover:bg-gray-800 text-white">Meer Info</Button>
+                  <Button className="w-full bg-black hover:bg-gray-800 text-muted">Meer Info</Button>
                 </CardContent>
               </Card>
             </Link>
@@ -261,7 +261,7 @@ export default function HomePage() {
                   <CardDescription>Innovatieve verlichtingsoplossingen</CardDescription>
                 </CardHeader>
                 <CardContent className="mt-auto">
-                  <Button className="w-full bg-black hover:bg-gray-800 text-white">Meer Info</Button>
+                  <Button className="w-full bg-black hover:bg-gray-800 text-muted">Meer Info</Button>
                 </CardContent>
               </Card>
             </Link>
@@ -282,7 +282,7 @@ export default function HomePage() {
                   <CardDescription>Complete afwerking voor uw vloer</CardDescription>
                 </CardHeader>
                 <CardContent className="mt-auto">
-                  <Button className="w-full bg-black hover:bg-gray-800 text-white">Meer Info</Button>
+                  <Button className="w-full bg-black hover:bg-gray-800 text-muted">Meer Info</Button>
                 </CardContent>
               </Card>
             </Link>
@@ -351,7 +351,7 @@ export default function HomePage() {
       </section>
 
       {/* CTA Section */}
-      <section className="py-20 bg-black text-white">
+      <section className="py-20 bg-muted/60 text-muted">
         <div className="max-w-4xl mx-auto text-center px-6">
           <h2 className="text-4xl font-bold mb-6">Klaar om uw ruimte te transformeren?</h2>
           <p className="text-xl text-gray-300 mb-8 max-w-2xl mx-auto">
@@ -366,100 +366,6 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* Footer */}
-      <footer className="py-12 bg-white text-black">
-        <div className="max-w-7xl mx-auto px-6">
-          <div className="grid md:grid-cols-4 gap-8">
-            <div className="space-y-4">
-              <Image
-                src="/powertiles-logo-footer.png"
-                alt="PowerTiles"
-                width={300}
-                height={90}
-                className="h-12 w-auto"
-              />
-              <p className="text-gray-400">
-                Premium modulaire PVC-klikvloeren voor garages, home gyms en werkplaatsen.
-              </p>
-            </div>
-
-            <div>
-              <h3 className="text-lg font-semibold mb-4 text-[#7ED321]">Contact</h3>
-              <div className="space-y-2 text-gray-400">
-                <p>info@powertiles.be</p>
-                <p>+32 475 21 96 35</p>
-                <p>BTW: BE 1024.559.728</p>
-              </div>
-            </div>
-
-            <div>
-              <h3 className="text-lg font-semibold mb-4 text-[#7ED321]">Producten</h3>
-              <ul className="space-y-2 text-gray-400">
-                <li>
-                  <Link href="/producten" className="hover:text-white transition-colors">
-                    Geventileerde Tegels
-                  </Link>
-                </li>
-                <li>
-                  <Link href="/producten" className="hover:text-white transition-colors">
-                    Gladde Kliktegels
-                  </Link>
-                </li>
-                <li>
-                  <Link href="/producten" className="hover:text-white transition-colors">
-                    Gym Vloer
-                  </Link>
-                </li>
-                <li>
-                  <Link href="/producten" className="hover:text-white transition-colors">
-                    LED-verlichting
-                  </Link>
-                </li>
-                <li>
-                  <Link href="/producten" className="hover:text-white transition-colors">
-                    Accessoires
-                  </Link>
-                </li>
-              </ul>
-            </div>
-
-            <div>
-              <h3 className="text-lg font-semibold mb-4 text-[#7ED321]">Service</h3>
-              <ul className="space-y-2 text-gray-400">
-                <li>
-                  <Link href="/designer-tool" className="hover:text-white transition-colors">
-                    Vloer Designer Tool
-                  </Link>
-                </li>
-                <li>
-                  <Link href="/offerte" className="hover:text-white transition-colors">
-                    Offerte Aanvragen
-                  </Link>
-                </li>
-                <li>
-                  <Link href="/contact" className="hover:text-white transition-colors">
-                    Installatie Service
-                  </Link>
-                </li>
-                <li>
-                  <Link href="/over-ons" className="hover:text-white transition-colors">
-                    Over PowerTiles
-                  </Link>
-                </li>
-                <li>
-                  <Link href="/contact" className="hover:text-white transition-colors">
-                    Contact
-                  </Link>
-                </li>
-              </ul>
-            </div>
-          </div>
-
-          <div className="border-t border-gray-800 mt-8 pt-8 text-center text-gray-400">
-            <p>&copy; {new Date().getFullYear()} PowerTiles. Alle rechten voorbehouden.</p>
-          </div>
-        </div>
-      </footer>
     </div>
   )
 }

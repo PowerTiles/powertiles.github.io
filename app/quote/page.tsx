@@ -24,7 +24,7 @@ export default function QuotePage() {
     return (
       <div className="min-h-screen bg-white">
         {/* Header */}
-        <header className="bg-black text-white py-4 px-6">
+        <header className="bg-black text-muted py-4 px-6">
           <div className="max-w-7xl mx-auto flex items-center justify-between">
             <div className="flex items-center space-x-4">
               <Image
@@ -36,10 +36,10 @@ export default function QuotePage() {
               />
             </div>
             <nav className="hidden md:flex items-center space-x-8">
-              <Link href="/" className="hover:text-[#7ED321] transition-colors">Home</Link>
-              <Link href="#products" className="hover:text-[#7ED321] transition-colors">Producten</Link>
-              <Link href="#about" className="hover:text-[#7ED321] transition-colors">Over Ons</Link>
-              <Link href="#contact" className="hover:text-[#7ED321] transition-colors">Contact</Link>
+              <Link href="/" className="hover:text-primary transition-colors">Home</Link>
+              <Link href="#products" className="hover:text-primary transition-colors">Producten</Link>
+              <Link href="#about" className="hover:text-primary transition-colors">Over Ons</Link>
+              <Link href="#contact" className="hover:text-primary transition-colors">Contact</Link>
             </nav>
           </div>
         </header>
@@ -60,15 +60,15 @@ export default function QuotePage() {
                 <h3 className="font-semibold text-black">Wat gebeurt er nu?</h3>
                 <ul className="space-y-2 text-gray-600">
                   <li className="flex items-center">
-                    <CheckCircle className="h-5 w-5 text-[#7ED321] mr-2" />
+                    <CheckCircle className="h-5 w-5 text-primary mr-2" />
                     Wij bekijken uw aanvraag binnen 2 uur
                   </li>
                   <li className="flex items-center">
-                    <CheckCircle className="h-5 w-5 text-[#7ED321] mr-2" />
+                    <CheckCircle className="h-5 w-5 text-primary mr-2" />
                     Een specialist neemt contact met u op
                   </li>
                   <li className="flex items-center">
-                    <CheckCircle className="h-5 w-5 text-[#7ED321] mr-2" />
+                    <CheckCircle className="h-5 w-5 text-primary mr-2" />
                     U ontvangt een gedetailleerde offerte
                   </li>
                 </ul>
@@ -77,7 +77,7 @@ export default function QuotePage() {
                 <Button asChild className="bg-[#7ED321] hover:bg-[#6BC91A] text-black font-semibold">
                   <Link href="/">Terug naar Home</Link>
                 </Button>
-                <Button asChild variant="outline" className="border-black text-black hover:bg-black hover:text-white">
+                <Button asChild variant="outline" className="border-black text-black hover:bg-black hover:text-muted">
                   <Link href="#contact">Contact Opnemen</Link>
                 </Button>
               </div>
@@ -91,7 +91,7 @@ export default function QuotePage() {
   return (
     <div className="min-h-screen bg-white">
       {/* Header */}
-      <header className="bg-black text-white py-4 px-6">
+      <header className="bg-black text-muted py-4 px-6">
         <div className="max-w-7xl mx-auto flex items-center justify-between">
           <div className="flex items-center space-x-4">
             <Image
@@ -103,10 +103,10 @@ export default function QuotePage() {
             />
           </div>
           <nav className="hidden md:flex items-center space-x-8">
-            <Link href="/" className="hover:text-[#7ED321] transition-colors">Home</Link>
-            <Link href="#products" className="hover:text-[#7ED321] transition-colors">Producten</Link>
-            <Link href="#about" className="hover:text-[#7ED321] transition-colors">Over Ons</Link>
-            <Link href="#contact" className="hover:text-[#7ED321] transition-colors">Contact</Link>
+            <Link href="/" className="hover:text-primary transition-colors">Home</Link>
+            <Link href="#products" className="hover:text-primary transition-colors">Producten</Link>
+            <Link href="#about" className="hover:text-primary transition-colors">Over Ons</Link>
+            <Link href="#contact" className="hover:text-primary transition-colors">Contact</Link>
           </nav>
         </div>
       </header>
@@ -115,7 +115,7 @@ export default function QuotePage() {
       <div className="py-12 bg-gray-50">
         <div className="max-w-4xl mx-auto px-6">
           <div className="mb-8">
-            <Button asChild variant="ghost" className="text-black hover:text-[#7ED321] p-0">
+            <Button asChild variant="ghost" className="text-black hover:text-primary p-0">
               <Link href="/" className="flex items-center">
                 <ArrowLeft className="h-5 w-5 mr-2" />
                 Terug naar Home
@@ -124,7 +124,7 @@ export default function QuotePage() {
           </div>
 
           <Card className="shadow-xl">
-            <CardHeader className="bg-black text-white rounded-t-lg">
+            <CardHeader className="bg-black text-muted rounded-t-lg">
               <CardTitle className="text-3xl font-bold">Offerte Aanvragen</CardTitle>
               <CardDescription className="text-gray-300 text-lg">
                 Vertel ons over uw project en ontvang een gepersonaliseerde offerte binnen 24 uur
@@ -319,7 +319,7 @@ export default function QuotePage() {
       </div>
 
       {/* Footer */}
-      <footer className="bg-gray-900 text-white py-12">
+      <footer className="bg-gray-900 text-muted py-12">
         <div className="max-w-7xl mx-auto px-6">
           <div className="grid md:grid-cols-4 gap-8">
             <div className="space-y-4">
@@ -330,14 +330,14 @@ export default function QuotePage() {
                 height={54}
                 className="h-10 w-auto"
               />
-              <p className="text-gray-400">
+              <p className="text-muted-foreground">
                 Premium modulaire PVC-klikvloeren voor garages, home gyms en werkplaatsen.
               </p>
             </div>
             
             <div>
-              <h3 className="text-lg font-semibold mb-4 text-[#7ED321]">Contact</h3>
-              <div className="space-y-2 text-gray-400">
+              <h3 className="text-lg font-semibold mb-4 text-primary">Contact</h3>
+              <div className="space-y-2 text-muted-foreground">
                 <p>info@powertiles.be</p>
                 <p>+32 475 21 96 35</p>
                 <p>BTW: BE 1024.559.728</p>
@@ -345,27 +345,27 @@ export default function QuotePage() {
             </div>
             
             <div>
-              <h3 className="text-lg font-semibold mb-4 text-[#7ED321]">Producten</h3>
-              <ul className="space-y-2 text-gray-400">
-                <li><Link href="#" className="hover:text-white transition-colors">Geventileerde Tegels</Link></li>
-                <li><Link href="#" className="hover:text-white transition-colors">Gladde Kliktegels</Link></li>
-                <li><Link href="#" className="hover:text-white transition-colors">LED-verlichting</Link></li>
-                <li><Link href="#" className="hover:text-white transition-colors">Accessoires</Link></li>
+              <h3 className="text-lg font-semibold mb-4 text-primary">Producten</h3>
+              <ul className="space-y-2 text-muted-foreground">
+                <li><Link href="#" className="hover:text-muted transition-colors">Geventileerde Tegels</Link></li>
+                <li><Link href="#" className="hover:text-muted transition-colors">Gladde Kliktegels</Link></li>
+                <li><Link href="#" className="hover:text-muted transition-colors">LED-verlichting</Link></li>
+                <li><Link href="#" className="hover:text-muted transition-colors">Accessoires</Link></li>
               </ul>
             </div>
             
             <div>
-              <h3 className="text-lg font-semibold mb-4 text-[#7ED321]">Service</h3>
-              <ul className="space-y-2 text-gray-400">
-                <li><Link href="#" className="hover:text-white transition-colors">Offerte Aanvragen</Link></li>
-                <li><Link href="#" className="hover:text-white transition-colors">Installatie Service</Link></li>
-                <li><Link href="#" className="hover:text-white transition-colors">Over PowerTiles</Link></li>
-                <li><Link href="#" className="hover:text-white transition-colors">Contact</Link></li>
+              <h3 className="text-lg font-semibold mb-4 text-primary">Service</h3>
+              <ul className="space-y-2 text-muted-foreground">
+                <li><Link href="#" className="hover:text-muted transition-colors">Offerte Aanvragen</Link></li>
+                <li><Link href="#" className="hover:text-muted transition-colors">Installatie Service</Link></li>
+                <li><Link href="#" className="hover:text-muted transition-colors">Over PowerTiles</Link></li>
+                <li><Link href="#" className="hover:text-muted transition-colors">Contact</Link></li>
               </ul>
             </div>
           </div>
           
-          <div className="border-t border-gray-800 mt-8 pt-8 text-center text-gray-400">
+          <div className="border-t border-gray-800 mt-8 pt-8 text-center text-muted-foreground">
             <p>&copy; {new Date().getFullYear()} PowerTiles. Alle rechten voorbehouden.</p>
           </div>
         </div>

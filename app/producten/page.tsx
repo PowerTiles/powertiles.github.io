@@ -10,7 +10,7 @@ export default function ProductenPage() {
     <div className="min-h-screen">
 
       {/* Hero Section */}
-      <section className="bg-black text-white py-16">
+      <section className="bg-black text-muted py-16">
         <div className="max-w-7xl mx-auto px-6 text-center">
           <h1 className="text-5xl font-bold mb-6">Onze Producten</h1>
           <p className="text-xl text-gray-300 max-w-3xl mx-auto">
@@ -43,19 +43,19 @@ export default function ProductenPage() {
               <CardContent className="space-y-4">
                 <ul className="space-y-2">
                   <li className="flex items-center text-gray-700">
-                    <CheckCircle className="h-4 w-4 text-[#7ED321] mr-2" />
+                    <CheckCircle className="h-4 w-4 text-primary mr-2" />
                     Oliebestendig & drainage
                   </li>
                   <li className="flex items-center text-gray-700">
-                    <CheckCircle className="h-4 w-4 text-[#7ED321] mr-2" />
+                    <CheckCircle className="h-4 w-4 text-primary mr-2" />
                     Zware belasting
                   </li>
                   <li className="flex items-center text-gray-700">
-                    <CheckCircle className="h-4 w-4 text-[#7ED321] mr-2" />
+                    <CheckCircle className="h-4 w-4 text-primary mr-2" />
                     Eenvoudige reiniging
                   </li>
                   <li className="flex items-center text-gray-700">
-                    <CheckCircle className="h-4 w-4 text-[#7ED321] mr-2" />
+                    <CheckCircle className="h-4 w-4 text-primary mr-2" />
                     Garages & werkplaatsen
                   </li>
                 </ul>
@@ -63,7 +63,7 @@ export default function ProductenPage() {
                   <Link href="/producten/geventileerde-pvc-tegels">
                     <Button
                       variant="outline"
-                      className="w-full border-[#7ED321] text-[#7ED321] hover:bg-[#7ED321] hover:text-black bg-transparent"
+                      className="w-full border-[#7ED321] text-primary hover:bg-[#7ED321] hover:text-black bg-transparent"
                     >
                       Meer Info
                       <ArrowRight className="ml-2 h-4 w-4" />
@@ -97,19 +97,19 @@ export default function ProductenPage() {
               <CardContent className="space-y-4">
                 <ul className="space-y-2">
                   <li className="flex items-center text-gray-700">
-                    <CheckCircle className="h-4 w-4 text-[#7ED321] mr-2" />
+                    <CheckCircle className="h-4 w-4 text-primary mr-2" />
                     Glad oppervlak & klik-systeem
                   </li>
                   <li className="flex items-center text-gray-700">
-                    <CheckCircle className="h-4 w-4 text-[#7ED321] mr-2" />
+                    <CheckCircle className="h-4 w-4 text-primary mr-2" />
                     Slijtvast & kleurbestendig
                   </li>
                   <li className="flex items-center text-gray-700">
-                    <CheckCircle className="h-4 w-4 text-[#7ED321] mr-2" />
+                    <CheckCircle className="h-4 w-4 text-primary mr-2" />
                     Lichte & zware belasting
                   </li>
                   <li className="flex items-center text-gray-700">
-                    <CheckCircle className="h-4 w-4 text-[#7ED321] mr-2" />
+                    <CheckCircle className="h-4 w-4 text-primary mr-2" />
                     Diverse kleuren
                   </li>
                 </ul>
@@ -117,7 +117,7 @@ export default function ProductenPage() {
                   <Link href="/producten/gladde-kliktegels">
                     <Button
                       variant="outline"
-                      className="w-full border-[#7ED321] text-[#7ED321] hover:bg-[#7ED321] hover:text-black bg-transparent"
+                      className="w-full border-[#7ED321] text-primary hover:bg-[#7ED321] hover:text-black bg-transparent"
                     >
                       Meer Info
                       <ArrowRight className="ml-2 h-4 w-4" />
@@ -152,19 +152,19 @@ export default function ProductenPage() {
               <CardContent className="space-y-4">
                 <ul className="space-y-2">
                   <li className="flex items-center text-gray-700">
-                    <CheckCircle className="h-4 w-4 text-[#7ED321] mr-2" />
+                    <CheckCircle className="h-4 w-4 text-primary mr-2" />
                     Fijn rubbergranulaat
                   </li>
                   <li className="flex items-center text-gray-700">
-                    <CheckCircle className="h-4 w-4 text-[#7ED321] mr-2" />
+                    <CheckCircle className="h-4 w-4 text-primary mr-2" />
                     Geluidsreductie
                   </li>
                   <li className="flex items-center text-gray-700">
-                    <CheckCircle className="h-4 w-4 text-[#7ED321] mr-2" />
+                    <CheckCircle className="h-4 w-4 text-primary mr-2" />
                     Luchtkwaliteitcertificaat
                   </li>
                   <li className="flex items-center text-gray-700">
-                    <CheckCircle className="h-4 w-4 text-[#7ED321] mr-2" />
+                    <CheckCircle className="h-4 w-4 text-primary mr-2" />
                     CrossFit geschikt
                   </li>
                 </ul>
@@ -172,7 +172,7 @@ export default function ProductenPage() {
                   <Link href="/producten/gym-vloer">
                     <Button
                       variant="outline"
-                      className="w-full border-[#7ED321] text-[#7ED321] hover:bg-[#7ED321] hover:text-black bg-transparent"
+                      className="w-full border-[#7ED321] text-primary hover:bg-[#7ED321] hover:text-black bg-transparent"
                     >
                       Meer Info
                       <ArrowRight className="ml-2 h-4 w-4" />
@@ -207,19 +207,19 @@ export default function ProductenPage() {
               <CardContent className="space-y-4">
                 <ul className="space-y-2">
                   <li className="flex items-center text-gray-700">
-                    <CheckCircle className="h-4 w-4 text-[#7ED321] mr-2" />
+                    <CheckCircle className="h-4 w-4 text-primary mr-2" />
                     Moderne uitstraling
                   </li>
                   <li className="flex items-center text-gray-700">
-                    <CheckCircle className="h-4 w-4 text-[#7ED321] mr-2" />
+                    <CheckCircle className="h-4 w-4 text-primary mr-2" />
                     Energiezuinig LED
                   </li>
                   <li className="flex items-center text-gray-700">
-                    <CheckCircle className="h-4 w-4 text-[#7ED321] mr-2" />
+                    <CheckCircle className="h-4 w-4 text-primary mr-2" />
                     Eenvoudige installatie
                   </li>
                   <li className="flex items-center text-gray-700">
-                    <CheckCircle className="h-4 w-4 text-[#7ED321] mr-2" />
+                    <CheckCircle className="h-4 w-4 text-primary mr-2" />
                     Dimbaar
                   </li>
                 </ul>
@@ -227,7 +227,7 @@ export default function ProductenPage() {
                   <Link href="/producten/hexagonale-led-verlichting">
                     <Button
                       variant="outline"
-                      className="w-full border-[#7ED321] text-[#7ED321] hover:bg-[#7ED321] hover:text-black bg-transparent"
+                      className="w-full border-[#7ED321] text-primary hover:bg-[#7ED321] hover:text-black bg-transparent"
                     >
                       Meer Info
                       <ArrowRight className="ml-2 h-4 w-4" />
@@ -261,19 +261,19 @@ export default function ProductenPage() {
               <CardContent className="space-y-4">
                 <ul className="space-y-2">
                   <li className="flex items-center text-gray-700">
-                    <CheckCircle className="h-4 w-4 text-[#7ED321] mr-2" />
+                    <CheckCircle className="h-4 w-4 text-primary mr-2" />
                     Randstroken
                   </li>
                   <li className="flex items-center text-gray-700">
-                    <CheckCircle className="h-4 w-4 text-[#7ED321] mr-2" />
+                    <CheckCircle className="h-4 w-4 text-primary mr-2" />
                     Hoekstukken
                   </li>
                   <li className="flex items-center text-gray-700">
-                    <CheckCircle className="h-4 w-4 text-[#7ED321] mr-2" />
+                    <CheckCircle className="h-4 w-4 text-primary mr-2" />
                     Overgangsprofielen
                   </li>
                   <li className="flex items-center text-gray-700">
-                    <CheckCircle className="h-4 w-4 text-[#7ED321] mr-2" />
+                    <CheckCircle className="h-4 w-4 text-primary mr-2" />
                     Montage-accessoires
                   </li>
                 </ul>
@@ -281,7 +281,7 @@ export default function ProductenPage() {
                   <Link href="/producten/randstukken-accessoires">
                     <Button
                       variant="outline"
-                      className="w-full border-[#7ED321] text-[#7ED321] hover:bg-[#7ED321] hover:text-black bg-transparent"
+                      className="w-full border-[#7ED321] text-primary hover:bg-[#7ED321] hover:text-black bg-transparent"
                     >
                       Meer Info
                       <ArrowRight className="ml-2 h-4 w-4" />
@@ -301,7 +301,7 @@ export default function ProductenPage() {
       </section>
 
       {/* CTA Section */}
-      <section className="py-20 bg-black text-white">
+      <section className="py-20 bg-black text-muted">
         <div className="max-w-4xl mx-auto text-center px-6">
           <h2 className="text-4xl font-bold mb-6">Vragen over onze producten?</h2>
           <p className="text-xl text-gray-300 mb-8 max-w-2xl mx-auto">
@@ -318,7 +318,7 @@ export default function ProductenPage() {
               <Button
                 size="lg"
                 variant="outline"
-                className="border-white text-white hover:bg-white hover:text-black bg-transparent"
+                className="border-white text-muted hover:bg-white hover:text-black bg-transparent"
               >
                 Contact Opnemen
               </Button>
@@ -341,14 +341,14 @@ export default function ProductenPage() {
                   className="h-12 w-auto"
                 />
               </Link>
-              <p className="text-gray-400">
+              <p className="text-muted-foreground">
                 Premium modulaire PVC-klikvloeren voor garages, home gyms en werkplaatsen.
               </p>
             </div>
 
             <div>
-              <h3 className="text-lg font-semibold mb-4 text-[#7ED321]">Contact</h3>
-              <div className="space-y-2 text-gray-400">
+              <h3 className="text-lg font-semibold mb-4 text-primary">Contact</h3>
+              <div className="space-y-2 text-muted-foreground">
                 <p>info@powertiles.be</p>
                 <p>+32 475 21 96 35</p>
                 <p>BTW: BE 1024.559.728</p>
@@ -356,30 +356,30 @@ export default function ProductenPage() {
             </div>
 
             <div>
-              <h3 className="text-lg font-semibold mb-4 text-[#7ED321]">Producten</h3>
-              <ul className="space-y-2 text-gray-400">
+              <h3 className="text-lg font-semibold mb-4 text-primary">Producten</h3>
+              <ul className="space-y-2 text-muted-foreground">
                 <li>
-                  <Link href="/producten/geventileerde-pvc-tegels" className="hover:text-white transition-colors">
+                  <Link href="/producten/geventileerde-pvc-tegels" className="hover:text-muted transition-colors">
                     Geventileerde Tegels
                   </Link>
                 </li>
                 <li>
-                  <Link href="/producten/gladde-kliktegels" className="hover:text-white transition-colors">
+                  <Link href="/producten/gladde-kliktegels" className="hover:text-muted transition-colors">
                     Gladde Kliktegels
                   </Link>
                 </li>
                 <li>
-                  <Link href="/producten/gym-vloer" className="hover:text-white transition-colors">
+                  <Link href="/producten/gym-vloer" className="hover:text-muted transition-colors">
                     Gym Vloer
                   </Link>
                 </li>
                 <li>
-                  <Link href="/producten/hexagonale-led-verlichting" className="hover:text-white transition-colors">
+                  <Link href="/producten/hexagonale-led-verlichting" className="hover:text-muted transition-colors">
                     LED-verlichting
                   </Link>
                 </li>
                 <li>
-                  <Link href="/producten/randstukken-accessoires" className="hover:text-white transition-colors">
+                  <Link href="/producten/randstukken-accessoires" className="hover:text-muted transition-colors">
                     Accessoires
                   </Link>
                 </li>
@@ -387,25 +387,25 @@ export default function ProductenPage() {
             </div>
 
             <div>
-              <h3 className="text-lg font-semibold mb-4 text-[#7ED321]">Service</h3>
-              <ul className="space-y-2 text-gray-400">
+              <h3 className="text-lg font-semibold mb-4 text-primary">Service</h3>
+              <ul className="space-y-2 text-muted-foreground">
                 <li>
-                  <Link href="/offerte" className="hover:text-white transition-colors">
+                  <Link href="/offerte" className="hover:text-muted transition-colors">
                     Offerte Aanvragen
                   </Link>
                 </li>
                 <li>
-                  <Link href="/contact" className="hover:text-white transition-colors">
+                  <Link href="/contact" className="hover:text-muted transition-colors">
                     Installatie Service
                   </Link>
                 </li>
                 <li>
-                  <Link href="/over-ons" className="hover:text-white transition-colors">
+                  <Link href="/over-ons" className="hover:text-muted transition-colors">
                     Over PowerTiles
                   </Link>
                 </li>
                 <li>
-                  <Link href="/contact" className="hover:text-white transition-colors">
+                  <Link href="/contact" className="hover:text-muted transition-colors">
                     Contact
                   </Link>
                 </li>
@@ -413,7 +413,7 @@ export default function ProductenPage() {
             </div>
           </div>
 
-          <div className="border-t border-gray-800 mt-8 pt-8 text-center text-gray-400">
+          <div className="border-t border-gray-800 mt-8 pt-8 text-center text-muted-foreground">
             <p>&copy; {new Date().getFullYear()} PowerTiles. Alle rechten voorbehouden.</p>
           </div>
         </div>

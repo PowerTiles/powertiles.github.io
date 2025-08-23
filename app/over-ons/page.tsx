@@ -9,7 +9,7 @@ export default function OverOnsPage() {
   return (
     <div className="min-h-screen bg-white">
       {/* Header */}
-      <header className="bg-black text-white py-4 px-6 sticky top-0 z-50">
+      <header className="bg-black text-muted py-4 px-6 sticky top-0 z-50">
         <div className="max-w-7xl mx-auto flex items-center justify-between">
           <div className="flex items-center space-x-4">
             <Link href="/">
@@ -23,19 +23,19 @@ export default function OverOnsPage() {
             </Link>
           </div>
           <nav className="hidden md:flex items-center space-x-8">
-            <Link href="/" className="hover:text-[#7ED321] transition-colors">
+            <Link href="/" className="hover:text-primary transition-colors">
               Home
             </Link>
-            <Link href="/producten" className="hover:text-[#7ED321] transition-colors">
+            <Link href="/producten" className="hover:text-primary transition-colors">
               Producten
             </Link>
-            <Link href="/designer-tool" className="hover:text-[#7ED321] transition-colors">
+            <Link href="/designer-tool" className="hover:text-primary transition-colors">
               Designer Tool
             </Link>
-            <Link href="/over-ons" className="text-[#7ED321] font-semibold">
+            <Link href="/over-ons" className="text-primary font-semibold">
               Over Ons
             </Link>
-            <Link href="/contact" className="hover:text-[#7ED321] transition-colors">
+            <Link href="/contact" className="hover:text-primary transition-colors">
               Contact
             </Link>
           </nav>
@@ -46,7 +46,7 @@ export default function OverOnsPage() {
       </header>
 
       {/* Hero Section */}
-      <section className="bg-black text-white py-16">
+      <section className="bg-black text-muted py-16">
         <div className="max-w-7xl mx-auto px-6 text-center">
           <h1 className="text-5xl font-bold mb-6">Over PowerTiles</h1>
           <p className="text-xl text-gray-300 max-w-3xl mx-auto">
@@ -118,7 +118,7 @@ export default function OverOnsPage() {
             <Card className="group hover:shadow-xl transition-all duration-300 border-2 hover:border-[#7ED321]">
               <CardHeader className="text-center pb-4">
                 <div className="mx-auto mb-4 p-4 bg-black rounded-full w-16 h-16 flex items-center justify-center">
-                  <Heart className="h-8 w-8 text-[#7ED321]" />
+                  <Heart className="h-8 w-8 text-primary" />
                 </div>
                 <CardTitle className="text-2xl font-bold text-black">Onze Visie</CardTitle>
               </CardHeader>
@@ -165,7 +165,7 @@ export default function OverOnsPage() {
             <Card className="group hover:shadow-xl transition-all duration-300 text-center">
               <CardHeader>
                 <div className="mx-auto mb-4 p-4 bg-black rounded-full w-16 h-16 flex items-center justify-center">
-                  <Users className="h-8 w-8 text-[#7ED321]" />
+                  <Users className="h-8 w-8 text-primary" />
                 </div>
                 <CardTitle className="text-xl font-bold text-black">Professionele Service</CardTitle>
               </CardHeader>
@@ -217,7 +217,7 @@ export default function OverOnsPage() {
 
             <div className="text-center space-y-4">
               <div className="mx-auto p-4 bg-black rounded-full w-16 h-16 flex items-center justify-center">
-                <Award className="h-8 w-8 text-[#7ED321]" />
+                <Award className="h-8 w-8 text-primary" />
               </div>
               <h3 className="text-xl font-bold text-black">Luxe</h3>
               <p className="text-gray-600">
@@ -237,7 +237,7 @@ export default function OverOnsPage() {
 
             <div className="text-center space-y-4">
               <div className="mx-auto p-4 bg-black rounded-full w-16 h-16 flex items-center justify-center">
-                <CheckCircle className="h-8 w-8 text-[#7ED321]" />
+                <CheckCircle className="h-8 w-8 text-primary" />
               </div>
               <h3 className="text-xl font-bold text-black">Kwaliteit</h3>
               <p className="text-gray-600">Geen compromissen - alleen de beste materialen en vakmanschap.</p>
@@ -256,19 +256,19 @@ export default function OverOnsPage() {
                 <h2 className="text-4xl font-bold text-black">PowerTiles België</h2>
                 <div className="space-y-4 text-lg text-gray-600">
                   <div className="flex items-center space-x-3">
-                    <CheckCircle className="h-5 w-5 text-[#7ED321]" />
+                    <CheckCircle className="h-5 w-5 text-primary" />
                     <span>Belgische onderneming</span>
                   </div>
                   <div className="flex items-center space-x-3">
-                    <CheckCircle className="h-5 w-5 text-[#7ED321]" />
+                    <CheckCircle className="h-5 w-5 text-primary" />
                     <span>BTW: BE 1024.559.728</span>
                   </div>
                   <div className="flex items-center space-x-3">
-                    <CheckCircle className="h-5 w-5 text-[#7ED321]" />
+                    <CheckCircle className="h-5 w-5 text-primary" />
                     <span>Gespecialiseerd in modulaire PVC-vloeren</span>
                   </div>
                   <div className="flex items-center space-x-3">
-                    <CheckCircle className="h-5 w-5 text-[#7ED321]" />
+                    <CheckCircle className="h-5 w-5 text-primary" />
                     <span>Optionele professionele plaatsing</span>
                   </div>
                 </div>
@@ -288,7 +288,7 @@ export default function OverOnsPage() {
       </section>
 
       {/* CTA Section */}
-      <section className="py-20 bg-black text-white">
+      <section className="py-20 bg-black text-muted">
         <div className="max-w-4xl mx-auto text-center px-6">
           <h2 className="text-4xl font-bold mb-6">Klaar om samen te werken?</h2>
           <p className="text-xl text-gray-300 mb-8 max-w-2xl mx-auto">
@@ -305,7 +305,7 @@ export default function OverOnsPage() {
               <Button
                 size="lg"
                 variant="outline"
-                className="border-white text-white hover:bg-white hover:text-black bg-transparent"
+                className="border-white text-muted hover:bg-white hover:text-black bg-transparent"
               >
                 Contact Opnemen
               </Button>
@@ -328,14 +328,14 @@ export default function OverOnsPage() {
                   className="h-12 w-auto"
                 />
               </Link>
-              <p className="text-gray-400">
+              <p className="text-muted-foreground">
                 Premium modulaire PVC-klikvloeren voor garages, home gyms en werkplaatsen.
               </p>
             </div>
 
             <div>
-              <h3 className="text-lg font-semibold mb-4 text-[#7ED321]">Contact</h3>
-              <div className="space-y-2 text-gray-400">
+              <h3 className="text-lg font-semibold mb-4 text-primary">Contact</h3>
+              <div className="space-y-2 text-muted-foreground">
                 <p>info@powertiles.be</p>
                 <p>+32 475 21 96 35</p>
                 <p>BTW: BE 1024.559.728</p>
@@ -343,30 +343,30 @@ export default function OverOnsPage() {
             </div>
 
             <div>
-              <h3 className="text-lg font-semibold mb-4 text-[#7ED321]">Producten</h3>
-              <ul className="space-y-2 text-gray-400">
+              <h3 className="text-lg font-semibold mb-4 text-primary">Producten</h3>
+              <ul className="space-y-2 text-muted-foreground">
                 <li>
-                  <Link href="/producten" className="hover:text-white transition-colors">
+                  <Link href="/producten" className="hover:text-muted transition-colors">
                     Geventileerde Tegels
                   </Link>
                 </li>
                 <li>
-                  <Link href="/producten" className="hover:text-white transition-colors">
+                  <Link href="/producten" className="hover:text-muted transition-colors">
                     Gladde Kliktegels
                   </Link>
                 </li>
                 <li>
-                  <Link href="/producten" className="hover:text-white transition-colors">
+                  <Link href="/producten" className="hover:text-muted transition-colors">
                     Gym Vloer
                   </Link>
                 </li>
                 <li>
-                  <Link href="/producten" className="hover:text-white transition-colors">
+                  <Link href="/producten" className="hover:text-muted transition-colors">
                     LED-verlichting
                   </Link>
                 </li>
                 <li>
-                  <Link href="/producten" className="hover:text-white transition-colors">
+                  <Link href="/producten" className="hover:text-muted transition-colors">
                     Accessoires
                   </Link>
                 </li>
@@ -374,25 +374,25 @@ export default function OverOnsPage() {
             </div>
 
             <div>
-              <h3 className="text-lg font-semibold mb-4 text-[#7ED321]">Service</h3>
-              <ul className="space-y-2 text-gray-400">
+              <h3 className="text-lg font-semibold mb-4 text-primary">Service</h3>
+              <ul className="space-y-2 text-muted-foreground">
                 <li>
-                  <Link href="/offerte" className="hover:text-white transition-colors">
+                  <Link href="/offerte" className="hover:text-muted transition-colors">
                     Offerte Aanvragen
                   </Link>
                 </li>
                 <li>
-                  <Link href="/contact" className="hover:text-white transition-colors">
+                  <Link href="/contact" className="hover:text-muted transition-colors">
                     Installatie Service
                   </Link>
                 </li>
                 <li>
-                  <Link href="/over-ons" className="hover:text-white transition-colors">
+                  <Link href="/over-ons" className="hover:text-muted transition-colors">
                     Over PowerTiles
                   </Link>
                 </li>
                 <li>
-                  <Link href="/contact" className="hover:text-white transition-colors">
+                  <Link href="/contact" className="hover:text-muted transition-colors">
                     Contact
                   </Link>
                 </li>
@@ -400,7 +400,7 @@ export default function OverOnsPage() {
             </div>
           </div>
 
-          <div className="border-t border-gray-800 mt-8 pt-8 text-center text-gray-400">
+          <div className="border-t border-gray-800 mt-8 pt-8 text-center text-muted-foreground">
             <p>&copy; {new Date().getFullYear()} PowerTiles. Alle rechten voorbehouden.</p>
           </div>
         </div>

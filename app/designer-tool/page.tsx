@@ -248,7 +248,7 @@ PowerTiles - Transform Your Space. Unleash the Power.
   return (
     <div className="min-h-screen bg-gray-50">
       {/* Header */}
-      <header className="bg-black text-white py-4 px-6 sticky top-0 z-50">
+      <header className="bg-black text-muted py-4 px-6 sticky top-0 z-50">
         <div className="max-w-7xl mx-auto flex items-center justify-between">
           <div className="flex items-center space-x-4">
             <Link href="/" className="hover:opacity-80 transition-opacity">
@@ -262,19 +262,19 @@ PowerTiles - Transform Your Space. Unleash the Power.
             </Link>
           </div>
           <nav className="hidden md:flex items-center space-x-8">
-            <Link href="/" className="hover:text-[#7ED321] transition-colors">
+            <Link href="/" className="hover:text-primary transition-colors">
               Home
             </Link>
-            <Link href="/producten" className="hover:text-[#7ED321] transition-colors">
+            <Link href="/producten" className="hover:text-primary transition-colors">
               Producten
             </Link>
-            <Link href="/designer-tool" className="text-[#7ED321] font-semibold">
+            <Link href="/designer-tool" className="text-primary font-semibold">
               Designer Tool
             </Link>
-            <Link href="/over-ons" className="hover:text-[#7ED321] transition-colors">
+            <Link href="/over-ons" className="hover:text-primary transition-colors">
               Over Ons
             </Link>
-            <Link href="/contact" className="hover:text-[#7ED321] transition-colors">
+            <Link href="/contact" className="hover:text-primary transition-colors">
               Contact
             </Link>
           </nav>
@@ -406,7 +406,7 @@ PowerTiles - Transform Your Space. Unleash the Power.
                 </div>
                 <div className="flex justify-between border-t pt-2">
                   <span className="font-semibold">Totaal bestellen:</span>
-                  <span className="font-bold text-[#7ED321]">{tilesWithWaste}</span>
+                  <span className="font-bold text-primary">{tilesWithWaste}</span>
                 </div>
                 <Button className="w-full mt-4 bg-[#7ED321] hover:bg-[#6BC91A] text-black">
                   <Link

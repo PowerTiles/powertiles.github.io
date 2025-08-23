@@ -35,7 +35,7 @@ export default function ContactPage() {
   return (
     <div className="min-h-screen">
       {/* Header */}
-      <header className="bg-black text-white py-4 px-6 sticky top-0 z-50">
+      <header className="bg-black text-muted py-4 px-6 sticky top-0 z-50">
         <div className="max-w-7xl mx-auto flex items-center justify-between">
           <div className="flex items-center space-x-4">
             <Link href="/">
@@ -49,19 +49,19 @@ export default function ContactPage() {
             </Link>
           </div>
           <nav className="hidden md:flex items-center space-x-8">
-            <Link href="/" className="hover:text-[#7ED321] transition-colors">
+            <Link href="/" className="hover:text-primary transition-colors">
               Home
             </Link>
-            <Link href="/producten" className="hover:text-[#7ED321] transition-colors">
+            <Link href="/producten" className="hover:text-primary transition-colors">
               Producten
             </Link>
-            <Link href="/designer-tool" className="hover:text-[#7ED321] transition-colors">
+            <Link href="/designer-tool" className="hover:text-primary transition-colors">
               Designer Tool
             </Link>
-            <Link href="/over-ons" className="hover:text-[#7ED321] transition-colors">
+            <Link href="/over-ons" className="hover:text-primary transition-colors">
               Over Ons
             </Link>
-            <Link href="/contact" className="text-[#7ED321] font-semibold">
+            <Link href="/contact" className="text-primary font-semibold">
               Contact
             </Link>
           </nav>
@@ -72,7 +72,7 @@ export default function ContactPage() {
       </header>
 
       {/* Hero Section */}
-      <section className="bg-black text-white py-16">
+      <section className="bg-black text-muted py-16">
         <div className="max-w-7xl mx-auto px-6 text-center">
           <h1 className="text-5xl font-bold mb-6">Contact</h1>
           <p className="text-xl text-gray-300 max-w-3xl mx-auto">
@@ -186,7 +186,7 @@ export default function ContactPage() {
             {/* Company Information */}
             <div className="space-y-8">
               <div className="space-y-4">
-                <Badge className="bg-black text-[#7ED321] px-4 py-2 text-sm font-semibold">Bedrijfsgegevens</Badge>
+                <Badge className="bg-black text-primary px-4 py-2 text-sm font-semibold">Bedrijfsgegevens</Badge>
                 <h2 className="text-4xl font-bold text-black">PowerTiles België</h2>
                 <p className="text-xl text-gray-600">Uw betrouwbare partner voor premium modulaire PVC-vloeren</p>
               </div>
@@ -197,15 +197,15 @@ export default function ContactPage() {
                     <h3 className="text-xl font-bold text-black">Contactgegevens</h3>
                     <div className="space-y-3">
                       <div className="flex items-center space-x-3">
-                        <Mail className="h-5 w-5 text-[#7ED321]" />
+                        <Mail className="h-5 w-5 text-primary" />
                         <span className="text-gray-700">info@powertiles.be</span>
                       </div>
                       <div className="flex items-center space-x-3">
-                        <Phone className="h-5 w-5 text-[#7ED321]" />
+                        <Phone className="h-5 w-5 text-primary" />
                         <span className="text-gray-700">+32 475 21 96 35</span>
                       </div>
                       <div className="flex items-center space-x-3">
-                        <MapPin className="h-5 w-5 text-[#7ED321]" />
+                        <MapPin className="h-5 w-5 text-primary" />
                         <span className="text-gray-700">BTW: BE 1024.559.728</span>
                       </div>
                     </div>
@@ -233,15 +233,15 @@ export default function ContactPage() {
                     <h3 className="text-xl font-bold text-black">Onze Services</h3>
                     <div className="space-y-3">
                       <div className="flex items-center space-x-3">
-                        <MessageSquare className="h-5 w-5 text-[#7ED321]" />
+                        <MessageSquare className="h-5 w-5 text-primary" />
                         <span className="text-gray-700">Gratis advies & offerte</span>
                       </div>
                       <div className="flex items-center space-x-3">
-                        <Wrench className="h-5 w-5 text-[#7ED321]" />
+                        <Wrench className="h-5 w-5 text-primary" />
                         <span className="text-gray-700">Professionele installatie</span>
                       </div>
                       <div className="flex items-center space-x-3">
-                        <Clock className="h-5 w-5 text-[#7ED321]" />
+                        <Clock className="h-5 w-5 text-primary" />
                         <span className="text-gray-700">Snelle levering</span>
                       </div>
                     </div>
@@ -250,7 +250,7 @@ export default function ContactPage() {
               </Card>
 
               <Link href="/offerte">
-                <Button className="w-full bg-black hover:bg-gray-800 text-white font-semibold py-3">
+                <Button className="w-full bg-black hover:bg-gray-800 text-muted font-semibold py-3">
                   Direct Offerte Aanvragen
                   <ArrowRight className="ml-2 h-5 w-5" />
                 </Button>
@@ -275,7 +275,7 @@ export default function ContactPage() {
                 <p className="text-gray-600">Bel ons voor directe hulp</p>
                 <a
                   href="tel:+32475219635"
-                  className="text-2xl font-bold text-[#7ED321] hover:text-[#6BC91A] transition-colors block"
+                  className="text-2xl font-bold text-primary hover:text-[#6BC91A] transition-colors block"
                 >
                   +32 475 21 96 35
                 </a>
@@ -286,7 +286,7 @@ export default function ContactPage() {
             <Card className="group hover:shadow-xl transition-all duration-300 border-2 hover:border-[#7ED321]">
               <CardHeader className="text-center pb-4">
                 <div className="mx-auto mb-4 p-4 bg-black rounded-full w-16 h-16 flex items-center justify-center">
-                  <Mail className="h-8 w-8 text-[#7ED321]" />
+                  <Mail className="h-8 w-8 text-primary" />
                 </div>
                 <CardTitle className="text-2xl font-bold text-black">E-mail</CardTitle>
               </CardHeader>
@@ -294,7 +294,7 @@ export default function ContactPage() {
                 <p className="text-gray-600">Stuur ons een bericht</p>
                 <a
                   href="mailto:info@powertiles.be"
-                  className="text-xl font-bold text-[#7ED321] hover:text-[#6BC91A] transition-colors block"
+                  className="text-xl font-bold text-primary hover:text-[#6BC91A] transition-colors block"
                 >
                   info@powertiles.be
                 </a>
@@ -311,7 +311,7 @@ export default function ContactPage() {
               </CardHeader>
               <CardContent className="text-center space-y-4">
                 <p className="text-gray-600">Volg ons voor inspiratie</p>
-                <a href="#" className="text-xl font-bold text-[#7ED321] hover:text-[#6BC91A] transition-colors block">
+                <a href="#" className="text-xl font-bold text-primary hover:text-[#6BC91A] transition-colors block">
                   @PowerTiles
                 </a>
                 <p className="text-sm text-gray-500">Projectfoto's & tips</p>
@@ -384,7 +384,7 @@ export default function ContactPage() {
       </section>
 
       {/* CTA Section */}
-      <section className="py-20 bg-black text-white">
+      <section className="py-20 bg-black text-muted">
         <div className="max-w-4xl mx-auto text-center px-6">
           <h2 className="text-4xl font-bold mb-6">Klaar om te starten?</h2>
           <p className="text-xl text-gray-300 mb-8 max-w-2xl mx-auto">
@@ -401,7 +401,7 @@ export default function ContactPage() {
               <Button
                 size="lg"
                 variant="outline"
-                className="border-white text-white hover:bg-white hover:text-black bg-transparent"
+                className="border-white text-muted hover:bg-white hover:text-black bg-transparent"
               >
                 <Phone className="mr-2 h-5 w-5" />
                 Direct Bellen
@@ -425,14 +425,14 @@ export default function ContactPage() {
                   className="h-12 w-auto"
                 />
               </Link>
-              <p className="text-gray-400">
+              <p className="text-muted-foreground">
                 Premium modulaire PVC-klikvloeren voor garages, home gyms en werkplaatsen.
               </p>
             </div>
 
             <div>
-              <h3 className="text-lg font-semibold mb-4 text-[#7ED321]">Contact</h3>
-              <div className="space-y-2 text-gray-400">
+              <h3 className="text-lg font-semibold mb-4 text-primary">Contact</h3>
+              <div className="space-y-2 text-muted-foreground">
                 <p>info@powertiles.be</p>
                 <p>+32 475 21 96 35</p>
                 <p>BTW: BE 1024.559.728</p>
@@ -440,30 +440,30 @@ export default function ContactPage() {
             </div>
 
             <div>
-              <h3 className="text-lg font-semibold mb-4 text-[#7ED321]">Producten</h3>
-              <ul className="space-y-2 text-gray-400">
+              <h3 className="text-lg font-semibold mb-4 text-primary">Producten</h3>
+              <ul className="space-y-2 text-muted-foreground">
                 <li>
-                  <Link href="/producten" className="hover:text-white transition-colors">
+                  <Link href="/producten" className="hover:text-muted transition-colors">
                     Geventileerde Tegels
                   </Link>
                 </li>
                 <li>
-                  <Link href="/producten" className="hover:text-white transition-colors">
+                  <Link href="/producten" className="hover:text-muted transition-colors">
                     Gladde Kliktegels
                   </Link>
                 </li>
                 <li>
-                  <Link href="/producten" className="hover:text-white transition-colors">
+                  <Link href="/producten" className="hover:text-muted transition-colors">
                     Gym Vloer
                   </Link>
                 </li>
                 <li>
-                  <Link href="/producten" className="hover:text-white transition-colors">
+                  <Link href="/producten" className="hover:text-muted transition-colors">
                     LED-verlichting
                   </Link>
                 </li>
                 <li>
-                  <Link href="/producten" className="hover:text-white transition-colors">
+                  <Link href="/producten" className="hover:text-muted transition-colors">
                     Accessoires
                   </Link>
                 </li>
@@ -471,25 +471,25 @@ export default function ContactPage() {
             </div>
 
             <div>
-              <h3 className="text-lg font-semibold mb-4 text-[#7ED321]">Service</h3>
-              <ul className="space-y-2 text-gray-400">
+              <h3 className="text-lg font-semibold mb-4 text-primary">Service</h3>
+              <ul className="space-y-2 text-muted-foreground">
                 <li>
-                  <Link href="/offerte" className="hover:text-white transition-colors">
+                  <Link href="/offerte" className="hover:text-muted transition-colors">
                     Offerte Aanvragen
                   </Link>
                 </li>
                 <li>
-                  <Link href="/contact" className="hover:text-white transition-colors">
+                  <Link href="/contact" className="hover:text-muted transition-colors">
                     Installatie Service
                   </Link>
                 </li>
                 <li>
-                  <Link href="/over-ons" className="hover:text-white transition-colors">
+                  <Link href="/over-ons" className="hover:text-muted transition-colors">
                     Over PowerTiles
                   </Link>
                 </li>
                 <li>
-                  <Link href="/contact" className="hover:text-white transition-colors">
+                  <Link href="/contact" className="hover:text-muted transition-colors">
                     Contact
                   </Link>
                 </li>
@@ -497,7 +497,7 @@ export default function ContactPage() {
             </div>
           </div>
 
-          <div className="border-t border-gray-800 mt-8 pt-8 text-center text-gray-400">
+          <div className="border-t border-gray-800 mt-8 pt-8 text-center text-muted-foreground">
             <p>&copy; {new Date().getFullYear()} PowerTiles. Alle rechten voorbehouden.</p>
           </div>
         </div>

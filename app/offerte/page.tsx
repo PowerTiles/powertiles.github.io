@@ -70,7 +70,7 @@ export default function OffertePage() {
   return (
     <div className="min-h-screen bg-white">
       {/* Header */}
-      <header className="bg-black text-white py-4 px-6 sticky top-0 z-50">
+      <header className="bg-black text-muted py-4 px-6 sticky top-0 z-50">
         <div className="max-w-7xl mx-auto flex items-center justify-between">
           <div className="flex items-center space-x-4">
             <Link href="/">
@@ -84,16 +84,16 @@ export default function OffertePage() {
             </Link>
           </div>
           <nav className="hidden md:flex items-center space-x-8">
-            <Link href="/" className="hover:text-[#7ED321] transition-colors">
+            <Link href="/" className="hover:text-primary transition-colors">
               Home
             </Link>
-            <Link href="/producten" className="hover:text-[#7ED321] transition-colors">
+            <Link href="/producten" className="hover:text-primary transition-colors">
               Producten
             </Link>
-            <Link href="/over-ons" className="hover:text-[#7ED321] transition-colors">
+            <Link href="/over-ons" className="hover:text-primary transition-colors">
               Over Ons
             </Link>
-            <Link href="/contact" className="hover:text-[#7ED321] transition-colors">
+            <Link href="/contact" className="hover:text-primary transition-colors">
               Contact
             </Link>
           </nav>
@@ -102,7 +102,7 @@ export default function OffertePage() {
       </header>
 
       {/* Hero Section */}
-      <section className="bg-black text-white py-16">
+      <section className="bg-black text-muted py-16">
         <div className="max-w-7xl mx-auto px-6 text-center">
           <h1 className="text-5xl font-bold mb-6">Offerte Aanvragen</h1>
           <p className="text-xl text-gray-300 max-w-3xl mx-auto">
@@ -116,7 +116,7 @@ export default function OffertePage() {
         <section className="py-8 bg-[#7ED321]">
           <div className="max-w-4xl mx-auto px-6">
             <Card className="border-2 border-black">
-              <CardHeader className="bg-black text-white">
+              <CardHeader className="bg-black text-muted">
                 <CardTitle className="flex items-center gap-2">
                   <Palette className="h-5 w-5" />
                   Uw Designer Tool Ontwerp
@@ -162,7 +162,7 @@ export default function OffertePage() {
             </div>
             <div className="text-center space-y-3">
               <div className="mx-auto p-3 bg-black rounded-full w-12 h-12 flex items-center justify-center">
-                <Clock className="h-6 w-6 text-[#7ED321]" />
+                <Clock className="h-6 w-6 text-primary" />
               </div>
               <h3 className="font-semibold text-black">Snelle Reactie</h3>
               <p className="text-sm text-gray-600">Binnen 24 uur antwoord</p>
@@ -176,7 +176,7 @@ export default function OffertePage() {
             </div>
             <div className="text-center space-y-3">
               <div className="mx-auto p-3 bg-black rounded-full w-12 h-12 flex items-center justify-center">
-                <Star className="h-6 w-6 text-[#7ED321]" />
+                <Star className="h-6 w-6 text-primary" />
               </div>
               <h3 className="font-semibold text-black">Premium Kwaliteit</h3>
               <p className="text-sm text-gray-600">Alleen het beste</p>
@@ -416,7 +416,7 @@ export default function OffertePage() {
             <Card className="text-center border-2">
               <CardHeader>
                 <div className="mx-auto mb-4 p-4 bg-black rounded-full w-16 h-16 flex items-center justify-center">
-                  <span className="text-2xl font-bold text-[#7ED321]">2</span>
+                  <span className="text-2xl font-bold text-primary">2</span>
                 </div>
                 <CardTitle className="text-xl text-black">Analyse</CardTitle>
               </CardHeader>
@@ -457,7 +457,7 @@ export default function OffertePage() {
               <CardContent className="p-8">
                 <div className="flex items-center mb-4">
                   {[...Array(5)].map((_, i) => (
-                    <Star key={i} className="h-5 w-5 text-[#7ED321] fill-current" />
+                    <Star key={i} className="h-5 w-5 text-primary fill-current" />
                   ))}
                 </div>
                 <p className="text-gray-600 mb-4 italic">
@@ -472,7 +472,7 @@ export default function OffertePage() {
               <CardContent className="p-8">
                 <div className="flex items-center mb-4">
                   {[...Array(5)].map((_, i) => (
-                    <Star key={i} className="h-5 w-5 text-[#7ED321] fill-current" />
+                    <Star key={i} className="h-5 w-5 text-primary fill-current" />
                   ))}
                 </div>
                 <p className="text-gray-600 mb-4 italic">
@@ -487,7 +487,7 @@ export default function OffertePage() {
       </section>
 
       {/* CTA Section */}
-      <section className="py-20 bg-black text-white">
+      <section className="py-20 bg-black text-muted">
         <div className="max-w-4xl mx-auto text-center px-6">
           <h2 className="text-4xl font-bold mb-6">Nog vragen?</h2>
           <p className="text-xl text-gray-300 mb-8 max-w-2xl mx-auto">
@@ -504,7 +504,7 @@ export default function OffertePage() {
               <Button
                 size="lg"
                 variant="outline"
-                className="border-white text-white hover:bg-white hover:text-black bg-transparent"
+                className="border-white text-muted hover:bg-white hover:text-black bg-transparent"
               >
                 Direct Bellen
               </Button>
@@ -527,14 +527,14 @@ export default function OffertePage() {
                   className="h-12 w-auto"
                 />
               </Link>
-              <p className="text-gray-400">
+              <p className="text-muted-foreground">
                 Premium modulaire PVC-klikvloeren voor garages, home gyms en werkplaatsen.
               </p>
             </div>
 
             <div>
-              <h3 className="text-lg font-semibold mb-4 text-[#7ED321]">Contact</h3>
-              <div className="space-y-2 text-gray-400">
+              <h3 className="text-lg font-semibold mb-4 text-primary">Contact</h3>
+              <div className="space-y-2 text-muted-foreground">
                 <p>info@powertiles.be</p>
                 <p>+32 475 21 96 35</p>
                 <p>BTW: BE 1024.559.728</p>
@@ -542,30 +542,30 @@ export default function OffertePage() {
             </div>
 
             <div>
-              <h3 className="text-lg font-semibold mb-4 text-[#7ED321]">Producten</h3>
-              <ul className="space-y-2 text-gray-400">
+              <h3 className="text-lg font-semibold mb-4 text-primary">Producten</h3>
+              <ul className="space-y-2 text-muted-foreground">
                 <li>
-                  <Link href="/producten" className="hover:text-white transition-colors">
+                  <Link href="/producten" className="hover:text-muted transition-colors">
                     Geventileerde Tegels
                   </Link>
                 </li>
                 <li>
-                  <Link href="/producten" className="hover:text-white transition-colors">
+                  <Link href="/producten" className="hover:text-muted transition-colors">
                     Gladde Kliktegels
                   </Link>
                 </li>
                 <li>
-                  <Link href="/producten" className="hover:text-white transition-colors">
+                  <Link href="/producten" className="hover:text-muted transition-colors">
                     Gym Vloer
                   </Link>
                 </li>
                 <li>
-                  <Link href="/producten" className="hover:text-white transition-colors">
+                  <Link href="/producten" className="hover:text-muted transition-colors">
                     LED-verlichting
                   </Link>
                 </li>
                 <li>
-                  <Link href="/producten" className="hover:text-white transition-colors">
+                  <Link href="/producten" className="hover:text-muted transition-colors">
                     Accessoires
                   </Link>
                 </li>
@@ -573,25 +573,25 @@ export default function OffertePage() {
             </div>
 
             <div>
-              <h3 className="text-lg font-semibold mb-4 text-[#7ED321]">Service</h3>
-              <ul className="space-y-2 text-gray-400">
+              <h3 className="text-lg font-semibold mb-4 text-primary">Service</h3>
+              <ul className="space-y-2 text-muted-foreground">
                 <li>
-                  <Link href="/offerte" className="hover:text-white transition-colors">
+                  <Link href="/offerte" className="hover:text-muted transition-colors">
                     Offerte Aanvragen
                   </Link>
                 </li>
                 <li>
-                  <Link href="/contact" className="hover:text-white transition-colors">
+                  <Link href="/contact" className="hover:text-muted transition-colors">
                     Installatie Service
                   </Link>
                 </li>
                 <li>
-                  <Link href="/over-ons" className="hover:text-white transition-colors">
+                  <Link href="/over-ons" className="hover:text-muted transition-colors">
                     Over PowerTiles
                   </Link>
                 </li>
                 <li>
-                  <Link href="/contact" className="hover:text-white transition-colors">
+                  <Link href="/contact" className="hover:text-muted transition-colors">
                     Contact
                   </Link>
                 </li>
@@ -599,7 +599,7 @@ export default function OffertePage() {
             </div>
           </div>
 
-          <div className="border-t border-gray-800 mt-8 pt-8 text-center text-gray-400">
+          <div className="border-t border-gray-800 mt-8 pt-8 text-center text-muted-foreground">
             <p>&copy; {new Date().getFullYear()} PowerTiles. Alle rechten voorbehouden.</p>
           </div>
         </div>
