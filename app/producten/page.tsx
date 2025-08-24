@@ -15,10 +15,10 @@ export default function ProductenPage() {
   return (
     <div className="min-h-screen">
       {/* Hero Section */}
-      <section className="bg-black text-muted py-16">
+      <section className="text-muted py-16">
         <div className="max-w-7xl mx-auto px-6 text-center">
           <h1 className="text-5xl font-bold mb-6">Onze Producten</h1>
-          <p className="text-xl text-gray-300 max-w-3xl mx-auto">
+          <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
             Ontdek ons complete assortiment hoogwaardige PVC-klikvloeren en
             accessoires voor garages, home gyms en werkplaatsen
           </p>
@@ -28,9 +28,9 @@ export default function ProductenPage() {
       {/* Products Grid */}
       <section className="py-20 bg-foreground">
         <div className="max-w-7xl mx-auto px-6">
-          <div className="grid lg:grid-cols-3 gap-8">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
             {/* Geventileerde PVC-tegels */}
-            <Card className="group hover:shadow-xl transition-all duration-300 border-2 hover:border-[#7ED321]">
+            <Card className="group hover:shadow-xl transition-all duration-300 border-2 hover:border-primary">
               <div className="relative overflow-hidden">
                 <Image
                   src="/ventilated-pvc-tiles.webp"
@@ -39,12 +39,12 @@ export default function ProductenPage() {
                   height={300}
                   className="w-full h-48 object-cover group-hover:scale-105 transition-transform duration-300"
                 />
-                <Badge className="absolute top-4 left-4 bg-[#7ED321] text-black">
+                <Badge className="absolute top-4 left-4 bg-primary text-background">
                   Populair
                 </Badge>
               </div>
               <CardHeader>
-                <CardTitle className="text-xl text-black">
+                <CardTitle className="text-xl text-background">
                   Geventileerde PVC-tegels
                 </CardTitle>
                 <CardDescription>
@@ -74,14 +74,14 @@ export default function ProductenPage() {
                   <Link href="/producten/geventileerde-pvc-tegels">
                     <Button
                       variant="outline"
-                      className="w-full border-[#7ED321] text-primary hover:bg-[#7ED321] hover:text-black bg-transparent"
+                      className="w-full border-primary text-primary hover:bg-background hover:text-foreground hover:border-background bg-transparent"
                     >
                       Meer Info
                       <ArrowRight className="ml-2 h-4 w-4" />
                     </Button>
                   </Link>
                   <Link href="/offerte">
-                    <Button className="w-full bg-[#7ED321] hover:bg-[#6BC91A] text-black font-semibold">
+                    <Button className="w-full text-background font-semibold">
                       Offerte Aanvragen
                       <ArrowRight className="ml-2 h-4 w-4" />
                     </Button>
@@ -91,7 +91,7 @@ export default function ProductenPage() {
             </Card>
 
             {/* Gladde Kliktegels */}
-            <Card className="group hover:shadow-xl transition-all duration-300 border-2 hover:border-[#7ED321]">
+            <Card className="group hover:shadow-xl transition-all duration-300 border-2 hover:border-primary">
               <div className="relative overflow-hidden">
                 <Image
                   src="/smooth-click-tiles.jpeg"
@@ -102,7 +102,7 @@ export default function ProductenPage() {
                 />
               </div>
               <CardHeader>
-                <CardTitle className="text-xl text-black">
+                <CardTitle className="text-xl text-background">
                   Gladde Kliktegels
                 </CardTitle>
                 <CardDescription>
@@ -132,14 +132,14 @@ export default function ProductenPage() {
                   <Link href="/producten/gladde-kliktegels">
                     <Button
                       variant="outline"
-                      className="w-full border-[#7ED321] text-primary hover:bg-[#7ED321] hover:text-black bg-transparent"
+                      className="w-full border-primary text-primary hover:bg-background hover:text-foreground hover:border-background bg-transparent"
                     >
                       Meer Info
                       <ArrowRight className="ml-2 h-4 w-4" />
                     </Button>
                   </Link>
                   <Link href="/offerte">
-                    <Button className="w-full bg-[#7ED321] hover:bg-[#6BC91A] text-black font-semibold">
+                    <Button className="w-full text-background font-semibold">
                       Offerte Aanvragen
                       <ArrowRight className="ml-2 h-4 w-4" />
                     </Button>
@@ -149,7 +149,7 @@ export default function ProductenPage() {
             </Card>
 
             {/* Gym Vloer */}
-            <Card className="group hover:shadow-xl transition-all duration-300 border-2 hover:border-[#7ED321]">
+            <Card className="group hover:shadow-xl transition-all duration-300 border-2 hover:border-primary">
               <div className="relative overflow-hidden">
                 <Image
                   src="/gym-floor-tiles.png"
@@ -158,12 +158,12 @@ export default function ProductenPage() {
                   height={300}
                   className="w-full h-48 object-cover group-hover:scale-105 transition-transform duration-300"
                 />
-                <Badge className="absolute top-4 left-4 bg-[#7ED321] text-black">
+                <Badge className="absolute top-4 left-4 bg-primary text-background">
                   Fitness
                 </Badge>
               </div>
               <CardHeader>
-                <CardTitle className="text-xl text-black">Gym Vloer</CardTitle>
+                <CardTitle className="text-xl text-background">Gym Vloer</CardTitle>
                 <CardDescription>
                   Extra hard geperste rubbertegels voor zware gewichten en
                   apparaten
@@ -192,14 +192,14 @@ export default function ProductenPage() {
                   <Link href="/producten/gym-vloer">
                     <Button
                       variant="outline"
-                      className="w-full border-[#7ED321] text-primary hover:bg-[#7ED321] hover:text-black bg-transparent"
+                      className="w-full border-primary text-primary hover:bg-background hover:text-foreground hover:border-background bg-transparent"
                     >
                       Meer Info
                       <ArrowRight className="ml-2 h-4 w-4" />
                     </Button>
                   </Link>
                   <Link href="/offerte">
-                    <Button className="w-full bg-[#7ED321] hover:bg-[#6BC91A] text-black font-semibold">
+                    <Button className="w-full text-background font-semibold">
                       Offerte Aanvragen
                       <ArrowRight className="ml-2 h-4 w-4" />
                     </Button>
@@ -209,7 +209,7 @@ export default function ProductenPage() {
             </Card>
 
             {/* Hexagonale LED-verlichting */}
-            <Card className="group hover:shadow-xl transition-all duration-300 border-2 hover:border-[#7ED321]">
+            <Card className="group hover:shadow-xl transition-all duration-300 border-2 hover:border-primary">
               <div className="relative overflow-hidden">
                 <Image
                   src="/hexagonal-led-lighting.png"
@@ -218,12 +218,12 @@ export default function ProductenPage() {
                   height={300}
                   className="w-full h-48 object-cover group-hover:scale-105 transition-transform duration-300"
                 />
-                <Badge className="absolute top-4 left-4 bg-[#7ED321] text-black">
+                <Badge className="absolute top-4 left-4 bg-primary text-background">
                   Nieuw
                 </Badge>
               </div>
               <CardHeader>
-                <CardTitle className="text-xl text-black">
+                <CardTitle className="text-xl text-background">
                   Hexagonale LED-verlichting
                 </CardTitle>
                 <CardDescription>
@@ -253,14 +253,14 @@ export default function ProductenPage() {
                   <Link href="/producten/hexagonale-led-verlichting">
                     <Button
                       variant="outline"
-                      className="w-full border-[#7ED321] text-primary hover:bg-[#7ED321] hover:text-black bg-transparent"
+                      className="w-full border-primary text-primary hover:bg-background hover:text-foreground hover:border-background bg-transparent"
                     >
                       Meer Info
                       <ArrowRight className="ml-2 h-4 w-4" />
                     </Button>
                   </Link>
                   <Link href="/offerte">
-                    <Button className="w-full bg-[#7ED321] hover:bg-[#6BC91A] text-black font-semibold">
+                    <Button className="w-full text-background font-semibold">
                       Offerte Aanvragen
                       <ArrowRight className="ml-2 h-4 w-4" />
                     </Button>
@@ -270,7 +270,7 @@ export default function ProductenPage() {
             </Card>
 
             {/* Randstukken & Accessoires */}
-            <Card className="group hover:shadow-xl transition-all duration-300 border-2 hover:border-[#7ED321]">
+            <Card className="group hover:shadow-xl transition-all duration-300 border-2 hover:border-primary">
               <div className="relative overflow-hidden">
                 <Image
                   src="/edge-pieces-accessories.png"
@@ -281,7 +281,7 @@ export default function ProductenPage() {
                 />
               </div>
               <CardHeader>
-                <CardTitle className="text-xl text-black">
+                <CardTitle className="text-xl text-background">
                   Randstukken & Accessoires
                 </CardTitle>
                 <CardDescription>
@@ -311,14 +311,14 @@ export default function ProductenPage() {
                   <Link href="/producten/randstukken-accessoires">
                     <Button
                       variant="outline"
-                      className="w-full border-[#7ED321] text-primary hover:bg-[#7ED321] hover:text-black bg-transparent"
+                      className="w-full border-primary text-primary hover:bg-background hover:text-foreground hover:border-background bg-transparent"
                     >
                       Meer Info
                       <ArrowRight className="ml-2 h-4 w-4" />
                     </Button>
                   </Link>
                   <Link href="/offerte">
-                    <Button className="w-full bg-[#7ED321] hover:bg-[#6BC91A] text-black font-semibold">
+                    <Button className="w-full text-background font-semibold">
                       Offerte Aanvragen
                       <ArrowRight className="ml-2 h-4 w-4" />
                     </Button>
@@ -331,12 +331,12 @@ export default function ProductenPage() {
       </section>
 
       {/* CTA Section */}
-      <section className="py-20 bg-black text-muted">
+      <section className="py-20 bg-accent/70 text-muted">
         <div className="max-w-4xl mx-auto text-center px-6">
           <h2 className="text-4xl font-bold mb-6">
             Vragen over onze producten?
           </h2>
-          <p className="text-xl text-gray-300 mb-8 max-w-2xl mx-auto">
+          <p className="text-xl text-muted-foreground mb-8 max-w-2xl mx-auto">
             Onze experts helpen u graag bij het kiezen van de juiste
             vloeroplossing voor uw specifieke toepassing.
           </p>
@@ -344,7 +344,7 @@ export default function ProductenPage() {
             <Link href="/offerte">
               <Button
                 size="lg"
-                className="bg-[#7ED321] hover:bg-[#6BC91A] text-black font-semibold px-8"
+                className="text-background"
               >
                 Offerte Aanvragen
                 <ArrowRight className="ml-2 h-5 w-5" />
@@ -354,7 +354,7 @@ export default function ProductenPage() {
               <Button
                 size="lg"
                 variant="outline"
-                className="border-white text-muted hover:bg-foreground hover:text-black bg-transparent"
+                className="border-foreground text-muted hover:bg-foreground hover:text-background bg-transparent"
               >
                 Contact Opnemen
               </Button>

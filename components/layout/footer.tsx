@@ -127,7 +127,9 @@ export function Footer() {
                 <Facebook className="w-5 h-5 group-hover:text-sky-700" />
               </Button>
               <Button variant="ghost" size="icon" className="group hover:bg-background">
-                <Instagram className="w-5 h-5 group-hover:text-orange-600" />
+                <Link href="https://www.instagram.com/powertiles.be">
+                  <Instagram className="w-5 h-5 group-hover:text-orange-600" />
+                </Link>
               </Button>
             </div>
             </div>

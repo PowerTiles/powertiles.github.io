@@ -18,10 +18,10 @@ export default function OverOnsPage() {
   return (
     <div className="min-h-screen">
       {/* Hero Section */}
-      <section className="bg-black text-muted py-16">
+      <section className=" text-muted py-16">
         <div className="max-w-7xl mx-auto px-6 text-center">
           <h1 className="text-5xl font-bold mb-6">Over PowerTiles</h1>
-          <p className="text-xl text-gray-300 max-w-3xl mx-auto">
+          <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
             Uw Belgische partner voor premium modulaire PVC-klikvloeren. Kracht,
             luxe en professionaliteit in elke tegel.
           </p>
@@ -34,18 +34,18 @@ export default function OverOnsPage() {
           <div className="grid lg:grid-cols-2 gap-12 items-center">
             <div className="space-y-8">
               <div className="space-y-4">
-                <Badge className="bg-[#7ED321] text-black px-4 py-2 text-sm font-semibold">
+                <Badge className="text-background px-4 py-2 text-sm font-semibold">
                   Ons Verhaal
                 </Badge>
-                <h2 className="text-4xl font-bold text-black">
+                <h2 className="text-4xl font-bold text-background">
                   PowerTiles: Kracht en Luxe Verenigd
                 </h2>
-                <p className="text-xl text-gray-600 leading-relaxed">
+                <p className="text-xl text-muted-foreground leading-relaxed">
                   PowerTiles is een Belgische onderneming gespecialiseerd in de
                   verkoop en optionele plaatsing van modulaire PVC-klikvloeren
                   voor garages, home gyms en werkplaatsen.
                 </p>
-                <p className="text-lg text-gray-600 leading-relaxed">
+                <p className="text-lg text-muted-foreground leading-relaxed">
                   Het merk staat voor kracht, luxe en een professionele
                   uitstraling — zowel voor wagens (horsepower) als mensen
                   (fitness, power). We geloven in kwaliteit die het verschil
@@ -71,27 +71,27 @@ export default function OverOnsPage() {
       <section className="py-20 text-accent">
         <div className="max-w-7xl mx-auto px-6">
           <div className="text-center mb-16">
-            <h2 className="text-4xl font-bold text-black mb-4">
+            <h2 className="text-4xl font-bold mb-4">
               Onze Missie & Visie
             </h2>
-            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+            <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
               We transformeren ruimtes met premium vloeroplossingen die kracht
               en elegantie uitstralen
             </p>
           </div>
 
           <div className="grid md:grid-cols-2 gap-8">
-            <Card className="group hover:shadow-xl transition-all duration-300 border-2 hover:border-[#7ED321]">
+            <Card className="group hover:shadow-xl transition-all duration-300 border-2 hover:border-primary">
               <CardHeader className="text-center pb-4">
-                <div className="mx-auto mb-4 p-4 bg-[#7ED321] rounded-full w-16 h-16 flex items-center justify-center">
-                  <Target className="h-8 w-8 text-black" />
+                <div className="mx-auto mb-4 p-4 bg-primary rounded-full w-16 h-16 flex items-center justify-center">
+                  <Target className="h-8 w-8 text-background" />
                 </div>
-                <CardTitle className="text-2xl font-bold text-black">
+                <CardTitle className="text-2xl font-bold text-background">
                   Onze Missie
                 </CardTitle>
               </CardHeader>
               <CardContent className="space-y-4">
-                <p className="text-gray-600 text-center leading-relaxed">
+                <p className="text-muted-foreground text-center leading-relaxed">
                   PowerTiles transformeert garages, home gyms en werkplaatsen
                   met hoogwaardige modulaire vloeren die kracht, luxe en
                   professionaliteit uitstralen. We bieden niet alleen producten,
@@ -101,17 +101,17 @@ export default function OverOnsPage() {
               </CardContent>
             </Card>
 
-            <Card className="group hover:shadow-xl transition-all duration-300 border-2 hover:border-[#7ED321]">
+            <Card className="group hover:shadow-xl transition-all duration-300 border-2 hover:border-primary">
               <CardHeader className="text-center pb-4">
-                <div className="mx-auto mb-4 p-4 bg-black rounded-full w-16 h-16 flex items-center justify-center">
-                  <Heart className="h-8 w-8 text-primary" />
+                <div className="mx-auto mb-4 p-4 border-3 border-primary rounded-full w-16 h-16 flex items-center justify-center">
+                  <Heart className="h-8 w-8 text-background fill-background" />
                 </div>
-                <CardTitle className="text-2xl font-bold text-black">
+                <CardTitle className="text-2xl font-bold text-background">
                   Onze Visie
                 </CardTitle>
               </CardHeader>
               <CardContent className="space-y-4">
-                <p className="text-gray-600 text-center leading-relaxed">
+                <p className="text-muted-foreground text-center leading-relaxed">
                   We streven ernaar de toonaangevende Belgische leverancier te
                   zijn van premium modulaire vloeren, bekend om onze onwrikbare
                   focus op kwaliteit, innovatie en klanttevredenheid. Elke
@@ -127,13 +127,13 @@ export default function OverOnsPage() {
       <section className="py-20 bg-foreground">
         <div className="max-w-7xl mx-auto px-6">
           <div className="text-center mb-16">
-            <Badge className="bg-[#7ED321] text-black px-4 py-2 text-sm font-semibold mb-6">
+            <Badge className="text-background px-4 py-2 text-sm font-semibold mb-6">
               Waarom PowerTiles?
             </Badge>
-            <h2 className="text-4xl font-bold text-black mb-4">
+            <h2 className="text-4xl font-bold text-background mb-4">
               Kwaliteit Boven Alles
             </h2>
-            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+            <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
               Bij PowerTiles kiezen we bewust voor premium kwaliteit boven
               goedkope alternatieven. Onze vloeren zijn een investering die
               jarenlang meegaat.
@@ -143,15 +143,15 @@ export default function OverOnsPage() {
           <div className="grid md:grid-cols-3 gap-8">
             <Card className="group hover:shadow-xl transition-all duration-300 text-center">
               <CardHeader>
-                <div className="mx-auto mb-4 p-4 bg-[#7ED321] rounded-full w-16 h-16 flex items-center justify-center">
-                  <Award className="h-8 w-8 text-black" />
+                <div className="mx-auto mb-4 p-4 bg-primary rounded-full w-16 h-16 flex items-center justify-center">
+                  <Award className="h-8 w-8 text-background" />
                 </div>
-                <CardTitle className="text-xl font-bold text-black">
+                <CardTitle className="text-xl font-bold text-background">
                   Premium Materialen
                 </CardTitle>
               </CardHeader>
               <CardContent>
-                <p className="text-gray-600">
+                <p className="text-muted-foreground">
                   Alleen de beste PVC-materialen voor maximale duurzaamheid en
                   een luxueuze uitstraling die jaren meegaat.
                 </p>
@@ -160,15 +160,15 @@ export default function OverOnsPage() {
 
             <Card className="group hover:shadow-xl transition-all duration-300 text-center">
               <CardHeader>
-                <div className="mx-auto mb-4 p-4 bg-black rounded-full w-16 h-16 flex items-center justify-center">
-                  <Users className="h-8 w-8 text-primary" />
+                <div className="mx-auto mb-4 p-4 border-3 border-primary rounded-full w-16 h-16 flex items-center justify-center">
+                  <Users className="h-8 w-8 text-background fill-background" />
                 </div>
-                <CardTitle className="text-xl font-bold text-black">
+                <CardTitle className="text-xl font-bold text-background">
                   Professionele Service
                 </CardTitle>
               </CardHeader>
               <CardContent>
-                <p className="text-gray-600">
+                <p className="text-muted-foreground">
                   Van advies tot optionele vakkundige plaatsing - onze ervaren
                   monteurs zorgen voor een perfect resultaat.
                 </p>
@@ -177,15 +177,15 @@ export default function OverOnsPage() {
 
             <Card className="group hover:shadow-xl transition-all duration-300 text-center">
               <CardHeader>
-                <div className="mx-auto mb-4 p-4 bg-[#7ED321] rounded-full w-16 h-16 flex items-center justify-center">
-                  <Shield className="h-8 w-8 text-black" />
+                <div className="mx-auto mb-4 p-4 bg-primary rounded-full w-16 h-16 flex items-center justify-center">
+                  <Shield className="h-8 w-8 text-background" />
                 </div>
-                <CardTitle className="text-xl font-bold text-black">
+                <CardTitle className="text-xl font-bold text-background">
                   Belgische Kwaliteit
                 </CardTitle>
               </CardHeader>
               <CardContent>
-                <p className="text-gray-600">
+                <p className="text-muted-foreground">
                   Lokale service en ondersteuning met de betrouwbaarheid en
                   kwaliteit waar België om bekend staat.
                 </p>
@@ -199,54 +199,54 @@ export default function OverOnsPage() {
       <section className="py-20 text-accent">
         <div className="max-w-7xl mx-auto px-6">
           <div className="text-center mb-16">
-            <h2 className="text-4xl font-bold text-black mb-4">Onze Waarden</h2>
-            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+            <h2 className="text-4xl font-bold mb-4">Onze Waarden</h2>
+            <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
               Deze kernwaarden sturen alles wat we doen bij PowerTiles
             </p>
           </div>
 
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
             <div className="text-center space-y-4">
-              <div className="mx-auto p-4 bg-[#7ED321] rounded-full w-16 h-16 flex items-center justify-center">
-                <Star className="h-8 w-8 text-black" />
+              <div className="mx-auto p-4 bg-primary rounded-full w-16 h-16 flex items-center justify-center">
+                <Star className="h-8 w-8 text-background" />
               </div>
-              <h3 className="text-xl font-bold text-black">Kracht</h3>
-              <p className="text-gray-600">
+              <h3 className="text-xl font-bold text-background">Kracht</h3>
+              <p className="text-muted-foreground">
                 Onze vloeren zijn gebouwd om te presteren onder de zwaarste
                 omstandigheden.
               </p>
             </div>
 
             <div className="text-center space-y-4">
-              <div className="mx-auto p-4 bg-black rounded-full w-16 h-16 flex items-center justify-center">
+              <div className="mx-auto p-4 border-3 border-primary rounded-full w-16 h-16 flex items-center justify-center">
                 <Award className="h-8 w-8 text-primary" />
               </div>
-              <h3 className="text-xl font-bold text-black">Luxe</h3>
-              <p className="text-gray-600">
+              <h3 className="text-xl font-bold text-background">Luxe</h3>
+              <p className="text-muted-foreground">
                 Elke tegel straalt elegantie en verfijning uit voor een premium
                 uitstraling.
               </p>
             </div>
 
             <div className="text-center space-y-4">
-              <div className="mx-auto p-4 bg-[#7ED321] rounded-full w-16 h-16 flex items-center justify-center">
-                <Shield className="h-8 w-8 text-black" />
+              <div className="mx-auto p-4 bg-primary rounded-full w-16 h-16 flex items-center justify-center">
+                <Shield className="h-8 w-8 text-background" />
               </div>
-              <h3 className="text-xl font-bold text-black">
+              <h3 className="text-xl font-bold text-background">
                 Professionaliteit
               </h3>
-              <p className="text-gray-600">
+              <p className="text-muted-foreground">
                 Van eerste contact tot eindresultaat - alles met de hoogste
                 professionele standaarden.
               </p>
             </div>
 
             <div className="text-center space-y-4">
-              <div className="mx-auto p-4 bg-black rounded-full w-16 h-16 flex items-center justify-center">
+              <div className="mx-auto p-4 border-3 border-primary rounded-full w-16 h-16 flex items-center justify-center">
                 <CheckCircle className="h-8 w-8 text-primary" />
               </div>
-              <h3 className="text-xl font-bold text-black">Kwaliteit</h3>
-              <p className="text-gray-600">
+              <h3 className="text-xl font-bold text-background">Kwaliteit</h3>
+              <p className="text-muted-foreground">
                 Geen compromissen - alleen de beste materialen en vakmanschap.
               </p>
             </div>
@@ -260,13 +260,13 @@ export default function OverOnsPage() {
           <div className="grid lg:grid-cols-2 gap-12 items-center">
             <div className="space-y-8">
               <div className="space-y-4">
-                <Badge className="bg-[#7ED321] text-black px-4 py-2 text-sm font-semibold">
+                <Badge className="bg-primary text-background px-4 py-2 text-sm font-semibold">
                   Bedrijfsgegevens
                 </Badge>
-                <h2 className="text-4xl font-bold text-black">
+                <h2 className="text-4xl font-bold text-background">
                   PowerTiles België
                 </h2>
-                <div className="space-y-4 text-lg text-gray-600">
+                <div className="space-y-4 text-lg text-muted-foreground">
                   <div className="flex items-center space-x-3">
                     <CheckCircle className="h-5 w-5 text-primary" />
                     <span>Belgische onderneming</span>
@@ -300,19 +300,16 @@ export default function OverOnsPage() {
       </section>
 
       {/* CTA Section */}
-      <section className="py-20 bg-black text-muted">
+      <section className="py-20 bg-accent/70 text-muted">
         <div className="max-w-4xl mx-auto text-center px-6">
           <h2 className="text-4xl font-bold mb-6">Klaar om samen te werken?</h2>
-          <p className="text-xl text-gray-300 mb-8 max-w-2xl mx-auto">
+          <p className="text-xl text-muted-foreground mb-8 max-w-2xl mx-auto">
             Ontdek wat PowerTiles voor uw ruimte kan betekenen. Van advies tot
             installatie - wij staan voor u klaar.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Link href="/offerte">
-              <Button
-                size="lg"
-                className="bg-[#7ED321] hover:bg-[#6BC91A] text-black font-semibold px-8"
-              >
+              <Button size="lg" className="text-background">
                 Offerte Aanvragen
                 <ArrowRight className="ml-2 h-5 w-5" />
               </Button>
@@ -321,7 +318,7 @@ export default function OverOnsPage() {
               <Button
                 size="lg"
                 variant="outline"
-                className="border-white text-muted hover:bg-foreground hover:text-black bg-transparent"
+                className="border-foreground text-muted hover:bg-foreground hover:text-background bg-transparent"
               >
                 Contact Opnemen
               </Button>

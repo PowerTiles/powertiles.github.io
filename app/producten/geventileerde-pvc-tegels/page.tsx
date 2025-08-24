@@ -11,6 +11,7 @@ import {
   Droplets,
   Shield,
   Wrench,
+  ArrowRight,
 } from "lucide-react";
 
 export default function GeventileerdePVCTegelsPage() {
@@ -34,25 +35,35 @@ export default function GeventileerdePVCTegelsPage() {
       </div>
 
       {/* Hero Section */}
-      <section className="py-16 bg-foreground">
+      <section className="py-6 bg-foreground">
         <div className="max-w-7xl mx-auto px-6">
-          <div className="grid lg:grid-cols-2 gap-12 items-center">
+          <Link
+            href="/producten"
+            className="inline-flex lg:hidden items-center text-primary transition-colors mb-6"
+          >
+            <ArrowLeft className="h-4 w-4 mr-2" />
+            Terug naar Producten
+          </Link>
+          <div className="grid lg:grid-cols-2 gap-y-6 gap-x-12 items-start">
             <div className="space-y-6">
               <Link
                 href="/producten"
-                className="inline-flex items-center text-primary hover:text-[#6BC91A] transition-colors"
+                className="hidden lg:inline-flex items-center text-primary transition-colors"
               >
                 <ArrowLeft className="h-4 w-4 mr-2" />
                 Terug naar Producten
               </Link>
               <div className="space-y-4">
-                <Badge className="bg-[#7ED321] text-black px-4 py-2 text-sm font-semibold">
+                <Badge
+                  variant="outline"
+                  className="text-background px-4 py-2 text-sm font-semibold"
+                >
                   Meest Populair
                 </Badge>
-                <h1 className="text-4xl lg:text-5xl font-bold text-black leading-tight">
+                <h1 className="text-4xl lg:text-5xl font-bold text-background leading-tight">
                   Geventileerde PVC-tegels
                 </h1>
-                <p className="text-xl text-gray-600 leading-relaxed">
+                <p className="text-xl text-muted-foreground leading-relaxed">
                   Premium kwaliteit PVC-tegels met geïntegreerde ventilatie voor
                   optimale drainage en luchtstroom. Perfect voor garages en
                   werkplaatsen.
@@ -61,18 +72,18 @@ export default function GeventileerdePVCTegelsPage() {
               <Button
                 asChild
                 size="lg"
-                className="bg-[#7ED321] hover:bg-[#6BC91A] text-black font-semibold"
+                className="text-background font-semibold mt-6"
               >
                 <Link href="/offerte">Offerte Aanvragen</Link>
               </Button>
             </div>
-            <div className="relative">
+            <div className="relative order-first lg:order-none">
               <Image
                 src="/ventilated-pvc-tiles.webp"
                 alt="Geventileerde PVC-tegels in verschillende kleuren"
                 width={600}
                 height={400}
-                className="w-full h-auto object-cover rounded-lg shadow-lg"
+                className="w-full object-cover rounded-lg shadow-lg"
               />
             </div>
           </div>
@@ -87,7 +98,7 @@ export default function GeventileerdePVCTegelsPage() {
             <div className="lg:col-span-2 space-y-8">
               <Card>
                 <CardHeader>
-                  <CardTitle className="text-2xl text-black">
+                  <CardTitle className="text-2xl text-background">
                     Productbeschrijving
                   </CardTitle>
                 </CardHeader>
@@ -110,40 +121,42 @@ export default function GeventileerdePVCTegelsPage() {
 
               <Card>
                 <CardHeader>
-                  <CardTitle className="text-2xl text-black">
+                  <CardTitle className="text-2xl text-background">
                     Unieke Eigenschappen
                   </CardTitle>
                 </CardHeader>
                 <CardContent>
                   <div className="grid md:grid-cols-3 gap-6">
                     <div className="text-center space-y-3">
-                      <div className="mx-auto w-16 h-16 bg-[#7ED321] rounded-full flex items-center justify-center">
-                        <Droplets className="h-8 w-8 text-black" />
+                      <div className="mx-auto w-16 h-16 bg-primary rounded-full flex items-center justify-center">
+                        <Droplets className="h-8 w-8 text-background" />
                       </div>
-                      <h4 className="font-semibold text-black">Drainage</h4>
-                      <p className="text-sm text-gray-600">
+                      <h4 className="font-semibold text-background">
+                        Drainage
+                      </h4>
+                      <p className="text-sm text-muted-foreground">
                         Optimale afvoer van vloeistoffen
                       </p>
                     </div>
                     <div className="text-center space-y-3">
-                      <div className="mx-auto w-16 h-16 bg-[#7ED321] rounded-full flex items-center justify-center">
-                        <Shield className="h-8 w-8 text-black" />
+                      <div className="mx-auto w-16 h-16 bg-primary rounded-full flex items-center justify-center">
+                        <Shield className="h-8 w-8 text-background" />
                       </div>
-                      <h4 className="font-semibold text-black">
+                      <h4 className="font-semibold text-background">
                         Oliebestendig
                       </h4>
-                      <p className="text-sm text-gray-600">
+                      <p className="text-sm text-muted-foreground">
                         Resistent tegen oliën en chemicaliën
                       </p>
                     </div>
                     <div className="text-center space-y-3">
-                      <div className="mx-auto w-16 h-16 bg-[#7ED321] rounded-full flex items-center justify-center">
-                        <Wrench className="h-8 w-8 text-black" />
+                      <div className="mx-auto w-16 h-16 bg-primary rounded-full flex items-center justify-center">
+                        <Wrench className="h-8 w-8 text-background" />
                       </div>
-                      <h4 className="font-semibold text-black">
+                      <h4 className="font-semibold text-background">
                         Zware Belasting
                       </h4>
-                      <p className="text-sm text-gray-600">
+                      <p className="text-sm text-muted-foreground">
                         Geschikt voor zwaar verkeer
                       </p>
                     </div>
@@ -153,14 +166,16 @@ export default function GeventileerdePVCTegelsPage() {
 
               <Card>
                 <CardHeader>
-                  <CardTitle className="text-2xl text-black">
+                  <CardTitle className="text-2xl text-background">
                     Toepassingen
                   </CardTitle>
                 </CardHeader>
                 <CardContent>
                   <div className="grid md:grid-cols-2 gap-6">
                     <div className="space-y-3">
-                      <h4 className="font-semibold text-black">Residentieel</h4>
+                      <h4 className="font-semibold text-background">
+                        Residentieel
+                      </h4>
                       <ul className="space-y-2">
                         <li className="flex items-start space-x-2">
                           <CheckCircle className="h-5 w-5 text-primary mt-0.5 flex-shrink-0" />
@@ -181,7 +196,9 @@ export default function GeventileerdePVCTegelsPage() {
                       </ul>
                     </div>
                     <div className="space-y-3">
-                      <h4 className="font-semibold text-black">Commercieel</h4>
+                      <h4 className="font-semibold text-background">
+                        Commercieel
+                      </h4>
                       <ul className="space-y-2">
                         <li className="flex items-start space-x-2">
                           <CheckCircle className="h-5 w-5 text-primary mt-0.5 flex-shrink-0" />
@@ -214,45 +231,51 @@ export default function GeventileerdePVCTegelsPage() {
             <div className="space-y-6">
               <Card>
                 <CardHeader>
-                  <CardTitle className="text-xl text-black">
+                  <CardTitle className="text-xl text-background">
                     Technische Specificaties
                   </CardTitle>
                 </CardHeader>
                 <CardContent className="space-y-4">
                   <div className="space-y-3">
                     <div className="flex justify-between">
-                      <span className="text-gray-600">Materiaal:</span>
-                      <span className="font-medium text-black">
+                      <span className="text-muted-foreground">Materiaal:</span>
+                      <span className="font-medium text-background">
                         Premium PVC
                       </span>
                     </div>
                     <div className="flex justify-between">
-                      <span className="text-gray-600">Afmetingen:</span>
-                      <span className="font-medium text-black">50x50 cm</span>
+                      <span className="text-muted-foreground">Afmetingen:</span>
+                      <span className="font-medium text-background">
+                        50x50 cm
+                      </span>
                     </div>
                     <div className="flex justify-between">
-                      <span className="text-gray-600">Dikte:</span>
-                      <span className="font-medium text-black">7-12 mm</span>
+                      <span className="text-muted-foreground">Dikte:</span>
+                      <span className="font-medium text-background">
+                        7-12 mm
+                      </span>
                     </div>
                     <div className="flex justify-between">
-                      <span className="text-gray-600">Gewicht:</span>
-                      <span className="font-medium text-black">1.8 kg/m²</span>
+                      <span className="text-muted-foreground">Gewicht:</span>
+                      <span className="font-medium text-background">
+                        1.8 kg/m²
+                      </span>
                     </div>
                     <div className="flex justify-between">
-                      <span className="text-gray-600">Belasting:</span>
-                      <span className="font-medium text-black">
+                      <span className="text-muted-foreground">Belasting:</span>
+                      <span className="font-medium text-background">
                         Tot 25 ton/m²
                       </span>
                     </div>
                     <div className="flex justify-between">
-                      <span className="text-gray-600">Installatie:</span>
-                      <span className="font-medium text-black">
+                      <span className="text-muted-foreground">Installatie:</span>
+                      <span className="font-medium text-background">
                         Kliksysteem
                       </span>
                     </div>
                     <div className="flex justify-between">
-                      <span className="text-gray-600">Onderhoud:</span>
-                      <span className="font-medium text-black">
+                      <span className="text-muted-foreground">Onderhoud:</span>
+                      <span className="font-medium text-background">
                         Onderhoudsvrij
                       </span>
                     </div>
@@ -262,13 +285,13 @@ export default function GeventileerdePVCTegelsPage() {
 
               <Card>
                 <CardHeader>
-                  <CardTitle className="text-xl text-black flex items-center">
+                  <CardTitle className="text-xl text-background flex items-center">
                     <Palette className="h-5 w-5 mr-2 text-primary" />
                     Beschikbare Kleuren
                   </CardTitle>
                 </CardHeader>
                 <CardContent>
-                  <p className="text-gray-600 text-sm mb-6">
+                  <p className="text-muted-foreground text-sm mb-6">
                     Alle kleuren van onze fabrikant Performance Floor
                   </p>
                   <div className="grid grid-cols-5 gap-3">
@@ -302,12 +325,14 @@ export default function GeventileerdePVCTegelsPage() {
                       <div key={index} className="group cursor-pointer">
                         <div
                           className={`aspect-square rounded-lg transition-all duration-200 group-hover:scale-105 group-hover:shadow-lg ${
-                            colorOption.border ? "border-2 border-gray-300" : ""
+                            colorOption.border
+                              ? "border-2 border-muted-foreground"
+                              : ""
                           }`}
                           style={{ backgroundColor: colorOption.color }}
                           title={colorOption.name}
                         ></div>
-                        <p className="text-xs text-center mt-1 text-gray-600 group-hover:text-primary transition-colors">
+                        <p className="text-xs text-center mt-1 text-muted-foreground group-hover:text-primary transition-colors">
                           {colorOption.name}
                         </p>
                       </div>
@@ -322,15 +347,12 @@ export default function GeventileerdePVCTegelsPage() {
 
               <Card>
                 <CardHeader>
-                  <CardTitle className="text-xl text-black flex items-center">
+                  <CardTitle className="text-xl text-background flex items-center">
                     <Camera className="h-5 w-5 mr-2 text-primary" />
                     Fotogalerij
                   </CardTitle>
                 </CardHeader>
                 <CardContent>
-                  <p className="text-gray-600 text-sm">
-                    Upload hier extra productfoto's en installatie-voorbeelden
-                  </p>
                   <div className="mt-4 grid grid-cols-2 gap-2">
                     <div className="aspect-square bg-gray-200 rounded flex items-center justify-center">
                       <Camera className="h-8 w-8 text-muted-foreground" />
@@ -347,31 +369,31 @@ export default function GeventileerdePVCTegelsPage() {
       </section>
 
       {/* CTA Section */}
-      <section className="py-16 bg-black text-muted">
+      <section className="py-16 bg-accent/70 text-muted">
         <div className="max-w-4xl mx-auto px-6 text-center space-y-8">
           <h2 className="text-3xl lg:text-4xl font-bold">
             Klaar voor uw nieuwe garagevloer?
           </h2>
-          <p className="text-xl text-gray-300">
+          <p className="text-xl text-muted-foreground">
             Vraag een vrijblijvende offerte aan en ontdek wat PowerTiles voor u
             kan betekenen.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Button
-              asChild
-              size="lg"
-              className="bg-[#7ED321] hover:bg-[#6BC91A] text-black font-semibold"
-            >
-              <Link href="/offerte">Offerte Aanvragen</Link>
-            </Button>
-            <Button
-              asChild
-              variant="outline"
-              size="lg"
-              className="border-white text-muted hover:bg-foreground hover:text-black bg-transparent"
-            >
-              <Link href="/contact">Contact Opnemen</Link>
-            </Button>
+            <Link href="/offerte">
+              <Button size="lg" className="text-background">
+                Offerte Aanvragen
+                <ArrowRight className="ml-2 h-5 w-5" />
+              </Button>
+            </Link>
+            <Link href="/contact">
+              <Button
+                size="lg"
+                variant="outline"
+                className="border-foreground text-muted hover:bg-foreground hover:text-background bg-transparent"
+              >
+                Contact Opnemen
+              </Button>
+            </Link>
           </div>
         </div>
       </section>

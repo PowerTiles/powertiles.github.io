@@ -1,7 +1,6 @@
 "use client";
 
 import { useState, useCallback, useRef, useEffect } from "react";
-import Image from "next/image";
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
@@ -45,8 +44,11 @@ interface SavedDesign {
   length: number;
   tiles: TileData[][];
   totalTiles: number;
-  tilesWithWaste: number;
+  totalTilesWithWaste: number;
 }
+
+// Local storage key
+const DESIGNER_STATE_KEY = "powerTilesDesigner";
 
 export default function VloerDesigner() {
   const [width, setWidth] = useState<number>(4);
@@ -59,31 +61,89 @@ export default function VloerDesigner() {
   const [showLoadDialog, setShowLoadDialog] = useState(false);
   const gridRef = useRef<HTMLDivElement>(null);
 
-  const tilesWidth = Math.ceil(width / 0.4);
-  const tilesLength = Math.ceil(length / 0.4);
-  const totalTiles = tilesWidth * tilesLength;
+  const tilesPerRow = Math.ceil(width / 0.4); // tilesWidth
+  const tilesPerColumn = Math.ceil(length / 0.4); // tilesLength
+  const totalTiles = tilesPerRow * tilesPerColumn;
   const wastePercentage = 10; // 10% waste factor
-  const tilesWithWaste = Math.ceil(totalTiles * (1 + wastePercentage / 100));
+  const totalTilesWithWaste = Math.ceil(
+    totalTiles * (1 + wastePercentage / 100)
+  );
 
-  // Initialize grid when dimensions change
-  const initializeGrid = useCallback(() => {
-    const newTiles: TileData[][] = [];
-    for (let i = 0; i < tilesLength; i++) {
+  // Save designer state to local storage
+  const saveDesignerState = useCallback(
+    (updatedTiles?: TileData[][]) => {
+      const data = {
+        width,
+        length,
+        selectedColor,
+        tiles: updatedTiles || tiles,
+        tilesPerRow,
+        tilesPerColumn,
+        totalTilesWithWaste,
+      };
+      localStorage.setItem(DESIGNER_STATE_KEY, JSON.stringify(data));
+    },
+    [width, length, selectedColor, tiles]
+  );
+
+  // Persist state whenever key values change
+  // useEffect(() => {
+  //   saveDesignerState();
+  // }, [width, length, selectedColor, tiles, saveDesignerState]);
+
+  // This useEffect replaces both the "persist state" and "initializeGrid" effects
+  useEffect(() => {
+    const stored = localStorage.getItem(DESIGNER_STATE_KEY);
+
+    if (stored) {
+      try {
+        const parsed = JSON.parse(stored);
+
+        // Validate required keys
+        const hasAllData =
+          parsed.width &&
+          parsed.length &&
+          parsed.selectedColor &&
+          parsed.tiles &&
+          Array.isArray(parsed.tiles);
+
+        if (hasAllData) {
+          // Restore saved state
+          setWidth(parsed.width);
+          setLength(parsed.length);
+          setSelectedColor(parsed.selectedColor);
+          setTiles(parsed.tiles);
+          return;
+        } else {
+          localStorage.removeItem(DESIGNER_STATE_KEY);
+        }
+      } catch (err) {
+        localStorage.removeItem(DESIGNER_STATE_KEY);
+      }
+    }
+
+    // Initialize defaults if no valid saved data
+    const defaultTiles: TileData[][] = [];
+    const defaultTileColor = TILE_COLORS[0];
+    setWidth(4);
+    setLength(4);
+    setSelectedColor(defaultTileColor);
+
+    for (let i = 0; i < tilesPerColumn; i++) {
       const row: TileData[] = [];
-      for (let j = 0; j < tilesWidth; j++) {
+      for (let j = 0; j < tilesPerRow; j++) {
         row.push({
-          color: TILE_COLORS[0].value,
-          colorName: TILE_COLORS[0].name,
+          color: defaultTileColor.value,
+          colorName: defaultTileColor.name,
         });
       }
-      newTiles.push(row);
+      defaultTiles.push(row);
     }
-    setTiles(newTiles);
-  }, [tilesWidth, tilesLength]);
+    setTiles(defaultTiles);
 
-  useEffect(() => {
-    initializeGrid();
-  }, [initializeGrid]);
+    // Save the default state immediately
+    saveDesignerState();
+  }, []);
 
   // Handle tile click to change color
   const handleTileClick = (rowIndex: number, colIndex: number) => {
@@ -136,7 +196,7 @@ export default function VloerDesigner() {
       length,
       tiles: [...tiles],
       totalTiles,
-      tilesWithWaste,
+      totalTilesWithWaste,
     };
 
     const existingDesigns = JSON.parse(
@@ -185,8 +245,8 @@ export default function VloerDesigner() {
     if (!ctx) return;
 
     const tileSize = 20;
-    canvas.width = tilesWidth * tileSize;
-    canvas.height = tilesLength * tileSize;
+    canvas.width = tilesPerRow * tileSize;
+    canvas.height = tilesPerColumn * tileSize;
 
     // Draw the tiles
     tiles.forEach((row, rowIndex) => {
@@ -241,9 +301,9 @@ PowerTiles Vloer Ontwerp Samenvatting
 =====================================
 
 Projectdetails:
-- Afmetingen: ${width}m × ${length}m (${(width * length).toFixed(1)} m²)
-- Tegels: ${tilesWidth} × ${tilesLength} = ${totalTiles} stuks
-- Inclusief snijverlies (10%): ${tilesWithWaste} stuks
+- Afmetingen: ${width}m x ${length}m (${(width * length).toFixed(1)} m²)
+- Tegels: ${tilesPerRow} x ${tilesPerColumn} = ${totalTiles} stuks
+- Inclusief snijverlies (10%): ${totalTilesWithWaste} stuks
 
 Kleurverdeling:
 ${Object.entries(colorCounts)
@@ -268,10 +328,12 @@ PowerTiles - Transform Your Space. Unleash the Power.
   return (
     <div className="min-h-screen">
       {/* Main Content */}
-      <div className="max-w-7xl mx-auto px-6 py-8">
+      <div className="bg-foreground max-w-7xl mx-auto px-6 py-8">
         <div className="mb-8">
-          <h1 className="text-4xl font-bold text-black mb-4">Vloer Designer</h1>
-          <p className="text-xl text-gray-600">
+          <h1 className="text-4xl font-bold text-background mb-4">
+            Vloer Designer
+          </h1>
+          <p className="text-xl text-muted-foreground">
             Ontwerp uw eigen garagevloer met onze geventileerde PVC-tegels
           </p>
         </div>
@@ -288,7 +350,7 @@ PowerTiles - Transform Your Space. Unleash the Power.
                 </CardTitle>
               </CardHeader>
               <CardContent className="space-y-4">
-                <div>
+                <div className="flex flex-col gap-3">
                   <Label htmlFor="width">Breedte (meter)</Label>
                   <Input
                     id="width"
@@ -297,12 +359,13 @@ PowerTiles - Transform Your Space. Unleash the Power.
                     max="20"
                     step="0.1"
                     value={width}
+                    className="max-w-[240px]"
                     onChange={(e) => {
                       setWidth(Number.parseFloat(e.target.value) || 1);
                     }}
                   />
                 </div>
-                <div>
+                <div className="flex flex-col gap-3">
                   <Label htmlFor="length">Lengte (meter)</Label>
                   <Input
                     id="length"
@@ -311,26 +374,27 @@ PowerTiles - Transform Your Space. Unleash the Power.
                     max="20"
                     step="0.1"
                     value={length}
+                    className="max-w-[240px]"
                     onChange={(e) => {
                       setLength(Number.parseFloat(e.target.value) || 1);
                     }}
                   />
                 </div>
-                <div className="pt-2 border-t">
-                  <p className="text-sm text-gray-600">
+                <div className="pt-4 border-t">
+                  <p className="text-sm text-muted-foreground">
                     Oppervlakte:{" "}
                     <span className="font-semibold">
-                      {width} × {length} = {(width * length).toFixed(1)} m²
+                      {width} x {length} = {(width * length).toFixed(1)} m²
                     </span>
                   </p>
-                  <p className="text-sm text-gray-600">
+                  <p className="text-sm text-muted-foreground">
                     Tegels:{" "}
                     <span className="font-semibold">
-                      {tilesWidth} × {tilesLength} = {totalTiles} stuks
+                      {tilesPerRow} x {tilesPerColumn} = {totalTiles} stuks
                     </span>
                   </p>
-                  <p className="text-xs text-gray-500">
-                    Grid weergave: {tiles.length} × {tiles[0]?.length || 0} ={" "}
+                  <p className="text-xs text-muted-foreground pt-2">
+                    Grid weergave: {tiles.length} x {tiles[0]?.length || 0} ={" "}
                     {tiles.length * (tiles[0]?.length || 0)} tegels
                   </p>
                 </div>
@@ -353,22 +417,22 @@ PowerTiles - Transform Your Space. Unleash the Power.
                       onClick={() => setSelectedColor(color)}
                       className={`w-full h-10 rounded border-2 transition-all ${
                         selectedColor.value === color.value
-                          ? "border-[#7ED321] ring-2 ring-[#7ED321] ring-opacity-50"
-                          : "border-gray-300 hover:border-gray-400"
+                          ? "border-primary ring-2 ring-primary ring-opacity-50"
+                          : "border-muted-foreground hover:border-gray-400"
                       }`}
                       style={{ backgroundColor: color.value }}
                       title={color.name}
                     />
                   ))}
                 </div>
-                <p className="text-sm text-gray-600 mb-4">
+                <p className="text-sm text-muted-foreground mb-4">
                   Geselecteerd:{" "}
                   <span className="font-semibold">{selectedColor.name}</span>
                 </p>
                 <div className="space-y-2">
                   <Button
                     onClick={fillAllTiles}
-                    className="w-full bg-[#7ED321] hover:bg-[#6BC91A] text-black"
+                    className="w-full text-background"
                   >
                     Alle Tegels Vullen
                   </Button>
@@ -396,18 +460,18 @@ PowerTiles - Transform Your Space. Unleash the Power.
                 <div className="flex justify-between">
                   <span>Snijverlies ({wastePercentage}%):</span>
                   <span className="font-semibold">
-                    {tilesWithWaste - totalTiles}
+                    {totalTilesWithWaste - totalTiles}
                   </span>
                 </div>
                 <div className="flex justify-between border-t pt-2">
-                  <span className="font-semibold">Totaal bestellen:</span>
+                  <span className="font-semibold">Totaal te bestellen:</span>
                   <span className="font-bold text-primary">
-                    {tilesWithWaste}
+                    {totalTilesWithWaste}
                   </span>
                 </div>
-                <Button className="w-full mt-4 bg-[#7ED321] hover:bg-[#6BC91A] text-black">
+                <Button className="w-full mt-4 text-background">
                   <Link
-                    href={`/offerte?design=true&width=${width}&length=${length}&totalTiles=${totalTiles}&tilesWithWaste=${tilesWithWaste}&surface=${(width * length).toFixed(1)}`}
+                    href={`/offerte?width=${width}&length=${length}&totalTiles=${totalTiles}&totalTilesWithWaste=${totalTilesWithWaste}`}
                     className="flex items-center gap-2"
                   >
                     Offerte Aanvragen
@@ -418,18 +482,27 @@ PowerTiles - Transform Your Space. Unleash the Power.
           </div>
 
           {/* Main Grid Area */}
-          <div className="lg:col-span-3">
+          <div className="lg:col-span-3 order-first lg:order-none">
             <Card>
               <CardHeader>
                 <div className="flex items-center justify-between">
                   <CardTitle>Uw Ontwerp</CardTitle>
                   <div className="flex gap-2">
+                    <Button
+                      variant="ghost"
+                      size="sm"
+                      className="border"
+                      onClick={() => saveDesignerState}
+                    >
+                      <FolderOpen className="h-4 w-4 mr-2" />
+                      Opslaan in browser
+                    </Button>
                     <Dialog
                       open={showSaveDialog}
                       onOpenChange={setShowSaveDialog}
                     >
                       <DialogTrigger asChild>
-                        <Button variant="outline" size="sm">
+                        <Button variant="ghost" size="sm" className="border">
                           <Save className="h-4 w-4 mr-2" />
                           Opslaan
                         </Button>
@@ -451,7 +524,7 @@ PowerTiles - Transform Your Space. Unleash the Power.
                           <div className="flex gap-2">
                             <Button
                               onClick={saveDesign}
-                              className="bg-[#7ED321] hover:bg-[#6BC91A] text-black"
+                              className="bg-primary hover:bg-[#6BC91A] text-background"
                             >
                               Opslaan
                             </Button>
@@ -467,8 +540,9 @@ PowerTiles - Transform Your Space. Unleash the Power.
                     </Dialog>
 
                     <Button
-                      variant="outline"
+                      variant="ghost"
                       size="sm"
+                      className="border"
                       onClick={loadSavedDesigns}
                     >
                       <FolderOpen className="h-4 w-4 mr-2" />
@@ -477,15 +551,21 @@ PowerTiles - Transform Your Space. Unleash the Power.
 
                     <div className="relative">
                       <Button
-                        variant="outline"
+                        variant="ghost"
                         size="sm"
+                        className="border"
                         onClick={exportDesign}
                       >
                         <Download className="h-4 w-4 mr-2" />
                         Exporteren
                       </Button>
                     </div>
-                    <Button variant="outline" size="sm" onClick={exportSummary}>
+                    <Button
+                      variant="ghost"
+                      size="sm"
+                      className="border"
+                      onClick={exportSummary}
+                    >
                       Samenvatting
                     </Button>
                   </div>
@@ -497,8 +577,8 @@ PowerTiles - Transform Your Space. Unleash the Power.
                     ref={gridRef}
                     className="grid gap-1 mx-auto"
                     style={{
-                      gridTemplateColumns: `repeat(${tilesWidth}, 1fr)`,
-                      maxWidth: `${Math.min(600, tilesWidth * 20)}px`,
+                      gridTemplateColumns: `repeat(${tilesPerRow}, 1fr)`,
+                      maxWidth: `${Math.min(600, tilesPerRow * 20 + +(tilesPerRow - 1) * 5)}px`,
                     }}
                   >
                     {tiles.map((row, rowIndex) =>
@@ -506,7 +586,7 @@ PowerTiles - Transform Your Space. Unleash the Power.
                         <button
                           key={`${rowIndex}-${colIndex}`}
                           onClick={() => handleTileClick(rowIndex, colIndex)}
-                          className="aspect-square border border-gray-300 hover:border-gray-500 transition-colors"
+                          className="aspect-square border border-muted-foreground hover:border-gray-500 transition-colors"
                           style={{
                             backgroundColor: tile.color,
                             minWidth: "20px",
@@ -544,8 +624,8 @@ PowerTiles - Transform Your Space. Unleash the Power.
                   >
                     <div>
                       <h3 className="font-semibold">{design.name}</h3>
-                      <p className="text-sm text-gray-600">
-                        {design.width}m × {design.length}m - {design.totalTiles}{" "}
+                      <p className="text-sm text-muted-foreground">
+                        {design.width}m x {design.length}m - {design.totalTiles}{" "}
                         tegels - {design.date}
                       </p>
                     </div>
@@ -553,7 +633,7 @@ PowerTiles - Transform Your Space. Unleash the Power.
                       <Button
                         size="sm"
                         onClick={() => loadDesign(design)}
-                        className="bg-[#7ED321] hover:bg-[#6BC91A] text-black"
+                        className="bg-primary hover:bg-[#6BC91A] text-background"
                       >
                         Laden
                       </Button>

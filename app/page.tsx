@@ -82,7 +82,7 @@ export default function HomePage() {
             <h2 className="text-4xl font-bold text-background mb-4">
               Onze Specialisaties
             </h2>
-            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+            <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
               PowerTiles biedt premium modulaire vloeroplossingen voor
               verschillende toepassingen
             </p>
@@ -97,7 +97,7 @@ export default function HomePage() {
                 <CardTitle className="text-2xl font-bold text-background">
                   Voor Garages
                 </CardTitle>
-                <CardDescription className="text-gray-600">
+                <CardDescription className="text-muted-foreground">
                   Professionele vloeren die bestand zijn tegen olie, chemicaliën
                   en zware belasting
                 </CardDescription>
@@ -135,7 +135,7 @@ export default function HomePage() {
                 <CardTitle className="text-2xl font-bold text-background">
                   Voor Home Gyms
                 </CardTitle>
-                <CardDescription className="text-gray-600">
+                <CardDescription className="text-muted-foreground">
                   Schokabsorberende vloeren perfect voor fitness en
                   krachttraining
                 </CardDescription>
@@ -173,7 +173,7 @@ export default function HomePage() {
                 <CardTitle className="text-2xl font-bold text-background">
                   Voor Werkplaatsen
                 </CardTitle>
-                <CardDescription className="text-gray-600">
+                <CardDescription className="text-muted-foreground">
                   Duurzame vloeren voor industriële en professionele omgevingen
                 </CardDescription>
               </CardHeader>
@@ -212,7 +212,7 @@ export default function HomePage() {
             <h2 className="text-4xl font-bold text-background mb-4">
               Onze Producten
             </h2>
-            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+            <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
               Ontdek ons uitgebreid assortiment hoogwaardige PVC-klikvloeren en
               accessoires
             </p>
@@ -381,7 +381,7 @@ export default function HomePage() {
                 <h2 className="text-4xl font-bold text-background">
                   Kwaliteit die het verschil maakt
                 </h2>
-                <p className="text-xl text-gray-600 leading-relaxed">
+                <p className="text-xl text-muted-foreground leading-relaxed">
                   Bij PowerTiles kiezen we bewust voor premium kwaliteit boven
                   goedkope alternatieven. Onze vloeren zijn een investering die
                   jarenlang meegaat.
@@ -397,7 +397,7 @@ export default function HomePage() {
                     <h3 className="text-xl font-semibold text-background mb-2">
                       Premium Materialen
                     </h3>
-                    <p className="text-gray-600">
+                    <p className="text-muted-foreground">
                       Alleen de beste PVC-materialen voor maximale duurzaamheid
                     </p>
                   </div>
@@ -411,7 +411,7 @@ export default function HomePage() {
                     <h3 className="text-xl font-semibold text-background mb-2">
                       Professionele Installatie
                     </h3>
-                    <p className="text-gray-600">
+                    <p className="text-muted-foreground">
                       Optionele vakkundige plaatsing door onze ervaren monteurs
                     </p>
                   </div>
@@ -425,7 +425,7 @@ export default function HomePage() {
                     <h3 className="text-xl font-semibold text-background mb-2">
                       Belgische Kwaliteit
                     </h3>
-                    <p className="text-gray-600">
+                    <p className="text-muted-foreground">
                       Lokale service en ondersteuning voor al uw vragen
                     </p>
                   </div>
@@ -447,19 +447,19 @@ export default function HomePage() {
       </section>
 
       {/* CTA Section */}
-      <section className="py-20 bg-muted/60 text-muted">
+      <section className="py-20 bg-muted/70 text-muted">
         <div className="max-w-4xl mx-auto text-center px-6">
           <h2 className="text-4xl font-bold mb-6">
             Klaar om uw ruimte te transformeren?
           </h2>
-          <p className="text-xl text-gray-300 mb-8 max-w-2xl mx-auto">
+          <p className="text-xl text-muted-foreground mb-8 max-w-2xl mx-auto">
             Vraag vandaag nog een vrijblijvende offerte aan en ontdek wat
             PowerTiles voor u kan betekenen.
           </p>
           <Link href="/offerte">
             <Button
               size="lg"
-              className="bg-primary hover:bg-[#6BC91A] text-background font-semibold px-12 py-4 text-lg"
+              className="text-background"
             >
               Offerte Aanvragen
               <ArrowRight className="ml-2 h-6 w-6" />

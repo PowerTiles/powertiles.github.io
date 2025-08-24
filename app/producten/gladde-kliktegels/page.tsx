@@ -3,7 +3,13 @@ import Link from "next/link";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
-import { ArrowLeft, CheckCircle, Palette, Camera } from "lucide-react";
+import {
+  ArrowLeft,
+  CheckCircle,
+  Palette,
+  Camera,
+  ArrowRight,
+} from "lucide-react";
 
 export default function GladdeKliktegelsPage() {
   return (
@@ -24,25 +30,35 @@ export default function GladdeKliktegelsPage() {
       </div>
 
       {/* Hero Section */}
-      <section className="py-16 bg-foreground">
+      <section className="py-6 bg-foreground">
         <div className="max-w-7xl mx-auto px-6">
-          <div className="grid lg:grid-cols-2 gap-12 items-center">
+          <Link
+            href="/producten"
+            className="inline-flex lg:hidden items-center text-primary transition-colors mb-6"
+          >
+            <ArrowLeft className="h-4 w-4 mr-2" />
+            Terug naar Producten
+          </Link>
+          <div className="grid lg:grid-cols-2 gap-y-6 gap-x-12 items-start">
             <div className="space-y-6">
               <Link
                 href="/producten"
-                className="inline-flex items-center text-primary hover:text-[#6BC91A] transition-colors"
+                className="hidden lg:inline-flex items-center text-primary transition-colors"
               >
                 <ArrowLeft className="h-4 w-4 mr-2" />
                 Terug naar Producten
               </Link>
               <div className="space-y-4">
-                <Badge className="bg-[#7ED321] text-black px-4 py-2 text-sm font-semibold">
+                <Badge
+                  variant="outline"
+                  className="text-background px-4 py-2 text-sm font-semibold"
+                >
                   Premium Kwaliteit
                 </Badge>
-                <h1 className="text-4xl lg:text-5xl font-bold text-black leading-tight">
+                <h1 className="text-4xl lg:text-5xl font-bold text-background leading-tight">
                   Gladde Kliktegels
                 </h1>
-                <p className="text-xl text-gray-600 leading-relaxed">
+                <p className="text-xl text-muted-foreground leading-relaxed">
                   Strakke, gladde oppervlakken voor een professionele
                   uitstraling. Perfect voor ruimtes waar een clean, moderne look
                   gewenst is.
@@ -51,12 +67,12 @@ export default function GladdeKliktegelsPage() {
               <Button
                 asChild
                 size="lg"
-                className="bg-[#7ED321] hover:bg-[#6BC91A] text-black font-semibold"
+                className="text-background font-semibold mt-6"
               >
                 <Link href="/offerte">Offerte Aanvragen</Link>
               </Button>
             </div>
-            <div className="relative">
+            <div className="relative order-first lg:order-none">
               <Image
                 src="/smooth-click-tiles.jpeg"
                 alt="Gladde kliktegels in verschillende kleuren"
@@ -77,7 +93,7 @@ export default function GladdeKliktegelsPage() {
             <div className="lg:col-span-2 space-y-8">
               <Card>
                 <CardHeader>
-                  <CardTitle className="text-2xl text-black">
+                  <CardTitle className="text-2xl text-background">
                     Productbeschrijving
                   </CardTitle>
                 </CardHeader>
@@ -100,14 +116,14 @@ export default function GladdeKliktegelsPage() {
 
               <Card>
                 <CardHeader>
-                  <CardTitle className="text-2xl text-black">
+                  <CardTitle className="text-2xl text-background">
                     Toepassingen
                   </CardTitle>
                 </CardHeader>
                 <CardContent>
                   <div className="grid md:grid-cols-2 gap-6">
                     <div className="space-y-3">
-                      <h4 className="font-semibold text-black">
+                      <h4 className="font-semibold text-background">
                         Lichte Belasting
                       </h4>
                       <ul className="space-y-2">
@@ -130,7 +146,7 @@ export default function GladdeKliktegelsPage() {
                       </ul>
                     </div>
                     <div className="space-y-3">
-                      <h4 className="font-semibold text-black">
+                      <h4 className="font-semibold text-background">
                         Zware Belasting
                       </h4>
                       <ul className="space-y-2">
@@ -167,39 +183,43 @@ export default function GladdeKliktegelsPage() {
             <div className="space-y-6">
               <Card>
                 <CardHeader>
-                  <CardTitle className="text-xl text-black">
+                  <CardTitle className="text-xl text-background">
                     Technische Specificaties
                   </CardTitle>
                 </CardHeader>
                 <CardContent className="space-y-4">
                   <div className="space-y-3">
                     <div className="flex justify-between">
-                      <span className="text-gray-600">Materiaal:</span>
-                      <span className="font-medium text-black">
+                      <span className="text-muted-foreground">Materiaal:</span>
+                      <span className="font-medium text-background">
                         Premium PVC
                       </span>
                     </div>
                     <div className="flex justify-between">
-                      <span className="text-gray-600">Afmetingen:</span>
-                      <span className="font-medium text-black">50x50 cm</span>
+                      <span className="text-muted-foreground">Afmetingen:</span>
+                      <span className="font-medium text-background">
+                        50x50 cm
+                      </span>
                     </div>
                     <div className="flex justify-between">
-                      <span className="text-gray-600">Dikte:</span>
-                      <span className="font-medium text-black">7-12 mm</span>
+                      <span className="text-muted-foreground">Dikte:</span>
+                      <span className="font-medium text-background">
+                        7-12 mm
+                      </span>
                     </div>
                     <div className="flex justify-between">
-                      <span className="text-gray-600">Oppervlak:</span>
-                      <span className="font-medium text-black">Glad</span>
+                      <span className="text-muted-foreground">Oppervlak:</span>
+                      <span className="font-medium text-background">Glad</span>
                     </div>
                     <div className="flex justify-between">
-                      <span className="text-gray-600">Installatie:</span>
-                      <span className="font-medium text-black">
+                      <span className="text-muted-foreground">Installatie:</span>
+                      <span className="font-medium text-background">
                         Kliksysteem
                       </span>
                     </div>
                     <div className="flex justify-between">
-                      <span className="text-gray-600">Onderhoud:</span>
-                      <span className="font-medium text-black">
+                      <span className="text-muted-foreground">Onderhoud:</span>
+                      <span className="font-medium text-background">
                         Onderhoudsvrij
                       </span>
                     </div>
@@ -209,36 +229,54 @@ export default function GladdeKliktegelsPage() {
 
               <Card>
                 <CardHeader>
-                  <CardTitle className="text-xl text-black flex items-center">
+                  <CardTitle className="text-xl text-background flex items-center">
                     <Palette className="h-5 w-5 mr-2 text-primary" />
                     Beschikbare Kleuren
                   </CardTitle>
                 </CardHeader>
                 <CardContent>
-                  <p className="text-gray-600 text-sm mb-4">
-                    Voeg hier uw kleuropties toe via het admin panel
+                  <p className="text-muted-foreground text-sm mb-6">
+                    Alle kleuren van onze fabrikant Performance Floor
                   </p>
-                  <div className="grid grid-cols-4 gap-2">
+                  <div className="grid grid-cols-4 gap-3">
                     {/* Placeholder color swatches */}
-                    <div className="aspect-square bg-gray-800 rounded border-2 border-gray-300"></div>
-                    <div className="aspect-square bg-gray-600 rounded border-2 border-gray-300"></div>
-                    <div className="aspect-square bg-blue-600 rounded border-2 border-gray-300"></div>
-                    <div className="aspect-square bg-red-600 rounded border-2 border-gray-300"></div>
+                    {[
+                      { name: "Zwart", color: "#1e2939", border: true },
+                      { name: "Grijs", color: "#4a5565" },
+                      { name: "Blauw", color: "#155dfc" },
+                      { name: "Rood", color: "#e7000b" },
+                    ].map((colorOption, index) => (
+                      <div key={index} className="group cursor-pointer">
+                        <div
+                          className={`aspect-square rounded-lg transition-all duration-200 group-hover:scale-105 group-hover:shadow-lg ${
+                            colorOption.border
+                              ? "border-2 border-muted-foreground"
+                              : ""
+                          }`}
+                          style={{ backgroundColor: colorOption.color }}
+                          title={colorOption.name}
+                        ></div>
+                        <p className="text-xs text-center mt-1 text-muted-foreground group-hover:text-primary transition-colors">
+                          {colorOption.name}
+                        </p>
+                      </div>
+                    ))}
                   </div>
+                  <p className="text-xs text-gray-500 mt-4 italic">
+                    * Kleuren kunnen afwijken van de werkelijke productkleuren
+                    door schermweergave
+                  </p>
                 </CardContent>
               </Card>
 
               <Card>
                 <CardHeader>
-                  <CardTitle className="text-xl text-black flex items-center">
+                  <CardTitle className="text-xl text-background flex items-center">
                     <Camera className="h-5 w-5 mr-2 text-primary" />
                     Fotogalerij
                   </CardTitle>
                 </CardHeader>
                 <CardContent>
-                  <p className="text-gray-600 text-sm">
-                    Upload hier extra productfoto's en installatie-voorbeelden
-                  </p>
                   <div className="mt-4 grid grid-cols-2 gap-2">
                     <div className="aspect-square bg-gray-200 rounded flex items-center justify-center">
                       <Camera className="h-8 w-8 text-muted-foreground" />
@@ -255,31 +293,31 @@ export default function GladdeKliktegelsPage() {
       </section>
 
       {/* CTA Section */}
-      <section className="py-16 bg-black text-muted">
+      <section className="py-16 bg-accent/70 text-muted">
         <div className="max-w-4xl mx-auto px-6 text-center space-y-8">
           <h2 className="text-3xl lg:text-4xl font-bold">
             Klaar voor uw nieuwe vloer?
           </h2>
-          <p className="text-xl text-gray-300">
+          <p className="text-xl text-muted-foreground">
             Vraag een vrijblijvende offerte aan en ontdek wat PowerTiles voor u
             kan betekenen.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Button
-              asChild
-              size="lg"
-              className="bg-[#7ED321] hover:bg-[#6BC91A] text-black font-semibold"
-            >
-              <Link href="/offerte">Offerte Aanvragen</Link>
-            </Button>
-            <Button
-              asChild
-              variant="outline"
-              size="lg"
-              className="border-white text-muted hover:bg-foreground hover:text-black bg-transparent"
-            >
-              <Link href="/contact">Contact Opnemen</Link>
-            </Button>
+            <Link href="/offerte">
+              <Button size="lg" className="text-background">
+                Offerte Aanvragen
+                <ArrowRight className="ml-2 h-5 w-5" />
+              </Button>
+            </Link>
+            <Link href="/contact">
+              <Button
+                size="lg"
+                variant="outline"
+                className="border-foreground text-muted hover:bg-foreground hover:text-background bg-transparent"
+              >
+                Contact Opnemen
+              </Button>
+            </Link>
           </div>
         </div>
       </section>
