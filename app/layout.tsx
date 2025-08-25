@@ -2,6 +2,7 @@ import type React from "react";
 import type { Metadata } from "next";
 import { Space_Grotesk, DM_Sans } from "next/font/google";
 import "./globals.css";
+import { Toaster } from "@/components/ui/sonner"
 import { Header } from "@/components/layout/header";
 import { Footer } from "@/components/layout/footer";
 
@@ -38,7 +39,8 @@ export default function RootLayout({
     >
       <body>
         <Header />
-        {children}
+        <main>{children}</main>
+        <Toaster />
         <Footer />
       </body>
     </html>

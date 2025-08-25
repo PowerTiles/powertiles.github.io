@@ -42,17 +42,17 @@ import {
   AlertCircleIcon,
   CheckCircle2Icon,
 } from "lucide-react";
-import { useState, useEffect } from "react";
-import { useSearchParams } from "next/navigation";
+import { useState, useEffect, useCallback } from "react";
 import { Input } from "@/components/ui/input";
+// Ensure this import path is correct for your project structure
+import { SavedDesign, TileData } from "@/app/designer-tool/page";
+import { toast } from "sonner";
+import { useRouter, useSearchParams } from "next/navigation";
 
-interface DesignData {
-  width: number;
-  length: number;
-  totalTiles: number;
-  totalTilesWithWaste: number;
-  surface: number;
-}
+// Local storage key
+const DESIGNER_STATE_KEY = "powerTilesDesigns";
+const CURRENT_PROJECT_KEY = "powerTilesCurrentProject";
+
 
 export default function OffertePage() {
   const [isLoading, setIsLoading] = useState(false);
@@ -66,30 +66,55 @@ export default function OffertePage() {
     title: "",
     description: "",
   });
-  const [designData, setDesignData] = useState<DesignData | null>(null);
+  const [designData, setDesignData] = useState<SavedDesign | null>(null);
+  const [availableDesigns, setAvailableDesigns] = useState<SavedDesign[]>([]); // New state for all saved designs
+
   const searchParams = useSearchParams();
+  const router = useRouter();
 
-  useEffect(() => {
-    const width = Number.parseFloat(searchParams.get("width") || "0");
-    const length = Number.parseFloat(searchParams.get("length") || "0");
-    const totalTiles = Number.parseInt(searchParams.get("totalTiles") || "0");
-    const totalTilesWithWaste = Number.parseInt(
-      searchParams.get("totalTilesWithWaste") || "0"
-    );
-    const surface = width * length;
+  // Helper function to validate a design object
+  const isValidDesign = useCallback((design: any): design is SavedDesign => {
+    if (!design || typeof design !== "object") return false;
 
-    if (width && length && totalTiles && totalTilesWithWaste && surface) {
-      setDesignData({
-        width,
-        length,
-        totalTiles,
-        totalTilesWithWaste,
-        surface,
-      });
-    }
-  }, [searchParams]);
+    // Check basic properties for a SavedDesign object
+    const hasRequiredStringProps =
+      typeof design.id === "string" &&
+      typeof design.name === "string" &&
+      typeof design.date === "string";
 
-  // 0. Define your form validation schema
+    const hasRequiredNumberProps =
+      typeof design.width === "number" &&
+      design.width > 0 &&
+      typeof design.length === "number" &&
+      design.length > 0 &&
+      typeof design.tilesPerWidth === "number" &&
+      design.tilesPerWidth > 0 &&
+      typeof design.tilesPerLength === "number" &&
+      design.tilesPerLength > 0 &&
+      typeof design.totalTilesWithWaste === "number" &&
+      design.totalTilesWithWaste >= 0;
+
+    // Validate tiles is a non-empty 2D array of TileData
+    const validTiles =
+      Array.isArray(design.tiles) &&
+      design.tiles.length > 0 &&
+      design.tiles.every(
+        (row: any) =>
+          Array.isArray(row) &&
+          row.length > 0 &&
+          row.every(
+            (tile: any) =>
+              typeof tile === "object" &&
+              tile !== null &&
+              typeof tile.color === "string" &&
+              typeof tile.colorName === "string"
+          )
+      );
+
+    return hasRequiredStringProps && hasRequiredNumberProps && validTiles;
+  }, []); // No dependencies for isValidDesign itself
+
+  // 0. Define your form validation schema (moved here for contactForm dependency in useEffect)
   const contactFormSchema = z.object({
     // Contactgegevens
     firstName: z
@@ -122,6 +147,7 @@ export default function OffertePage() {
       .number({ invalid_type_error: "Oppervlakte moet een getal zijn." })
       .positive({ message: "Oppervlakte moet groter zijn dan 0." }),
     tileType: z.string().min(1, { message: "Selecteer een type tegel." }),
+    designerProject: z.string().optional(), // New field for selected designer project ID
 
     // Extra diensten (checkboxes are boolean)
     installation: z.boolean().optional(),
@@ -153,6 +179,7 @@ export default function OffertePage() {
       roomType: "",
       surface: 0,
       tileType: "",
+      designerProject: "none", // Changed default value to "none"
       installation: false,
       lighting: false,
       accessories: false,
@@ -190,6 +217,20 @@ export default function OffertePage() {
       formData.append("Oppervlakt in m²?", values.surface.toString());
       formData.append("Gewenst type tegel?", values.tileType);
 
+      // Add designer project details if available
+      if (designData && values.designerProject === designData.id) {
+        formData.append("Designer-Tool: Project ID", designData.id);
+        formData.append("Designer-Tool: Project Naam", designData.name);
+        formData.append("Designer-Tool: Vloer Afmetingen", `${designData.width}m x ${designData.length}m`);
+        formData.append("Designer-Tool: oppervlakte", `${(designData.width * designData.length).toFixed(1)} m²`);
+        formData.append("Designer-Tool: tegels in breedte", `${designData.tilesPerWidth} stuks`);
+        formData.append("Designer-Tool: tegels in lengte", `${designData.tilesPerLength} stuks`);
+        formData.append("Designer-Tool: totaal tegels", `${designData.tilesPerWidth * designData.tilesPerLength} stuks`);
+        formData.append("Designer-Tool: totaal tegels (incl. afval)", `${designData.totalTilesWithWaste} stuks`);
+        // Optionally, you can also send a representation of the tile colors/layout
+        formData.append("Designer-Tool: tegel layout", JSON.stringify(designData.tiles));
+      }
+
       // Extra diensten
       formData.append(
         "Professionele installatie gewenst?",
@@ -221,17 +262,7 @@ export default function OffertePage() {
       formData.append("Newsletter?", values.newsletter ? "Ja" : "Nee");
 
       if (designData) {
-        formData.append("tool-designWidth", designData.width.toString());
-        formData.append("tool-designLength", designData.length.toString());
-        formData.append(
-          "tool-designTotalTiles",
-          designData.totalTiles.toString()
-        );
-        formData.append(
-          "tool-designtotalTilesWithWaste",
-          designData.totalTilesWithWaste.toString()
-        );
-        formData.append("tool-designSurface", designData.surface.toString());
+        formData.append("designer-tool-data", JSON.stringify(designData));
       }
 
       // Optional: specify FormSubmit options
@@ -258,6 +289,8 @@ export default function OffertePage() {
       });
 
       contactForm.reset();
+      setDesignData(null); // Clear design data after successful submission
+      contactForm.setValue('designerProject', 'none'); // Clear selected project in form to "none"
     } catch (error) {
       // Show error message
       setMessage({
@@ -274,6 +307,89 @@ export default function OffertePage() {
       setIsLoading(false);
     }
   }
+
+  // Main Effect: Loads designs from localStorage and handles projectId from URL
+  useEffect(() => {
+    const projectIdFromUrl = searchParams.get("projectId");
+    let needsToRemoveQueryParam = false;
+
+    let allSavedDesigns: SavedDesign[] = [];
+    const storedDesignsString = localStorage.getItem(DESIGNER_STATE_KEY);
+
+    if (storedDesignsString) {
+      try {
+        const parsedDesigns = JSON.parse(storedDesignsString);
+        if (Array.isArray(parsedDesigns)) {
+          allSavedDesigns = parsedDesigns;
+          setAvailableDesigns(parsedDesigns); // Set available designs state
+        } else {
+          localStorage.removeItem(DESIGNER_STATE_KEY);
+          setAvailableDesigns([]);
+        }
+      } catch (err) {
+        localStorage.removeItem(DESIGNER_STATE_KEY);
+        toast.error(
+          "Fout bij het laden van opgeslagen ontwerpen.",
+          { duration: 5000 }
+        );
+        setAvailableDesigns([]);
+      }
+    } else {
+        setAvailableDesigns([]);
+    }
+
+    let loadedDesign: SavedDesign | null = null;
+
+    if (projectIdFromUrl) {
+      const foundDesign = allSavedDesigns.find(
+        (d) => d.id === projectIdFromUrl
+      );
+
+      if (foundDesign) {
+        if (isValidDesign(foundDesign)) {
+          loadedDesign = foundDesign;
+        } else {
+          toast.error(
+            `Project "${(foundDesign as SavedDesign).name}" is ongeldig en verwijderd.`,
+            { duration: 5000, closeButton: true }
+          );
+          allSavedDesigns = allSavedDesigns.filter(
+            (d) => d.id !== projectIdFromUrl
+          );
+          localStorage.setItem(
+            DESIGNER_STATE_KEY,
+            JSON.stringify(allSavedDesigns)
+          );
+          setAvailableDesigns(allSavedDesigns);
+          needsToRemoveQueryParam = true;
+        }
+      } else {
+        needsToRemoveQueryParam = true;
+      }
+    }
+
+    // Set designData based on what was loaded (or null if nothing valid)
+    setDesignData(loadedDesign);
+
+    // Clean up URL if necessary (moved here for clarity)
+    if (needsToRemoveQueryParam) {
+      const current = new URLSearchParams(Array.from(searchParams.entries()));
+      current.delete("projectId");
+      const query = current.toString();
+      const newUrl = query ? `?${query}` : "";
+      router.replace(`${window.location.pathname}${newUrl}`);
+    }
+  }, [searchParams, router, isValidDesign]); // Dependencies for main effect
+
+  // Effect to synchronize react-hook-form's 'designerProject' field with designData
+  useEffect(() => {
+    if (designData) {
+      contactForm.setValue('designerProject', designData.id);
+      toast.success(`Project "${designData.name}" geladen.`, { duration: 2000 });
+    } else {
+      contactForm.setValue('designerProject', 'none'); // Ensure 'none' is selected if no project is loaded
+    }
+  }, [designData, availableDesigns, contactForm]); // Depends on designData and availableDesigns to ensure options are ready
 
   return (
     <div className="min-h-screen">
@@ -308,7 +424,7 @@ export default function OffertePage() {
                       {designData.width}m x {designData.length}m
                     </p>
                     <p className="text-muted-foreground">
-                      Oppervlakte: {designData.surface} m²
+                      Oppervlakte: {designData.width * designData.length} m²
                     </p>
                   </div>
                   <div>
@@ -316,7 +432,9 @@ export default function OffertePage() {
                       Tegels Berekening
                     </h4>
                     <p className="text-muted-foreground">
-                      Tegels nodig: {designData.totalTiles} stuks
+                      Tegels nodig:{" "}
+                      {designData.tilesPerLength * designData.tilesPerWidth}{" "}
+                      stuks
                     </p>
                     <p className="text-muted-foreground">
                       Inclusief snijverlies: {designData.totalTilesWithWaste}{" "}
@@ -324,14 +442,40 @@ export default function OffertePage() {
                     </p>
                   </div>
                 </div>
+                <div className="bg-foreground border rounded-lg p-4 overflow-auto mt-4">
+                  <div
+                    className="grid gap-1 mx-auto"
+                    style={{
+                      gridTemplateColumns: `repeat(${designData.tilesPerWidth}, 1fr)`, // Corrected to tilesPerWidth
+                      maxWidth: `${Math.min(600, designData.tilesPerWidth * 20 + +(designData.tilesPerWidth - 1) * 5)}px`, // Corrected to tilesPerWidth
+                    }}
+                  >
+                    {designData.tiles.map((row, rowIndex) =>
+                      row.map((tile, colIndex) => (
+                        <div
+                          key={`${rowIndex}-${colIndex}`}
+                          className="aspect-square border border-muted-foreground"
+                          style={{
+                            backgroundColor: tile.color,
+                            minWidth: "20px",
+                            minHeight: "20px",
+                          }}
+                          title={`${tile.colorName} (${rowIndex + 1}, ${colIndex + 1})`}
+                        />
+                      ))
+                    )}
+                  </div>
+                </div>
               </CardContent>
               <CardFooter className="flex-col gap-2">
                 <Alert className="bg-green-100 border-2 border-green-400">
                   <CheckCircle2Icon />
-                  <AlertTitle>Ontwerp gedetecteerd:</AlertTitle>
+                  <AlertTitle>
+                    Ontwerp gedetecteerd: "{designData.name}"
+                  </AlertTitle>
                   <AlertDescription>
-                    Uw designer tool gegevens zijn automatisch ingevuld wanneer
-                    u de offerte beneden verzendt.
+                    Uw designer tool gegevens zijn automatisch bijgevoegd
+                    wanneer u de offerte beneden verzendt. U kan het project verwijderen of wijzigen in the formulier beneden.
                   </AlertDescription>
                 </Alert>
               </CardFooter>
@@ -409,6 +553,82 @@ export default function OffertePage() {
                   onSubmit={contactForm.handleSubmit(onSubmit)}
                   className="space-y-8"
                 >
+                  {/* Designer Tool */}
+                  <div className="space-y-6">
+                    <h3 className="text-xl font-bold text-background border-b pb-2">
+                      Designer Tool (Optioneel)
+                    </h3>
+                    <FormField
+                      control={contactForm.control}
+                      name="designerProject"
+                      render={({ field }) => (
+                        <FormItem className="h-min">
+                          <FormLabel>Selecteer uw opgeslagen project {availableDesigns.length === 0 && "(Geen opgeslagen projecten gevonden)"}</FormLabel>
+                          <Select
+                            onValueChange={(selectedProjectId) => {
+                              field.onChange(selectedProjectId); // Update react-hook-form field
+                              if (selectedProjectId && selectedProjectId !== "none") { // Check for "none"
+                                const selectedDesign = availableDesigns.find(d => d.id === selectedProjectId);
+                                if (selectedDesign && isValidDesign(selectedDesign)) {
+                                  setDesignData(selectedDesign);
+                                  toast.info(`Project "${selectedDesign.name}" geselecteerd.`, { duration: 2000 });
+                                } else {
+                                  setDesignData(null); // Clear design data if selected project is invalid/not found
+                                  toast.error("Geselecteerd project is ongeldig of niet gevonden.", { duration: 3000 });
+                                  // Also clear the form field if the selection was invalid, to prevent displaying the invalid ID
+                                  contactForm.setValue('designerProject', 'none'); // Set to "none" to visually clear
+                                }
+                              } else {
+                                // If user clears selection or selects the "none" option
+                                setDesignData(null); // Clear design data
+                                contactForm.setValue('designerProject', 'none'); // Ensure form field is also cleared to "none"
+                              }
+                            }}
+                            value={field.value}
+                          >
+                            <FormControl>
+                              <SelectTrigger>
+                                <SelectValue placeholder="Selecteer uw project" />
+                              </SelectTrigger>
+                            </FormControl>
+                            <SelectContent>
+                              {/* Option to clear selection - Value is "none" */}
+                              {availableDesigns.length === 0 ? (
+                                  // Changed value from "" to "no-projects-available"
+                                  <SelectItem value="none">Geen project toevoegen</SelectItem>
+                              ) : (
+                                <>
+                                 <SelectItem value="none">Geen project toevoegen</SelectItem>
+                                  {availableDesigns.map((design) => (
+                                      <SelectItem key={design.id} value={design.id}>
+                                          {design.name} ({design.width}x{design.length}m)
+                                      </SelectItem>
+                                  ))}
+                                  </>
+                              )}
+                            </SelectContent>
+                          </Select>
+                          <FormMessage />
+                        </FormItem>
+                      )}
+                    />
+                    {designData && (
+                      <Alert className="bg-green-100 border-2 border-green-400">
+                        <CheckCircle2Icon />
+                        <AlertTitle>
+                          Uw designer tool gegevens van project "
+                          {designData.name}" worden automatisch met de offerte
+                          verzonden.
+                        </AlertTitle>
+                        <AlertDescription>
+                          <div className="flex flex-row gap-1 justify-center items-center">
+                            De details kan u bovenaan raadplegen.
+                          </div>
+                        </AlertDescription>
+                      </Alert>
+                    )}
+                  </div>
+
                   {/* Personal Information */}
                   <div className="space-y-6">
                     <h3 className="text-xl font-bold text-background border-b pb-2">

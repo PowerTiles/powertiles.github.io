@@ -67,7 +67,7 @@ export default function HomePage() {
                   alt="Premium PVC garage flooring with green sports car"
                   width={800}
                   height={600}
-                  className="max-h-[400px] w-full h-auto object-cover"
+                  className="max-h-[600px] h-auto w-full object-cover"
                 />
               </div>
             </div>
