@@ -112,7 +112,7 @@ export function Header() {
   ];
 
   return (
-    <header className="sticky top-0 z-50 w-full border-b border-background py-4 bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/90">
+    <header className="sticky top-0 z-50 w-full border-b border-background py-4 bg-foreground/95 backdrop-blur supports-[backdrop-filter]:bg-foreground/90">
       <div className="max-w-7xl mx-auto px-6">
         <div className="flex items-center justify-between gap-4">
           {/* Logo */}
@@ -135,13 +135,13 @@ export function Header() {
                 >
                   {!item.subItems ? (
                     // Just a single link
-                    <NavigationMenuLink asChild className="hover:text-primary">
+                    <NavigationMenuLink asChild className="hover:text-primary text-background">
                       <Link href={item.href || "#"}>{item.title}</Link>
                     </NavigationMenuLink>
                   ) : (
                     // Dropdown with subItems
                     <>
-                      <NavigationMenuTrigger>
+                      <NavigationMenuTrigger className="text-background">
                         {item.href ? (
                           <Link href={item.href}>{item.title}</Link>
                         ) : (

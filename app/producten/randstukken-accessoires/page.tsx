@@ -18,7 +18,7 @@ export default function RandstukkenAccessoiresPage() {
   return (
     <div className="min-h-screen">
       {/* Breadcrumb */}
-      <div className="bg-foreground py-4 px-6 border-b">
+      <div className=" py-4 px-6 border-b">
         <div className="max-w-7xl mx-auto flex items-center space-x-2 text-sm">
           <Link href="/" className="text-gray-500 hover:text-primary">
             Home
@@ -35,7 +35,7 @@ export default function RandstukkenAccessoiresPage() {
       </div>
 
       {/* Hero Section */}
-      <section className="py-6 bg-foreground">
+      <section className="py-6 ">
         <div className="max-w-7xl mx-auto px-6">
           <Link
             href="/producten"
@@ -464,7 +464,7 @@ export default function RandstukkenAccessoiresPage() {
               <Button
                 size="lg"
                 variant="outline"
-                className="border-foreground text-muted hover:bg-foreground hover:text-background bg-transparent"
+                className="border-foreground text-muted hover: hover:text-background bg-transparent"
               >
                 Contact Opnemen
               </Button>

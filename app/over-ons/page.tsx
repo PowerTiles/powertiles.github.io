@@ -29,7 +29,7 @@ export default function OverOnsPage() {
       </section>
 
       {/* Company Story */}
-      <section className="py-20 bg-foreground">
+      <section className="py-20 ">
         <div className="max-w-7xl mx-auto px-6">
           <div className="grid lg:grid-cols-2 gap-12 items-center">
             <div className="space-y-8">
@@ -124,7 +124,7 @@ export default function OverOnsPage() {
       </section>
 
       {/* Why Choose PowerTiles */}
-      <section className="py-20 bg-foreground">
+      <section className="py-20 ">
         <div className="max-w-7xl mx-auto px-6">
           <div className="text-center mb-16">
             <Badge className="text-background px-4 py-2 text-sm font-semibold mb-6">
@@ -255,7 +255,7 @@ export default function OverOnsPage() {
       </section>
 
       {/* Company Info */}
-      <section className="py-20 bg-foreground">
+      <section className="py-20 ">
         <div className="max-w-7xl mx-auto px-6">
           <div className="grid lg:grid-cols-2 gap-12 items-center">
             <div className="space-y-8">
@@ -318,7 +318,7 @@ export default function OverOnsPage() {
               <Button
                 size="lg"
                 variant="outline"
-                className="border-foreground text-muted hover:bg-foreground hover:text-background bg-transparent"
+                className="border-foreground text-muted hover: hover:text-background bg-transparent"
               >
                 Contact Opnemen
               </Button>

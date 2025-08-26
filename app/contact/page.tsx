@@ -176,7 +176,7 @@ export default function ContactPage() {
       </section>
 
       {/* Contact Information */}
-      <section className="py-20 bg-foreground">
+      <section className="py-20 ">
         <div className="max-w-7xl mx-auto px-6">
           <div className="grid min-[875px]:grid-cols-3 gap-8 mb-16">
             <Card className="group hover:shadow-xl transition-all duration-300 border-2 hover:border-primary">
@@ -534,7 +534,7 @@ export default function ContactPage() {
       </section>
 
       {/* FAQ Section */}
-      <section className="py-20 bg-foreground">
+      <section className="py-20 ">
         <div className="max-w-7xl mx-auto px-6">
           <div className="text-center mb-16">
             <h2 className="text-4xl font-bold text-background mb-4">
@@ -626,7 +626,7 @@ export default function ContactPage() {
               <Button
                 size="lg"
                 variant="outline"
-                className="border-foreground text-muted hover:bg-foreground hover:text-background bg-transparent"
+                className="border-foreground text-muted hover: hover:text-background bg-transparent"
               >
                 <Phone className="mr-2 h-5 w-5" />
                 Direct Bellen
