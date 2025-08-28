@@ -18,7 +18,7 @@ export default function OverOnsPage() {
   return (
     <div className="min-h-screen">
       {/* Hero Section */}
-      <section className=" text-muted py-16">
+      <section className=" text-muted py-16 bg-foreground">
         <div className="max-w-7xl mx-auto px-6 text-center">
           <h1 className="text-5xl font-bold mb-6">Over PowerTiles</h1>
           <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
@@ -34,10 +34,10 @@ export default function OverOnsPage() {
           <div className="grid lg:grid-cols-2 gap-12 items-center">
             <div className="space-y-8">
               <div className="space-y-4">
-                <Badge className="text-background px-4 py-2 text-sm font-semibold">
+                <Badge className="px-4 py-2 text-sm font-semibold text-foreground">
                   Ons Verhaal
                 </Badge>
-                <h2 className="text-4xl font-bold text-background">
+                <h2 className="text-4xl font-bold">
                   PowerTiles: Kracht en Luxe Verenigd
                 </h2>
                 <p className="text-xl text-muted-foreground leading-relaxed">
@@ -68,7 +68,7 @@ export default function OverOnsPage() {
       </section>
 
       {/* Mission & Vision */}
-      <section className="py-20 text-accent">
+      <section className="py-20 text-accent bg-foreground">
         <div className="max-w-7xl mx-auto px-6">
           <div className="text-center mb-16">
             <h2 className="text-4xl font-bold mb-4">
@@ -84,9 +84,9 @@ export default function OverOnsPage() {
             <Card className="group hover:shadow-xl transition-all duration-300 border-2 hover:border-primary">
               <CardHeader className="text-center pb-4">
                 <div className="mx-auto mb-4 p-4 bg-primary rounded-full w-16 h-16 flex items-center justify-center">
-                  <Target className="h-8 w-8 text-background" />
+                  <Target className="h-8 w-8" />
                 </div>
-                <CardTitle className="text-2xl font-bold text-background">
+                <CardTitle className="text-2xl font-bold">
                   Onze Missie
                 </CardTitle>
               </CardHeader>
@@ -104,9 +104,9 @@ export default function OverOnsPage() {
             <Card className="group hover:shadow-xl transition-all duration-300 border-2 hover:border-primary">
               <CardHeader className="text-center pb-4">
                 <div className="mx-auto mb-4 p-4 border-3 border-primary rounded-full w-16 h-16 flex items-center justify-center">
-                  <Heart className="h-8 w-8 text-background fill-background" />
+                  <Heart className="h-8 w-8 fill-background" />
                 </div>
-                <CardTitle className="text-2xl font-bold text-background">
+                <CardTitle className="text-2xl font-bold">
                   Onze Visie
                 </CardTitle>
               </CardHeader>
@@ -127,10 +127,10 @@ export default function OverOnsPage() {
       <section className="py-20 ">
         <div className="max-w-7xl mx-auto px-6">
           <div className="text-center mb-16">
-            <Badge className="text-background px-4 py-2 text-sm font-semibold mb-6">
+            <Badge className="px-4 py-2 text-sm font-semibold mb-6">
               Waarom PowerTiles?
             </Badge>
-            <h2 className="text-4xl font-bold text-background mb-4">
+            <h2 className="text-4xl font-bold mb-4">
               Kwaliteit Boven Alles
             </h2>
             <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
@@ -144,9 +144,9 @@ export default function OverOnsPage() {
             <Card className="group hover:shadow-xl transition-all duration-300 text-center">
               <CardHeader>
                 <div className="mx-auto mb-4 p-4 bg-primary rounded-full w-16 h-16 flex items-center justify-center">
-                  <Award className="h-8 w-8 text-background" />
+                  <Award className="h-8 w-8" />
                 </div>
-                <CardTitle className="text-xl font-bold text-background">
+                <CardTitle className="text-xl font-bold">
                   Premium Materialen
                 </CardTitle>
               </CardHeader>
@@ -161,9 +161,9 @@ export default function OverOnsPage() {
             <Card className="group hover:shadow-xl transition-all duration-300 text-center">
               <CardHeader>
                 <div className="mx-auto mb-4 p-4 border-3 border-primary rounded-full w-16 h-16 flex items-center justify-center">
-                  <Users className="h-8 w-8 text-background fill-background" />
+                  <Users className="h-8 w-8 fill-background" />
                 </div>
-                <CardTitle className="text-xl font-bold text-background">
+                <CardTitle className="text-xl font-bold">
                   Professionele Service
                 </CardTitle>
               </CardHeader>
@@ -178,9 +178,9 @@ export default function OverOnsPage() {
             <Card className="group hover:shadow-xl transition-all duration-300 text-center">
               <CardHeader>
                 <div className="mx-auto mb-4 p-4 bg-primary rounded-full w-16 h-16 flex items-center justify-center">
-                  <Shield className="h-8 w-8 text-background" />
+                  <Shield className="h-8 w-8" />
                 </div>
-                <CardTitle className="text-xl font-bold text-background">
+                <CardTitle className="text-xl font-bold">
                   Belgische Kwaliteit
                 </CardTitle>
               </CardHeader>
@@ -196,7 +196,7 @@ export default function OverOnsPage() {
       </section>
 
       {/* Our Values */}
-      <section className="py-20 text-accent">
+      <section className="py-20 text-accent bg-foreground">
         <div className="max-w-7xl mx-auto px-6">
           <div className="text-center mb-16">
             <h2 className="text-4xl font-bold mb-4">Onze Waarden</h2>
@@ -208,9 +208,9 @@ export default function OverOnsPage() {
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
             <div className="text-center space-y-4">
               <div className="mx-auto p-4 bg-primary rounded-full w-16 h-16 flex items-center justify-center">
-                <Star className="h-8 w-8 text-background" />
+                <Star className="h-8 w-8" />
               </div>
-              <h3 className="text-xl font-bold text-background">Kracht</h3>
+              <h3 className="text-xl font-bold">Kracht</h3>
               <p className="text-muted-foreground">
                 Onze vloeren zijn gebouwd om te presteren onder de zwaarste
                 omstandigheden.
@@ -221,7 +221,7 @@ export default function OverOnsPage() {
               <div className="mx-auto p-4 border-3 border-primary rounded-full w-16 h-16 flex items-center justify-center">
                 <Award className="h-8 w-8 text-primary" />
               </div>
-              <h3 className="text-xl font-bold text-background">Luxe</h3>
+              <h3 className="text-xl font-bold">Luxe</h3>
               <p className="text-muted-foreground">
                 Elke tegel straalt elegantie en verfijning uit voor een premium
                 uitstraling.
@@ -230,9 +230,9 @@ export default function OverOnsPage() {
 
             <div className="text-center space-y-4">
               <div className="mx-auto p-4 bg-primary rounded-full w-16 h-16 flex items-center justify-center">
-                <Shield className="h-8 w-8 text-background" />
+                <Shield className="h-8 w-8" />
               </div>
-              <h3 className="text-xl font-bold text-background">
+              <h3 className="text-xl font-bold">
                 Professionaliteit
               </h3>
               <p className="text-muted-foreground">
@@ -245,7 +245,7 @@ export default function OverOnsPage() {
               <div className="mx-auto p-4 border-3 border-primary rounded-full w-16 h-16 flex items-center justify-center">
                 <CheckCircle className="h-8 w-8 text-primary" />
               </div>
-              <h3 className="text-xl font-bold text-background">Kwaliteit</h3>
+              <h3 className="text-xl font-bold">Kwaliteit</h3>
               <p className="text-muted-foreground">
                 Geen compromissen - alleen de beste materialen en vakmanschap.
               </p>
@@ -260,10 +260,10 @@ export default function OverOnsPage() {
           <div className="grid lg:grid-cols-2 gap-12 items-center">
             <div className="space-y-8">
               <div className="space-y-4">
-                <Badge className="bg-primary text-background px-4 py-2 text-sm font-semibold">
+                <Badge className="bg-primary px-4 py-2 text-sm font-semibold">
                   Bedrijfsgegevens
                 </Badge>
-                <h2 className="text-4xl font-bold text-background">
+                <h2 className="text-4xl font-bold">
                   PowerTiles België
                 </h2>
                 <div className="space-y-4 text-lg text-muted-foreground">
@@ -300,7 +300,7 @@ export default function OverOnsPage() {
       </section>
 
       {/* CTA Section */}
-      <section className="py-20 bg-accent/70 text-muted">
+      <section className="py-20 bg-foreground/35 text-muted">
         <div className="max-w-4xl mx-auto text-center px-6">
           <h2 className="text-4xl font-bold mb-6">Klaar om samen te werken?</h2>
           <p className="text-xl text-muted-foreground mb-8 max-w-2xl mx-auto">
@@ -308,8 +308,11 @@ export default function OverOnsPage() {
             installatie - wij staan voor u klaar.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Link href="/offerte">
-              <Button size="lg" className="text-background">
+           <Link href="/offerte">
+              <Button
+                size="lg"
+                className="text-foreground"
+              >
                 Offerte Aanvragen
                 <ArrowRight className="ml-2 h-5 w-5" />
               </Button>
@@ -318,7 +321,7 @@ export default function OverOnsPage() {
               <Button
                 size="lg"
                 variant="outline"
-                className="border-foreground text-muted hover: hover:text-background bg-transparent"
+                className="border-background text-muted hover: hover:text-foreground bg-transparent"
               >
                 Contact Opnemen
               </Button>

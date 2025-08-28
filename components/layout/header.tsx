@@ -112,7 +112,7 @@ export function Header() {
   ];
 
   return (
-    <header className="sticky top-0 z-50 w-full border-b border-background py-4 bg-foreground/95 backdrop-blur supports-[backdrop-filter]:bg-foreground/90">
+    <header className="sticky top-0 z-50 w-full border-b border-foreground py-4 bg-foreground/95 backdrop-blur supports-[backdrop-filter]:bg-foreground/90">
       <div className="max-w-7xl mx-auto px-6">
         <div className="flex items-center justify-between gap-4">
           {/* Logo */}
@@ -179,14 +179,14 @@ export function Header() {
                 <Button
                   variant="ghost"
                   size="icon"
-                  className="hover:bg-background hover:text-foreground"
+                  className="hover:bg-foreground text-background hover:text-background"
                 >
                   <Menu className="size-6" />
                 </Button>
               </SheetTrigger>
-              <SheetContent className="border-none">
+              <SheetContent className="border-none bg-foreground text-background">
                 <SheetHeader>
-                  <SheetTitle>PowerTiles</SheetTitle>
+                  <SheetTitle className="text-background">PowerTiles</SheetTitle>
                   <SheetDescription>
                     Transform Your Space. Unleash the Power.
                   </SheetDescription>

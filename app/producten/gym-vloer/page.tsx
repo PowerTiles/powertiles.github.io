@@ -54,11 +54,11 @@ export default function GymVloerPage() {
               <div className="space-y-4">
                 <Badge
                   variant="outline"
-                  className="text-background px-4 py-2 text-sm font-semibold"
+                  className="px-4 py-2 text-sm font-semibold"
                 >
                   Professional Grade
                 </Badge>
-                <h1 className="text-4xl lg:text-5xl font-bold text-background leading-tight">
+                <h1 className="text-4xl lg:text-5xl font-bold leading-tight">
                   Gym Vloer
                 </h1>
                 <p className="text-xl text-muted-foreground leading-relaxed">
@@ -70,7 +70,7 @@ export default function GymVloerPage() {
               <Button
                 asChild
                 size="lg"
-                className="text-background font-semibold mt-6"
+                className="font-semibold mt-6 text-foreground"
               >
                 <Link href="/offerte">Offerte Aanvragen</Link>
               </Button>
@@ -89,14 +89,14 @@ export default function GymVloerPage() {
       </section>
 
       {/* Product Details */}
-      <section className="py-16 text-accent">
+      <section className="py-16 text-accent bg-foreground">
         <div className="max-w-7xl mx-auto px-6">
           <div className="grid lg:grid-cols-3 gap-8">
             {/* Description */}
             <div className="lg:col-span-2 space-y-8">
               <Card>
                 <CardHeader>
-                  <CardTitle className="text-2xl text-background">
+                  <CardTitle className="text-2xl">
                     Productbeschrijving
                   </CardTitle>
                 </CardHeader>
@@ -119,7 +119,7 @@ export default function GymVloerPage() {
 
               <Card>
                 <CardHeader>
-                  <CardTitle className="text-2xl text-background">
+                  <CardTitle className="text-2xl">
                     Certificeringen & Testen
                   </CardTitle>
                 </CardHeader>
@@ -127,9 +127,9 @@ export default function GymVloerPage() {
                   <div className="grid md:grid-cols-3 gap-6">
                     <div className="text-center space-y-3">
                       <div className="mx-auto w-16 h-16 bg-primary rounded-full flex items-center justify-center">
-                        <Volume2 className="h-8 w-8 text-background" />
+                        <Volume2 className="h-8 w-8" />
                       </div>
-                      <h4 className="font-semibold text-background">
+                      <h4 className="font-semibold">
                         Geluidsreductie
                       </h4>
                       <p className="text-sm text-muted-foreground">
@@ -138,9 +138,9 @@ export default function GymVloerPage() {
                     </div>
                     <div className="text-center space-y-3">
                       <div className="mx-auto w-16 h-16 bg-primary rounded-full flex items-center justify-center">
-                        <Leaf className="h-8 w-8 text-background" />
+                        <Leaf className="h-8 w-8" />
                       </div>
-                      <h4 className="font-semibold text-background">
+                      <h4 className="font-semibold">
                         Luchtkwaliteit
                       </h4>
                       <p className="text-sm text-muted-foreground">
@@ -149,9 +149,9 @@ export default function GymVloerPage() {
                     </div>
                     <div className="text-center space-y-3">
                       <div className="mx-auto w-16 h-16 bg-primary rounded-full flex items-center justify-center">
-                        <Shield className="h-8 w-8 text-background" />
+                        <Shield className="h-8 w-8" />
                       </div>
-                      <h4 className="font-semibold text-background">
+                      <h4 className="font-semibold">
                         Veiligheid
                       </h4>
                       <p className="text-sm text-muted-foreground">
@@ -164,14 +164,14 @@ export default function GymVloerPage() {
 
               <Card>
                 <CardHeader>
-                  <CardTitle className="text-2xl text-background">
+                  <CardTitle className="text-2xl">
                     Toepassingen
                   </CardTitle>
                 </CardHeader>
                 <CardContent>
                   <div className="grid md:grid-cols-2 gap-6">
                     <div className="space-y-3">
-                      <h4 className="font-semibold text-background">
+                      <h4 className="font-semibold">
                         Fitness & Training
                       </h4>
                       <ul className="space-y-2">
@@ -198,7 +198,7 @@ export default function GymVloerPage() {
                       </ul>
                     </div>
                     <div className="space-y-3">
-                      <h4 className="font-semibold text-background">
+                      <h4 className="font-semibold">
                         Commercieel
                       </h4>
                       <ul className="space-y-2">
@@ -231,7 +231,7 @@ export default function GymVloerPage() {
             <div className="space-y-6">
               <Card>
                 <CardHeader>
-                  <CardTitle className="text-xl text-background">
+                  <CardTitle className="text-xl">
                     Technische Specificaties
                   </CardTitle>
                 </CardHeader>
@@ -239,43 +239,43 @@ export default function GymVloerPage() {
                   <div className="space-y-3">
                     <div className="flex justify-between">
                       <span className="text-muted-foreground">Materiaal:</span>
-                      <span className="font-medium text-background">
+                      <span className="font-medium">
                         Fijn rubbergranulaat
                       </span>
                     </div>
                     <div className="flex justify-between">
                       <span className="text-muted-foreground">Afmetingen:</span>
-                      <span className="font-medium text-background">
+                      <span className="font-medium">
                         50x50 cm
                       </span>
                     </div>
                     <div className="flex justify-between">
                       <span className="text-muted-foreground">Dikte:</span>
-                      <span className="font-medium text-background">
+                      <span className="font-medium">
                         15-20 mm
                       </span>
                     </div>
                     <div className="flex justify-between">
                       <span className="text-muted-foreground">Hardheid:</span>
-                      <span className="font-medium text-background">
+                      <span className="font-medium">
                         Extra hard geperst
                       </span>
                     </div>
                     <div className="flex justify-between">
                       <span className="text-muted-foreground">Oppervlak:</span>
-                      <span className="font-medium text-background">
+                      <span className="font-medium">
                         Gestructureerd
                       </span>
                     </div>
                     <div className="flex justify-between">
                       <span className="text-muted-foreground">Installatie:</span>
-                      <span className="font-medium text-background">
+                      <span className="font-medium">
                         Puzzelsysteem
                       </span>
                     </div>
                     <div className="flex justify-between">
                       <span className="text-muted-foreground">Onderhoud:</span>
-                      <span className="font-medium text-background">
+                      <span className="font-medium">
                         Makkelijk schoon
                       </span>
                     </div>
@@ -285,7 +285,7 @@ export default function GymVloerPage() {
 
               <Card>
                 <CardHeader>
-                  <CardTitle className="text-xl text-background flex items-center">
+                  <CardTitle className="text-xl flex items-center">
                     <Palette className="h-5 w-5 mr-2 text-primary" />
                     Beschikbare Kleuren
                   </CardTitle>
@@ -323,7 +323,7 @@ export default function GymVloerPage() {
               </Card>
               <Card>
                 <CardHeader>
-                  <CardTitle className="text-xl text-background flex items-center">
+                  <CardTitle className="text-xl flex items-center">
                     <Camera className="h-5 w-5 mr-2 text-primary" />
                     Fotogalerij
                   </CardTitle>
@@ -345,7 +345,7 @@ export default function GymVloerPage() {
       </section>
 
       {/* CTA Section */}
-      <section className="py-16 bg-accent/70 text-muted">
+      <section className="py-16 bg-foreground/35 text-muted">
         <div className="max-w-4xl mx-auto px-6 text-center space-y-8">
           <h2 className="text-3xl lg:text-4xl font-bold">
             Klaar voor uw professionele gym vloer?
@@ -356,7 +356,10 @@ export default function GymVloerPage() {
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Link href="/offerte">
-              <Button size="lg" className="text-background">
+              <Button
+                size="lg"
+                className="text-foreground"
+              >
                 Offerte Aanvragen
                 <ArrowRight className="ml-2 h-5 w-5" />
               </Button>
@@ -365,7 +368,7 @@ export default function GymVloerPage() {
               <Button
                 size="lg"
                 variant="outline"
-                className="border-foreground text-muted hover: hover:text-background bg-transparent"
+                className="border-background text-muted hover: hover:text-foreground bg-transparent"
               >
                 Contact Opnemen
               </Button>

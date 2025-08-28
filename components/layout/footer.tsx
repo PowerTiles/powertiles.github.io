@@ -123,12 +123,12 @@ export function Footer() {
               <p>+32 475 21 96 35</p>
               <p>BTW: BE 1024.559.728</p>
               <div className="flex space-x-4">
-              <Button variant="ghost" size="icon" className="group hover:bg-background">
-                <Facebook className="w-5 h-5 group-hover:text-sky-700" />
+              <Button variant="ghost" size="icon" className="group bg-foreground hover:bg-foreground">
+                <Facebook className="w-5 h-5 bg-foreground group-hover:text-sky-700" />
               </Button>
-              <Button variant="ghost" size="icon" className="group hover:bg-background">
-                <Link href="https://www.instagram.com/powertiles.be">
-                  <Instagram className="w-5 h-5 group-hover:text-orange-600" />
+              <Button variant="ghost" size="icon" className="group bg-foreground hover:bg-foreground">
+                <Link href="https://www.instagram.com/powertiles.be" className="bg-none">
+                  <Instagram className="w-5 h-5 bg-foreground group-hover:text-orange-600" />
                 </Link>
               </Button>
             </div>

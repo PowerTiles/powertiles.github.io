@@ -23,14 +23,14 @@ export default function HomePage() {
   return (
     <div className="min-h-screen">
       {/* Hero Section */}
-      <section id="home" className="text-muted py-20 relative overflow-hidden">
+      <section id="home" className="text-muted py-20 relative overflow-hidden bg-foreground">
         <div className="max-w-7xl mx-auto px-6">
           <div className="grid lg:grid-cols-2 gap-12 items-center">
             <div className="space-y-12">
               <div className="space-y-4">
                 <Badge
                   variant="outline"
-                  className="px-4 py-2 text-sm font-semibold"
+                  className="px-4 py-2 text-sm font-semibold text-background"
                 >
                   Premium Modulaire Vloeren
                 </Badge>
@@ -47,14 +47,14 @@ export default function HomePage() {
                 <Link href="/offerte">
                   <Button
                     size="lg"
-                    className="text-background font-semibold px-8"
+                    className="text-foreground font-semibold px-8"
                   >
                     Vraag Offerte Aan
                     <ArrowRight className="ml-2 h-5 w-5" />
                   </Button>
                 </Link>
                 <Link href="/designer-tool">
-                  <Button size="lg" variant="outline">
+                  <Button size="lg" variant="outline" className="bg-foreground">
                     Probeer Designer Tool
                   </Button>
                 </Link>
@@ -79,7 +79,7 @@ export default function HomePage() {
       <section className="py-20 bg-accent">
         <div className="max-w-7xl mx-auto px-6">
           <div className="text-center mb-16">
-            <h2 className="text-4xl font-bold text-background mb-4">
+            <h2 className="text-4xl font-bold mb-4">
               Onze Specialisaties
             </h2>
             <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
@@ -91,7 +91,7 @@ export default function HomePage() {
           <div className="grid md:grid-cols-3 gap-8">
             <Card className="group justify-between hover:shadow-xl transition-all duration-300 border-2 hover:border-primary">
               <CardHeader className="text-center pb-4">
-                <div className="mx-auto mb-4 p-4 bg-background rounded-full w-16 h-16 flex items-center justify-center group-hover:bg-primary transition-colors">
+                <div className="mx-auto mb-4 p-4 bg-foreground rounded-full w-16 h-16 flex items-center justify-center group-hover:bg-primary transition-colors">
                   <Car className="h-8 w-8 text-muted group-hover:text-background" />
                 </div>
                 <CardTitle className="text-2xl font-bold text-background">
@@ -105,22 +105,22 @@ export default function HomePage() {
               <CardContent className="space-y-4">
                 <ul className="space-y-2">
                   <li className="flex items-center text-gray-700">
-                    <CheckCircle className="h-5 w-5 text-primary mr-2" />
+                    <CheckCircle className="h-5 w-5 min-w-min text-primary mr-2" />
                     Oliebestendig
                   </li>
                   <li className="flex items-center text-gray-700">
-                    <CheckCircle className="h-5 w-5 text-primary mr-2" />
+                    <CheckCircle className="h-5 w-5 min-w-min text-primary mr-2" />
                     Zware belasting
                   </li>
                   <li className="flex items-center text-gray-700">
-                    <CheckCircle className="h-5 w-5 text-primary mr-2" />
+                    <CheckCircle className="h-5 w-5 min-w-min text-primary mr-2" />
                     Eenvoudige reiniging
                   </li>
                 </ul>
               </CardContent>
               <CardFooter>
                 <Link href="/producten" className="w-full">
-                  <Button className="w-full">
+                  <Button className="bg-background w-full">
                     Meer Info
                   </Button>
                 </Link>
@@ -129,7 +129,7 @@ export default function HomePage() {
 
             <Card className="group justify-between hover:shadow-xl transition-all duration-300 border-2 hover:border-primary">
               <CardHeader className="text-center pb-4">
-                <div className="mx-auto mb-4 p-4 bg-background rounded-full w-16 h-16 flex items-center justify-center group-hover:bg-primary transition-colors">
+                <div className="mx-auto mb-4 p-4 bg-foreground rounded-full w-16 h-16 flex items-center justify-center group-hover:bg-primary transition-colors">
                   <Dumbbell className="h-8 w-8 text-muted group-hover:text-background" />
                 </div>
                 <CardTitle className="text-2xl font-bold text-background">
@@ -143,22 +143,22 @@ export default function HomePage() {
               <CardContent className="space-y-4">
                 <ul className="space-y-2">
                   <li className="flex items-center text-gray-700">
-                    <CheckCircle className="h-5 w-5 text-primary mr-2" />
+                    <CheckCircle className="h-5 w-5 min-w-min text-primary mr-2" />
                     Schokabsorberend
                   </li>
                   <li className="flex items-center text-gray-700">
-                    <CheckCircle className="h-5 w-5 text-primary mr-2" />
+                    <CheckCircle className="h-5 w-5 min-w-min text-primary mr-2" />
                     Geluidsdemping
                   </li>
                   <li className="flex items-center text-gray-700">
-                    <CheckCircle className="h-5 w-5 text-primary mr-2" />
+                    <CheckCircle className="h-5 w-5 min-w-min text-primary mr-2" />
                     Antislip oppervlak
                   </li>
                 </ul>
               </CardContent>
               <CardFooter>
                 <Link href="/producten" className="w-full">
-                  <Button className="w-full">
+                  <Button className="bg-background w-full">
                     Meer Info
                   </Button>
                 </Link>
@@ -167,7 +167,7 @@ export default function HomePage() {
 
             <Card className="group justify-between hover:shadow-xl transition-all duration-300 border-2 hover:border-primary">
               <CardHeader className="text-center pb-4">
-                <div className="mx-auto mb-4 p-4 bg-background rounded-full w-16 h-16 flex items-center justify-center group-hover:bg-primary transition-colors">
+                <div className="mx-auto mb-4 p-4 bg-foreground rounded-full w-16 h-16 flex items-center justify-center group-hover:bg-primary transition-colors">
                   <Wrench className="h-8 w-8 text-muted group-hover:text-background" />
                 </div>
                 <CardTitle className="text-2xl font-bold text-background">
@@ -180,22 +180,22 @@ export default function HomePage() {
               <CardContent className="space-y-4">
                 <ul className="space-y-2">
                   <li className="flex items-center text-gray-700">
-                    <CheckCircle className="h-5 w-5 text-primary mr-2" />
+                    <CheckCircle className="h-5 w-5 min-w-min text-primary mr-2" />
                     Chemicaliënbestendig
                   </li>
                   <li className="flex items-center text-gray-700">
-                    <CheckCircle className="h-5 w-5 text-primary mr-2" />
+                    <CheckCircle className="h-5 w-5 min-w-min text-primary mr-2" />
                     Slijtvast
                   </li>
                   <li className="flex items-center text-gray-700">
-                    <CheckCircle className="h-5 w-5 text-primary mr-2" />
+                    <CheckCircle className="h-5 w-5 min-w-min text-primary mr-2" />
                     Professionele uitstraling
                   </li>
                 </ul>
               </CardContent>
               <CardFooter>
                 <Link href="/producten" className="w-full">
-                  <Button className="w-full">
+                  <Button className="bg-background w-full">
                     Meer Info
                   </Button>
                 </Link>
@@ -209,7 +209,7 @@ export default function HomePage() {
       <section id="products" className="py-20 ">
         <div className="max-w-7xl mx-auto px-6">
           <div className="text-center mb-16">
-            <h2 className="text-4xl font-bold text-background mb-4">
+            <h2 className="text-4xl font-bold text-foreground mb-4">
               Onze Producten
             </h2>
             <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
@@ -234,7 +234,7 @@ export default function HomePage() {
                   </Badge>
                 </div>
                 <CardHeader className="flex-grow">
-                  <CardTitle className="text-background">
+                  <CardTitle className="text-foreground">
                     Geventileerde PVC-tegels
                   </CardTitle>
                   <CardDescription>
@@ -242,7 +242,7 @@ export default function HomePage() {
                   </CardDescription>
                 </CardHeader>
                 <CardContent className="mt-auto">
-                  <Button className="w-full bg-background hover:bg-gray-800 text-muted">
+                  <Button className="w-full bg-foreground hover:bg-gray-800 text-muted">
                     Meer Info
                   </Button>
                 </CardContent>
@@ -261,7 +261,7 @@ export default function HomePage() {
                   />
                 </div>
                 <CardHeader className="flex-grow">
-                  <CardTitle className="text-background">
+                  <CardTitle className="text-foreground">
                     Gladde Kliktegels
                   </CardTitle>
                   <CardDescription>
@@ -269,7 +269,7 @@ export default function HomePage() {
                   </CardDescription>
                 </CardHeader>
                 <CardContent className="mt-auto">
-                  <Button className="w-full bg-background hover:bg-gray-800 text-muted">
+                  <Button className="w-full bg-foreground hover:bg-gray-800 text-muted">
                     Meer Info
                   </Button>
                 </CardContent>
@@ -291,7 +291,7 @@ export default function HomePage() {
                   </Badge>
                 </div>
                 <CardHeader className="flex-grow">
-                  <CardTitle className="text-background">Gym Vloer</CardTitle>
+                  <CardTitle className="text-foreground">Gym Vloer</CardTitle>
                   <CardDescription>
                     Extra hard geperste rubbertegels, bestand tegen zware
                     gewichten. Geschikt voor fitness en CrossFit met
@@ -299,7 +299,7 @@ export default function HomePage() {
                   </CardDescription>
                 </CardHeader>
                 <CardContent className="mt-auto">
-                  <Button className="w-full bg-background hover:bg-gray-800 text-muted">
+                  <Button className="w-full bg-foreground hover:bg-gray-800 text-muted">
                     Meer Info
                   </Button>
                 </CardContent>
@@ -324,7 +324,7 @@ export default function HomePage() {
                   </Badge>
                 </div>
                 <CardHeader className="flex-grow">
-                  <CardTitle className="text-background">
+                  <CardTitle className="text-foreground">
                     Hexagonale LED-verlichting
                   </CardTitle>
                   <CardDescription>
@@ -332,7 +332,7 @@ export default function HomePage() {
                   </CardDescription>
                 </CardHeader>
                 <CardContent className="mt-auto">
-                  <Button className="w-full bg-background hover:bg-gray-800 text-muted">
+                  <Button className="w-full bg-foreground hover:bg-gray-800 text-muted">
                     Meer Info
                   </Button>
                 </CardContent>
@@ -351,7 +351,7 @@ export default function HomePage() {
                   />
                 </div>
                 <CardHeader className="flex-grow">
-                  <CardTitle className="text-background">
+                  <CardTitle className="text-foreground">
                     Randstukken & Accessoires
                   </CardTitle>
                   <CardDescription>
@@ -359,7 +359,7 @@ export default function HomePage() {
                   </CardDescription>
                 </CardHeader>
                 <CardContent className="mt-auto">
-                  <Button className="w-full bg-background hover:bg-gray-800 text-muted">
+                  <Button className="w-full bg-foreground hover:bg-gray-800 text-muted">
                     Meer Info
                   </Button>
                 </CardContent>
@@ -378,7 +378,7 @@ export default function HomePage() {
                 <Badge className="px-4 py-2 text-sm font-semibold">
                   Waarom PowerTiles?
                 </Badge>
-                <h2 className="text-4xl font-bold text-background">
+                <h2 className="text-4xl font-bold text-foreground">
                   Kwaliteit die het verschil maakt
                 </h2>
                 <p className="text-xl text-muted-foreground leading-relaxed">
@@ -394,7 +394,7 @@ export default function HomePage() {
                     <Star className="h-6 w-6 text-background" />
                   </div>
                   <div>
-                    <h3 className="text-xl font-semibold text-background mb-2">
+                    <h3 className="text-xl font-semibold text-foreground mb-2">
                       Premium Materialen
                     </h3>
                     <p className="text-muted-foreground">
@@ -408,7 +408,7 @@ export default function HomePage() {
                     <CheckCircle className="h-6 w-6 text-background" />
                   </div>
                   <div>
-                    <h3 className="text-xl font-semibold text-background mb-2">
+                    <h3 className="text-xl font-semibold text-foreground mb-2">
                       Professionele Installatie
                     </h3>
                     <p className="text-muted-foreground">
@@ -422,7 +422,7 @@ export default function HomePage() {
                     <Wrench className="h-6 w-6 text-background" />
                   </div>
                   <div>
-                    <h3 className="text-xl font-semibold text-background mb-2">
+                    <h3 className="text-xl font-semibold text-foreground mb-2">
                       Belgische Kwaliteit
                     </h3>
                     <p className="text-muted-foreground">
@@ -447,7 +447,7 @@ export default function HomePage() {
       </section>
 
       {/* CTA Section */}
-      <section className="py-20 bg-muted/70 text-muted">
+      <section className="py-20 bg-foreground/35 text-muted">
         <div className="max-w-4xl mx-auto text-center px-6">
           <h2 className="text-4xl font-bold mb-6">
             Klaar om uw ruimte te transformeren?
@@ -459,7 +459,7 @@ export default function HomePage() {
           <Link href="/offerte">
             <Button
               size="lg"
-              className="text-background"
+              className="text-foreground"
             >
               Offerte Aanvragen
               <ArrowRight className="ml-2 h-6 w-6" />

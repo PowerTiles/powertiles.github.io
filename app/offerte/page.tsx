@@ -53,7 +53,6 @@ import { useRouter, useSearchParams } from "next/navigation";
 const DESIGNER_STATE_KEY = "powerTilesDesigns";
 const CURRENT_PROJECT_KEY = "powerTilesCurrentProject";
 
-
 export default function OffertePage() {
   const [isLoading, setIsLoading] = useState(false);
   const [message, setMessage] = useState<{
@@ -113,6 +112,18 @@ export default function OffertePage() {
 
     return hasRequiredStringProps && hasRequiredNumberProps && validTiles;
   }, []); // No dependencies for isValidDesign itself
+
+  function getColorDistribution() {
+    const colorCounts: { [key: string]: number } = {};
+
+    designData?.tiles.forEach((row) => {
+      row.forEach((tile) => {
+        colorCounts[tile.colorName] = (colorCounts[tile.colorName] || 0) + 1;
+      });
+    });
+
+    return colorCounts;
+  }
 
   // 0. Define your form validation schema (moved here for contactForm dependency in useEffect)
   const contactFormSchema = z.object({
@@ -221,14 +232,35 @@ export default function OffertePage() {
       if (designData && values.designerProject === designData.id) {
         formData.append("Designer-Tool: Project ID", designData.id);
         formData.append("Designer-Tool: Project Naam", designData.name);
-        formData.append("Designer-Tool: Vloer Afmetingen", `${designData.width}m x ${designData.length}m`);
-        formData.append("Designer-Tool: oppervlakte", `${(designData.width * designData.length).toFixed(1)} m²`);
-        formData.append("Designer-Tool: tegels in breedte", `${designData.tilesPerWidth} stuks`);
-        formData.append("Designer-Tool: tegels in lengte", `${designData.tilesPerLength} stuks`);
-        formData.append("Designer-Tool: totaal tegels", `${designData.tilesPerWidth * designData.tilesPerLength} stuks`);
-        formData.append("Designer-Tool: totaal tegels (incl. afval)", `${designData.totalTilesWithWaste} stuks`);
+        formData.append(
+          "Designer-Tool: Vloer Afmetingen",
+          `${designData.width}m x ${designData.length}m`
+        );
+        formData.append(
+          "Designer-Tool: oppervlakte",
+          `${(designData.width * designData.length).toFixed(1)} m²`
+        );
+        formData.append(
+          "Designer-Tool: tegels in breedte",
+          `${designData.tilesPerWidth} stuks`
+        );
+        formData.append(
+          "Designer-Tool: tegels in lengte",
+          `${designData.tilesPerLength} stuks`
+        );
+        formData.append(
+          "Designer-Tool: totaal tegels",
+          `${designData.tilesPerWidth * designData.tilesPerLength} stuks`
+        );
+        formData.append(
+          "Designer-Tool: totaal tegels (incl. afval)",
+          `${designData.totalTilesWithWaste} stuks`
+        );
         // Optionally, you can also send a representation of the tile colors/layout
-        formData.append("Designer-Tool: tegel layout", JSON.stringify(designData.tiles));
+        formData.append(
+          "Designer-Tool: tegel layout",
+          JSON.stringify(designData.tiles)
+        );
       }
 
       // Extra diensten
@@ -290,7 +322,7 @@ export default function OffertePage() {
 
       contactForm.reset();
       setDesignData(null); // Clear design data after successful submission
-      contactForm.setValue('designerProject', 'none'); // Clear selected project in form to "none"
+      contactForm.setValue("designerProject", "none"); // Clear selected project in form to "none"
     } catch (error) {
       // Show error message
       setMessage({
@@ -328,14 +360,13 @@ export default function OffertePage() {
         }
       } catch (err) {
         localStorage.removeItem(DESIGNER_STATE_KEY);
-        toast.error(
-          "Fout bij het laden van opgeslagen ontwerpen.",
-          { duration: 5000 }
-        );
+        toast.error("Fout bij het laden van opgeslagen ontwerpen.", {
+          duration: 5000,
+        });
         setAvailableDesigns([]);
       }
     } else {
-        setAvailableDesigns([]);
+      setAvailableDesigns([]);
     }
 
     let loadedDesign: SavedDesign | null = null;
@@ -384,23 +415,69 @@ export default function OffertePage() {
   // Effect to synchronize react-hook-form's 'designerProject' field with designData
   useEffect(() => {
     if (designData) {
-      contactForm.setValue('designerProject', designData.id);
-      toast.success(`Project "${designData.name}" geladen.`, { duration: 2000 });
+      contactForm.setValue("designerProject", designData.id);
+      toast.success(`Project "${designData.name}" geladen.`, {
+        duration: 2000,
+      });
     } else {
-      contactForm.setValue('designerProject', 'none'); // Ensure 'none' is selected if no project is loaded
+      contactForm.setValue("designerProject", "none"); // Ensure 'none' is selected if no project is loaded
     }
   }, [designData, availableDesigns, contactForm]); // Depends on designData and availableDesigns to ensure options are ready
 
   return (
     <div className="min-h-screen">
       {/* Hero Section */}
-      <section className="text-muted py-16">
+      <section className="text-muted py-16 bg-foreground">
         <div className="max-w-7xl mx-auto px-6 text-center">
           <h1 className="text-5xl font-bold mb-6">Offerte Aanvragen</h1>
           <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
             Vraag een vrijblijvende offerte aan voor uw project. We berekenen de
             beste oplossing voor uw specifieke situatie.
           </p>
+        </div>
+      </section>
+
+      {/* Benefits */}
+      <section className="py-16 bg-accent text-accent">
+        <div className="max-w-7xl mx-auto px-6">
+          <div className="grid md:grid-cols-4 gap-6">
+            <div className="text-center space-y-3">
+              <div className="mx-auto p-3 bg-primary rounded-full w-12 h-12 flex items-center justify-center">
+                <Calculator className="h-6 w-6 text-foreground" />
+              </div>
+              <h3 className="font-semibold text-foreground">Gratis Offerte</h3>
+              <p className="text-sm text-muted-foreground">
+                Geen verborgen kosten
+              </p>
+            </div>
+            <div className="text-center space-y-3">
+              <div className="mx-auto p-3 border-3 border-primary rounded-full w-12 h-12 flex items-center justify-center">
+                <Clock className="h-6 w-6 text-foreground" />
+              </div>
+              <h3 className="font-semibold text-foreground">Snelle Reactie</h3>
+              <p className="text-sm text-muted-foreground">
+                Binnen 24 uur antwoord
+              </p>
+            </div>
+            <div className="text-center space-y-3">
+              <div className="mx-auto p-3 bg-primary rounded-full w-12 h-12 flex items-center justify-center">
+                <Shield className="h-6 w-6 text-foreground" />
+              </div>
+              <h3 className="font-semibold text-foreground">
+                Persoonlijk Advies
+              </h3>
+              <p className="text-sm text-muted-foreground">Op maat gemaakt</p>
+            </div>
+            <div className="text-center space-y-3">
+              <div className="mx-auto p-3 border-3 border-primary rounded-full w-12 h-12 flex items-center justify-center">
+                <Star className="h-6 w-6 text-foreground" />
+              </div>
+              <h3 className="font-semibold text-foreground">
+                Premium Kwaliteit
+              </h3>
+              <p className="text-sm text-muted-foreground">Alleen het beste</p>
+            </div>
+          </div>
         </div>
       </section>
 
@@ -417,9 +494,7 @@ export default function OffertePage() {
               <CardContent>
                 <div className="grid md:grid-cols-2 gap-6">
                   <div>
-                    <h4 className="font-semibold text-background mb-2">
-                      Afmetingen
-                    </h4>
+                    <h4 className="font-semibold mb-2">Afmetingen:</h4>
                     <p className="text-muted-foreground">
                       {designData.width}m x {designData.length}m
                     </p>
@@ -428,9 +503,7 @@ export default function OffertePage() {
                     </p>
                   </div>
                   <div>
-                    <h4 className="font-semibold text-background mb-2">
-                      Tegels Berekening
-                    </h4>
+                    <h4 className="font-semibold mb-2">Berekening van Tegels:</h4>
                     <p className="text-muted-foreground">
                       Tegels nodig:{" "}
                       {designData.tilesPerLength * designData.tilesPerWidth}{" "}
@@ -441,8 +514,20 @@ export default function OffertePage() {
                       stuks
                     </p>
                   </div>
+                  <div>
+                    <h4 className="font-semibold mb-2">Kleurverdeling:</h4>
+                    <ul className="list-disc list-inside space-y-1">
+                      {Object.entries(getColorDistribution()).map(
+                        ([color, count]) => (
+                          <li key={color} className="text-muted-foreground">
+                            {color}: {count} tegels
+                          </li>
+                        )
+                      )}
+                    </ul>
+                  </div>
                 </div>
-                <div className=" border rounded-lg p-4 overflow-auto mt-4">
+                <div className="border rounded-lg p-4 overflow-auto mt-4">
                   <div
                     className="grid gap-1 mx-auto"
                     style={{
@@ -475,7 +560,8 @@ export default function OffertePage() {
                   </AlertTitle>
                   <AlertDescription>
                     Uw designer tool gegevens zijn automatisch bijgevoegd
-                    wanneer u de offerte beneden verzendt. U kan het project verwijderen of wijzigen in the formulier beneden.
+                    wanneer u de offerte beneden verzendt. U kan het project
+                    verwijderen van de offerte of wijzigen in the formulier beneden.
                   </AlertDescription>
                 </Alert>
               </CardFooter>
@@ -484,55 +570,11 @@ export default function OffertePage() {
         </section>
       )}
 
-      {/* Benefits */}
-      <section className="py-16 bg-accent text-accent">
-        <div className="max-w-7xl mx-auto px-6">
-          <div className="grid md:grid-cols-4 gap-6">
-            <div className="text-center space-y-3">
-              <div className="mx-auto p-3 bg-primary rounded-full w-12 h-12 flex items-center justify-center">
-                <Calculator className="h-6 w-6 text-background" />
-              </div>
-              <h3 className="font-semibold text-background">Gratis Offerte</h3>
-              <p className="text-sm text-muted-foreground">
-                Geen verborgen kosten
-              </p>
-            </div>
-            <div className="text-center space-y-3">
-              <div className="mx-auto p-3 border-3 border-primary rounded-full w-12 h-12 flex items-center justify-center">
-                <Clock className="h-6 w-6 text-background" />
-              </div>
-              <h3 className="font-semibold text-background">Snelle Reactie</h3>
-              <p className="text-sm text-muted-foreground">
-                Binnen 24 uur antwoord
-              </p>
-            </div>
-            <div className="text-center space-y-3">
-              <div className="mx-auto p-3 bg-primary rounded-full w-12 h-12 flex items-center justify-center">
-                <Shield className="h-6 w-6 text-background" />
-              </div>
-              <h3 className="font-semibold text-background">
-                Persoonlijk Advies
-              </h3>
-              <p className="text-sm text-muted-foreground">Op maat gemaakt</p>
-            </div>
-            <div className="text-center space-y-3">
-              <div className="mx-auto p-3 border-3 border-primary rounded-full w-12 h-12 flex items-center justify-center">
-                <Star className="h-6 w-6 text-background" />
-              </div>
-              <h3 className="font-semibold text-background">
-                Premium Kwaliteit
-              </h3>
-              <p className="text-sm text-muted-foreground">Alleen het beste</p>
-            </div>
-          </div>
-        </div>
-      </section>
-
       {/* Quote Form */}
       <section className="py-20 ">
         <div className="max-w-4xl mx-auto px-6">
           <div className="text-center mb-16">
-            <h2 className="text-4xl font-bold text-background mb-4">
+            <h2 className="text-4xl font-bold mb-4">
               Vertel ons over uw project
             </h2>
             <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
@@ -543,7 +585,7 @@ export default function OffertePage() {
 
           <Card className="border-2 border-gray-200">
             <CardHeader className="text-accent">
-              <CardTitle className="text-2xl text-background text-center">
+              <CardTitle className="text-2xl text-center text-foreground">
                 Offerteformulier
               </CardTitle>
             </CardHeader>
@@ -555,7 +597,7 @@ export default function OffertePage() {
                 >
                   {/* Designer Tool */}
                   <div className="space-y-6">
-                    <h3 className="text-xl font-bold text-background border-b pb-2">
+                    <h3 className="text-xl font-bold border-b pb-2">
                       Designer Tool (Optioneel)
                     </h3>
                     <FormField
@@ -563,25 +605,43 @@ export default function OffertePage() {
                       name="designerProject"
                       render={({ field }) => (
                         <FormItem className="h-min">
-                          <FormLabel>Selecteer uw opgeslagen project {availableDesigns.length === 0 && "(Geen opgeslagen projecten gevonden)"}</FormLabel>
+                          <FormLabel>
+                            Selecteer uw opgeslagen project{" "}
+                            {availableDesigns.length === 0 &&
+                              "(Geen opgeslagen projecten gevonden)"}
+                          </FormLabel>
                           <Select
                             onValueChange={(selectedProjectId) => {
                               field.onChange(selectedProjectId); // Update react-hook-form field
-                              if (selectedProjectId && selectedProjectId !== "none") { // Check for "none"
-                                const selectedDesign = availableDesigns.find(d => d.id === selectedProjectId);
-                                if (selectedDesign && isValidDesign(selectedDesign)) {
+                              if (
+                                selectedProjectId &&
+                                selectedProjectId !== "none"
+                              ) {
+                                // Check for "none"
+                                const selectedDesign = availableDesigns.find(
+                                  (d) => d.id === selectedProjectId
+                                );
+                                if (
+                                  selectedDesign &&
+                                  isValidDesign(selectedDesign)
+                                ) {
                                   setDesignData(selectedDesign);
-                                  toast.info(`Project "${selectedDesign.name}" geselecteerd.`, { duration: 2000 });
                                 } else {
                                   setDesignData(null); // Clear design data if selected project is invalid/not found
-                                  toast.error("Geselecteerd project is ongeldig of niet gevonden.", { duration: 3000 });
+                                  toast.error(
+                                    "Geselecteerd project is ongeldig of niet gevonden.",
+                                    { duration: 3000 }
+                                  );
                                   // Also clear the form field if the selection was invalid, to prevent displaying the invalid ID
-                                  contactForm.setValue('designerProject', 'none'); // Set to "none" to visually clear
+                                  contactForm.setValue(
+                                    "designerProject",
+                                    "none"
+                                  ); // Set to "none" to visually clear
                                 }
                               } else {
                                 // If user clears selection or selects the "none" option
                                 setDesignData(null); // Clear design data
-                                contactForm.setValue('designerProject', 'none'); // Ensure form field is also cleared to "none"
+                                contactForm.setValue("designerProject", "none"); // Ensure form field is also cleared to "none"
                               }
                             }}
                             value={field.value}
@@ -594,17 +654,25 @@ export default function OffertePage() {
                             <SelectContent>
                               {/* Option to clear selection - Value is "none" */}
                               {availableDesigns.length === 0 ? (
-                                  // Changed value from "" to "no-projects-available"
-                                  <SelectItem value="none">Geen project toevoegen</SelectItem>
+                                // Changed value from "" to "no-projects-available"
+                                <SelectItem value="none">
+                                  Geen project toevoegen
+                                </SelectItem>
                               ) : (
                                 <>
-                                 <SelectItem value="none">Geen project toevoegen</SelectItem>
+                                  <SelectItem value="none">
+                                    Geen project toevoegen
+                                  </SelectItem>
                                   {availableDesigns.map((design) => (
-                                      <SelectItem key={design.id} value={design.id}>
-                                          {design.name} ({design.width}x{design.length}m)
-                                      </SelectItem>
+                                    <SelectItem
+                                      key={design.id}
+                                      value={design.id}
+                                    >
+                                      {design.name} ({design.width}x
+                                      {design.length}m)
+                                    </SelectItem>
                                   ))}
-                                  </>
+                                </>
                               )}
                             </SelectContent>
                           </Select>
@@ -631,7 +699,7 @@ export default function OffertePage() {
 
                   {/* Personal Information */}
                   <div className="space-y-6">
-                    <h3 className="text-xl font-bold text-background border-b pb-2">
+                    <h3 className="text-xl font-bold border-b pb-2">
                       Contactgegevens
                     </h3>
                     <div className="grid md:grid-cols-2 gap-4">
@@ -702,7 +770,7 @@ export default function OffertePage() {
 
                   {/* Project Information */}
                   <div className="space-y-6">
-                    <h3 className="text-xl font-bold text-background border-b pb-2">
+                    <h3 className="text-xl font-bold border-b pb-2">
                       Projectinformatie
                     </h3>
                     <div className="grid md:grid-cols-2 gap-4">
@@ -805,7 +873,7 @@ export default function OffertePage() {
 
                   {/* Additional Services */}
                   <div className="space-y-6">
-                    <h3 className="text-xl font-bold text-background border-b pb-2">
+                    <h3 className="text-xl font-bold border-b pb-2">
                       Extra diensten
                     </h3>
                     <div className="space-y-4">
@@ -898,7 +966,7 @@ export default function OffertePage() {
 
                   {/* Additional Information */}
                   <div className="space-y-6">
-                    <h3 className="text-xl font-bold text-background border-b pb-2">
+                    <h3 className="text-xl font-bold border-b pb-2">
                       Extra informatie
                     </h3>
                     <FormField
@@ -1025,7 +1093,7 @@ export default function OffertePage() {
                   <Button
                     type="submit"
                     disabled={isLoading}
-                    className="w-full text-background font-semibold"
+                    className="w-full font-semibold text-foreground"
                   >
                     {isLoading ? "Bezig met verzenden..." : "Offerte Aanvragen"}
                   </Button>
@@ -1065,7 +1133,7 @@ export default function OffertePage() {
 
       {/* ... existing code for rest of the page ... */}
       {/* What Happens Next */}
-      <section className="py-20 text-accent">
+      <section className="py-20 text-accent bg-foreground">
         <div className="max-w-7xl mx-auto px-6">
           <div className="text-center mb-16">
             <h2 className="text-4xl font-bold mb-4">Wat gebeurt er nu?</h2>
@@ -1078,11 +1146,9 @@ export default function OffertePage() {
             <Card className="text-center border-2">
               <CardHeader>
                 <div className="mx-auto mb-4 p-4 bg-primary rounded-full w-16 h-16 flex items-center justify-center">
-                  <span className="text-2xl font-bold text-background">1</span>
+                  <span className="text-2xl font-bold">1</span>
                 </div>
-                <CardTitle className="text-xl text-background">
-                  Bevestiging
-                </CardTitle>
+                <CardTitle className="text-xl">Bevestiging</CardTitle>
               </CardHeader>
               <CardContent>
                 <p className="text-muted-foreground">
@@ -1097,9 +1163,7 @@ export default function OffertePage() {
                 <div className="mx-auto mb-4 p-4 border-3 border-primary rounded-full w-16 h-16 flex items-center justify-center">
                   <span className="text-2xl font-bold text-primary">2</span>
                 </div>
-                <CardTitle className="text-xl text-background">
-                  Analyse
-                </CardTitle>
+                <CardTitle className="text-xl">Analyse</CardTitle>
               </CardHeader>
               <CardContent>
                 <p className="text-muted-foreground">
@@ -1112,11 +1176,9 @@ export default function OffertePage() {
             <Card className="text-center border-2">
               <CardHeader>
                 <div className="mx-auto mb-4 p-4 bg-primary rounded-full w-16 h-16 flex items-center justify-center">
-                  <span className="text-2xl font-bold text-background">3</span>
+                  <span className="text-2xl font-bold">3</span>
                 </div>
-                <CardTitle className="text-xl text-background">
-                  Offerte
-                </CardTitle>
+                <CardTitle className="text-xl">Offerte</CardTitle>
               </CardHeader>
               <CardContent>
                 <p className="text-muted-foreground">
@@ -1133,9 +1195,7 @@ export default function OffertePage() {
       <section className="py-20 ">
         <div className="max-w-7xl mx-auto px-6">
           <div className="text-center mb-16">
-            <h2 className="text-4xl font-bold text-background mb-4">
-              Wat onze klanten zeggen
-            </h2>
+            <h2 className="text-4xl font-bold mb-4">Wat onze klanten zeggen</h2>
             <p className="text-xl text-muted-foreground">
               Ervaringen van tevreden PowerTiles klanten
             </p>
@@ -1157,9 +1217,7 @@ export default function OffertePage() {
                   en de installatie perfect uitgevoerd. Onze garage ziet er nu
                   professioneel uit."
                 </p>
-                <div className="font-semibold text-background">
-                  - Marc V., Antwerpen
-                </div>
+                <div className="font-semibold">- Marc V., Antwerpen</div>
               </CardContent>
             </Card>
 
@@ -1178,9 +1236,7 @@ export default function OffertePage() {
                   gym is perfect en het advies was uitstekend. Zeker een
                   aanrader!"
                 </p>
-                <div className="font-semibold text-background">
-                  - Sarah D., Gent
-                </div>
+                <div className="font-semibold">- Sarah D., Gent</div>
               </CardContent>
             </Card>
           </div>
@@ -1188,7 +1244,7 @@ export default function OffertePage() {
       </section>
 
       {/* CTA Section */}
-      <section className="py-20 bg-accent/70 text-muted">
+      <section className="py-20 bg-foreground/35 text-muted">
         <div className="max-w-4xl mx-auto text-center px-6">
           <h2 className="text-4xl font-bold mb-6">Nog vragen?</h2>
           <p className="text-xl text-muted-foreground mb-8 max-w-2xl mx-auto">
@@ -1197,7 +1253,7 @@ export default function OffertePage() {
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Link href="/offerte">
-              <Button size="lg" className="text-background">
+              <Button size="lg" className="text-foreground">
                 Offerte Aanvragen
                 <ArrowRight className="ml-2 h-5 w-5" />
               </Button>
@@ -1206,7 +1262,7 @@ export default function OffertePage() {
               <Button
                 size="lg"
                 variant="outline"
-                className="border-foreground text-muted hover: hover:text-background bg-transparent"
+                className="border-background text-muted hover: hover:text-foreground bg-transparent"
               >
                 <Phone className="mr-2 h-5 w-5" />
                 Direct Bellen

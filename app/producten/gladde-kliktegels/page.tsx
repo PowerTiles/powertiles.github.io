@@ -51,11 +51,11 @@ export default function GladdeKliktegelsPage() {
               <div className="space-y-4">
                 <Badge
                   variant="outline"
-                  className="text-background px-4 py-2 text-sm font-semibold"
+                  className="px-4 py-2 text-sm font-semibold"
                 >
                   Premium Kwaliteit
                 </Badge>
-                <h1 className="text-4xl lg:text-5xl font-bold text-background leading-tight">
+                <h1 className="text-4xl lg:text-5xl font-bold leading-tight">
                   Gladde Kliktegels
                 </h1>
                 <p className="text-xl text-muted-foreground leading-relaxed">
@@ -67,7 +67,7 @@ export default function GladdeKliktegelsPage() {
               <Button
                 asChild
                 size="lg"
-                className="text-background font-semibold mt-6"
+                className="font-semibold mt-6 text-foreground"
               >
                 <Link href="/offerte">Offerte Aanvragen</Link>
               </Button>
@@ -86,14 +86,14 @@ export default function GladdeKliktegelsPage() {
       </section>
 
       {/* Product Details */}
-      <section className="py-16 text-accent">
+      <section className="py-16 text-accent bg-foreground">
         <div className="max-w-7xl mx-auto px-6">
           <div className="grid lg:grid-cols-3 gap-8">
             {/* Description */}
             <div className="lg:col-span-2 space-y-8">
               <Card>
                 <CardHeader>
-                  <CardTitle className="text-2xl text-background">
+                  <CardTitle className="text-2xl">
                     Productbeschrijving
                   </CardTitle>
                 </CardHeader>
@@ -116,14 +116,14 @@ export default function GladdeKliktegelsPage() {
 
               <Card>
                 <CardHeader>
-                  <CardTitle className="text-2xl text-background">
+                  <CardTitle className="text-2xl">
                     Toepassingen
                   </CardTitle>
                 </CardHeader>
                 <CardContent>
                   <div className="grid md:grid-cols-2 gap-6">
                     <div className="space-y-3">
-                      <h4 className="font-semibold text-background">
+                      <h4 className="font-semibold">
                         Lichte Belasting
                       </h4>
                       <ul className="space-y-2">
@@ -146,7 +146,7 @@ export default function GladdeKliktegelsPage() {
                       </ul>
                     </div>
                     <div className="space-y-3">
-                      <h4 className="font-semibold text-background">
+                      <h4 className="font-semibold">
                         Zware Belasting
                       </h4>
                       <ul className="space-y-2">
@@ -183,7 +183,7 @@ export default function GladdeKliktegelsPage() {
             <div className="space-y-6">
               <Card>
                 <CardHeader>
-                  <CardTitle className="text-xl text-background">
+                  <CardTitle className="text-xl">
                     Technische Specificaties
                   </CardTitle>
                 </CardHeader>
@@ -191,35 +191,35 @@ export default function GladdeKliktegelsPage() {
                   <div className="space-y-3">
                     <div className="flex justify-between">
                       <span className="text-muted-foreground">Materiaal:</span>
-                      <span className="font-medium text-background">
+                      <span className="font-medium">
                         Premium PVC
                       </span>
                     </div>
                     <div className="flex justify-between">
                       <span className="text-muted-foreground">Afmetingen:</span>
-                      <span className="font-medium text-background">
+                      <span className="font-medium">
                         50x50 cm
                       </span>
                     </div>
                     <div className="flex justify-between">
                       <span className="text-muted-foreground">Dikte:</span>
-                      <span className="font-medium text-background">
+                      <span className="font-medium">
                         7-12 mm
                       </span>
                     </div>
                     <div className="flex justify-between">
                       <span className="text-muted-foreground">Oppervlak:</span>
-                      <span className="font-medium text-background">Glad</span>
+                      <span className="font-medium">Glad</span>
                     </div>
                     <div className="flex justify-between">
                       <span className="text-muted-foreground">Installatie:</span>
-                      <span className="font-medium text-background">
+                      <span className="font-medium">
                         Kliksysteem
                       </span>
                     </div>
                     <div className="flex justify-between">
                       <span className="text-muted-foreground">Onderhoud:</span>
-                      <span className="font-medium text-background">
+                      <span className="font-medium">
                         Onderhoudsvrij
                       </span>
                     </div>
@@ -229,7 +229,7 @@ export default function GladdeKliktegelsPage() {
 
               <Card>
                 <CardHeader>
-                  <CardTitle className="text-xl text-background flex items-center">
+                  <CardTitle className="text-xl flex items-center">
                     <Palette className="h-5 w-5 mr-2 text-primary" />
                     Beschikbare Kleuren
                   </CardTitle>
@@ -271,7 +271,7 @@ export default function GladdeKliktegelsPage() {
 
               <Card>
                 <CardHeader>
-                  <CardTitle className="text-xl text-background flex items-center">
+                  <CardTitle className="text-xl flex items-center">
                     <Camera className="h-5 w-5 mr-2 text-primary" />
                     Fotogalerij
                   </CardTitle>
@@ -293,7 +293,7 @@ export default function GladdeKliktegelsPage() {
       </section>
 
       {/* CTA Section */}
-      <section className="py-16 bg-accent/70 text-muted">
+      <section className="py-16 bg-foreground/35 text-muted">
         <div className="max-w-4xl mx-auto px-6 text-center space-y-8">
           <h2 className="text-3xl lg:text-4xl font-bold">
             Klaar voor uw nieuwe vloer?
@@ -304,7 +304,10 @@ export default function GladdeKliktegelsPage() {
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Link href="/offerte">
-              <Button size="lg" className="text-background">
+              <Button
+                size="lg"
+                className="text-foreground"
+              >
                 Offerte Aanvragen
                 <ArrowRight className="ml-2 h-5 w-5" />
               </Button>
@@ -313,7 +316,7 @@ export default function GladdeKliktegelsPage() {
               <Button
                 size="lg"
                 variant="outline"
-                className="border-foreground text-muted hover: hover:text-background bg-transparent"
+                className="border-background text-muted hover: hover:text-foreground bg-transparent"
               >
                 Contact Opnemen
               </Button>

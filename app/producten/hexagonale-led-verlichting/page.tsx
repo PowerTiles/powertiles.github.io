@@ -56,11 +56,11 @@ export default function HexagonaleLEDVerlichtingPage() {
               <div className="space-y-4">
                 <Badge
                   variant="outline"
-                  className="text-background px-4 py-2 text-sm font-semibold"
+                  className="px-4 py-2 text-sm font-semibold"
                 >
                   Innovatieve Technologie
                 </Badge>
-                <h1 className="text-4xl lg:text-5xl font-bold text-background leading-tight">
+                <h1 className="text-4xl lg:text-5xl font-bold leading-tight">
                   Hexagonale LED-verlichting
                 </h1>
                 <p className="text-xl text-muted-foreground leading-relaxed">
@@ -72,7 +72,7 @@ export default function HexagonaleLEDVerlichtingPage() {
               <Button
                 asChild
                 size="lg"
-                className="text-background font-semibold mt-6"
+                className="text-foreground font-semibold mt-6"
               >
                 <Link href="/offerte">Offerte Aanvragen</Link>
               </Button>
@@ -91,14 +91,14 @@ export default function HexagonaleLEDVerlichtingPage() {
       </section>
 
       {/* Product Details */}
-      <section className="py-16 text-accent">
+      <section className="py-16 text-accent bg-foreground">
         <div className="max-w-7xl mx-auto px-6">
           <div className="grid lg:grid-cols-3 gap-8">
             {/* Description */}
             <div className="lg:col-span-2 space-y-8">
               <Card>
                 <CardHeader>
-                  <CardTitle className="text-2xl text-background">
+                  <CardTitle className="text-2xl">
                     Productbeschrijving
                   </CardTitle>
                 </CardHeader>
@@ -121,7 +121,7 @@ export default function HexagonaleLEDVerlichtingPage() {
 
               <Card>
                 <CardHeader>
-                  <CardTitle className="text-2xl text-background">
+                  <CardTitle className="text-2xl">
                     Technische Features
                   </CardTitle>
                 </CardHeader>
@@ -129,9 +129,9 @@ export default function HexagonaleLEDVerlichtingPage() {
                   <div className="grid md:grid-cols-3 gap-6">
                     <div className="text-center space-y-3">
                       <div className="mx-auto w-16 h-16 bg-primary rounded-full flex items-center justify-center">
-                        <Lightbulb className="h-8 w-8 text-background" />
+                        <Lightbulb className="h-8 w-8" />
                       </div>
-                      <h4 className="font-semibold text-background">
+                      <h4 className="font-semibold">
                         Smart Control
                       </h4>
                       <p className="text-sm text-muted-foreground">
@@ -140,9 +140,9 @@ export default function HexagonaleLEDVerlichtingPage() {
                     </div>
                     <div className="text-center space-y-3">
                       <div className="mx-auto w-16 h-16 bg-primary rounded-full flex items-center justify-center">
-                        <Zap className="h-8 w-8 text-background" />
+                        <Zap className="h-8 w-8" />
                       </div>
-                      <h4 className="font-semibold text-background">
+                      <h4 className="font-semibold">
                         Energie Efficiënt
                       </h4>
                       <p className="text-sm text-muted-foreground">
@@ -151,9 +151,9 @@ export default function HexagonaleLEDVerlichtingPage() {
                     </div>
                     <div className="text-center space-y-3">
                       <div className="mx-auto w-16 h-16 bg-primary rounded-full flex items-center justify-center">
-                        <Settings className="h-8 w-8 text-background" />
+                        <Settings className="h-8 w-8" />
                       </div>
-                      <h4 className="font-semibold text-background">Modulair</h4>
+                      <h4 className="font-semibold">Modulair</h4>
                       <p className="text-sm text-muted-foreground">
                         Uitbreidbaar systeem naar wens
                       </p>
@@ -164,14 +164,14 @@ export default function HexagonaleLEDVerlichtingPage() {
 
               <Card>
                 <CardHeader>
-                  <CardTitle className="text-2xl text-background">
+                  <CardTitle className="text-2xl">
                     Toepassingen
                   </CardTitle>
                 </CardHeader>
                 <CardContent>
                   <div className="grid md:grid-cols-2 gap-6">
                     <div className="space-y-3">
-                      <h4 className="font-semibold text-background">Residentieel</h4>
+                      <h4 className="font-semibold">Residentieel</h4>
                       <ul className="space-y-2">
                         <li className="flex items-start space-x-2">
                           <CheckCircle className="h-5 w-5 text-primary mt-0.5 flex-shrink-0" />
@@ -192,7 +192,7 @@ export default function HexagonaleLEDVerlichtingPage() {
                       </ul>
                     </div>
                     <div className="space-y-3">
-                      <h4 className="font-semibold text-background">Commercieel</h4>
+                      <h4 className="font-semibold">Commercieel</h4>
                       <ul className="space-y-2">
                         <li className="flex items-start space-x-2">
                           <CheckCircle className="h-5 w-5 text-primary mt-0.5 flex-shrink-0" />
@@ -223,7 +223,7 @@ export default function HexagonaleLEDVerlichtingPage() {
             <div className="space-y-6">
               <Card>
                 <CardHeader>
-                  <CardTitle className="text-xl text-background">
+                  <CardTitle className="text-xl">
                     Technische Specificaties
                   </CardTitle>
                 </CardHeader>
@@ -231,39 +231,39 @@ export default function HexagonaleLEDVerlichtingPage() {
                   <div className="space-y-3">
                     <div className="flex justify-between">
                       <span className="text-muted-foreground">LED Type:</span>
-                      <span className="font-medium text-background">
+                      <span className="font-medium">
                         RGB + Warm White
                       </span>
                     </div>
                     <div className="flex justify-between">
                       <span className="text-muted-foreground">Vermogen:</span>
-                      <span className="font-medium text-background">
+                      <span className="font-medium">
                         12W per paneel
                       </span>
                     </div>
                     <div className="flex justify-between">
                       <span className="text-muted-foreground">Spanning:</span>
-                      <span className="font-medium text-background">24V DC</span>
+                      <span className="font-medium">24V DC</span>
                     </div>
                     <div className="flex justify-between">
                       <span className="text-muted-foreground">Levensduur:</span>
-                      <span className="font-medium text-background">
+                      <span className="font-medium">
                         50.000+ uur
                       </span>
                     </div>
                     <div className="flex justify-between">
                       <span className="text-muted-foreground">Besturing:</span>
-                      <span className="font-medium text-background">WiFi + App</span>
+                      <span className="font-medium">WiFi + App</span>
                     </div>
                     <div className="flex justify-between">
                       <span className="text-muted-foreground">Installatie:</span>
-                      <span className="font-medium text-background">
+                      <span className="font-medium">
                         Plug & Play
                       </span>
                     </div>
                     <div className="flex justify-between">
                       <span className="text-muted-foreground">Garantie:</span>
-                      <span className="font-medium text-background">5 jaar</span>
+                      <span className="font-medium">5 jaar</span>
                     </div>
                   </div>
                 </CardContent>
@@ -271,7 +271,7 @@ export default function HexagonaleLEDVerlichtingPage() {
 
               <Card>
                 <CardHeader>
-                  <CardTitle className="text-xl text-background flex items-center">
+                  <CardTitle className="text-xl flex items-center">
                     <Palette className="h-5 w-5 mr-2 text-primary" />
                     Kleur Opties
                   </CardTitle>
@@ -305,7 +305,7 @@ export default function HexagonaleLEDVerlichtingPage() {
 
               <Card>
                 <CardHeader>
-                  <CardTitle className="text-xl text-background flex items-center">
+                  <CardTitle className="text-xl flex items-center">
                     <Camera className="h-5 w-5 mr-2 text-primary" />
                     Fotogalerij
                   </CardTitle>
@@ -327,7 +327,7 @@ export default function HexagonaleLEDVerlichtingPage() {
       </section>
 
       {/* CTA Section */}
-      <section className="py-16 bg-accent/70 text-muted">
+      <section className="py-16 bg-foreground/35 text-muted">
         <div className="max-w-4xl mx-auto px-6 text-center space-y-8">
           <h2 className="text-3xl lg:text-4xl font-bold">
             Transformeer uw ruimte met LED-verlichting
@@ -338,7 +338,10 @@ export default function HexagonaleLEDVerlichtingPage() {
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Link href="/offerte">
-              <Button size="lg" className="text-background">
+              <Button
+                size="lg"
+                className="text-foreground"
+              >
                 Offerte Aanvragen
                 <ArrowRight className="ml-2 h-5 w-5" />
               </Button>
@@ -347,7 +350,7 @@ export default function HexagonaleLEDVerlichtingPage() {
               <Button
                 size="lg"
                 variant="outline"
-                className="border-foreground text-muted hover: hover:text-background bg-transparent"
+                className="border-background text-muted hover: hover:text-foreground bg-transparent"
               >
                 Contact Opnemen
               </Button>

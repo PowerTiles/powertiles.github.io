@@ -165,7 +165,7 @@ export default function ContactPage() {
   return (
     <div className="min-h-screen">
       {/* Hero Section */}
-      <section className=" text-muted py-16">
+      <section className=" text-muted py-16 bg-foreground">
         <div className="max-w-7xl mx-auto px-6 text-center">
           <h1 className="text-5xl font-bold mb-6">Contact</h1>
           <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
@@ -182,9 +182,9 @@ export default function ContactPage() {
             <Card className="group hover:shadow-xl transition-all duration-300 border-2 hover:border-primary">
               <CardHeader className="text-center pb-4">
                 <div className="mx-auto mb-4 p-4 bg-primary rounded-full w-16 h-16 flex items-center justify-center">
-                  <Phone className="h-8 w-8 text-background" />
+                  <Phone className="h-8 w-8" />
                 </div>
-                <CardTitle className="text-2xl font-bold text-background">
+                <CardTitle className="text-2xl font-bold">
                   Telefoon
                 </CardTitle>
               </CardHeader>
@@ -205,14 +205,14 @@ export default function ContactPage() {
             <Card className="group hover:shadow-xl transition-all duration-300 border-2 hover:border-primary">
               <CardHeader className="text-center pb-4">
                 <div className="mx-auto mb-4 p-4 border-3 border-primary rounded-full w-16 h-16 flex items-center justify-center">
-                  <Mail className="h-8 w-8 text-background" />
+                  <Mail className="h-8 w-8" />
                 </div>
-                <CardTitle className="text-2xl font-bold text-background">
+                <CardTitle className="text-2xl font-bold">
                   E-mail
                 </CardTitle>
               </CardHeader>
               <CardContent className="text-center space-y-4">
-                <p className="text-muted-foreground">Stuur ons een bericht</p>
+                <p className="text-foreground">Stuur ons een bericht</p>
                 <a
                   href="mailto:info@powertiles.be"
                   className="text-xl font-bold text-primary hover:text-primary/80 transition-colors block"
@@ -228,9 +228,9 @@ export default function ContactPage() {
             <Card className="group hover:shadow-xl transition-all duration-300 border-2 hover:border-primary">
               <CardHeader className="text-center pb-4">
                 <div className="mx-auto mb-4 p-4 bg-primary rounded-full w-16 h-16 flex items-center justify-center">
-                  <Instagram className="h-8 w-8 text-background" />
+                  <Instagram className="h-8 w-8" />
                 </div>
-                <CardTitle className="text-2xl font-bold text-background">
+                <CardTitle className="text-2xl font-bold">
                   Social Media
                 </CardTitle>
               </CardHeader>
@@ -258,10 +258,10 @@ export default function ContactPage() {
           <div className="bg-[repeating-linear-gradient(45deg,theme(colors.gray.300)_0_2px,transparent_1px_12px)]">
             <div className="max-w-7xl mx-auto py-20 px-10 space-y-8 ">
               <div className="space-y-4">
-                <Badge className="text-background px-4 py-2 text-sm font-semibold">
+                <Badge className="px-4 py-2 text-sm font-semibold">
                   Onze bedrijfsgegevens
                 </Badge>
-                <h2 className="text-4xl font-bold text-background">
+                <h2 className="text-4xl font-bold text-foreground">
                   PowerTiles België
                 </h2>
                 <p className="text-xl text-muted-foreground">
@@ -272,7 +272,7 @@ export default function ContactPage() {
               <Card className="border-2">
                 <CardContent className="p-8 space-y-6">
                   <div className="space-y-4">
-                    <h3 className="text-xl font-bold text-background">
+                    <h3 className="text-xl font-bold">
                       Contactgegevens
                     </h3>
                     <div className="space-y-3">
@@ -296,7 +296,7 @@ export default function ContactPage() {
                   </div>
 
                   <div className="border-t pt-6 space-y-4">
-                    <h3 className="text-xl font-bold text-background">
+                    <h3 className="text-xl font-bold">
                       Openingstijden
                     </h3>
                     <div className="space-y-2">
@@ -316,7 +316,7 @@ export default function ContactPage() {
                   </div>
 
                   <div className="border-t pt-6 space-y-4">
-                    <h3 className="text-xl font-bold text-background">
+                    <h3 className="text-xl font-bold">
                       Onze Services
                     </h3>
                     <div className="space-y-3">
@@ -342,7 +342,7 @@ export default function ContactPage() {
               </Card>
 
               <Link href="/offerte">
-                <Button variant="outline" className="w-full font-semibold py-3">
+                <Button variant="outline" className="w-full font-semibold py-3 bg-foreground">
                   Direct Offerte Aanvragen
                   <ArrowRight className="ml-2 h-5 w-5" />
                 </Button>
@@ -353,10 +353,10 @@ export default function ContactPage() {
           <div className="max-w-7xl mx-auto py-20 px-10 order-first lg:order-none">
             <div className="space-y-8">
               <div className="space-y-4">
-                <Badge className="text-background px-4 py-2 text-sm font-semibold">
+                <Badge className="px-4 py-2 text-sm font-semibold">
                   Contactformulier
                 </Badge>
-                <h2 className="text-4xl font-bold text-background">
+                <h2 className="text-4xl font-bold text-foreground">
                   Stuur ons een bericht
                 </h2>
                 <p className="text-xl text-muted-foreground">
@@ -489,7 +489,7 @@ export default function ContactPage() {
                       <Button
                         type="submit"
                         disabled={isLoading}
-                        className="w-full text-background font-semibold"
+                        className="w-full font-semibold"
                       >
                         {isLoading
                           ? "Bezig met verzenden..."
@@ -537,7 +537,7 @@ export default function ContactPage() {
       <section className="py-20 ">
         <div className="max-w-7xl mx-auto px-6">
           <div className="text-center mb-16">
-            <h2 className="text-4xl font-bold text-background mb-4">
+            <h2 className="text-4xl font-bold mb-4">
               Veelgestelde Vragen
             </h2>
             <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
@@ -549,7 +549,7 @@ export default function ContactPage() {
           <div className="grid md:grid-cols-2 gap-8">
             <Card className="border-2">
               <CardHeader>
-                <CardTitle className="text-xl text-background">
+                <CardTitle className="text-xl">
                   Bieden jullie ook installatie aan?
                 </CardTitle>
               </CardHeader>
@@ -564,7 +564,7 @@ export default function ContactPage() {
 
             <Card className="border-2">
               <CardHeader>
-                <CardTitle className="text-xl text-background">
+                <CardTitle className="text-xl">
                   Hoe lang duurt de levering?
                 </CardTitle>
               </CardHeader>
@@ -578,7 +578,7 @@ export default function ContactPage() {
 
             <Card className="border-2">
               <CardHeader>
-                <CardTitle className="text-xl text-background">
+                <CardTitle className="text-xl">
                   Kan ik eerst een monster ontvangen?
                 </CardTitle>
               </CardHeader>
@@ -592,7 +592,7 @@ export default function ContactPage() {
 
             <Card className="border-2">
               <CardHeader>
-                <CardTitle className="text-xl text-background">
+                <CardTitle className="text-xl">
                   Wat is de garantie op de vloeren?
                 </CardTitle>
               </CardHeader>
@@ -608,7 +608,7 @@ export default function ContactPage() {
       </section>
 
       {/* CTA Section */}
-      <section className="py-20 bg-accent/70 text-muted">
+      <section className="py-20 bg-foreground/35 text-muted">
         <div className="max-w-4xl mx-auto text-center px-6">
           <h2 className="text-4xl font-bold mb-6">Klaar om te starten?</h2>
           <p className="text-xl text-muted-foreground mb-8 max-w-2xl mx-auto">
@@ -617,7 +617,10 @@ export default function ContactPage() {
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Link href="/offerte">
-              <Button size="lg" className="text-background">
+              <Button
+                size="lg"
+                className="text-foreground"
+              >
                 Offerte Aanvragen
                 <ArrowRight className="ml-2 h-5 w-5" />
               </Button>
@@ -626,7 +629,7 @@ export default function ContactPage() {
               <Button
                 size="lg"
                 variant="outline"
-                className="border-foreground text-muted hover: hover:text-background bg-transparent"
+                className="border-background text-muted hover: hover:text-foreground bg-transparent"
               >
                 <Phone className="mr-2 h-5 w-5" />
                 Direct Bellen

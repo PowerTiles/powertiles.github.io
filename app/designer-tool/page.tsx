@@ -7,7 +7,6 @@ import {
   CardContent,
   CardHeader,
   CardTitle,
-  CardDescription,
 } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
@@ -28,7 +27,6 @@ import {
   Calculator,
   FolderOpen,
   X,
-  Search,
   ZoomIn,
   Fingerprint,
 } from "lucide-react"; // Icons for UI
@@ -56,7 +54,7 @@ const TILE_COLORS: Color[] = [
 ];
 
 // Grid constants
-const TILE_PIXEL_SIZE = 24; // Increased for better visibility and touchability
+export const TILE_PIXEL_SIZE = 24; // Increased for better visibility and touchability
 const METERS_PER_TILE = 0.4;
 const MIN_ZOOM = 0.2; // Allowing more zoom out
 const MAX_ZOOM = 5.0; // Allowing more zoom in
@@ -1022,30 +1020,30 @@ PowerTiles - Transform Your Space. Unleash the Power.
         (design) => design.id === storedCurrentProject.id
       );
 
-      if (foundProject) {
-        // Temporarily set flag to disable dimension effect while project is being loaded
-        setIsProjectLoading(true);
-        loadDesignState(foundProject); // This will set all relevant states, including 'tiles'
+      // if (foundProject) {
+      //   // Temporarily set flag to disable dimension effect while project is being loaded
+      //   setIsProjectLoading(true);
+      //   loadDesignState(foundProject); // This will set all relevant states, including 'tiles'
 
-        // Only show the toast if it hasn't been shown during this mount/remount cycle
-        if (!initialLoadToastShownRef.current) {
-          toast.success(`Project "${foundProject.name}" automatisch geladen.`, {
-            duration: 3000,
-            closeButton: true,
-          });
-          initialLoadToastShownRef.current = true; // Mark as shown
-        }
+      //   // Only show the toast if it hasn't been shown during this mount/remount cycle
+      //   if (!initialLoadToastShownRef.current) {
+      //     toast.success(`Project "${foundProject.name}" automatisch geladen.`, {
+      //       duration: 3000,
+      //       closeButton: true,
+      //     });
+      //     initialLoadToastShownRef.current = true; // Mark as shown
+      //   }
 
-        // Reset the flag after a short delay to allow all state updates to process
-        const timer = setTimeout(() => setIsProjectLoading(false), 50);
-        needsInitializeDefault = false; // Project was loaded, no need for default init
-        return () => {
-          clearTimeout(timer);
-          initialLoadToastShownRef.current = false; // Reset on unmount
-        };
-      } else {
-        localStorage.removeItem(CURRENT_PROJECT_KEY); // Clean up invalid stored current project key
-      }
+      //   // Reset the flag after a short delay to allow all state updates to process
+      //   const timer = setTimeout(() => setIsProjectLoading(false), 50);
+      //   needsInitializeDefault = false; // Project was loaded, no need for default init
+      //   return () => {
+      //     clearTimeout(timer);
+      //     initialLoadToastShownRef.current = false; // Reset on unmount
+      //   };
+      // } else {
+      //   localStorage.removeItem(CURRENT_PROJECT_KEY); // Clean up invalid stored current project key
+      // }
     }
 
     if (needsInitializeDefault) {
@@ -1277,7 +1275,7 @@ PowerTiles - Transform Your Space. Unleash the Power.
                 <div className="space-y-2">
                   <Button
                     onClick={fillAllTiles}
-                    className="w-full text-background"
+                    className="w-full"
                   >
                     Alle Tegels Vullen
                   </Button>
@@ -1301,7 +1299,7 @@ PowerTiles - Transform Your Space. Unleash the Power.
                 </CardTitle>
               </CardHeader>
               <CardContent className="space-y-2">
-                <p className="text-md font-semibold text-background">
+                <p className="text-md font-semibold">
                   Zoom Level ({Math.round(zoomLevel * 100)}%)
                 </p>
                 <Slider
@@ -1358,7 +1356,7 @@ PowerTiles - Transform Your Space. Unleash the Power.
                 </CardTitle>
               </CardHeader>
               <CardContent className="space-y-2">
-                <h4 className="text-md font-semibold text-background">
+                <h4 className="text-md font-semibold">
                   Pinch Gevoeligheid ({pinchSensitivity.toFixed(3)})
                 </h4>
                 <Slider
@@ -1395,10 +1393,10 @@ PowerTiles - Transform Your Space. Unleash the Power.
                   </span>
                 </div>
                 <Button
-                  className="w-full mt-4 text-background"
+                  className="w-full mt-4"
                   onClick={handleRequestQuote}
                 >
-                  <span className="flex items-center gap-2">
+                  <span className="flex items-center gap-2 text-foreground">
                     Offerte Aanvragen
                   </span>
                 </Button>
@@ -1453,7 +1451,7 @@ PowerTiles - Transform Your Space. Unleash the Power.
                         </Button>
                       </DialogTrigger>
                       {!currentProjectId && showSaveDialog && (
-                        <DialogContent className="sm:max-w-md  text-background">
+                        <DialogContent className="sm:max-w-md ">
                           <DialogHeader>
                             <DialogTitle>Ontwerp Opslaan</DialogTitle>
                             <DialogDescription>
@@ -1475,7 +1473,6 @@ PowerTiles - Transform Your Space. Unleash the Power.
                                   setNewProjectName(e.target.value)
                                 }
                                 placeholder={`Bijv. Garage Ontwerp ${new Date().getFullYear()}`}
-                                className="text-background"
                               />
                             </div>
                           </div>
@@ -1519,7 +1516,7 @@ PowerTiles - Transform Your Space. Unleash the Power.
                           </span>
                         </Button>
                       </DialogTrigger>
-                      <DialogContent className="sm:max-w-md  text-background w-max">
+                      <DialogContent className="sm:max-w-md w-max">
                         <DialogHeader>
                           <DialogTitle>Opgeslagen Ontwerpen</DialogTitle>
                           <DialogDescription>
