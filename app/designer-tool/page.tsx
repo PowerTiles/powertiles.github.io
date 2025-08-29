@@ -2,12 +2,7 @@
 
 import React, { useState, useEffect, useRef, useCallback } from "react";
 import { Button } from "@/components/ui/button";
-import {
-  Card,
-  CardContent,
-  CardHeader,
-  CardTitle,
-} from "@/components/ui/card";
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import {
@@ -29,6 +24,7 @@ import {
   X,
   ZoomIn,
   Fingerprint,
+  ZoomOut,
 } from "lucide-react"; // Icons for UI
 import { Slider } from "@/components/ui/slider"; // For zoom control and sensitivity
 
@@ -296,7 +292,7 @@ export default function VloerDesigner() {
 
   const handleMouseMove = useCallback(
     (e: React.MouseEvent<HTMLDivElement>) => {
-      if (!gridContainerRef.current) return;
+      if (!gridContainerRef.current || (!isPanning && !isDrawing)) return; // Only proceed if panning or drawing
 
       if (isPanning && lastMousePos) {
         const deltaX = e.clientX - lastMousePos.x;
@@ -305,20 +301,41 @@ export default function VloerDesigner() {
         gridContainerRef.current.scrollTop -= deltaY;
         setLastMousePos({ x: e.clientX, y: e.clientY });
       } else if (isDrawing) {
-        // Calculate which tile the mouse is over relative to the scaled grid
-        const gridRect = gridContainerRef.current.getBoundingClientRect();
-        // Adjust clientX, clientY to be relative to the grid *container*'s scroll area
-        const x =
-          e.clientX - gridRect.left + gridContainerRef.current.scrollLeft;
-        const y = e.clientY - gridRect.top + gridContainerRef.current.scrollTop;
+        // *** REVISED COORDINATE CALCULATION FOR DRAG-TO-COLOR ***
+        const gridContainerRect = gridContainerRef.current.getBoundingClientRect();
 
-        // Now, adjust for the zoom level to get the logical position within the scaled grid
-        const scaledX = x / zoomLevel;
-        const scaledY = y / zoomLevel;
+        // 1. Mouse coordinates relative to the gridContainerRef.current's top-left corner (viewport)
+        const clientXRelativeToContainer = e.clientX - gridContainerRect.left;
+        const clientYRelativeToContainer = e.clientY - gridContainerRect.top;
 
-        // Calculate tile indices based on the logical position and original tile size
-        const colIndex = Math.floor(scaledX / TILE_PIXEL_SIZE);
-        const rowIndex = Math.floor(scaledY / TILE_PIXEL_SIZE);
+        // 2. Add scroll position to get coordinates relative to the unscrolled content of gridContainerRef.current
+        const scrolledX = clientXRelativeToContainer + gridContainerRef.current.scrollLeft;
+        const scrolledY = clientYRelativeToContainer + gridContainerRef.current.scrollTop;
+
+        // 3. Get the logical width and height of the grid content (before scaling)
+        const gridActualWidth = tilesPerWidth * TILE_PIXEL_SIZE;
+        const gridActualHeight = tilesPerLength * TILE_PIXEL_SIZE;
+
+        // 4. Calculate the visible width and height of the *scaled* grid
+        const visibleScaledWidth = gridActualWidth * zoomLevel;
+        const visibleScaledHeight = gridActualHeight * zoomLevel;
+
+        // 5. Calculate the 'padding' or offset from the gridContainerRef's top-left
+        //    to the scaled grid's top-left, due to `flex items-center justify-center`
+        const paddingX = Math.max(0, (gridContainerRef.current.clientWidth - visibleScaledWidth) / 2);
+        const paddingY = Math.max(0, (gridContainerRef.current.clientHeight - visibleScaledHeight) / 2);
+
+        // 6. Adjust scrolled coordinates to be relative to the top-left of the *scaled content area of the grid*
+        const mouseXRelativeToScaledGridContent = scrolledX - paddingX;
+        const mouseYRelativeToScaledGridContent = scrolledY - paddingY;
+
+        // 7. Finally, divide by the zoomLevel to get the coordinate within the *unscaled* content area of the grid.
+        const finalX = mouseXRelativeToScaledGridContent / zoomLevel;
+        const finalY = mouseYRelativeToScaledGridContent / zoomLevel;
+
+        const colIndex = Math.floor(finalX / TILE_PIXEL_SIZE);
+        const rowIndex = Math.floor(finalY / TILE_PIXEL_SIZE);
+        // *** END REVISED COORDINATE CALCULATION ***
 
         if (
           rowIndex >= 0 &&
@@ -357,7 +374,6 @@ export default function VloerDesigner() {
       if (e.shiftKey) {
         // Zoom only if Shift is pressed (Updated from Ctrl)
         if (isFitToScreenMode) resetContainerToDefault(); // Exit fit-to-screen mode
-
         const zoomFactor = 0.1;
         let newZoomLevel = zoomLevel;
 
@@ -416,7 +432,7 @@ export default function VloerDesigner() {
   const handleTouchMove = useCallback(
     (e: React.TouchEvent<HTMLDivElement>) => {
       e.preventDefault(); // Prevent scrolling and browser gestures
-      if (!gridContainerRef.current) return;
+      if (!gridContainerRef.current || (!isPanning && !isDrawing && initialPinchDistance === null)) return; // Only proceed if panning, drawing, or pinching
 
       if (e.touches.length === 3 && isPanning && lastTouchPanPos) {
         // Three-finger pan
@@ -444,22 +460,42 @@ export default function VloerDesigner() {
         }
       } else if (e.touches.length === 1 && isDrawing) {
         // One-finger drawing
+        // *** REVISED COORDINATE CALCULATION FOR SWIPE-TO-COLOR ***
         const touch = e.touches[0];
-        const gridRect = gridContainerRef.current.getBoundingClientRect();
+        const gridContainerRect = gridContainerRef.current.getBoundingClientRect();
 
-        // Adjust clientX, clientY to be relative to the grid *container*'s scroll area
-        const x =
-          touch.clientX - gridRect.left + gridContainerRef.current.scrollLeft;
-        const y =
-          touch.clientY - gridRect.top + gridContainerRef.current.scrollTop;
+        // 1. Touch coordinates relative to the gridContainerRef.current's top-left corner (viewport)
+        const clientXRelativeToContainer = touch.clientX - gridContainerRect.left;
+        const clientYRelativeToContainer = touch.clientY - gridContainerRect.top;
 
-        // Now, adjust for the zoom level to get the logical position within the scaled grid
-        const scaledX = x / zoomLevel;
-        const scaledY = y / zoomLevel;
+        // 2. Add scroll position to get coordinates relative to the unscrolled content of gridContainerRef.current
+        const scrolledX = clientXRelativeToContainer + gridContainerRef.current.scrollLeft;
+        const scrolledY = clientYRelativeToContainer + gridContainerRef.current.scrollTop;
 
-        // Calculate tile indices based on the logical position and original tile size
-        const colIndex = Math.floor(scaledX / TILE_PIXEL_SIZE);
-        const rowIndex = Math.floor(scaledY / TILE_PIXEL_SIZE);
+        // 3. Get the logical width and height of the grid content (before scaling)
+        const gridActualWidth = tilesPerWidth * TILE_PIXEL_SIZE;
+        const gridActualHeight = tilesPerLength * TILE_PIXEL_SIZE;
+
+        // 4. Calculate the visible width and height of the *scaled* grid
+        const visibleScaledWidth = gridActualWidth * zoomLevel;
+        const visibleScaledHeight = gridActualHeight * zoomLevel;
+
+        // 5. Calculate the 'padding' or offset from the gridContainerRef's top-left
+        //    to the scaled grid's top-left, due to `flex items-center justify-center`
+        const paddingX = Math.max(0, (gridContainerRef.current.clientWidth - visibleScaledWidth) / 2);
+        const paddingY = Math.max(0, (gridContainerRef.current.clientHeight - visibleScaledHeight) / 2);
+
+        // 6. Adjust scrolled coordinates to be relative to the top-left of the *scaled content area of the grid*
+        const mouseXRelativeToScaledGridContent = scrolledX - paddingX;
+        const mouseYRelativeToScaledGridContent = scrolledY - paddingY;
+
+        // 7. Finally, divide by the zoomLevel to get the coordinate within the *unscaled* content area of the grid.
+        const finalX = mouseXRelativeToScaledGridContent / zoomLevel;
+        const finalY = mouseYRelativeToScaledGridContent / zoomLevel;
+
+        const colIndex = Math.floor(finalX / TILE_PIXEL_SIZE);
+        const rowIndex = Math.floor(finalY / TILE_PIXEL_SIZE);
+        // *** END REVISED COORDINATE CALCULATION ***
 
         if (
           rowIndex >= 0 &&
@@ -1020,30 +1056,30 @@ PowerTiles - Transform Your Space. Unleash the Power.
         (design) => design.id === storedCurrentProject.id
       );
 
-      // if (foundProject) {
-      //   // Temporarily set flag to disable dimension effect while project is being loaded
-      //   setIsProjectLoading(true);
-      //   loadDesignState(foundProject); // This will set all relevant states, including 'tiles'
+      if (foundProject) {
+        // Temporarily set flag to disable dimension effect while project is being loaded
+        setIsProjectLoading(true);
+        loadDesignState(foundProject); // This will set all relevant states, including 'tiles'
 
-      //   // Only show the toast if it hasn't been shown during this mount/remount cycle
-      //   if (!initialLoadToastShownRef.current) {
-      //     toast.success(`Project "${foundProject.name}" automatisch geladen.`, {
-      //       duration: 3000,
-      //       closeButton: true,
-      //     });
-      //     initialLoadToastShownRef.current = true; // Mark as shown
-      //   }
+        // Only show the toast if it hasn't been shown during this mount/remount cycle
+        if (!initialLoadToastShownRef.current) {
+          toast.success(`Project "${foundProject.name}" automatisch geladen.`, {
+            duration: 3000,
+            closeButton: true,
+          });
+          initialLoadToastShownRef.current = true; // Mark as shown
+        }
 
-      //   // Reset the flag after a short delay to allow all state updates to process
-      //   const timer = setTimeout(() => setIsProjectLoading(false), 50);
-      //   needsInitializeDefault = false; // Project was loaded, no need for default init
-      //   return () => {
-      //     clearTimeout(timer);
-      //     initialLoadToastShownRef.current = false; // Reset on unmount
-      //   };
-      // } else {
-      //   localStorage.removeItem(CURRENT_PROJECT_KEY); // Clean up invalid stored current project key
-      // }
+        // Reset the flag after a short delay to allow all state updates to process
+        const timer = setTimeout(() => setIsProjectLoading(false), 50);
+        needsInitializeDefault = false; // Project was loaded, no need for default init
+        return () => {
+          clearTimeout(timer);
+          initialLoadToastShownRef.current = false; // Reset on unmount
+        };
+      } else {
+        localStorage.removeItem(CURRENT_PROJECT_KEY); // Clean up invalid stored current project key
+      }
     }
 
     if (needsInitializeDefault) {
@@ -1154,7 +1190,7 @@ PowerTiles - Transform Your Space. Unleash the Power.
     tilesPerWidth,
     tilesPerLength,
     isDimensionsValid,
-    tiles // Keep tiles here for checking existingTile for color preservation
+    tiles, // Keep tiles here for checking existingTile for color preservation
   ]);
 
   return (
@@ -1162,9 +1198,7 @@ PowerTiles - Transform Your Space. Unleash the Power.
       {/* Main Content Area */}
       <div className="max-w-7xl mx-auto px-6 py-8">
         <div className="mb-8">
-          <h1 className="text-4xl font-bold mb-4">
-            Vloer Designer
-          </h1>
+          <h1 className="text-4xl font-bold mb-4">Vloer Designer</h1>
           <p className="text-xl text-muted-foreground">
             Ontwerp uw eigen garagevloer met onze geventileerde PVC-tegels
           </p>
@@ -1273,10 +1307,7 @@ PowerTiles - Transform Your Space. Unleash the Power.
                 </p>
 
                 <div className="space-y-2">
-                  <Button
-                    onClick={fillAllTiles}
-                    className="w-full"
-                  >
+                  <Button onClick={fillAllTiles} className="w-full">
                     Alle Tegels Vullen
                   </Button>
                   <Button
@@ -1392,10 +1423,7 @@ PowerTiles - Transform Your Space. Unleash the Power.
                     {totalTilesWithWaste}
                   </span>
                 </div>
-                <Button
-                  className="w-full mt-4"
-                  onClick={handleRequestQuote}
-                >
+                <Button className="w-full mt-4" onClick={handleRequestQuote}>
                   <span className="flex items-center gap-2 text-foreground">
                     Offerte Aanvragen
                   </span>
@@ -1609,68 +1637,94 @@ PowerTiles - Transform Your Space. Unleash the Power.
                   ) : (
                     <>
                       <span className="font-semibold">Desktop:</span> Houd{" "}
-                      `Shift` ingedrukt en sleep met de linkermuisknop om te
+                      `Shift` ingedrukt en sleep met de left-muisknop om te
                       pannen, of scroll met `Shift` om te zoomen.
                     </>
                   )}
                 </div>
-                {isDimensionsValid && tilesPerWidth > 0 && tilesPerLength > 0 ? (
-                  <div
-                    // Added flexbox classes to the container to center the grid when it's smaller than the container
-                    className={`relative overflow-auto border-2 border-gray-300 rounded-lg shadow-inner bg-gray-50 touch-none select-none max-w-full flex items-center justify-center ${
-                      isFitToScreenMode ? "w-full" : "max-h-[80vh]"
-                    }`}
-                    style={{
-                      width: containerDynamicDimensions.width,
-                      height: containerDynamicDimensions.height,
-                      cursor: isPanning
-                        ? "grabbing"
-                        : shiftPressed // Check shiftPressed here
-                          ? "grab"
-                          : "default",
-                    }}
-                    ref={gridContainerRef}
-                    onMouseUp={handleMouseUp}
-                    onMouseMove={handleMouseMove}
-                    onMouseLeave={handleMouseUp}
-                    onWheel={handleWheel}
-                    onTouchEnd={handleTouchEnd}
-                    onTouchMove={handleTouchMove}
-                  >
-                    {isLoadingGrid && (
-                      <div className="absolute inset-0 flex items-center justify-center bg-white bg-opacity-75 z-10">
-                        <div className="animate-spin rounded-full h-12 w-12 border-4 border-primary border-t-transparent"></div>
-                        <p className="ml-4 text-primary font-semibold">
-                          Laden...
-                        </p>
-                      </div>
-                    )}
+                {isDimensionsValid &&
+                tilesPerWidth > 0 &&
+                tilesPerLength > 0 ? (
+                  <div className="relative w-full">
+                    {/* Internal Zoom Buttons with sticky positioning */}
+                    <div className="absolute bottom-3 left-3 flex flex-col gap-2 z-20">
+                      <Button
+                        size="icon"
+                        className="bg-foreground text-background shadow-md"
+                        onClick={() => {
+                          handleZoomChange(Math.max(MIN_ZOOM, zoomLevel - 0.2));
+                        }} // Zoom out
+                      >
+                        <ZoomOut className="h-4 w-4" />{" "}
+                        {/* Using X and rotating for a '-' effect */}
+                      </Button>
+                      <Button
+                        size="icon"
+                        className="bg-foreground text-background shadow-md"
+                        onClick={() =>
+                          handleZoomChange(Math.min(MAX_ZOOM, zoomLevel + 0.2))
+                        } // Zoom in
+                      >
+                        <ZoomIn className="h-4 w-4" />
+                      </Button>
+                    </div>
                     <div
-                      className="grid bg-white border border-gray-200"
+                      // Added flexbox classes to the container to center the grid when it's smaller than the container
+                      className={`relative overflow-auto border-2 border-gray-300 rounded-lg shadow-inner bg-gray-50 touch-none select-none max-w-full flex items-center justify-center ${
+                        isFitToScreenMode ? "w-full" : "max-h-[80vh]"
+                      }`}
                       style={{
-                        gridTemplateColumns: `repeat(${tilesPerWidth}, ${TILE_PIXEL_SIZE}px)`,
-                        gridTemplateRows: `repeat(${tilesPerLength}, ${TILE_PIXEL_SIZE}px)`,
-                        width: `${tilesPerWidth * TILE_PIXEL_SIZE}px`,
-                        height: `${tilesPerLength * TILE_PIXEL_SIZE}px`,
-                        transform: `scale(${zoomLevel})`,
-                        transformOrigin: "center", // Changed from "top left"
+                        width: containerDynamicDimensions.width,
+                        height: containerDynamicDimensions.height,
+                        cursor: isPanning
+                          ? "grabbing"
+                          : shiftPressed // Check shiftPressed here
+                            ? "grab"
+                            : "default",
                       }}
+                      ref={gridContainerRef}
+                      onMouseUp={handleMouseUp}
+                      onMouseMove={handleMouseMove}
+                      onMouseLeave={handleMouseUp}
+                      onWheel={handleWheel}
+                      onTouchEnd={handleTouchEnd}
+                      onTouchMove={handleTouchMove}
                     >
-                      {tiles.map((row, rowIndex) =>
-                        row.map((tile, colIndex) => (
-                          <div
-                            key={`${rowIndex}-${colIndex}`}
-                            className="tile border border-gray-200 transition-colors duration-75 ease-in-out"
-                            style={{ backgroundColor: tile.color }}
-                            onMouseDown={(e) =>
-                              handleMouseDown(e, rowIndex, colIndex)
-                            }
-                            onTouchStart={(e) =>
-                              handleTouchStart(e, rowIndex, colIndex)
-                            }
-                          />
-                        ))
+                      {isLoadingGrid && (
+                        <div className="absolute inset-0 flex items-center justify-center bg-white bg-opacity-75 z-10">
+                          <div className="animate-spin rounded-full h-12 w-12 border-4 border-primary border-t-transparent"></div>
+                          <p className="ml-4 text-primary font-semibold">
+                            Laden...
+                          </p>
+                        </div>
                       )}
+                      <div
+                        className="grid bg-white border border-gray-200"
+                        style={{
+                          gridTemplateColumns: `repeat(${tilesPerWidth}, ${TILE_PIXEL_SIZE}px)`,
+                          gridTemplateRows: `repeat(${tilesPerLength}, ${TILE_PIXEL_SIZE}px)`,
+                          width: `${tilesPerWidth * TILE_PIXEL_SIZE}px`,
+                          height: `${tilesPerLength * TILE_PIXEL_SIZE}px`,
+                          transform: `scale(${zoomLevel})`,
+                          transformOrigin: "center", // Changed from "top left"
+                        }}
+                      >
+                        {tiles.map((row, rowIndex) =>
+                          row.map((tile, colIndex) => (
+                            <div
+                              key={`${rowIndex}-${colIndex}`}
+                              className="tile border border-gray-200 transition-colors duration-75 ease-in-out"
+                              style={{ backgroundColor: tile.color }}
+                              onMouseDown={(e) =>
+                                handleMouseDown(e, rowIndex, colIndex)
+                              }
+                              onTouchStart={(e) =>
+                                handleTouchStart(e, rowIndex, colIndex)
+                              }
+                            />
+                          ))
+                        )}
+                      </div>
                     </div>
                   </div>
                 ) : (
