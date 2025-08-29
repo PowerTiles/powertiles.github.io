@@ -48,6 +48,9 @@ import { Input } from "@/components/ui/input";
 import { SavedDesign, TileData } from "@/app/designer-tool/page";
 import { toast } from "sonner";
 import { useRouter, useSearchParams } from "next/navigation";
+import GridPreview from "@/components/designer-tool/preview-grid";
+import GridComponent from "@/components/designer-tool/preview-grid";
+import PreviewGrid from "@/components/designer-tool/preview-grid";
 
 // Local storage key
 const DESIGNER_STATE_KEY = "powerTilesDesigns";
@@ -491,7 +494,7 @@ export default function OffertePage() {
                   Uw Designer Tool Ontwerp
                 </CardTitle>
               </CardHeader>
-              <CardContent>
+              <CardContent className="flex flex-col gap-6">
                 <div className="grid md:grid-cols-2 gap-6">
                   <div>
                     <h4 className="font-semibold mb-2">Afmetingen:</h4>
@@ -503,7 +506,9 @@ export default function OffertePage() {
                     </p>
                   </div>
                   <div>
-                    <h4 className="font-semibold mb-2">Berekening van Tegels:</h4>
+                    <h4 className="font-semibold mb-2">
+                      Berekening van Tegels:
+                    </h4>
                     <p className="text-muted-foreground">
                       Tegels nodig:{" "}
                       {designData.tilesPerLength * designData.tilesPerWidth}{" "}
@@ -527,30 +532,10 @@ export default function OffertePage() {
                     </ul>
                   </div>
                 </div>
-                <div className="border rounded-lg p-4 overflow-auto mt-4">
-                  <div
-                    className="grid gap-1 mx-auto"
-                    style={{
-                      gridTemplateColumns: `repeat(${designData.tilesPerWidth}, 1fr)`, // Corrected to tilesPerWidth
-                      maxWidth: `${Math.min(600, designData.tilesPerWidth * 20 + +(designData.tilesPerWidth - 1) * 5)}px`, // Corrected to tilesPerWidth
-                    }}
-                  >
-                    {designData.tiles.map((row, rowIndex) =>
-                      row.map((tile, colIndex) => (
-                        <div
-                          key={`${rowIndex}-${colIndex}`}
-                          className="aspect-square border border-muted-foreground"
-                          style={{
-                            backgroundColor: tile.color,
-                            minWidth: "20px",
-                            minHeight: "20px",
-                          }}
-                          title={`${tile.colorName} (${rowIndex + 1}, ${colIndex + 1})`}
-                        />
-                      ))
-                    )}
-                  </div>
-                </div>
+                <PreviewGrid
+                  tiles={designData.tiles}
+                  containerHeight="400px" // Optional: specify a custom height for the preview container
+                />
               </CardContent>
               <CardFooter className="flex-col gap-2">
                 <Alert className="bg-green-100 border-2 border-green-400">
@@ -561,7 +546,8 @@ export default function OffertePage() {
                   <AlertDescription>
                     Uw designer tool gegevens zijn automatisch bijgevoegd
                     wanneer u de offerte beneden verzendt. U kan het project
-                    verwijderen van de offerte of wijzigen in the formulier beneden.
+                    verwijderen van de offerte of wijzigen in the formulier
+                    beneden.
                   </AlertDescription>
                 </Alert>
               </CardFooter>

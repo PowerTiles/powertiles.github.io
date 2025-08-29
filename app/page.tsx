@@ -120,7 +120,7 @@ export default function HomePage() {
               </CardContent>
               <CardFooter>
                 <Link href="/producten" className="w-full">
-                  <Button className="bg-background w-full">
+                  <Button className="w-full">
                     Meer Info
                   </Button>
                 </Link>
@@ -158,7 +158,7 @@ export default function HomePage() {
               </CardContent>
               <CardFooter>
                 <Link href="/producten" className="w-full">
-                  <Button className="bg-background w-full">
+                  <Button className="w-full">
                     Meer Info
                   </Button>
                 </Link>
@@ -195,7 +195,7 @@ export default function HomePage() {
               </CardContent>
               <CardFooter>
                 <Link href="/producten" className="w-full">
-                  <Button className="bg-background w-full">
+                  <Button className="w-full">
                     Meer Info
                   </Button>
                 </Link>
