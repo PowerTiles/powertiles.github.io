@@ -412,7 +412,7 @@ export default function OffertePage() {
       const newUrl = query ? `?${query}` : "";
       router.replace(`${window.location.pathname}${newUrl}`);
     }
-  }, [searchParams, router, isValidDesign]); // Dependencies for main effect
+  }, [searchParams, router, isValidDesign, toast, contactForm.setValue]); // Dependencies for main effect
 
   // Effect to synchronize react-hook-form's 'designerProject' field with designData
   useEffect(() => {
@@ -424,7 +424,7 @@ export default function OffertePage() {
     } else {
       contactForm.setValue("designerProject", "none"); // Ensure 'none' is selected if no project is loaded
     }
-  }, [designData, availableDesigns, contactForm]); // Depends on designData and availableDesigns to ensure options are ready
+  }, [designData, availableDesigns, contactForm.setValue, toast]); // Depends on designData and availableDesigns to ensure options are ready
 
   return (
     <div className="min-h-screen">
