@@ -824,8 +824,8 @@ export default function VloerDesigner() {
     });
     setTimeout(() => {
       setIsProjectLoading(false);
-      resetContainerToDefault(); // Reset to default container sizing after load
     }, 5000);
+    resetContainerToDefault(); // Reset to default container sizing after load
   };
 
   // Handler to delete a specific design from local storage

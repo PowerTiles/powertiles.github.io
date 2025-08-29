@@ -45,7 +45,7 @@ import {
 import { useState, useEffect, useCallback } from "react";
 import { Input } from "@/components/ui/input";
 // Ensure this import path is correct for your project structure
-import { SavedDesign, TileData } from "@/app/designer-tool/page";
+import { SavedDesign } from "@/app/designer-tool/page";
 import { toast } from "sonner";
 import { useRouter, useSearchParams } from "next/navigation";
 import PreviewGrid from "@/components/designer-tool/preview-grid";
