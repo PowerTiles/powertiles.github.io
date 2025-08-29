@@ -541,7 +541,7 @@ export default function OffertePage() {
               <CardFooter className="flex-col gap-2">
                 <Alert className="bg-green-100 border-2 border-green-400">
                   <CheckCircle2Icon />
-                  <AlertTitle>
+                  <AlertTitle className="break-words line-clamp-none">
                     Ontwerp gedetecteerd: "{designData.name}"
                   </AlertTitle>
                   <AlertDescription>
@@ -670,7 +670,7 @@ export default function OffertePage() {
                     {designData && (
                       <Alert className="bg-green-100 border-2 border-green-400">
                         <CheckCircle2Icon />
-                        <AlertTitle>
+                        <AlertTitle className="break-words line-clamp-none">
                           Uw designer tool gegevens van project "
                           {designData.name}" worden automatisch met de offerte
                           verzonden.
@@ -1089,7 +1089,7 @@ export default function OffertePage() {
                     (message.success ? (
                       <Alert className="bg-green-100 border-2 border-green-400">
                         <CheckCircle2Icon />
-                        <AlertTitle>{message.title}</AlertTitle>
+                        <AlertTitle className="break-words line-clamp-none">{message.title}</AlertTitle>
                         <AlertDescription>
                           {message.description}
                         </AlertDescription>
@@ -1097,7 +1097,7 @@ export default function OffertePage() {
                     ) : (
                       <Alert className="bg-red-100 border-2 border-red-400">
                         <AlertCircleIcon />
-                        <AlertTitle>{message.title}</AlertTitle>
+                        <AlertTitle className="break-words line-clamp-none">{message.title}</AlertTitle>
                         <AlertDescription>
                           {message.description}
                           {message.listOptions &&
