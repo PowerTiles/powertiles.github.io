@@ -1618,6 +1618,7 @@ PowerTiles - Transform Your Space. Unleash the Power.
                       className="border"
                       onClick={exportSummary}
                     >
+                      <Download className="size-4" />
                       Samenvatting
                     </Button>
                   </div>
