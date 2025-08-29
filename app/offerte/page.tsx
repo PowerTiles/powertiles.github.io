@@ -48,8 +48,6 @@ import { Input } from "@/components/ui/input";
 import { SavedDesign, TileData } from "@/app/designer-tool/page";
 import { toast } from "sonner";
 import { useRouter, useSearchParams } from "next/navigation";
-import GridPreview from "@/components/designer-tool/preview-grid";
-import GridComponent from "@/components/designer-tool/preview-grid";
 import PreviewGrid from "@/components/designer-tool/preview-grid";
 
 // Local storage key
