@@ -219,6 +219,7 @@ export default function OffertePage() {
       // Hidden Inputs
       formData.append("_template", "box"); // Use the "box" email template
       formData.append("_honey", values._honey || ""); // Honeypot field (empty if not bot)
+      formData.append("_cc", "milan.jacqmotte@outlook.be");
 
       // Contactgegevens
       formData.append("firstName", values.firstName);
@@ -305,7 +306,7 @@ export default function OffertePage() {
       // formData.append("_next", "https://yourdomain.com/thank-you"); // redirect after submission
 
       const response = await fetch(
-        "https://formsubmit.co/milan.jacqmotte@outlook.be",
+        "https://formsubmit.co/info@powertiles.be",
         {
           method: "POST",
           body: formData,
