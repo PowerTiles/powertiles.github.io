@@ -135,7 +135,10 @@ export function Header() {
                 >
                   {!item.subItems ? (
                     // Just a single link
-                    <NavigationMenuLink asChild className="hover:text-primary text-background">
+                    <NavigationMenuLink
+                      asChild
+                      className="hover:text-primary text-background"
+                    >
                       <Link href={item.href || "#"}>{item.title}</Link>
                     </NavigationMenuLink>
                   ) : (
@@ -152,7 +155,10 @@ export function Header() {
                         <ul className="grid min-w-[140px] w-max gap-4">
                           {item.subItems.map((sub) => (
                             <li key={sub.title}>
-                              <NavigationMenuLink asChild className="hover:text-accent-foreground hover:bg-accent">
+                              <NavigationMenuLink
+                                asChild
+                                className="hover:text-accent-foreground hover:bg-accent"
+                              >
                                 <Link href={sub.href}>{sub.title}</Link>
                               </NavigationMenuLink>
                             </li>
@@ -169,7 +175,7 @@ export function Header() {
           {/* Actions */}
           <div className="flex items-center gap-2">
             {/* Offerte */}
-            <Link href="/offerte">
+            <Link href="/offerte" className="hidden min-[425px]:block">
               <Button variant="default">Offerte Aanvragen</Button>
             </Link>
 
@@ -186,7 +192,9 @@ export function Header() {
               </SheetTrigger>
               <SheetContent className="border-none bg-foreground text-background">
                 <SheetHeader>
-                  <SheetTitle className="text-background">PowerTiles</SheetTitle>
+                  <SheetTitle className="text-background">
+                    PowerTiles
+                  </SheetTitle>
                   <SheetDescription>
                     Transform Your Space. Unleash the Power.
                   </SheetDescription>
@@ -238,6 +246,10 @@ export function Header() {
                         )
                       )}
                   </Accordion>
+                  {/* Offerte */}
+                  <Link href="/offerte">
+                    <Button variant="default">Offerte Aanvragen</Button>
+                  </Link>
                 </div>
               </SheetContent>
             </Sheet>
