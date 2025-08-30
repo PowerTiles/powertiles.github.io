@@ -247,9 +247,11 @@ export function Header() {
                       )}
                   </Accordion>
                   {/* Offerte */}
-                  <Link href="/offerte">
-                    <Button variant="default">Offerte Aanvragen</Button>
-                  </Link>
+                  <SheetClose asChild>
+                    <Link href="/offerte">
+                      <Button variant="default">Offerte Aanvragen</Button>
+                    </Link>
+                  </SheetClose>
                 </div>
               </SheetContent>
             </Sheet>
