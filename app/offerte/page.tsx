@@ -424,6 +424,7 @@ export default function OffertePage() {
   useEffect(() => {
     if (designData) {
       contactForm.setValue("designerProject", designData.id);
+      contactForm.setValue("surface", designData.width * designData.length);
       toast.success(`Project "${designData.name}" geladen.`, {
         duration: 2000,
       });
@@ -605,7 +606,10 @@ export default function OffertePage() {
                             onValueChange={(selectedProjectId) => {
                               field.onChange(selectedProjectId); // Update react-hook-form field
                               if (!selectedProjectId) {
-                                contactForm.setValue("designerProject", designData?.id);
+                                contactForm.setValue(
+                                  "designerProject",
+                                  designData?.id
+                                );
                                 return;
                               }
                               if (
@@ -817,6 +821,7 @@ export default function OffertePage() {
                                 placeholder="Bijv. 50"
                                 value={field.value || ""}
                                 className="max-w-[240px]"
+                                disabled={!!designData}
                                 onChange={(e) =>
                                   field.onChange(Number(e.target.value))
                                 }
