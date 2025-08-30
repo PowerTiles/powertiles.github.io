@@ -349,6 +349,7 @@ export default function OffertePage() {
 
   // Main Effect: Loads designs from localStorage and handles projectId from URL
   useEffect(() => {
+    console.log("in useEffect to get designs and url")
     const projectIdFromUrl = searchParams.get("projectId");
     let needsToRemoveQueryParam = false;
 
@@ -423,6 +424,7 @@ export default function OffertePage() {
 
   // Effect to synchronize react-hook-form's 'designerProject' field with designData
   useEffect(() => {
+    console.log("in useEffect to sync rhf")
     if (designData) {
       contactForm.setValue("designerProject", designData.id);
       toast.success(`Project "${designData.name}" geladen.`, {
