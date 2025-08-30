@@ -122,6 +122,7 @@ export default function ContactPage() {
         "_subject",
         `Vraag van ${values.firstName} ${values.lastName}`
       );
+      formData.append("_captcha", "false");
 
       formData.append("Voornaam", values.firstName);
       formData.append("Achternaam", values.lastName);

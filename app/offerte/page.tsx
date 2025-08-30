@@ -224,6 +224,7 @@ export default function OffertePage() {
         "_subject",
         `Offerte aanvraag van ${values.firstName} ${values.lastName}`
       );
+      formData.append("_captcha", "false");
 
       // Contactgegevens
       formData.append("Voornaam", values.firstName);
