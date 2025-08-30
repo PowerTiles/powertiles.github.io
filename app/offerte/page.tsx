@@ -71,7 +71,6 @@ export default function OffertePage() {
 
   const searchParams = useSearchParams();
   const router = useRouter();
-  console.log("designData: ", designData);
 
   // Helper function to validate a design object
   const isValidDesign = useCallback((design: any): design is SavedDesign => {
@@ -349,7 +348,6 @@ export default function OffertePage() {
 
   // Main Effect: Loads designs from localStorage and handles projectId from URL
   useEffect(() => {
-    console.log("in useEffect to get designs and url")
     const projectIdFromUrl = searchParams.get("projectId");
     let needsToRemoveQueryParam = false;
 
@@ -408,9 +406,7 @@ export default function OffertePage() {
     }
 
     // Set designData based on what was loaded (or null if nothing valid)
-    console.log("1 before: setDesignData(loadedDesign);")
     setDesignData(loadedDesign);
-    console.log("1 after: setDesignData(loadedDesign);")
 
     // Clean up URL if necessary (moved here for clarity)
     if (needsToRemoveQueryParam) {
@@ -424,17 +420,12 @@ export default function OffertePage() {
 
   // Effect to synchronize react-hook-form's 'designerProject' field with designData
   useEffect(() => {
-    console.log("in useEffect to sync rhf")
     if (designData) {
-      console.log("in useEffect to sync rhf: setting designerProject to value")
       contactForm.setValue("designerProject", designData.id);
-      console.log(`in useEffect to sync rhf: setting designerProject to value ${designData.id}`)
-      console.log(`in useEffect to sync rhf: the designerProject value ${contactForm.getValues("designerProject")}`)
       toast.success(`Project "${designData.name}" geladen.`, {
         duration: 2000,
       });
     } else {
-      console.log("in useEffect to sync rhf: setting designerProject to none")
       contactForm.setValue("designerProject", "none"); // Ensure 'none' is selected if no project is loaded
     }
   }, [designData, availableDesigns, contactForm.setValue, toast]); // Depends on designData and availableDesigns to ensure options are ready
@@ -611,7 +602,6 @@ export default function OffertePage() {
                           <Select
                             onValueChange={(selectedProjectId) => {
                               field.onChange(selectedProjectId); // Update react-hook-form field
-                              console.log(`in select update: new project id value: ${selectedProjectId}`)
                               if (!selectedProjectId) {
                                 contactForm.setValue("designerProject", designData?.id);
                                 return;
@@ -628,13 +618,9 @@ export default function OffertePage() {
                                   selectedDesign &&
                                   isValidDesign(selectedDesign)
                                 ) {
-                                  console.log("2 before: setDesignData(selectedDesign);")
                                   setDesignData(selectedDesign);
-                                  console.log("2 before: setDesignData(selectedDesign);")
                                 } else {
-                                  console.log("3 before: setDesignData(null);")
                                   setDesignData(null); // Clear design data if selected project is invalid/not found
-                                  console.log("3 after: setDesignData(null);")
                                   toast.error(
                                     "Geselecteerd project is ongeldig of niet gevonden.",
                                     { duration: 3000 }
@@ -647,9 +633,7 @@ export default function OffertePage() {
                                 }
                               } else {
                                 // If user clears selection or selects the "none" option
-                                console.log("4 before: setDesignData(null);")
                                 setDesignData(null); // Clear design data
-                                console.log("4 after: setDesignData(null);")
                                 contactForm.setValue("designerProject", "none"); // Ensure form field is also cleared to "none"
                               }
                             }}
