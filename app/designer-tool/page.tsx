@@ -1633,7 +1633,7 @@ PowerTiles - Transform Your Space. Unleash the Power.
                   <br />
                   {isMobile ? (
                     <>
-                      <span className="font-semibold">Mobile:</span>
+                      <span className="font-semibold">Mobile:{" "}</span>
                       Gebruik één vinger om te kleuren, twee vingers om te
                       knijpen en te zoomen en drie vingers om te pannen.
                     </>
