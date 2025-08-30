@@ -426,11 +426,13 @@ export default function OffertePage() {
   useEffect(() => {
     console.log("in useEffect to sync rhf")
     if (designData) {
+      console.log("in useEffect to sync rhf: setting designerProject to value")
       contactForm.setValue("designerProject", designData.id);
       toast.success(`Project "${designData.name}" geladen.`, {
         duration: 2000,
       });
     } else {
+      console.log("in useEffect to sync rhf: setting designerProject to none")
       contactForm.setValue("designerProject", "none"); // Ensure 'none' is selected if no project is loaded
     }
   }, [designData, availableDesigns, contactForm.setValue, toast]); // Depends on designData and availableDesigns to ensure options are ready
