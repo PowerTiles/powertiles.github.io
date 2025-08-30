@@ -115,7 +115,7 @@ export default function ContactPage() {
       // Hidden Inputs
       formData.append("_template", "box"); // Use the "box" email template
       formData.append("_honey", values._honey || ""); // Honeypot field (empty if not bot)
-      formData.append("_cc", "info@powertiles.be");
+      // formData.append("_cc", "info@powertiles.be");
       formData.append(
         "_subject",
         `Vraag van ${values.firstName} ${values.lastName}`
