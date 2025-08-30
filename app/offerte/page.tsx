@@ -612,6 +612,7 @@ export default function OffertePage() {
                             onValueChange={(selectedProjectId) => {
                               field.onChange(selectedProjectId); // Update react-hook-form field
                               console.log(`in select update: new project id value: ${selectedProjectId}`)
+                              if (!selectedProjectId) return;
                               if (
                                 selectedProjectId &&
                                 selectedProjectId !== "none"
