@@ -428,6 +428,8 @@ export default function OffertePage() {
     if (designData) {
       console.log("in useEffect to sync rhf: setting designerProject to value")
       contactForm.setValue("designerProject", designData.id);
+      console.log(`in useEffect to sync rhf: setting designerProject to value ${designData.id}`)
+      console.log(`in useEffect to sync rhf: the designerProject value ${contactForm.getValues("designerProject")}`)
       toast.success(`Project "${designData.name}" geladen.`, {
         duration: 2000,
       });
@@ -609,6 +611,7 @@ export default function OffertePage() {
                           <Select
                             onValueChange={(selectedProjectId) => {
                               field.onChange(selectedProjectId); // Update react-hook-form field
+                              console.log(`in select update: new project id value: ${selectedProjectId}`)
                               if (
                                 selectedProjectId &&
                                 selectedProjectId !== "none"
