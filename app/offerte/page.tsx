@@ -407,7 +407,9 @@ export default function OffertePage() {
     }
 
     // Set designData based on what was loaded (or null if nothing valid)
+    console.log("1 before: setDesignData(loadedDesign);")
     setDesignData(loadedDesign);
+    console.log("1 after: setDesignData(loadedDesign);")
 
     // Clean up URL if necessary (moved here for clarity)
     if (needsToRemoveQueryParam) {
@@ -615,9 +617,13 @@ export default function OffertePage() {
                                   selectedDesign &&
                                   isValidDesign(selectedDesign)
                                 ) {
+                                  console.log("2 before: setDesignData(selectedDesign);")
                                   setDesignData(selectedDesign);
+                                  console.log("2 before: setDesignData(selectedDesign);")
                                 } else {
+                                  console.log("3 before: setDesignData(null);")
                                   setDesignData(null); // Clear design data if selected project is invalid/not found
+                                  console.log("3 after: setDesignData(null);")
                                   toast.error(
                                     "Geselecteerd project is ongeldig of niet gevonden.",
                                     { duration: 3000 }
@@ -630,7 +636,9 @@ export default function OffertePage() {
                                 }
                               } else {
                                 // If user clears selection or selects the "none" option
+                                console.log("4 before: setDesignData(null);")
                                 setDesignData(null); // Clear design data
+                                console.log("4 after: setDesignData(null);")
                                 contactForm.setValue("designerProject", "none"); // Ensure form field is also cleared to "none"
                               }
                             }}
