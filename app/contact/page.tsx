@@ -115,7 +115,7 @@ export default function ContactPage() {
       // Hidden Inputs
       formData.append("_template", "box"); // Use the "box" email template
       formData.append("_honey", values._honey || ""); // Honeypot field (empty if not bot)
-      // formData.append("_cc", "info@powertiles.be");
+      formData.append("_cc", "info@powertiles.be");
       formData.append(
         "_subject",
         `Vraag van ${values.firstName} ${values.lastName}`
@@ -133,7 +133,7 @@ export default function ContactPage() {
       // formData.append("_next", "https://yourdomain.com/thank-you"); // redirect after submission
 
       const response = await fetch(
-        "https://formsubmit.co/389be7fae4e40aca492086aea7ef651d",
+        "https://formsubmit.co/milan.jacqmotte@outlook.be",
         {
           method: "POST",
           body: formData,
