@@ -116,6 +116,7 @@ export default function ContactPage() {
       formData.append("_template", "box"); // Use the "box" email template
       formData.append("_honey", values._honey || ""); // Honeypot field (empty if not bot)
       formData.append("_cc", "info@powertiles.be");
+      formData.append("_url", "https://www.powertiles.be/contact");
       formData.append(
         "_subject",
         `Vraag van ${values.firstName} ${values.lastName}`

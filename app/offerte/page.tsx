@@ -218,6 +218,7 @@ export default function OffertePage() {
       formData.append("_template", "box"); // Use the "box" email template
       formData.append("_honey", values._honey || ""); // Honeypot field (empty if not bot)
       formData.append("_cc", "info@powertiles.be");
+      formData.append("_url", "https://www.powertiles.be/offerte");
       formData.append(
         "_subject",
         `Offerte aanvraag van ${values.firstName} ${values.lastName}`
