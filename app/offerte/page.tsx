@@ -219,6 +219,7 @@ export default function OffertePage() {
       formData.append("_honey", values._honey || ""); // Honeypot field (empty if not bot)
       formData.append("_cc", "info@powertiles.be");
       formData.append("_url", "https://www.powertiles.be/offerte");
+      formData.append("_replyto", values.email);
       formData.append(
         "_subject",
         `Offerte aanvraag van ${values.firstName} ${values.lastName}`
@@ -309,7 +310,7 @@ export default function OffertePage() {
       // formData.append("_next", "https://yourdomain.com/thank-you"); // redirect after submission
 
       const response = await fetch(
-        "https://formsubmit.co/milan.jacqmotte@outlook.be",
+        "https://formsubmit.co/389be7fae4e40aca492086aea7ef651d",
         {
           method: "POST",
           body: formData,
