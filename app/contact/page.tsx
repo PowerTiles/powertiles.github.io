@@ -69,7 +69,9 @@ export default function ContactPage() {
       .email({ message: "Gelieve een geldig e-mailadres in te vullen." }),
     phone: z
       .string()
-      .min(12, { message: "Telefoonnumber moet minimaal 12 karakters bevatten."})
+      .min(12, {
+        message: "Telefoonnumber moet minimaal 12 karakters bevatten.",
+      })
       .max(16, { message: "Telefoonnummer kan maximaal 16 cijfers bevatten." })
       .regex(/^\+[0-9]+$/, {
         message:
@@ -114,7 +116,10 @@ export default function ContactPage() {
       formData.append("_template", "box"); // Use the "box" email template
       formData.append("_honey", values._honey || ""); // Honeypot field (empty if not bot)
       formData.append("_cc", "info@powertiles.be");
-      formData.append("_subject", `Vraag van ${values.firstName} ${values.lastName}`);
+      formData.append(
+        "_subject",
+        `Vraag van ${values.firstName} ${values.lastName}`
+      );
 
       formData.append("Voornaam", values.firstName);
       formData.append("Achternaam", values.lastName);
@@ -186,9 +191,7 @@ export default function ContactPage() {
                 <div className="mx-auto mb-4 p-4 bg-primary rounded-full w-16 h-16 flex items-center justify-center">
                   <Phone className="h-8 w-8" />
                 </div>
-                <CardTitle className="text-2xl font-bold">
-                  Telefoon
-                </CardTitle>
+                <CardTitle className="text-2xl font-bold">Telefoon</CardTitle>
               </CardHeader>
               <CardContent className="text-center space-y-4">
                 <p className="text-muted-foreground">
@@ -209,9 +212,7 @@ export default function ContactPage() {
                 <div className="mx-auto mb-4 p-4 border-3 border-primary rounded-full w-16 h-16 flex items-center justify-center">
                   <Mail className="h-8 w-8" />
                 </div>
-                <CardTitle className="text-2xl font-bold">
-                  E-mail
-                </CardTitle>
+                <CardTitle className="text-2xl font-bold">E-mail</CardTitle>
               </CardHeader>
               <CardContent className="text-center space-y-4">
                 <p className="text-foreground">Stuur ons een bericht</p>
@@ -274,9 +275,7 @@ export default function ContactPage() {
               <Card className="border-2">
                 <CardContent className="p-8 space-y-6">
                   <div className="space-y-4">
-                    <h3 className="text-xl font-bold">
-                      Contactgegevens
-                    </h3>
+                    <h3 className="text-xl font-bold">Contactgegevens</h3>
                     <div className="space-y-3">
                       <div className="flex items-center space-x-3">
                         <Mail className="h-5 w-5 text-primary" />
@@ -298,9 +297,7 @@ export default function ContactPage() {
                   </div>
 
                   <div className="border-t pt-6 space-y-4">
-                    <h3 className="text-xl font-bold">
-                      Openingstijden
-                    </h3>
+                    <h3 className="text-xl font-bold">Openingstijden</h3>
                     <div className="space-y-2">
                       <div className="flex justify-between">
                         <span className="text-gray-700">Maandag - Vrijdag</span>
@@ -318,9 +315,7 @@ export default function ContactPage() {
                   </div>
 
                   <div className="border-t pt-6 space-y-4">
-                    <h3 className="text-xl font-bold">
-                      Onze Services
-                    </h3>
+                    <h3 className="text-xl font-bold">Onze Services</h3>
                     <div className="space-y-3">
                       <div className="flex items-center space-x-3">
                         <MessageSquare className="h-5 w-5 text-primary" />
@@ -344,7 +339,10 @@ export default function ContactPage() {
               </Card>
 
               <Link href="/offerte">
-                <Button variant="outline" className="w-full font-semibold py-3 bg-foreground">
+                <Button
+                  variant="outline"
+                  className="w-full font-semibold py-3 bg-foreground"
+                >
                   Direct Offerte Aanvragen
                   <ArrowRight className="ml-2 h-5 w-5" />
                 </Button>
@@ -353,7 +351,10 @@ export default function ContactPage() {
           </div>
 
           {/* Contact Form */}
-          <div id="contact-formulier" className="max-w-4xl mx-auto py-20 px-6 order-first lg:order-none">
+          <div
+            id="contact-formulier"
+            className="max-w-4xl mx-auto py-20 px-6 order-first lg:order-none"
+          >
             <div className="space-y-8">
               <div className="space-y-4">
                 <Badge className="px-4 py-2 text-sm font-semibold">
@@ -427,9 +428,12 @@ export default function ContactPage() {
                           name="phone"
                           render={({ field }) => (
                             <FormItem className="h-min">
-                              <FormLabel>Telefoonnummer</FormLabel>
+                              <FormLabel>Telefoonnummer*</FormLabel>
                               <FormControl>
                                 <Input
+                                  type="tel"
+                                  inputMode="tel"
+                                  autoComplete="tel"
                                   placeholder="+xx xxx xx xx xx"
                                   {...field}
                                 />
@@ -540,9 +544,7 @@ export default function ContactPage() {
       <section className="py-20 ">
         <div className="max-w-7xl mx-auto px-6">
           <div className="text-center mb-16">
-            <h2 className="text-4xl font-bold mb-4">
-              Veelgestelde Vragen
-            </h2>
+            <h2 className="text-4xl font-bold mb-4">Veelgestelde Vragen</h2>
             <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
               Hier vindt u antwoorden op de meest gestelde vragen over onze
               producten en diensten
@@ -620,10 +622,7 @@ export default function ContactPage() {
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Link href="/offerte">
-              <Button
-                size="lg"
-                className="text-foreground"
-              >
+              <Button size="lg" className="text-foreground">
                 Offerte Aanvragen
                 <ArrowRight className="ml-2 h-5 w-5" />
               </Button>

@@ -71,7 +71,7 @@ export default function OffertePage() {
 
   const searchParams = useSearchParams();
   const router = useRouter();
-  console.log("designData: ", designData)
+  console.log("designData: ", designData);
 
   // Helper function to validate a design object
   const isValidDesign = useCallback((design: any): design is SavedDesign => {
@@ -219,7 +219,10 @@ export default function OffertePage() {
       formData.append("_template", "box"); // Use the "box" email template
       formData.append("_honey", values._honey || ""); // Honeypot field (empty if not bot)
       formData.append("_cc", "info@powertiles.be");
-      formData.append("_subject", `Offerte aanvraag van ${values.firstName} ${values.lastName}`);
+      formData.append(
+        "_subject",
+        `Offerte aanvraag van ${values.firstName} ${values.lastName}`
+      );
 
       // Contactgegevens
       formData.append("Voornaam", values.firstName);
@@ -744,6 +747,9 @@ export default function OffertePage() {
                             <FormLabel>Telefoonnummer*</FormLabel>
                             <FormControl>
                               <Input
+                                type="tel"
+                                inputMode="tel"
+                                autoComplete="tel"
                                 placeholder="+xx xxx xx xx xx"
                                 {...field}
                               />
