@@ -113,21 +113,22 @@ export default function ContactPage() {
       // Hidden Inputs
       formData.append("_template", "box"); // Use the "box" email template
       formData.append("_honey", values._honey || ""); // Honeypot field (empty if not bot)
-      //formData.append("_cc", "milan.jacqmotte@outlook.be");
+      formData.append("_cc", "info@powertiles.be");
+      formData.append("_subject", `Vraag van ${values.firstName} ${values.lastName}`);
 
-      formData.append("firstName", values.firstName);
-      formData.append("lastName", values.lastName);
+      formData.append("Voornaam", values.firstName);
+      formData.append("Achternaam", values.lastName);
       formData.append("email", values.email);
-      if (values.phone) formData.append("phone", values.phone);
-      formData.append("subject", values.subject);
-      formData.append("message", values.message);
+      if (values.phone) formData.append("Telefoonnummer", values.phone);
+      formData.append("Onderwerp", values.subject);
+      formData.append("Bericht", values.message);
 
       // Optional: specify FormSubmit options
       // formData.append("_captcha", "false"); // disable captcha if desired
       // formData.append("_next", "https://yourdomain.com/thank-you"); // redirect after submission
 
       const response = await fetch(
-        "https://formsubmit.co/milan.jacqmotte@outlook.be",
+        "https://formsubmit.co/389be7fae4e40aca492086aea7ef651d",
         {
           method: "POST",
           body: formData,
@@ -350,8 +351,9 @@ export default function ContactPage() {
               </Link>
             </div>
           </div>
+
           {/* Contact Form */}
-          <div className="max-w-7xl mx-auto py-20 px-10 order-first lg:order-none">
+          <div id="contact-formulier" className="max-w-4xl mx-auto py-20 px-6 order-first lg:order-none">
             <div className="space-y-8">
               <div className="space-y-4">
                 <Badge className="px-4 py-2 text-sm font-semibold">
@@ -428,7 +430,7 @@ export default function ContactPage() {
                               <FormLabel>Telefoonnummer</FormLabel>
                               <FormControl>
                                 <Input
-                                  placeholder="+32 xxx xx xx xx"
+                                  placeholder="+xx xxx xx xx xx"
                                   {...field}
                                 />
                               </FormControl>

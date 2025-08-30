@@ -71,6 +71,7 @@ export default function OffertePage() {
 
   const searchParams = useSearchParams();
   const router = useRouter();
+  console.log("designData: ", designData)
 
   // Helper function to validate a design object
   const isValidDesign = useCallback((design: any): design is SavedDesign => {
@@ -217,86 +218,87 @@ export default function OffertePage() {
       // Hidden Inputs
       formData.append("_template", "box"); // Use the "box" email template
       formData.append("_honey", values._honey || ""); // Honeypot field (empty if not bot)
-      //formData.append("_cc", "milan.jacqmotte@outlook.be");
+      formData.append("_cc", "info@powertiles.be");
+      formData.append("_subject", `Offerte aanvraag van ${values.firstName} ${values.lastName}`);
 
       // Contactgegevens
-      formData.append("firstName", values.firstName);
-      formData.append("lastName", values.lastName);
+      formData.append("Voornaam", values.firstName);
+      formData.append("Achternaam", values.lastName);
       formData.append("email", values.email);
-      formData.append("phone", values.phone);
+      formData.append("Telefoonnumer", values.phone);
 
       // Projectinformatie
-      formData.append("Geselecteerde type ruimte?", values.roomType);
-      formData.append("Oppervlakt in m²?", values.surface.toString());
-      formData.append("Gewenst type tegel?", values.tileType);
-
-      // Add designer project details if available
-      if (designData && values.designerProject === designData.id) {
-        formData.append("Designer-Tool: Project ID", designData.id);
-        formData.append("Designer-Tool: Project Naam", designData.name);
-        formData.append(
-          "Designer-Tool: Vloer Afmetingen",
-          `${designData.width}m x ${designData.length}m`
-        );
-        formData.append(
-          "Designer-Tool: oppervlakte",
-          `${(designData.width * designData.length).toFixed(1)} m²`
-        );
-        formData.append(
-          "Designer-Tool: tegels in breedte",
-          `${designData.tilesPerWidth} stuks`
-        );
-        formData.append(
-          "Designer-Tool: tegels in lengte",
-          `${designData.tilesPerLength} stuks`
-        );
-        formData.append(
-          "Designer-Tool: totaal tegels",
-          `${designData.tilesPerWidth * designData.tilesPerLength} stuks`
-        );
-        formData.append(
-          "Designer-Tool: totaal tegels (incl. afval)",
-          `${designData.totalTilesWithWaste} stuks`
-        );
-        // Optionally, you can also send a representation of the tile colors/layout
-        formData.append(
-          "Designer-Tool: tegel layout",
-          JSON.stringify(designData.tiles)
-        );
-      }
+      formData.append("Geselecteerd-type-ruimte?", values.roomType);
+      formData.append("Oppervlakte-in-m²?", values.surface.toString());
+      formData.append("Gewenst-type-tegel?", values.tileType);
 
       // Extra diensten
       formData.append(
-        "Professionele installatie gewenst?",
+        "Professionele-installatie-gewenst?",
         values.installation ? "Ja" : "Nee"
       );
       formData.append(
-        "Hexagonale LED-verlichting?",
+        "Hexagonale-LED-verlichting?",
         values.lighting ? "Ja" : "Nee"
       );
       formData.append(
-        "Randstukken en accessoires",
+        "Randstukken-en-accessoires",
         values.accessories ? "Ja" : "Nee"
       );
       formData.append(
-        "Schilderwerken (muren/plafond)?",
+        "Schilderwerken-(muren/plafond)?",
         values.painting ? "Ja" : "Nee"
       );
       formData.append(
-        "Gratis adviesgesprek op locatie?",
+        "Gratis-adviesgesprek-op-locatie?",
         values.consultation ? "Ja" : "Nee"
       );
 
       // Extra informatie
-      formData.append("Gewenste planning?", values.timeline);
-      formData.append("Extra wensen of opmerkingen?", values.wishes || "");
+      formData.append("Gewenste-planning?", values.timeline);
+      formData.append("Extra-wensen-of-opmerkingen?", values.wishes || "");
 
       // Privacy en nieuwsbrief
-      formData.append("Akkoord privacy terms?", values.privacy ? "Ja" : "Nee");
-      formData.append("Newsletter?", values.newsletter ? "Ja" : "Nee");
+      formData.append("Akkoord-privacy-terms?", values.privacy ? "Ja" : "Nee");
+      formData.append("Nieuwsbrief?", values.newsletter ? "Ja" : "Nee");
 
-      if (designData) {
-        formData.append("designer-tool-data", JSON.stringify(designData));
+      // Add designer project details if available
+      if (designData && values.designerProject === designData.id) {
+        formData.append("Designer-tool:_Project-ID", designData.id);
+        formData.append("Designer-tool:_Project-Naam", designData.name);
+        formData.append(
+          "Designer-tool:_Vloer-afmetingen",
+          `${designData.width}m x ${designData.length}m`
+        );
+        formData.append(
+          "Designer-tool:_Oppervlakte",
+          `${(designData.width * designData.length).toFixed(1)} m²`
+        );
+        formData.append(
+          "Designer-tool:_Tegels-in-breedte",
+          `${designData.tilesPerWidth} stuks`
+        );
+        formData.append(
+          "Designer-tool:_Tegels-in-lengte",
+          `${designData.tilesPerLength} stuks`
+        );
+        formData.append(
+          "Designer-tool:_Totaal-tegels",
+          `${designData.tilesPerWidth * designData.tilesPerLength} stuks`
+        );
+        formData.append(
+          "Designer-tool:_Totaal-tegels-(incl.-afval)",
+          `${designData.totalTilesWithWaste} stuks`
+        );
+        formData.append(
+          "Designer-tool:_Kleurverdeling",
+          JSON.stringify(getColorDistribution())
+        );
+        // Optionally, you can also send a representation of the tile colors/layout
+        formData.append(
+          "Designer-tool:_Tegel-layout",
+          JSON.stringify(designData.tiles)
+        );
       }
 
       // Optional: specify FormSubmit options
@@ -304,7 +306,7 @@ export default function OffertePage() {
       // formData.append("_next", "https://yourdomain.com/thank-you"); // redirect after submission
 
       const response = await fetch(
-        "https://formsubmit.co/milan.jacqmotte@outlook.be",
+        "https://formsubmit.co/389be7fae4e40aca492086aea7ef651d",
         {
           method: "POST",
           body: formData,
@@ -742,7 +744,7 @@ export default function OffertePage() {
                             <FormLabel>Telefoonnummer*</FormLabel>
                             <FormControl>
                               <Input
-                                placeholder="+32 xxx xx xx xx"
+                                placeholder="+xx xxx xx xx xx"
                                 {...field}
                               />
                             </FormControl>
@@ -1087,7 +1089,9 @@ export default function OffertePage() {
                     (message.success ? (
                       <Alert className="bg-green-100 border-2 border-green-400">
                         <CheckCircle2Icon />
-                        <AlertTitle className="break-words line-clamp-none">{message.title}</AlertTitle>
+                        <AlertTitle className="break-words line-clamp-none">
+                          {message.title}
+                        </AlertTitle>
                         <AlertDescription>
                           {message.description}
                         </AlertDescription>
@@ -1095,7 +1099,9 @@ export default function OffertePage() {
                     ) : (
                       <Alert className="bg-red-100 border-2 border-red-400">
                         <AlertCircleIcon />
-                        <AlertTitle className="break-words line-clamp-none">{message.title}</AlertTitle>
+                        <AlertTitle className="break-words line-clamp-none">
+                          {message.title}
+                        </AlertTitle>
                         <AlertDescription>
                           {message.description}
                           {message.listOptions &&
@@ -1237,9 +1243,9 @@ export default function OffertePage() {
             persoonlijk gesprek over uw project.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Link href="/offerte">
+            <Link href="/contact#contact-formulier">
               <Button size="lg" className="text-foreground">
-                Offerte Aanvragen
+                Vraag Stellen
                 <ArrowRight className="ml-2 h-5 w-5" />
               </Button>
             </Link>
