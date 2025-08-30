@@ -1056,30 +1056,32 @@ PowerTiles - Transform Your Space. Unleash the Power.
         (design) => design.id === storedCurrentProject.id
       );
 
-      // if (foundProject) {
-      //   // Temporarily set flag to disable dimension effect while project is being loaded
-      //   setIsProjectLoading(true);
-      //   loadDesignState(foundProject); // This will set all relevant states, including 'tiles'
+      if (foundProject) {
+        // // Temporarily set flag to disable dimension effect while project is being loaded
+        // setIsProjectLoading(true);
+        // loadDesignState(foundProject); // This will set all relevant states, including 'tiles'
 
-      //   // Only show the toast if it hasn't been shown during this mount/remount cycle
-      //   if (!initialLoadToastShownRef.current) {
-      //     toast.success(`Project "${foundProject.name}" automatisch geladen.`, {
-      //       duration: 3000,
-      //       closeButton: true,
-      //     });
-      //     initialLoadToastShownRef.current = true; // Mark as shown
-      //   }
+        // // Only show the toast if it hasn't been shown during this mount/remount cycle
+        // if (!initialLoadToastShownRef.current) {
+        //   toast.success(`Project "${foundProject.name}" automatisch geladen.`, {
+        //     duration: 3000,
+        //     closeButton: true,
+        //   });
+        //   initialLoadToastShownRef.current = true; // Mark as shown
+        // }
 
-      //   // Reset the flag after a short delay to allow all state updates to process
-      //   const timer = setTimeout(() => setIsProjectLoading(false), 50);
-      //   needsInitializeDefault = false; // Project was loaded, no need for default init
-      //   return () => {
-      //     clearTimeout(timer);
-      //     initialLoadToastShownRef.current = false; // Reset on unmount
-      //   };
-      // } else {
-      //   localStorage.removeItem(CURRENT_PROJECT_KEY); // Clean up invalid stored current project key
-      // }
+        // // Reset the flag after a short delay to allow all state updates to process
+        // const timer = setTimeout(() => setIsProjectLoading(false), 50);
+        // needsInitializeDefault = false; // Project was loaded, no need for default init
+        // setIsLoadingGrid(false);
+        // setIsProjectLoading(false);
+        // return () => {
+        //   clearTimeout(timer);
+        //   initialLoadToastShownRef.current = false; // Reset on unmount
+        // };
+      } else {
+        localStorage.removeItem(CURRENT_PROJECT_KEY); // Clean up invalid stored current project key
+      }
     }
 
     if (needsInitializeDefault) {
@@ -1204,7 +1206,7 @@ PowerTiles - Transform Your Space. Unleash the Power.
           </p>
         </div>
 
-        <div className="grid lg:grid-cols-4 gap-8">
+        <div className="grid grid-cols-1 lg:grid-cols-4 gap-8">
           {/* Left Sidebar - Controls Section */}
           <div className="lg:col-span-1 space-y-6">
             {/* Dimensions Card */}
