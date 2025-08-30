@@ -310,7 +310,7 @@ export default function OffertePage() {
       // formData.append("_next", "https://yourdomain.com/thank-you"); // redirect after submission
 
       const response = await fetch(
-        "https://formsubmit.co/389be7fae4e40aca492086aea7ef651d",
+        "https://formsubmit.co/milan.jacqmotte@outlook.be",
         {
           method: "POST",
           body: formData,
